@@ -22,18 +22,18 @@ module spi_master #(
         input rst,/* Asynchronus reset, is mandatory to provide this signal, active on posedge (input) */
         input clk,/* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
         ////inout [WORD_LEN - 1:0]bus,/* In/Out data(bidirectional) */  ////TODO
-        input [WORD_LEN - 1:0]data_in, //// In data
-        output [WORD_LEN - 1:0]data_out, //// Out data
-        input wr,/* Send data, asynchronus with 'clk' , active on posedge or negedge(input) */
-        input rd,/* Read data, , asynchronus with 'clk' , active on posedge or negedge (input) */
+        input[WORD_LEN - 1:0] data_in, //// In data
+        output[WORD_LEN - 1:0] data_out, //// Out data
+        input wr,/* Should send data, asynchronus with 'clk', active on posedge or negedge (input) */
+        input rd,/* Should read data, asynchronus with 'clk', active on posedge or negedge (input) */
         output buffempty,/* '1' if transmit buffer is empty (output) */
-        input [2:0]prescaller,/* The prescaller divider is = (1 << prescaller) value between 0 and 7 for dividers by:1,2,4,8,16,32,64,128 and 256 (input)*/
+        input[2:0] prescaller,/* The prescaller divider is = (1 << prescaller) value between 0 and 7 for dividers by:1,2,4,8,16,32,64,128 and 256 (input)*/
         output sck,/* SPI 'sck' signal (output) */
         output mosi,/* SPI 'mosi' signal (output) */
         input miso,/* SPI 'miso' signal (input) */
         output reg ss,/* SPI 'ss' signal (if send buffer is maintained full the ss signal will not go high between between transmit chars)(output) */
         input lsbfirst,/* If '0' msb is send first, if '1' lsb is send first (input) */
-        input [1:0]mode,/* All four modes is supported (input) */
+        input[1:0] mode,/* All four modes is supported (input) */
         output reg senderr,/* If you try to send a character if send buffer is full this bit is set to '1', this can be ignored and if is '1' does not affect the interface (output) */
         input res_senderr,/* To reset 'senderr' signal write '1' wait minimum half core clock and and after '0' to this bit, is asynchronous with 'clk' (input)*/
         output charreceived/* Is set to '1' if a character is received, if you read the receive buffe this bit will go '0', if you ignore it and continue to send data this bit will remain '1' until you read the read register (output) */
@@ -53,6 +53,7 @@ reg [WORD_LEN - 1:0]output_buffer;
 
 assign buffempty = ~(inbufffullp ^ inbufffulln);
 reg [2:0]prescallerbuff;
+
 /***********************************************/
 /************* Asynchronus send ****************/
 /***********************************************/
@@ -60,164 +61,182 @@ reg [2:0]prescallerbuff;
  *  You need to put the data on the bus and wait a half of core clock to assert the wr signal(see simulation).
  */
 `ifdef WRITE_ON_NEG_EDGE == 1
-always @ (negedge wr)
+always @ (negedge wr)  //  Not used.
 `else
-always @ (posedge wr)
+always @ (posedge wr)  //  Normally we send when "wr" transitions from low to high.
 `endif
 begin
-    if(wr && inbufffullp == inbufffulln && buffempty)
-    begin
-            ////input_buffer <= bus;
-            input_buffer <= data_in; ////
+    //  If we should send data and the send buffer is empty...
+    if (wr && inbufffullp == inbufffulln && buffempty) begin
+        //  Copy the send data (1 byte) into the send buffer.
+        input_buffer <= data_in; ////
+        ////input_buffer <= bus;
     end
 end
 
 `ifdef WRITE_ON_NEG_EDGE == 1
-always @ (negedge wr or posedge res_senderr or posedge rst)
+always @ (negedge wr or posedge res_senderr or posedge rst)  //  Not used.
 `else
-always @ (posedge wr or posedge res_senderr or posedge rst)
+always @ (posedge wr or posedge res_senderr or posedge rst)  //  Normally we send when "wr" transitions from low to high.
 `endif
 begin
-    if(rst)
-    begin
+    if (rst) begin
+        //  When reset signal transitions from low to high, prepare to send data to SPI device.
+        //  Reset the internal registers.
         inbufffullp <= 1'b0;
         senderr <= 1'b0;
         prescallerbuff <= 3'b000;
     end
     else
-    if(res_senderr)
+    if (res_senderr)
         senderr <= 1'b0;
     else
-    if(wr && inbufffullp == inbufffulln && buffempty)
-    begin
-            inbufffullp <= ~inbufffullp;
-            prescallerbuff <= prescaller;
+    //  If we should send data and the send buffer is empty...
+    if (wr && inbufffullp == inbufffulln && buffempty) begin
+        inbufffullp <= ~inbufffullp;
+        prescallerbuff <= prescaller;
     end
     else
-    if(!buffempty)
-        senderr <= 1'b1;
+    //  If we should send data and the send buffer is full...
+    if (!buffempty)
+        senderr <= 1'b1;  //  Return an error.
 end
+
 /***********************************************/
 /************ !Asynchronus send ****************/
 /***********************************************/
+
+//  Constants to represent the current SPI state: Idle and Busy.
 localparam state_idle = 1'b0;
 localparam state_busy = 1'b1;
 reg state;
 
-
-reg [PRESCALLER_SIZE - 1:0]prescaller_cnt;
-reg [WORD_LEN - 1:0]shift_reg_out;
-reg [WORD_LEN - 1:0]shift_reg_in;
-reg [4:0]sckint;
+reg[PRESCALLER_SIZE - 1:0] prescaller_cnt;  //  Count down for the prescaller.
+reg[WORD_LEN - 1:0] shift_reg_out;  //  Next bits to be sent to SPI device.
+reg[WORD_LEN - 1:0] shift_reg_in;  //  Bits received from the SPI device.
+reg[4:0] sckint;  //  Count the phase of the SPI clock.
 //reg sckintn;
-reg [2:0]prescallerint;
-reg [7:0]prescdemux;
+reg[2:0] prescallerint;
+reg[7:0] prescdemux;  //  The demux prescaller.
 
-
-always @ (*)
-begin
-    if(prescallerint < PRESCALLER_SIZE)
-    begin
-        case(prescallerint)
-        3'b000: prescdemux <= 8'b00000001;
-        3'b001: prescdemux <= 8'b00000011;
-        3'b010: prescdemux <= 8'b00000111;
-        3'b011: prescdemux <= 8'b00001111;
-        3'b100: prescdemux <= 8'b00011111;
-        3'b101: prescdemux <= 8'b00111111;
-        3'b110: prescdemux <= 8'b01111111;
-        3'b111: prescdemux <= 8'b11111111;
+always @ (*) begin  //  This code is triggered when any of the module's inputs change.
+    //  Compute the demux prescaller.  The prescaller indicates the power of 2 to count down,
+    //  so demux(0)=1, demux(1)=3, demux(2)=7, ...
+    if (prescallerint < PRESCALLER_SIZE) begin
+        case (prescallerint)
+            3'b000: prescdemux <= 8'b00000001;
+            3'b001: prescdemux <= 8'b00000011;
+            3'b010: prescdemux <= 8'b00000111;
+            3'b011: prescdemux <= 8'b00001111;
+            3'b100: prescdemux <= 8'b00011111;
+            3'b101: prescdemux <= 8'b00111111;
+            3'b110: prescdemux <= 8'b01111111;
+            3'b111: prescdemux <= 8'b11111111;
         endcase
     end
-    else
-        prescdemux <= 8'b00000001;
+    //  If prescaller is invalid...
+    else begin
+        prescdemux <= 8'b00000001;  //  Assume demux=1.
+    end
 end
 
 reg lsbfirstint;
 reg [1:0]modeint;
 
-always @ (posedge clk or posedge rst)
-begin
-    if(rst)
-    begin
-        inbufffulln <= 1'b0;
-        ss <= 1'b1;
-        state <= state_idle;
-        prescaller_cnt <= {PRESCALLER_SIZE{1'b0}};
-        prescallerint <= {PRESCALLER_SIZE{3'b0}};
-        shift_reg_out <= {WORD_LEN{1'b0}};
-        shift_reg_in <= {WORD_LEN{1'b0}};
-        sckint <=  {5{1'b0}};
+always @ (posedge clk or posedge rst) begin
+    //  When reset signal transitions from low to high, prepare to send data to SPI device.
+    //  When clock transitions from low to high, send 1 bit to SPI device.
+    if (rst) begin
+        //  When reset signal transitions from low to high, prepare to send data to SPI device.
+        //  Reset the internal registers.
+        inbufffulln <= 1'b0;  //  Mark the tx buffer as empty.
+        ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.  We will activate later.
+        state <= state_idle;  //  Start in Idle state.
+        prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };
+        prescallerint <= { PRESCALLER_SIZE{3'b0} };
+        shift_reg_out <= { WORD_LEN{1'b0} };
+        shift_reg_in <= { WORD_LEN{1'b0} };
+        sckint <= { 5{1'b0} };
         _mosi <= 1'b1;
-        output_buffer <= {WORD_LEN{1'b0}};
+        output_buffer <= { WORD_LEN{1'b0} };
         charreceivedp <= 1'b0;
         lsbfirstint <= 1'b0;
         modeint <= 2'b00;
     end
-    else
-    begin
-        case(state)
-        state_idle:
-            begin
-                if(inbufffullp != inbufffulln)
-                begin
-                    inbufffulln <= ~inbufffulln;
-                    ss <= 1'b0;
-                    prescaller_cnt <= {PRESCALLER_SIZE{1'b0}};
+    else begin
+        //  When clock transitions from low to high, send 1 bit to SPI device.
+        case (state)
+            state_idle: begin  //  If we are idle now...            
+                //  If we have data to send...
+                if (inbufffullp != inbufffulln) begin
+                    inbufffulln <= ~inbufffulln;  //  Mark the data sent.
+                    ss <= 1'b0;  //  Set Slave Select Pin to low to activate the SPI device.
+                    prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };  //  Reset the prescaller count to 0.
+
+                    //  Copy the SPI tx/rx parameters to internal registers so they won't change if the caller changes them.
                     prescallerint <= prescallerbuff;
                     lsbfirstint <= lsbfirst;
                     modeint <= mode;
-                    shift_reg_out <= input_buffer;
-                    state <= state_busy;
-                    if(!mode[0])
-                    begin
-                        if(!lsbfirst)
+
+                    //  Get ready to send data to the SPI device.
+                    shift_reg_out <= input_buffer;  //  Copy the byte to be sent.
+                    state <= state_busy;  //  Transition to the busy state.
+
+                    //  If we are supposed to send at the clock low to high transition...
+                    if (!mode[0]) begin
+                        if (!lsbfirst)
+                            //  For Most Significant Bit mode, set the data output to the next highest bit.
                             _mosi <= input_buffer[WORD_LEN - 1];
                         else
+                            //  For Least Significant Bit mode, set the data output to the next lowest bit.
                             _mosi <= input_buffer[0];
                     end
                 end
             end
-        state_busy:
-            begin
-                if(prescaller_cnt != prescdemux)
-                begin
+            //  If no data to send, we stay in Idle state.
+            //  If we are sending data, we will transition to Busy state.
+
+            state_busy: begin  //  If we are busy now...
+                //  If we haven't finished counting the prescaller...
+                if (prescaller_cnt != prescdemux) begin
+                    //  Continue counting and check again at next clock transition.
                     prescaller_cnt <= prescaller_cnt + 1;
                 end
-                else
-                begin
-                    prescaller_cnt <= {PRESCALLER_SIZE{1'b0}};
-                    sckint <= sckint + 1;
-                    if(sckint[0] == modeint[0])
-                    begin
-                        if(!lsbfirstint)
-                        begin
-                            shift_reg_in <= {miso, shift_reg_in[7:1]};
-                            shift_reg_out <= {shift_reg_out[6:0], 1'b1};
+                //  If we have finished counting the prescaller...
+                else begin
+                    prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };  //  Reset the prescaller count to 0.
+                    sckint <= sckint + 1;  //  Increment the Internal Clock Pin (5 bits wide), that will be truncated as the Output Clock Pin.
+
+                    //  Check the phase of the Internal Clock Pin.  If we should read data now...
+                    if (sckint[0] == modeint[0]) begin
+                        //  Read the next bit from the MISO Pin.  Prepare the next bit to be sent.
+                        if (!lsbfirstint) begin
+                            shift_reg_in <= { miso, shift_reg_in[7:1] };
+                            shift_reg_out <= { shift_reg_out[6:0], 1'b1 };
                         end
-                        else
-                        begin
-                            shift_reg_in <= {shift_reg_in[6:0], miso};
-                            shift_reg_out <= {1'b1, shift_reg_out[7:1]};
+                        else begin
+                            shift_reg_in <= { shift_reg_in[6:0], miso };
+                            shift_reg_out <= { 1'b1, shift_reg_out[7:1] };
                         end
                     end
-                    else
-                    begin
-                        if(sckint[4:1] == WORD_LEN - 1)
-                        begin
-                            sckint <= {5{1'b0}};
-                            if(inbufffullp == inbufffulln)
-                            begin
-                                ss <= 1'b1;
+                    //  If we should send data now...
+                    else begin
+                        //  If we have sent all 8 bits...
+                        if (sckint[4:1] == WORD_LEN - 1) begin
+                            sckint <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin to low.
+                            //  If no more bytes to send...
+                            if (inbufffullp == inbufffulln) begin
+                                ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.
                             end
-                            output_buffer <= shift_reg_in;
-                            if(charreceivedp == charreceivedn)
+                            output_buffer <= shift_reg_in;  //  Copy the byte received into the caller's buffer.
+                            if (charreceivedp == charreceivedn)
                                 charreceivedp <= ~charreceivedp;
-                            state <= state_idle;
+                            state <= state_idle;  //  Return to Idle state so we can wait for data to send.
                         end
-                        else
-                        begin
-							if(!lsbfirstint)
+                        //  If we have not finished sending all 8 bits...
+                        else begin
+                            //  Send the next bit to the MOSI Pin.
+							if (!lsbfirstint)
 								_mosi <= shift_reg_out[WORD_LEN - 1];
 							else
 								_mosi <= shift_reg_out[0];
