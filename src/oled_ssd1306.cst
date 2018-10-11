@@ -1,0 +1,27 @@
+/***********************************************************************
+ Physical Constraint file 
+ Version:1.8.0.02Beta
+ Created Time:   Tue Oct 09 09:45:25 2018
+ Device:         GW1N-4
+ Package:        LQFP144
+************************************************************************/
+IO_LOC "clk_50M" 6;
+IO_LOC "led[0]" 47;
+IO_LOC "led[1]" 57;
+IO_LOC "led[2]" 60;
+IO_LOC "led[3]" 61;
+IO_LOC "oled_dc" 131;
+IO_LOC "oled_res" 132;
+IO_LOC "oled_sclk" 133;
+IO_LOC "oled_sdin" 134;
+IO_LOC "oled_vbat" 136;
+IO_LOC "oled_vdd" 137;
+IO_LOC "rst_n" 92;
+IO_LOC "ss" 135;
+IO_PORT "oled_res"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "oled_sclk"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "oled_sdin"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "oled_vbat"  IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+IO_PORT "oled_vdd"  IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+IO_PORT "ss"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "oled_dc"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
