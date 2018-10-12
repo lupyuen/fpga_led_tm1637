@@ -119,6 +119,9 @@ reg[PRESCALLER_SIZE - 1:0] prescaller_cnt;  //  Count down for the prescaller.
 reg[WORD_LEN - 1:0] shift_reg_out;  //  Next bits to be sent to SPI device.
 reg[WORD_LEN - 1:0] shift_reg_in;  //  Bits received from the SPI device.
 reg[4:0] sckint;  //  Count the phase of the SPI clock.
+//  sckint[4:1]=7 when 8 bits have been sent
+//  sckint[0]=0 during first phase of the clock, 1 during second phase of the clock
+
 //reg sckintn;
 reg[2:0] prescallerint;
 reg[7:0] prescdemux;  //  The demux prescaller.
@@ -297,9 +300,9 @@ assign sck = (modeint[1]) ? ~sckint : sckint;
 //  "mosi" changes whenever "ss" or "_mosi" changes.
 
 //  For DIO: When SS=1 (inactive), MOSI Pin should be high before transmission, low after transmission.
-//  Before transmission: //  / -- --__ \
+//  Before transmission:    / -- --__ \
 //  After transmitting a byte, wait 1 clock tick for device to respond.
-//  After transmission: __ / \
+//  After transmission:     __ / \
 //  After responding, if we have no more bytes to transmit, we set SCK Pin to high and transition MOSI from low to high to terminate transmission.
 //  Terminate transmission: __ / __--
 
