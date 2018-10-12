@@ -118,9 +118,11 @@ reg state;
 reg[PRESCALLER_SIZE - 1:0] prescaller_cnt;  //  Count down for the prescaller.
 reg[WORD_LEN - 1:0] shift_reg_out;  //  Next bits to be sent to SPI device.
 reg[WORD_LEN - 1:0] shift_reg_in;  //  Bits received from the SPI device.
-reg[4:0] sckint;  //  Count the phase of the SPI clock.
-//  sckint[4:1]=7 when 8 bits have been sent
-//  sckint[0]=0 during first phase of the clock, 1 during second phase of the clock
+
+reg[4:0] sckint;  //  Count the number of bits sent and phase of the SPI clock.
+//  Decode sckint into bit number and the clock phase.  If sckint changes, these will also change.
+wire sckint_bit_num = sckint[4:1];   //  Bit number currently being sent. sckint_bit_num=7 when 8 bits have been sent
+wire sckint_transition = sckint[0];  //  Current high/low transition phase of the clock.  sckint_transition=0 during first transition phase of the clock, 1 during second transition phase
 
 //reg sckintn;
 reg[2:0] prescallerint;
@@ -148,7 +150,10 @@ always @ (*) begin  //  This code is triggered when any of the module's inputs c
 end
 
 reg lsbfirstint;
-reg [1:0]modeint;
+reg[1:0] modeint;
+//  Decode modeint (SPI Mode) into clock phase and polarity.  If modeint changes, these will also change.
+wire modeint_clk_phase = modeint[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
+wire modeint_clk_polarity = modeint[1];  //  Clock Polarity: 0 means Idle Low, 1 means Idle High
 
 always @ (posedge clk or posedge rst) begin
     //  When reset signal transitions from low to high, prepare to send data to SPI device.
@@ -222,7 +227,7 @@ always @ (posedge clk or posedge rst) begin
                     sckint <= sckint + 1;  //  Increment the Internal Clock Pin (5 bits wide), that will be truncated as the Output Clock Pin.
 
                     //  Check the phase of the Internal Clock Pin.  If we should read data now...
-                    if (sckint[0] == modeint[0]) begin
+                    if (sckint_transition == modeint[0]) begin
                         debug <= 4'd4;  //  Show the debug value in LEDs.
                         //  Read the next bit from the MISO Pin.  Prepare the next bit to be sent.
                         if (!lsbfirstint) begin
@@ -238,7 +243,7 @@ always @ (posedge clk or posedge rst) begin
                     //  If we should send data now...
                     else begin
                         //  If we have sent all 8 bits...
-                        if (sckint[4:1] == WORD_LEN - 1) begin
+                        if (sckint_bit_num == WORD_LEN - 1) begin
                             debug <= 4'd5;  //  Show the debug value in LEDs.
                             sckint <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin to low.
                             //  If no more bytes to send...
