@@ -166,7 +166,7 @@ always @ (posedge clk or posedge rst) begin
         output_buffer <= { WORD_LEN{1'b0} };
         charreceivedp <= 1'b0;
         lsbfirstint <= 1'b0;
-        modeint <= 2'b00;
+        modeint <= 2'b0;
     end
     else begin
         //  When clock transitions from low to high, send 1 bit to SPI device.
@@ -189,7 +189,8 @@ always @ (posedge clk or posedge rst) begin
                     state <= state_busy;  //  Transition to the busy state.
 
                     //  For DIO: Assume SCK Pin is high, MOSI Pin is high.  Set MOSI Pin to low to control the bus.
-                    //  SPI Mode should be 1 or 3.  We will send when SCK goes low to high.
+                    //  SPI Mode should be 3.  We will send when SCK goes low to high.
+                    //  DIO should set lsbfirst.
 
                     //  If SPI Mode is 0 or 2, we are supposed to send now...
                     if (!mode[0]) begin
@@ -286,15 +287,30 @@ assign data_out = (rd) ? output_buffer : { WORD_LEN{1'bz} }; ////
 //  Set the value of the Clock Pin for the SPI device.  Depending on the mode, we return the same value as the
 //  Internal Clock Pin.  Or we return the reverse of the Internal Clock Pin.  "sck" changes whenever "sckint" changes.
 //  modeint[1]=0 means Idle Low, modeint[1]=1 means Idle High
-//  For DIO: modeint[1]=1 for Idle High
+
+//  For DIO: modeint[1]=1 for Idle High before and after transmission.
+
 assign sck = (modeint[1]) ? ~sckint : sckint;
 
 //  Set the value of the MOSI Pin (Slave Data In) for the SPI device.  If the SPI device is inactive (SS=1),
 //  we set to high.  If the SPI device is active (SS=0), we set to the Internal MOSI register.
 //  "mosi" changes whenever "ss" or "_mosi" changes.
-//  For DIO: When SS=1 (inactive), MOSI Pin should be high
+
+//  For DIO: When SS=1 (inactive), MOSI Pin should be high before transmission, low after transmission.
+//  Before transmission: //  / -- --__ \
+//  After transmitting a byte, wait 1 clock tick for device to respond.
+//  After transmission: __ / \
+//  After responding, if we have no more bytes to transmit, we set SCK Pin to high and transition MOSI from low to high to terminate transmission.
+//  Terminate transmission: __ / __--
+
 assign mosi = (ss) ? 1'b1 : _mosi;
 
 assign charreceived = (charreceivedp ^ charreceivedn);
 
 endmodule
+
+//  DIO Protocol:
+//  Before transmission:    / -- --__ \
+//  Transmit byte in LSB:   0x40
+//  After transmission:     __ / \
+//  Terminate transmission: __ / __--
