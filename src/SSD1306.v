@@ -38,7 +38,7 @@ module	SSD1306(
 	output	reg oled_vbat,
 	output	reg oled_vdd,
     output  reg ss,
-    output  reg[3:0] led  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.
+    output  [3:0] led  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.
 );
 
 //  The step ID that we are now executing: 0, 1, 2, ...
@@ -51,7 +51,7 @@ SSD1306_ROM_cfg_mod oled_rom_init(
 	.dout(encoded_step)
 );
 
-//  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up.
+//  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up our local registers vs decoded values.
 //  If encoded_step is changed, these will automatically change.
 wire step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
 wire step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
@@ -81,8 +81,10 @@ reg[27:0] elapsed_time = 28'h0;
 reg[27:0] saved_elapsed_time = 28'h0;
 reg[14:0] repeat_count = 15'h0;
 reg[7:0] data_tmp = 8'h0;
-
+reg[3:0] debug = 4'h0;
 reg[7:0] test_display_on = 8'haf;
+
+assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug value in LED.
 
 /*
     reg [3:0]clk_div;
@@ -148,7 +150,8 @@ spi0(
 	.mode(2'h0),
 	//.senderr(senderr),
 	.res_senderr(1'b0),
-	.charreceived(charreceived)
+	.charreceived(charreceived),
+    .debug(debug)
 );
 
 //  Synchronous lath to out commands directly from ROM except when is a repeat count load.
@@ -181,13 +184,13 @@ always @ (posedge clk_ssd1306)
 begin
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         //  Init the state machine.
-		elapsed_time <= 28'h0000000;
-		saved_elapsed_time <= 28'h0000000;
-		step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'h00;
+		elapsed_time <= 28'h0;
+		saved_elapsed_time <= 28'h0;
+		step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'h0;
 		internal_state_machine <= 1'b0;
-		repeat_count <= 15'h0000;
+		repeat_count <= 15'h0;
     end
-    led <= { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
+    //// led <= { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
 
     //  If the start time is up and the step is ready to execute...
     if (elapsed_time >= step_time) begin
@@ -206,7 +209,7 @@ begin
                     //  If we are still repeating...
                     if (repeat_count && step_next > 1) begin
                         //  Count down number of times to repeat.
-                        repeat_count <= repeat_count - 15'h0001;
+                        repeat_count <= repeat_count - 15'h1;
                     end
                 end
                 //  Handle as a normal step in the next clock tick.
