@@ -123,14 +123,14 @@ wire _sck_bit_num = _sck[4:1];   //  Bit number currently being sent. _sck_bit_n
 wire _sck_transition = _sck[0];  //  Current high/low transition phase of the clock.  _sck_transition=0 during first transition phase of the clock, 1 during second transition phase
 
 //reg _sckn;
-reg[2:0] prescallerint;
+reg[2:0] _prescaller;
 reg[7:0] prescdemux;  //  The demux prescaller.
 
 always @ (*) begin  //  This code is triggered when any of the module's inputs change.
     //  Compute the demux prescaller.  The prescaller indicates the power of 2 to count down,
     //  so demux(0)=1, demux(1)=3, demux(2)=7, ...
-    if (prescallerint < PRESCALLER_SIZE) begin
-        case (prescallerint)
+    if (_prescaller < PRESCALLER_SIZE) begin
+        case (_prescaller)
             3'b000: prescdemux <= 8'b00000001;
             3'b001: prescdemux <= 8'b00000011;
             3'b010: prescdemux <= 8'b00000111;
@@ -186,7 +186,7 @@ always @ (posedge clk or posedge rst) begin
         ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.  We will activate later.
         state <= state_idle;  //  Start in Idle state.
         prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };
-        prescallerint <= { PRESCALLER_SIZE{3'b0} };
+        _prescaller <= { PRESCALLER_SIZE{3'b0} };
         shift_reg_out <= { WORD_LEN{1'b0} };
         shift_reg_in <= { WORD_LEN{1'b0} };
         _sck <= { 5{1'b0} };
@@ -209,7 +209,7 @@ always @ (posedge clk or posedge rst) begin
                     prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };  //  Reset the prescaller count to 0.
 
                     //  Copy the SPI tx/rx parameters to internal registers so they won't change if the caller changes them.
-                    prescallerint <= prescallerbuff;
+                    _prescaller <= prescallerbuff;
                     _lsbfirst <= lsbfirst;
                     _mode <= mode;
                     _diomode <= diomode;
