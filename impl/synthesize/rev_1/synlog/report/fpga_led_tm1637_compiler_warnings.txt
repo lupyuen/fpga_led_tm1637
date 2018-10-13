@@ -1,0 +1,5 @@
+@W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":31:0:31:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
+@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":80:0:80:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":80:0:80:5|Feedback mux created for signal inbufffullp. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":159:0:159:5|Pruning register bits 14 to 1 of repeat_count[14:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+

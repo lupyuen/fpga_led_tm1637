@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+Max Top 5 critical clocks will be reported. For rest user needs to refer to Detailed report
+*******************************************************************************************-->
+<report_table display_priority="2" name="Timing Summary">
+<report_link name="Detailed report">
+<data>C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_fpga_mapper.srr</data>
+<title>START OF TIMING REPORT</title>
+</report_link>
+<row>
+<data tcl_name="clock_name">Clock Name</data>
+<data tcl_name="req_freq">Req Freq</data>
+<data tcl_name="est_freq">Est Freq</data>
+<data tcl_name="slack">Slack</data>
+</row>
+<row>
+<data>LED_TM1637|clk_50M</data>
+<data>100.0 MHz</data>
+<data>121.2 MHz</data>
+<data>1.747</data>
+</row>
+<row>
+<data>LED_TM1637|clk_led_derived_clock</data>
+<data>100.0 MHz</data>
+<data>108.9 MHz</data>
+<data>1.630</data>
+</row>
+<row>
+<data>LED_TM1637|rd_spi_derived_clock</data>
+<data>100.0 MHz</data>
+<data>117.1 MHz</data>
+<data>1.459</data>
+</row>
+<row>
+<data>LED_TM1637|wr_spi_derived_clock</data>
+<data>100.0 MHz</data>
+<data>170.8 MHz</data>
+<data>4.145</data>
+</row>
+<row>
+<data>System</data>
+<data>100.0 MHz</data>
+<data>866.6 MHz</data>
+<data>8.846</data>
+</row>
+</report_table>

@@ -222,7 +222,7 @@ always @ (posedge clk or posedge rst) begin
                     //  SPI Mode should be 3.  We will send when SCK goes low to high.
                     //  DIO should set lsbfirst.
                     if (diomode) begin
-                        _mosi = 1'b0;  //  Start the DIO bus connection.
+                        _mosi <= 1'b0;  //  Start the DIO bus connection.
                     end
 
                     //  If SPI Mode is 0 or 2, we are supposed to send now...
@@ -280,7 +280,7 @@ always @ (posedge clk or posedge rst) begin
                                 if (_diomode) begin 
                                     //  For DIO, transition the MOSI Pin from low to high to close the connection.  Assume clk is now high.
                                     debug <= 4'd7;  //  Show the debug value in LEDs.
-                                    _mosi = 1'b1;  //  Close the DIO bus connection.
+                                    _mosi <= 1'b1;  //  Close the DIO bus connection.
                                 end
                             end
                             output_buffer <= shift_reg_in;  //  Copy the byte received into the caller's buffer.

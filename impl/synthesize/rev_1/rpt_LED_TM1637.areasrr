@@ -1,0 +1,79 @@
+
+Copyright (C) 1994-2018 Synopsys, Inc.
+This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
+and may only be used pursuant to the terms and conditions of a written license agreement
+with Synopsys, Inc. All other use, reproduction, modification, or distribution of the
+Synopsys software or the associated documentation is strictly prohibited.
+Tool: Synplify Pro (R)
+Build: N-2018.03G-Beta6
+Install: C:\Gowin\1.8\SynplifyPro
+OS: Windows 6.2
+
+Hostname: BEACONDEV3
+
+Implementation : rev_1
+
+#### START OF AREA REPORT #####[
+
+Part:			GW1N_4LQFP144-6 (GoWin)
+
+--------------------------------------------------------------------------
+########   Utilization report for  Top level view:   LED_TM1637   ########
+==========================================================================
+
+SEQUENTIAL ELEMENTS
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     101                100 %                
+======================================================
+Total SEQUENTIAL ELEMENTS in the block LED_TM1637:	101 (27.60 % Utilization)
+
+
+COMBINATIONAL LOGIC
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+LUTS          127                100 %                
+MUX2_LUT5     9                  100 %                
+MUX2_LUT6     2                  100 %                
+ALU           96                 100 %                
+======================================================
+Total COMBINATIONAL LOGIC in the block LED_TM1637:	234 (63.93 % Utilization)
+
+--------------------------------------------------------------------
+########   Utilization report for  cell:   LED_TM1637_ROM   ########
+Instance path:   LED_TM1637.LED_TM1637_ROM                          
+====================================================================
+
+COMBINATIONAL LOGIC
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+LUTS          49                 38.6 %               
+MUX2_LUT5     9                  100 %                
+MUX2_LUT6     2                  100 %                
+======================================================
+Total COMBINATIONAL LOGIC in the block LED_TM1637.LED_TM1637_ROM:	60 (16.39 % Utilization)
+
+--------------------------------------------------------------------------
+########   Utilization report for  cell:   spi_master_8s_8s_0_1   ########
+Instance path:   LED_TM1637.spi_master_8s_8s_0_1                          
+==========================================================================
+
+SEQUENTIAL ELEMENTS
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+REGISTERS     32                 31.7 %               
+======================================================
+Total SEQUENTIAL ELEMENTS in the block LED_TM1637.spi_master_8s_8s_0_1:	32 (8.74 % Utilization)
+
+
+COMBINATIONAL LOGIC
+Name     Total elements     Utilization     Notes
+-------------------------------------------------
+LUTS     58                 45.7 %               
+ALU      8                  8.33 %               
+=================================================
+Total COMBINATIONAL LOGIC in the block LED_TM1637.spi_master_8s_8s_0_1:	66 (18.03 % Utilization)
+
+
+##### END OF AREA REPORT #####]
+
