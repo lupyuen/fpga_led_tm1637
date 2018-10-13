@@ -165,6 +165,16 @@ wire mode_clk_low_to_high = mode_clk_phase;
 
 reg _diomode;
 
+//  For DIO: We send 9 data bits instead of the normal 8 data bits for SPI.  The last bit is meant for the DIO device to respond with the acknowledgement bit.
+//  The last bit must be 0 to keep the DIO connection open.
+
+//  Number of bits to send.  For SPI: 8.  For DIO: 9.  WORD_LEN is normally 8.
+wire num_bits = _diomode ? (WORD_LEN + 1) : WORD_LEN;
+
+//  When all the bits have been transmitted, we send empty_tx_bit.  For SPI this is 1.
+//  For DIO this is 0, so that the 9th bit is set low to keep the connection open.
+wire empty_tx_bit = _diomode ? 1'b0 : 1'b1;
+
 always @ (posedge clk or posedge rst) begin
     //  When reset signal transitions from low to high, prepare to send data to SPI device.
     //  When clock transitions from low to high, send 1 bit to SPI device.
@@ -241,28 +251,28 @@ always @ (posedge clk or posedge rst) begin
                     //  Check the phase of the Internal Clock Pin.  If we should read data now...
                     if (_sck_transition == _mode_clk_phase) begin
                         debug <= 4'd4;  //  Show the debug value in LEDs.
-                        //  Read the next bit from the MISO Pin.  Prepare the next bit to be sent.
+                        //  Read and save the next bit shifted in from the MISO Pin.  Prepare the next bit (shift out) to be sent.
+                        //  When all the bits have been transmitted, send empty_tx_bit (1 for SPI, 0 for DIO mode).
+                        //  This keeps the DIO connection active.
                         if (_msbfirst) begin
                             shift_reg_in <= { miso, shift_reg_in[7:1] };
-                            shift_reg_out <= { shift_reg_out[6:0], 1'b1 };
+                            shift_reg_out <= { shift_reg_out[6:0], empty_tx_bit };
                         end
                         else begin
                             shift_reg_in <= { shift_reg_in[6:0], miso };
-                            shift_reg_out <= { 1'b1, shift_reg_out[7:1] };
+                            shift_reg_out <= { empty_tx_bit, shift_reg_out[7:1] };
                         end
                     end
 
                     //  If we should send data now...
                     else begin
-                        //  For DIO: We send 9 data bits instead of the normal 8 data bits for SPI.  The last bit is meant for the DIO device to respond with the acknowledgement bit.
-                        //  The last bit must be low to keep the connection open.
-
-                        //  If we have sent all 8 bits...
-                        if (_sck_bit_num == WORD_LEN - 1) begin
+                        //  If we have sent all 8 bits for SPI (9 bits for DIO)...
+                        if (_sck_bit_num == num_bits - 1) begin
                             debug <= 4'd5;  //  Show the debug value in LEDs.
                             _sck <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin to low.
                             //  If no more bytes to send...
                             if (inbufffullp == inbufffulln) begin
+                                //  TODO: For DIO, set the clk high and transition the MOSI Pin from low to high to close the connection.
                                 debug <= 4'd6;  //  Show the debug value in LEDs.
                                 ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.
                             end
@@ -273,8 +283,9 @@ always @ (posedge clk or posedge rst) begin
                         end
                         //  If we have not finished sending all 8 bits...
                         else begin
-                            debug <= 4'd6;  //  Show the debug value in LEDs.
-                            //  Send the next bit to the MOSI Pin (Slave Data In).
+                            debug <= 4'd7;  //  Show the debug value in LEDs.
+                            //  Transmit the next bit to the MOSI Pin (Slave Data In).
+                            //  For DIO: The 9th bit transmitted will be 0 (defined earlier as empty_tx_bit) to keep the connection active.
 							if (_msbfirst)
 								_mosi <= shift_reg_out[WORD_LEN - 1];
 							else
