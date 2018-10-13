@@ -221,6 +221,9 @@ always @ (posedge clk or posedge rst) begin
                     //  For DIO: Assume SCK Pin is high, MOSI Pin is high.  Set MOSI Pin to low to control the bus.
                     //  SPI Mode should be 3.  We will send when SCK goes low to high.
                     //  DIO should set lsbfirst.
+                    if (diomode) begin
+                        _mosi = 1'b0;  //  Start the DIO bus connection.
+                    end
 
                     //  If SPI Mode is 0 or 2, we are supposed to send now...
                     if (mode_clk_high_to_low) begin
@@ -272,18 +275,22 @@ always @ (posedge clk or posedge rst) begin
                             _sck <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin to low.
                             //  If no more bytes to send...
                             if (inbufffullp == inbufffulln) begin
-                                //  TODO: For DIO, set the clk high and transition the MOSI Pin from low to high to close the connection.
                                 debug <= 4'd6;  //  Show the debug value in LEDs.
                                 ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.
+                                if (_diomode) begin 
+                                    //  For DIO, transition the MOSI Pin from low to high to close the connection.  Assume clk is now high.
+                                    debug <= 4'd7;  //  Show the debug value in LEDs.
+                                    _mosi = 1'b1;  //  Close the DIO bus connection.
+                                end
                             end
                             output_buffer <= shift_reg_in;  //  Copy the byte received into the caller's buffer.
                             if (charreceivedp == charreceivedn)
                                 charreceivedp <= ~charreceivedp;
                             state <= state_idle;  //  Return to Idle state so we can wait for data to send.
                         end
-                        //  If we have not finished sending all 8 bits...
+                        //  If we have not finished sending all 8 bits for SPI (9 bits for DIO)...
                         else begin
-                            debug <= 4'd7;  //  Show the debug value in LEDs.
+                            debug <= 4'd8;  //  Show the debug value in LEDs.
                             //  Transmit the next bit to the MOSI Pin (Slave Data In).
                             //  For DIO: The 9th bit transmitted will be 0 (defined earlier as empty_tx_bit) to keep the connection active.
 							if (_msbfirst)
@@ -330,14 +337,20 @@ assign sck = (_mode_clk_idle_high) ? ~_sck : _sck;
 //  we set to high.  If the SPI device is active (SS=0), we set to the Internal MOSI register.
 //  "mosi" changes whenever "ss" or "_mosi" changes.
 
-//  For DIO: When SS=1 (inactive), MOSI Pin should be high before transmission, low after transmission.
+//  For DIO: SS Pin is not used. MOSI Pin should be high before transmission, low after transmission.
 //  Before transmission:    / -- --__ \
 //  After transmitting a byte, wait 1 clock tick for device to respond.
 //  After transmission:     __ / \
 //  After responding, if we have no more bytes to transmit, we set SCK Pin to high and transition MOSI from low to high to terminate transmission.
 //  Terminate transmission: __ / __--
 
-assign mosi = (ss) ? 1'b1 : _mosi;
+assign mosi = _diomode  //  If this is DIO mode...
+    //  For DIO Mode: SS Pin is not used.  We send the Internal MOSI Pin to the actual MOSI Pin.
+    ? _mosi
+    //  For SPI Mode, check the SS Pin.
+    : (ss)
+        ? 1'b1    //  If SS=high, SPI device is inactive. Set MOSI Pin to high.  We will transmit to MOSI Pin later when ready.
+        : _mosi;  //  If SS=low, SPI device is active. Set MOSI Pin to the Internal MOSI Pin.
 
 assign charreceived = (charreceivedp ^ charreceivedn);
 
