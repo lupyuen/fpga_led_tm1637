@@ -10,7 +10,6 @@ IO_LOC "led[0]" 47;
 IO_LOC "led[1]" 57;
 IO_LOC "led[2]" 60;
 IO_LOC "led[3]" 61;
-IO_LOC "rst_n" 92;
 IO_LOC "oled_sclk" 131;
 IO_LOC "oled_sdin" 132;
 IO_LOC "ss" 133;

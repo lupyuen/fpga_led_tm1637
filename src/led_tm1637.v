@@ -76,24 +76,26 @@ assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug
 */
 
 always@(  //  Code below is always triggered when these conditions are true...
-    posedge clk_50M or  //  When the clock signal transitions from low to high (positive edge) OR
-    negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
+    posedge clk_50M  //  When the clock signal transitions from low to high (positive edge) OR
+    // or negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
     ) begin             //  happens when the board restarts or reset button is pressed.
 
+/*
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
         cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
     end
     else begin
-        ////if (cnt == 25'd249_9999) begin  //  If our counter has reached its limit...
-        if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
+    */
+        if (cnt == 25'd249_9999) begin  //  If our counter has reached its limit...
+        ////if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
             clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
             cnt <= 25'd0;         //  Reset the counter to 0.
         end
         else begin
             cnt <= cnt + 25'd1;  //  Else increment counter by 1. "25'd1" means "25-bit, Decimal Value 1"
         end
-    end
+    //end
 end
 
 spi_master # (
@@ -104,8 +106,8 @@ spi0(
     ////.clk(clk_50M),  //  Fast clock.
 	.clk(clk_led),  //  Very slow clock.
 
-	////.prescaller(3'h0),  //  No prescaler.  Fast.
-	.prescaller(3'h2),  //  Prescale by 4.  Slow.
+	.prescaller(3'h0),  //  No prescaler.  Fast.
+	////.prescaller(3'h2),  //  Prescale by 4.  Slow.
 
 	////.rst(rst_n),
     .rst(rst_led),  //  Start sending when rst_led transitions from low to hi.
@@ -133,6 +135,7 @@ spi0(
 //  Synchronous lath to out commands directly from ROM except when is a repeat count load.
 always @ (posedge clk_led)
 begin
+/*
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         //  Init the SPI default values.
         oled_vdd <= 1'b1;
@@ -143,8 +146,10 @@ begin
 		rd_spi <= 1'b0;
 		wait_spi <= 1'b0;
     end
+    else 
+    */
     //  If this is not a repeated step...
-    else if (!step_should_repeat) begin
+    if (!step_should_repeat) begin
         //  Copy the decoded values into registers so they won't change when we go to next step.
         oled_vdd <= step_oled_vdd;
         oled_vbat <= step_oled_vbat;
@@ -153,11 +158,21 @@ begin
         wr_spi <= step_wr_spi;
         rd_spi <= step_rd_spi;
         wait_spi <= step_wait_spi;
+
+        if (step_rd_spi || step_wr_spi) begin
+            //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led low to high transition).
+            rst_led <= 1'b1;
+        end
+        else begin
+            //  If this is not an SPI read or write step, init rst_led to low.
+            rst_led <= 1'b0;
+        end
     end
 end
 
 always @ (posedge clk_led)
 begin
+/*
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         //  Init the state machine.
 		elapsed_time <= 28'h0;
@@ -166,6 +181,7 @@ begin
 		internal_state_machine <= 1'b0;
 		repeat_count <= 15'h0;
     end
+*/
     //// led <= { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
 
     //  If the start time is up and the step is ready to execute...
@@ -190,14 +206,6 @@ begin
                 end
                 //  Handle as a normal step in the next clock tick.
                 internal_state_machine <= 1'b1;
-                if (wr_spi) begin
-                    //  If this is a write step, signal to SPI module to start the transfer (low to hi transition).
-                    //rst_led <= 1'b1;
-                end
-                if (rd_spi) begin
-                    //  If this is a read step, reset the transfer.
-                    //rst_led <= 1'b0;
-                end                
             end
             //  Second Part: Execute the step.
             1'b1 : begin

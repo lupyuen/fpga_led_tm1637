@@ -1,7 +1,2 @@
-@E: CS153 :"C:\fpga_led_tm1637\src\spi_master.v":225:30:225:30|Can't mix blocking and non-blocking assignments to a variable
-@E: CS153 :"C:\fpga_led_tm1637\src\spi_master.v":232:34:232:34|Can't mix blocking and non-blocking assignments to a variable
-@E: CS153 :"C:\fpga_led_tm1637\src\spi_master.v":235:34:235:34|Can't mix blocking and non-blocking assignments to a variable
-@E: CS153 :"C:\fpga_led_tm1637\src\spi_master.v":283:42:283:42|Can't mix blocking and non-blocking assignments to a variable
-@E: CS153 :"C:\fpga_led_tm1637\src\spi_master.v":297:14:297:14|Can't mix blocking and non-blocking assignments to a variable
-@E: CS153 :"C:\fpga_led_tm1637\src\spi_master.v":299:14:299:14|Can't mix blocking and non-blocking assignments to a variable
+@E: CL123 :"C:\fpga_led_tm1637\src\led_tm1637.v":78:0:78:5|Logic for cnt[24:0] does not match a standard flip-flop
 

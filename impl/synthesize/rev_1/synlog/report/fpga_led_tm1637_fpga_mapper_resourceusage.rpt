@@ -4,29 +4,31 @@ Resource Usage Report for LED_TM1637
 Mapping to part: gw1n_4lqfp144-6
 Cell usage:
 ALU             96 uses
-DFF             4 uses
-DFFC            25 uses
-DFFCE           1 use
-DFFE            31 uses
+DFF             24 uses
+DFFC            2 uses
+DFFCE           23 uses
+DFFE            68 uses
+DFFPE           5 uses
 DFFR            8 uses
-DFFRE           30 uses
-DFFSE           2 uses
 GSR             1 use
-INV             8 uses
-MUX2_LUT5       9 uses
-MUX2_LUT6       2 uses
-LUT2            39 uses
-LUT3            32 uses
-LUT4            56 uses
+INV             9 uses
+ROMX9           2 uses
+LUT2            16 uses
+LUT3            26 uses
+LUT4            54 uses
 
 I/O ports: 13
-I/O primitives: 13
-IBUF           2 uses
+I/O primitives: 12
+IBUF           1 use
 OBUF           11 uses
 
 I/O Register bits:                  0
-Register bits not including I/Os:   101 of 3456 (2%)
+Register bits not including I/Os:   130 of 3456 (3%)
+
+RAM/ROM usage summary
+Block Rams : 2 of 10 (20%)
+
 
 @S |Mapping Summary:
-Total  LUTs: 127 (2%)
+Total  LUTs: 96 (2%)
 

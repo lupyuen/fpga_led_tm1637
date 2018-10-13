@@ -13,7 +13,7 @@ Hostname: BEACONDEV3
 
 Implementation : rev_1
 
-# Written on Sat Oct 13 22:02:58 2018
+# Written on Sat Oct 13 22:54:50 2018
 
 ##### FILES SYNTAX CHECKED ##############################################
 Constraint File(s):      (none)
@@ -34,8 +34,8 @@ Clock Summary
 Level     Clock                                   Frequency     Period        Type                                                Group                     Load 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 0 -       LED_TM1637|clk_50M                      100.0 MHz     10.000        inferred                                            Autoconstr_clkgroup_0     26   
-1 .         LED_TM1637|clk_led_derived_clock      100.0 MHz     10.000        derived (from LED_TM1637|clk_50M)                   Autoconstr_clkgroup_0     106  
-2 ..          LED_TM1637|wr_spi_derived_clock     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock)     Autoconstr_clkgroup_0     9    
+1 .         LED_TM1637|clk_led_derived_clock      100.0 MHz     10.000        derived (from LED_TM1637|clk_50M)                   Autoconstr_clkgroup_0     104  
+2 ..          LED_TM1637|wr_spi_derived_clock     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock)     Autoconstr_clkgroup_0     6    
 2 ..          LED_TM1637|rd_spi_derived_clock     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock)     Autoconstr_clkgroup_0     1    
 =================================================================================================================================================================
 
@@ -43,11 +43,11 @@ Level     Clock                                   Frequency     Period        Ty
 Clock Load Summary
 ******************
 
-                                     Clock     Source                    Clock Pin                      Non-clock Pin     Non-clock Pin
-Clock                                Load      Pin                       Seq Example                    Seq Example       Comb Example 
----------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M                   26        clk_50M(port)             clk_led_0.C                    -                 -            
-LED_TM1637|clk_led_derived_clock     106       clk_led_0.Q[0](dffre)     oled_dc.C                      -                 -            
-LED_TM1637|wr_spi_derived_clock      9         wr_spi_0.Q[0](dffr)       spi0.prescallerbuff[2:0].C     -                 -            
-LED_TM1637|rd_spi_derived_clock      1         rd_spi_0.Q[0](dffr)       spi0.charreceivedn.C           -                 -            
-=======================================================================================================================================
+                                     Clock     Source                    Clock Pin                Non-clock Pin     Non-clock Pin
+Clock                                Load      Pin                       Seq Example              Seq Example       Comb Example 
+---------------------------------------------------------------------------------------------------------------------------------
+LED_TM1637|clk_50M                   26        clk_50M(port)             clk_led_0.C              -                 -            
+LED_TM1637|clk_led_derived_clock     104       clk_led_0.Q[0](dffre)     oled_dc.C                -                 -            
+LED_TM1637|wr_spi_derived_clock      6         wr_spi_0.Q[0](dffre)      spi0.inbufffullp_0.C     -                 -            
+LED_TM1637|rd_spi_derived_clock      1         rd_spi_0.Q[0](dffre)      spi0.charreceivedn.C     -                 -            
+=================================================================================================================================
