@@ -158,15 +158,6 @@ begin
         wr_spi <= step_wr_spi;
         rd_spi <= step_rd_spi;
         wait_spi <= step_wait_spi;
-
-        if (step_rd_spi || step_wr_spi) begin
-            //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led low to high transition).
-            rst_led <= 1'b1;
-        end
-        else begin
-            //  If this is not an SPI read or write step, init rst_led to low.
-            rst_led <= 1'b0;
-        end
     end
 end
 
@@ -206,6 +197,16 @@ begin
                 end
                 //  Handle as a normal step in the next clock tick.
                 internal_state_machine <= 1'b1;
+
+                if (step_rd_spi || step_wr_spi) begin
+                    //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led low to high transition).
+                    rst_led <= 1'b1;
+                end
+                else begin
+                    //  If this is not an SPI read or write step, init rst_led to low.
+                    rst_led <= 1'b0;
+                end
+
             end
             //  Second Part: Execute the step.
             1'b1 : begin
