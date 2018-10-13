@@ -55,12 +55,10 @@ reg[WORD_LEN - 1:0] output_buffer;
 assign buffempty = ~(inbufffullp ^ inbufffulln);
 reg[2:0] prescallerbuff;
 
-/***********************************************/
-/************* Asynchronus send ****************/
-/***********************************************/
-/*
- *  You need to put the data on the bus and wait a half of core clock to assert the wr signal(see simulation).
- */
+///////////////////////////////////////////////////////////////////////////////
+//  Asynchronus Send
+
+//  You need to put the data on the bus and wait a half of core clock to assert the wr signal(see simulation).
 `ifdef WRITE_ON_NEG_EDGE == 1
 always @ (negedge wr)  //  Not used.
 `else
@@ -85,7 +83,7 @@ begin
         //  When reset signal transitions from low to high, reset the internal registers.
         inbufffullp <= 1'b0;
         senderr <= 1'b0;
-        prescallerbuff <= 3'b000;
+        prescallerbuff <= 3'b0;
     end
     else
     if (res_senderr)
@@ -102,9 +100,8 @@ begin
         senderr <= 1'b1;  //  Return an error.
 end
 
-/***********************************************/
-/************ !Asynchronus send ****************/
-/***********************************************/
+///////////////////////////////////////////////////////////////////////////////
+//  Non-Asynchronus Send
 
 //  Constants to represent the current SPI state: Idle and Busy.
 localparam state_idle = 1'b0;
@@ -149,11 +146,21 @@ always @ (*) begin  //  This code is triggered when any of the module's inputs c
     end
 end
 
-reg lsbfirstint;
+reg lsbfirstint;  //  1 if we should send Least Significant Bit first.
+wire msbfirstint = ~lsbfirstint;  //  1 if we should send Most Significant Bit first.  Changes if lsbfirstint changes.
+wire msbfirst = ~lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if lsbfirst changes.
+
 reg[1:0] modeint;
-//  Decode modeint (SPI Mode) into clock phase and polarity.  If modeint changes, these will also change.
+//  Decode modeint (Internal SPI Mode) into clock phase and polarity.  If modeint changes, these will also change.
 wire modeint_clk_phase = modeint[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
 wire modeint_clk_polarity = modeint[1];  //  Clock Polarity: 0 means Idle Low, 1 means Idle High
+wire modeint_clk_idle_low = ~modeint_clk_polarity;
+wire modeint_clk_idle_high = modeint_clk_polarity;
+
+//  Decode mode (SPI Mode) into clock phase and polarity.  If mode changes, these will also change.
+wire mode_clk_phase = mode[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
+wire mode_clk_high_to_low = ~mode_clk_phase;
+wire mode_clk_low_to_high = mode_clk_phase;
 
 always @ (posedge clk or posedge rst) begin
     //  When reset signal transitions from low to high, prepare to send data to SPI device.
@@ -201,8 +208,8 @@ always @ (posedge clk or posedge rst) begin
                     //  DIO should set lsbfirst.
 
                     //  If SPI Mode is 0 or 2, we are supposed to send now...
-                    if (!mode[0]) begin
-                        if (!lsbfirst)
+                    if (mode_clk_high_to_low) begin
+                        if (msbfirst)
                             //  For Most Significant Bit mode, set the data output to the next highest bit.
                             _mosi <= input_buffer[WORD_LEN - 1];
                         else
@@ -227,10 +234,10 @@ always @ (posedge clk or posedge rst) begin
                     sckint <= sckint + 1;  //  Increment the Internal Clock Pin (5 bits wide), that will be truncated as the Output Clock Pin.
 
                     //  Check the phase of the Internal Clock Pin.  If we should read data now...
-                    if (sckint_transition == modeint[0]) begin
+                    if (sckint_transition == modeint_clk_phase) begin
                         debug <= 4'd4;  //  Show the debug value in LEDs.
                         //  Read the next bit from the MISO Pin.  Prepare the next bit to be sent.
-                        if (!lsbfirstint) begin
+                        if (msbfirstint) begin
                             shift_reg_in <= { miso, shift_reg_in[7:1] };
                             shift_reg_out <= { shift_reg_out[6:0], 1'b1 };
                         end
@@ -260,7 +267,7 @@ always @ (posedge clk or posedge rst) begin
                         else begin
                             debug <= 4'd6;  //  Show the debug value in LEDs.
                             //  Send the next bit to the MOSI Pin (Slave Data In).
-							if (!lsbfirstint)
+							if (msbfirstint)
 								_mosi <= shift_reg_out[WORD_LEN - 1];
 							else
 								_mosi <= shift_reg_out[0];
@@ -294,11 +301,11 @@ assign data_out = (rd) ? output_buffer : { WORD_LEN{1'bz} }; ////
 
 //  Set the value of the Clock Pin for the SPI device.  Depending on the mode, we return the same value as the
 //  Internal Clock Pin.  Or we return the reverse of the Internal Clock Pin.  "sck" changes whenever "sckint" changes.
-//  modeint[1]=0 means Idle Low, modeint[1]=1 means Idle High
+//  modeint_clk_polarity=0 means Idle Low, modeint_clk_polarity=1 means Idle High
 
-//  For DIO: modeint[1]=1 for Idle High before and after transmission.
+//  For DIO: modeint_clk_polarity=1 for Idle High before and after transmission.
 
-assign sck = (modeint[1]) ? ~sckint : sckint;
+assign sck = (modeint_clk_idle_high) ? ~sckint : sckint;
 
 //  Set the value of the MOSI Pin (Slave Data In) for the SPI device.  If the SPI device is inactive (SS=1),
 //  we set to high.  If the SPI device is active (SS=0), we set to the Internal MOSI register.
