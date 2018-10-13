@@ -82,7 +82,8 @@ reg[27:0] saved_elapsed_time = 28'h0;
 reg[14:0] repeat_count = 15'h0;
 reg[7:0] data_tmp = 8'h0;
 reg[3:0] debug = 4'h0;
-reg[7:0] test_display_on = 8'haf;
+reg[7:0] test_display_on = 8'h8f;
+reg[7:0] test_display_off = 8'h80;
 
 assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug value in LED.
 
@@ -129,8 +130,8 @@ spi0(
     ////.clk(clk_50M),  //  Fast clock.
 	.clk(clk_ssd1306),  //  Very slow clock.
 
-	.prescaller(3'h0),  //  No prescaler.  Fast.
-	////.prescaller(3'h2),  //  Prescale by 4.  Slow.
+	////.prescaller(3'h0),  //  No prescaler.  Fast.
+	.prescaller(3'h2),  //  Prescale by 4.  Slow.
 
 	////.rst(rst_n),
     .rst(rst_ssd1306),  //  Start sending when rst_ssd1306 transitions from low to hi.
@@ -146,11 +147,12 @@ spi0(
 	.mosi(oled_sdin),
 	.miso(1'b1),
 	.ss(ss),
-	.lsbfirst(1'b0),
-	.mode(2'h0),
+	.lsbfirst(1'b1),  //  Transmit least significant bit first.
+	.mode(2'b11),  //  Phase=low to high, Polarity=idle high
 	//.senderr(senderr),
 	.res_senderr(1'b0),
 	.charreceived(charreceived),
+    .diomode(1'b1),
     .debug(debug)
 );
 
