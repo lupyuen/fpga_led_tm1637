@@ -18,14 +18,14 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-`include "SSD1306_ROM_cfg_mod_header.v"
+`include "rom.v"
 
-module SSD1306_ROM_cfg_mod(
+module LED_TM1637_ROM(
     input [`BLOCK_ROM_INIT_ADDR_WIDTH-1:0] addr,
 	output [`BLOCK_ROM_INIT_DATA_WIDTH-1:0] dout
 );
 
-parameter FILENAME="SSD1306_ROM_script.mem";
+parameter FILENAME="led_tm1637_rom.mem";
 localparam LENGTH=2**`BLOCK_ROM_INIT_ADDR_WIDTH;
 reg [`BLOCK_ROM_INIT_DATA_WIDTH-1:0] mem [LENGTH-1:0];
 initial $readmemh(FILENAME, mem);

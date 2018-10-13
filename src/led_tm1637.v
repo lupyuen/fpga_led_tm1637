@@ -1,34 +1,8 @@
 //  Based on https://github.com/MorgothCreator/Verilog_SSD1306_CFG_IP
 //  and https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master.
-`include "SSD1306_ROM_cfg_mod_header.v"
+`include "rom.v"
 
-// Commands for SSD1306
-`define SSD1306_SETCONTRAST				81
-`define SSD1306_DISPLAYALLON_RESUME		A4
-`define SSD1306_DISPLAYALLON			A5
-`define SSD1306_NORMALDISPLAY			A6
-`define SSD1306_INVERTDISPLAY			A7
-`define SSD1306_DISPLAYOFF				AE
-`define SSD1306_DISPLAYON				AF
-`define SSD1306_SETDISPLAYOFFSET		D3
-`define SSD1306_SETCOMPINS				DA
-`define SSD1306_SETVCOMDETECT			DB
-`define SSD1306_SETDISPLAYCLOCKDIV		D5
-`define SSD1306_SETPRECHARGE			D9
-`define SSD1306_SETMULTIPLEX			A8
-`define SSD1306_SETLOWCOLUMN			00
-`define SSD1306_SETHIGHCOLUMN			10
-`define SSD1306_SETSTARTLINE			40
-`define SSD1306_MEMORYMODE				20
-`define SSD1306_COMSCANINC				C0
-`define SSD1306_COMSCANDEC				C8
-`define SSD1306_SEGREMAP				A0
-`define SSD1306_CHARGEPUMP				8D
-`define SSD1306_EXTERNALVCC				01
-`define SSD1306_INTERNALVCC				02
-`define SSD1306_SWITCHCAPVCC			02
-
-module	SSD1306(
+module	LED_TM1637(
     input   clk_50M,  //  Onboard clock is 50MHz.
     input   rst_n,    //  Reset pin is also an Input, triggered by board restart or reset button.
 	output	reg oled_dc,
@@ -46,7 +20,7 @@ reg[`BLOCK_ROM_INIT_ADDR_WIDTH-1:0] step_id;
 //  The step details, encoded in 48 bits.  This will be refetched whenever step_id changes.
 wire[`BLOCK_ROM_INIT_DATA_WIDTH-1:0] encoded_step;
 //  Whenever step_id is updated, fetch the encoded step from ROM.
-SSD1306_ROM_cfg_mod oled_rom_init(
+LED_TM1637_ROM oled_rom_init(
 	.addr(step_id),
 	.dout(encoded_step)
 );
@@ -55,7 +29,7 @@ SSD1306_ROM_cfg_mod oled_rom_init(
 //  If encoded_step is changed, these will automatically change.
 wire step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
 wire step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
-wire step_time = encoded_step[39:16];  //  Number of clk_ssd1306 clock cycles to wait before starting this step. This time is relative to the time of power on.
+wire step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
 wire step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
 wire step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
 wire step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
@@ -73,8 +47,8 @@ wire charreceived;
 reg wait_spi = 1'b0;
 reg rd_spi = 1'b0;
 reg wr_spi = 1'b0;				
-reg clk_ssd1306 = 1'b0;
-reg rst_ssd1306 = 1'b0;
+reg clk_led = 1'b0;
+reg rst_led = 1'b0;
 reg internal_state_machine = 1'b0;
 reg[24:0] cnt = 25'h0;
 reg[27:0] elapsed_time = 28'h0;
@@ -92,7 +66,7 @@ assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug
     wire clk;
     assign clk = (step_next) ? clk_div[3] : 1'b0;
 
-    always @ (posedge clk_ssd1306)
+    always @ (posedge clk_led)
     begin
         //if(btnc)
             //clk_div <= 4'h0;
@@ -107,13 +81,13 @@ always@(  //  Code below is always triggered when these conditions are true...
     ) begin             //  happens when the board restarts or reset button is pressed.
 
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
-        clk_ssd1306 <= 1'b0;  //  Init clk_ssd1306 and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
+        clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
         cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
     end
     else begin
         ////if (cnt == 25'd249_9999) begin  //  If our counter has reached its limit...
         if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
-            clk_ssd1306 <= ~clk_ssd1306;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
+            clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
             cnt <= 25'd0;         //  Reset the counter to 0.
         end
         else begin
@@ -128,13 +102,13 @@ spi_master # (
 )
 spi0(
     ////.clk(clk_50M),  //  Fast clock.
-	.clk(clk_ssd1306),  //  Very slow clock.
+	.clk(clk_led),  //  Very slow clock.
 
 	////.prescaller(3'h0),  //  No prescaler.  Fast.
 	.prescaller(3'h2),  //  Prescale by 4.  Slow.
 
 	////.rst(rst_n),
-    .rst(rst_ssd1306),  //  Start sending when rst_ssd1306 transitions from low to hi.
+    .rst(rst_led),  //  Start sending when rst_led transitions from low to hi.
 
 	////.data_in(step_tx_data),  //  Send real data.
 	.data_in(test_display_on),  //  Send test data to switch on display (0xAF).
@@ -157,7 +131,7 @@ spi0(
 );
 
 //  Synchronous lath to out commands directly from ROM except when is a repeat count load.
-always @ (posedge clk_ssd1306)
+always @ (posedge clk_led)
 begin
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         //  Init the SPI default values.
@@ -182,7 +156,7 @@ begin
     end
 end
 
-always @ (posedge clk_ssd1306)
+always @ (posedge clk_led)
 begin
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         //  Init the state machine.
@@ -218,11 +192,11 @@ begin
                 internal_state_machine <= 1'b1;
                 if (wr_spi) begin
                     //  If this is a write step, signal to SPI module to start the transfer (low to hi transition).
-                    //rst_ssd1306 <= 1'b1;
+                    //rst_led <= 1'b1;
                 end
                 if (rd_spi) begin
                     //  If this is a read step, reset the transfer.
-                    //rst_ssd1306 <= 1'b0;
+                    //rst_led <= 1'b0;
                 end                
             end
             //  Second Part: Execute the step.
