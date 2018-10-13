@@ -38,6 +38,7 @@ module spi_master #(
         output reg senderr,/* If you try to send a character if send buffer is full this bit is set to '1', this can be ignored and if is '1' does not affect the interface (output) */
         input res_senderr,/* To reset 'senderr' signal write '1' wait minimum half core clock and and after '0' to this bit, is asynchronous with 'clk' (input)*/
         output charreceived,/* Is set to '1' if a character is received, if you read the receive buffe this bit will go '0', if you ignore it and continue to send data this bit will remain '1' until you read the read register (output) */
+        input diomode,  //  1 if we are sending to a DIO device (TM1637 LED) instead of an SPI device.
         output reg[3:0] debug  //  Debug value to be shown on the LEDs.
     );
 
@@ -116,12 +117,12 @@ reg[PRESCALLER_SIZE - 1:0] prescaller_cnt;  //  Count down for the prescaller.
 reg[WORD_LEN - 1:0] shift_reg_out;  //  Next bits to be sent to SPI device.
 reg[WORD_LEN - 1:0] shift_reg_in;  //  Bits received from the SPI device.
 
-reg[4:0] sckint;  //  Count the number of bits sent and phase of the SPI clock.
-//  Decode sckint into bit number and the clock phase.  If sckint changes, these will also change.
-wire sckint_bit_num = sckint[4:1];   //  Bit number currently being sent. sckint_bit_num=7 when 8 bits have been sent
-wire sckint_transition = sckint[0];  //  Current high/low transition phase of the clock.  sckint_transition=0 during first transition phase of the clock, 1 during second transition phase
+reg[4:0] _sck;  //  Count the number of bits sent and phase of the SPI clock.
+//  Decode _sck into bit number and the clock phase.  If _sck changes, these will also change.
+wire _sck_bit_num = _sck[4:1];   //  Bit number currently being sent. _sck_bit_num=7 when 8 bits have been sent
+wire _sck_transition = _sck[0];  //  Current high/low transition phase of the clock.  _sck_transition=0 during first transition phase of the clock, 1 during second transition phase
 
-//reg sckintn;
+//reg _sckn;
 reg[2:0] prescallerint;
 reg[7:0] prescdemux;  //  The demux prescaller.
 
@@ -146,21 +147,23 @@ always @ (*) begin  //  This code is triggered when any of the module's inputs c
     end
 end
 
-reg lsbfirstint;  //  1 if we should send Least Significant Bit first.
-wire msbfirstint = ~lsbfirstint;  //  1 if we should send Most Significant Bit first.  Changes if lsbfirstint changes.
+reg _lsbfirst;  //  1 if we should send Least Significant Bit first.
+wire _msbfirst = ~_lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if _lsbfirst changes.
 wire msbfirst = ~lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if lsbfirst changes.
 
-reg[1:0] modeint;
-//  Decode modeint (Internal SPI Mode) into clock phase and polarity.  If modeint changes, these will also change.
-wire modeint_clk_phase = modeint[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
-wire modeint_clk_polarity = modeint[1];  //  Clock Polarity: 0 means Idle Low, 1 means Idle High
-wire modeint_clk_idle_low = ~modeint_clk_polarity;
-wire modeint_clk_idle_high = modeint_clk_polarity;
+reg[1:0] _mode;
+//  Decode _mode (Internal SPI Mode) into clock phase and polarity.  If _mode changes, these will also change.
+wire _mode_clk_phase = _mode[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
+wire _mode_clk_polarity = _mode[1];  //  Clock Polarity: 0 means Idle Low, 1 means Idle High
+wire _mode_clk_idle_low = ~_mode_clk_polarity;
+wire _mode_clk_idle_high = _mode_clk_polarity;
 
 //  Decode mode (SPI Mode) into clock phase and polarity.  If mode changes, these will also change.
 wire mode_clk_phase = mode[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
 wire mode_clk_high_to_low = ~mode_clk_phase;
 wire mode_clk_low_to_high = mode_clk_phase;
+
+reg _diomode;
 
 always @ (posedge clk or posedge rst) begin
     //  When reset signal transitions from low to high, prepare to send data to SPI device.
@@ -176,12 +179,13 @@ always @ (posedge clk or posedge rst) begin
         prescallerint <= { PRESCALLER_SIZE{3'b0} };
         shift_reg_out <= { WORD_LEN{1'b0} };
         shift_reg_in <= { WORD_LEN{1'b0} };
-        sckint <= { 5{1'b0} };
+        _sck <= { 5{1'b0} };
         _mosi <= 1'b1;
         output_buffer <= { WORD_LEN{1'b0} };
         charreceivedp <= 1'b0;
-        lsbfirstint <= 1'b0;
-        modeint <= 2'b0;
+        _lsbfirst <= 1'b0;
+        _mode <= 2'b0;
+        _diomode <= 2'b0;
     end
     else begin
         //  When clock transitions from low to high, send 1 bit to SPI device.
@@ -196,8 +200,9 @@ always @ (posedge clk or posedge rst) begin
 
                     //  Copy the SPI tx/rx parameters to internal registers so they won't change if the caller changes them.
                     prescallerint <= prescallerbuff;
-                    lsbfirstint <= lsbfirst;
-                    modeint <= mode;
+                    _lsbfirst <= lsbfirst;
+                    _mode <= mode;
+                    _diomode <= diomode;
 
                     //  Get ready to send data to the SPI device.
                     shift_reg_out <= input_buffer;  //  Copy the byte that will be sent.
@@ -231,13 +236,13 @@ always @ (posedge clk or posedge rst) begin
                 else begin
                     debug <= 4'd3;  //  Show the debug value in LEDs.
                     prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };  //  Reset the prescaller count to 0.
-                    sckint <= sckint + 1;  //  Increment the Internal Clock Pin (5 bits wide), that will be truncated as the Output Clock Pin.
+                    _sck <= _sck + 1;  //  Increment the Internal Clock Pin (5 bits wide), that will be truncated as the Output Clock Pin.
 
                     //  Check the phase of the Internal Clock Pin.  If we should read data now...
-                    if (sckint_transition == modeint_clk_phase) begin
+                    if (_sck_transition == _mode_clk_phase) begin
                         debug <= 4'd4;  //  Show the debug value in LEDs.
                         //  Read the next bit from the MISO Pin.  Prepare the next bit to be sent.
-                        if (msbfirstint) begin
+                        if (_msbfirst) begin
                             shift_reg_in <= { miso, shift_reg_in[7:1] };
                             shift_reg_out <= { shift_reg_out[6:0], 1'b1 };
                         end
@@ -249,10 +254,13 @@ always @ (posedge clk or posedge rst) begin
 
                     //  If we should send data now...
                     else begin
+                        //  For DIO: We send 9 data bits instead of the normal 8 data bits for SPI.  The last bit is meant for the DIO device to respond with the acknowledgement bit.
+                        //  The last bit must be low to keep the connection open.
+
                         //  If we have sent all 8 bits...
-                        if (sckint_bit_num == WORD_LEN - 1) begin
+                        if (_sck_bit_num == WORD_LEN - 1) begin
                             debug <= 4'd5;  //  Show the debug value in LEDs.
-                            sckint <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin to low.
+                            _sck <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin to low.
                             //  If no more bytes to send...
                             if (inbufffullp == inbufffulln) begin
                                 debug <= 4'd6;  //  Show the debug value in LEDs.
@@ -267,7 +275,7 @@ always @ (posedge clk or posedge rst) begin
                         else begin
                             debug <= 4'd6;  //  Show the debug value in LEDs.
                             //  Send the next bit to the MOSI Pin (Slave Data In).
-							if (msbfirstint)
+							if (_msbfirst)
 								_mosi <= shift_reg_out[WORD_LEN - 1];
 							else
 								_mosi <= shift_reg_out[0];
@@ -300,12 +308,12 @@ assign data_out = (rd) ? output_buffer : { WORD_LEN{1'bz} }; ////
 ////assign bus = (rd) ? output_buffer : { WORD_LEN{1'bz} };
 
 //  Set the value of the Clock Pin for the SPI device.  Depending on the mode, we return the same value as the
-//  Internal Clock Pin.  Or we return the reverse of the Internal Clock Pin.  "sck" changes whenever "sckint" changes.
-//  modeint_clk_polarity=0 means Idle Low, modeint_clk_polarity=1 means Idle High
+//  Internal Clock Pin.  Or we return the reverse of the Internal Clock Pin.  "sck" changes whenever "_sck" changes.
+//  _mode_clk_polarity=0 means Idle Low, _mode_clk_polarity=1 means Idle High
 
-//  For DIO: modeint_clk_polarity=1 for Idle High before and after transmission.
+//  For DIO: _mode_clk_polarity=1 for Idle High before and after transmission.
 
-assign sck = (modeint_clk_idle_high) ? ~sckint : sckint;
+assign sck = (_mode_clk_idle_high) ? ~_sck : _sck;
 
 //  Set the value of the MOSI Pin (Slave Data In) for the SPI device.  If the SPI device is inactive (SS=1),
 //  we set to high.  If the SPI device is active (SS=0), we set to the Internal MOSI register.
