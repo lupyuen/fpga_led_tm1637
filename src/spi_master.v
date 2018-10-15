@@ -19,7 +19,7 @@ module spi_master #(
 		parameter WORD_LEN = 8,
 		parameter PRESCALLER_SIZE = 8
 	)(
-        input  wire[0:0] rst,/* Asynchronus reset, is mandatory to provide this signal, active on posedge (input) */
+        input  wire[0:0] rst_n,/* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
         input  wire[0:0] clk,/* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
         input  wire[WORD_LEN - 1:0] tx_data,  //  Data to be transmitted to SPI device (1 byte)
         output wire[WORD_LEN - 1:0] rx_data,  //  Data received from SPI device (1 byte)
@@ -108,18 +108,20 @@ reg[0:0] state = state_idle;
 //  get a slower clock.  The factor is called the Prescaller Value.
 
 reg[2:0] _prescaller;  //  "prescaller" parameter stored locally.
-reg[7:0] prescdemux;  //  The demux prescaller.
 reg[PRESCALLER_SIZE - 1:0] prescaller_cnt;  //  Count down for the prescaller.
+////reg[7:0] prescdemux;  //  The demux prescaller.
+wire[7:0] prescdemux =  //  Compute the demux prescaller.  Changes when _prescaller changes.
+    (_prescaller == 3'b000) ? 8'b00000001 :
+    (_prescaller == 3'b001) ? 8'b00000011 :
+    (_prescaller == 3'b010) ? 8'b00000111 :
+    (_prescaller == 3'b011) ? 8'b00001111 :
+    (_prescaller == 3'b100) ? 8'b00011111 :
+    (_prescaller == 3'b101) ? 8'b00111111 :
+    (_prescaller == 3'b110) ? 8'b01111111 :
+    (_prescaller == 3'b111) ? 8'b11111111 :
+    8'b00000001;  //  Assume demux=1.
 
-//  Shift Registers for transmitting and receiving bits.  They are called "Shift" because we shift the bits out/in while transmitting/receiving bits.
-reg[WORD_LEN - 1:0] shift_reg_tx;  //  Next bits to be transmitted to SPI device.
-reg[WORD_LEN - 1:0] shift_reg_rx;  //  Bits received from the SPI device.
-
-reg[4:0] _sck;  //  Count the number of bits sent and phase of the SPI clock.
-//  Decode _sck into bit number and the clock phase.  If _sck changes, these will also change.
-wire[3:0] _sck_bit_num = _sck[4:1];   //  Bit number currently being sent. _sck_bit_num=7 when 8 bits have been sent
-wire[0:0] _sck_transition = _sck[0];  //  Current high/low transition phase of the clock.  _sck_transition=0 during first transition phase of the clock, 1 during second transition phase
-
+/*
 always @ (*) begin  //  This code is triggered when any of the module's inputs change.
     //  Compute the demux prescaller.  The prescaller indicates the power of 2 to count down,
     //  so demux(0)=1, demux(1)=3, demux(2)=7, ...
@@ -140,6 +142,16 @@ always @ (*) begin  //  This code is triggered when any of the module's inputs c
         prescdemux <= 8'b00000001;  //  Assume demux=1.
     end
 end
+*/
+
+//  Shift Registers for transmitting and receiving bits.  They are called "Shift" because we shift the bits out/in while transmitting/receiving bits.
+reg[WORD_LEN - 1:0] shift_reg_tx;  //  Next bits to be transmitted to SPI device.
+reg[WORD_LEN - 1:0] shift_reg_rx;  //  Bits received from the SPI device.
+
+reg[4:0] _sck;  //  Count the number of bits sent and phase of the SPI clock.
+//  Decode _sck into bit number and the clock phase.  If _sck changes, these will also change.
+wire[3:0] _sck_bit_num = _sck[4:1];   //  Bit number currently being sent. _sck_bit_num=7 when 8 bits have been sent
+wire[0:0] _sck_transition = _sck[0];  //  Current high/low transition phase of the clock.  _sck_transition=0 during first transition phase of the clock, 1 during second transition phase
 
 reg[0:0] _lsbfirst;  //  1 if we should send Least Significant Bit first.
 wire[0:0] _msbfirst = ~_lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if _lsbfirst changes.
