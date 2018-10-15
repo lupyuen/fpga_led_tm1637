@@ -2,8 +2,9 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MT206 |Auto Constrain mode is enabled
-@N: FX493 |Applying initial value "0" on instance spi0.inbufffullp.
-@N: FX493 |Applying initial value "0" on instance spi0.inbufffulln.
+@N: FX493 |Applying initial value "0" on instance spi0.state[0].
+@N: FX493 |Applying initial value "0" on instance spi0.tx_buffer_fullp[0].
+@N: FX493 |Applying initial value "0" on instance spi0.tx_buffer_fulln[0].
 @N: FX493 |Applying initial value "000000000000000" on instance repeat_count[14:0].
 @N: FX493 |Applying initial value "0000000000000000000000000000" on instance elapsed_time[27:0].
 @N: FX493 |Applying initial value "0000000000000000000000000" on instance cnt[24:0].
@@ -14,7 +15,8 @@
 @N: FX493 |Applying initial value "0" on instance wait_spi[0].
 @N: FX493 |Applying initial value "0" on instance rd_spi[0].
 @N: FX493 |Applying initial value "0" on instance clk_led[0].
-@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":178:0:178:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance prescaller_cnt[7:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":173:0:173:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _sck[4:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":173:0:173:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance prescaller_cnt[7:0] 
 @N: FX276 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":32:14:32:23|Initial value oled_rom_init.dout_1_0_0.INIT_RAM_00 = 220030032220028D31220018D34220008D30110300030110200020000100030000000070.
 @N: FX276 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":32:14:32:23|Initial value oled_rom_init.dout_1_0_0.INIT_RAM_01 = 22021D93422020D930220140030220130032220121431220111434220101430220040030.
 @N: FX276 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":32:14:32:23|Initial value oled_rom_init.dout_1_0_0.INIT_RAM_02 = 22034003022033003222032F13122031F13422030F13022024003022023003222022D931.

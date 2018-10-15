@@ -2,17 +2,12 @@
 `include "rom.v"
 
 module	LED_TM1637(
-    input   wire[0:0] clk_50M,  //  Onboard clock is 50MHz.
-    input   wire[0:0] rst_n,    //  Reset pin is also an Input, triggered by board restart or reset button.
-	output	reg [0:0] oled_dc,
-	output	reg [0:0] oled_res,
-	output  wire[0:0] oled_sclk,
-	output  wire[0:0] oled_sdin,
-	output	reg [0:0] oled_vbat,
-	output	reg [0:0] oled_vdd,
-    output  reg [0:0] ss,
-    output  wire[3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0], [1], [2], [3], [4] to Pins 47, 57, 60, 61
-    input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0], [1], [2], [3], [4] to Pins 68, 69, 79, 80
+    input   wire[0:0] clk_50M,  //  Onboard clock is 50MHz.  Pin 6.
+    input   wire[0:0] rst_n,    //  TODO: Reset pin is also an Input, triggered by board restart or reset button.
+	output  wire[0:0] tm1637_clk,  //  Pin 131, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+	output  wire[0:0] tm1637_dio,  //  Pin 132, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  wire[3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
+    input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
 );
 
 //  The step ID that we are now executing: 0, 1, 2, ...
@@ -34,10 +29,10 @@ wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI
 wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
 wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
 
-wire[0:0] step_oled_vdd = encoded_step[6];
-wire[0:0] step_oled_vbat = encoded_step[5];
-wire[0:0] step_oled_res = encoded_step[4];
-wire[0:0] step_oled_dc = encoded_step[3];
+// wire[0:0] step_oled_vdd = encoded_step[6];
+// wire[0:0] step_oled_vbat = encoded_step[5];
+// wire[0:0] step_oled_res = encoded_step[4];
+// wire[0:0] step_oled_dc = encoded_step[3];
 wire[0:0] step_wr_spi = encoded_step[2];
 wire[0:0] step_rd_spi = encoded_step[1];
 wire[0:0] step_wait_spi = encoded_step[0];
@@ -54,8 +49,8 @@ reg[24:0] cnt = 25'h0;
 reg[27:0] elapsed_time = 28'h0;
 reg[27:0] saved_elapsed_time = 28'h0;
 reg[14:0] repeat_count = 15'h0;
-reg[7:0] data_tmp = 8'h0;
-reg[3:0] debug = 4'h0;
+reg[7:0] rx_data = 8'h0;
+reg[3:0] spi_debug = 4'h0;
 reg[7:0] test_display_on = 8'h8f;
 reg[7:0] test_display_off = 8'h80;
 
@@ -63,9 +58,9 @@ reg[7:0] test_display_off = 8'h80;
 //  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.
 wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
 
-// assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug value in LED.
+// assign led = { ~spi_debug[0], ~spi_debug[1], ~spi_debug[2], ~spi_debug[3] };  //  Show the debug value in LED.
 // assign led = { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
-// assign led = { ~step_id[0], ~step_id[1], ~debug[0], ~debug[1] };  //  Show the state machine step ID and debug in LED.
+// assign led = { ~step_id[0], ~step_id[1], ~spi_debug[0], ~spi_debug[1] };  //  Show the state machine step ID and debug in LED.
 assign led = { ~normalised_switches[0], ~normalised_switches[1], ~normalised_switches[2], ~normalised_switches[3] };
 
 /*
@@ -119,24 +114,24 @@ spi0(
 	////.rst(rst_n),
     .rst(rst_led),  //  Start sending when rst_led transitions from low to hi.
 
-	////.data_in(step_tx_data),  //  Send real data.
-	.data_in(test_display_on),  //  Send test data to switch on display (0xAF).
+	////.tx_data(step_tx_data),  //  Send real data.
+	.tx_data(test_display_on),  //  Send test data to switch on display (0xAF).
 
-	.data_out(data_tmp),
+	.rx_data(rx_data),
 	.wr(wr_spi),
 	.rd(rd_spi),
 	.tx_buffer_is_empty(tx_buffer_is_empty),
-	.sck(oled_sclk),
-	.mosi(oled_sdin),
+	.sck(tm1637_clk),
+	.mosi(tm1637_dio),
 	.miso(1'b1),
 	.ss(ss),
 	.lsbfirst(1'b1),  //  Transmit least significant bit first.
-	.mode(2'b11),  //  Phase=low to high, Polarity=idle high
+	.mode(2'b11),  //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
 	//.senderr(senderr),
 	.res_senderr(1'b0),
 	.charreceived(charreceived),
     .diomode(1'b1),
-    .debug(debug)
+    .debug(spi_debug)
 );
 
 //  Synchronous lath to out commands directly from ROM except when is a repeat count load.
@@ -158,10 +153,10 @@ begin
     //  If this is not a repeated step...
     if (!step_should_repeat) begin
         //  Copy the decoded values into registers so they won't change when we go to next step.
-        oled_vdd <= step_oled_vdd;
-        oled_vbat <= step_oled_vbat;
-        oled_res <= step_oled_res;
-        oled_dc <= step_oled_dc;
+        // oled_vdd <= step_oled_vdd;
+        // oled_vbat <= step_oled_vbat;
+        // oled_res <= step_oled_res;
+        // oled_dc <= step_oled_dc;
         wr_spi <= step_wr_spi;
         rd_spi <= step_rd_spi;
         wait_spi <= step_wait_spi;

@@ -9,10 +9,10 @@ The file contains the area information from mapper to be displayed as part of th
 <title>Resource Usage</title>
 </report_link>
 <parameter tcl_name="io_port" tooltip="Total I/O ports used" name="I/O ports">
-<data>17</data>
+<data>12</data>
 </parameter>
 <parameter tcl_name="non_io_reg" tooltip="Total Non I/O Register bits used" name="Non I/O Register bits">
-<data>140 (4%)</data>
+<data>139 (4%)</data>
 </parameter>
 <parameter tcl_name="total_io_reg" tooltip="Total I/O Register bits used" name="I/O Register bits">
 <data>0</data>

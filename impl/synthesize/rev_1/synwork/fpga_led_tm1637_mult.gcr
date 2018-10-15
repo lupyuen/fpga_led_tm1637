@@ -1,23 +1,23 @@
 i wr_spi_i[0]
 m 0 0
 u 3 6
-n ckid0_0 {t:spi0.input_buffer[7].C} Derived clock on input (not legal for GCC)
-p {t:wr_spi_0[0].Q[0]}{t:wr_spi_derived_clock[0].I[0]}{t:wr_spi_derived_clock[0].OUT[0]}{t:spi0.wr}{p:spi0.wr}{t:spi0.input_buffer[7].C}
-e ckid0_0 {t:spi0.input_buffer[7].C} dffe
+n ckid0_0 {t:spi0.tx_buffer[7].C} Derived clock on input (not legal for GCC)
+p {t:wr_spi_0[0].Q[0]}{t:wr_spi_derived_clock[0].I[0]}{t:wr_spi_derived_clock[0].OUT[0]}{t:spi0.wr[0]}{p:spi0.wr[0]}{t:spi0.tx_buffer[7].C}
+e ckid0_0 {t:spi0.tx_buffer[7].C} dffe
 d ckid0_1 {t:wr_spi_0[0].Q[0]} dffre Potential generated clock but with a nonconvertable driver or an unknown conversion method
 i clk_led_i[0]
 m 0 0
-u 92 114
-n ckid0_2 {t:spi0.inbufffulln_0.C} Derived clock on input (not legal for GCC)
+u 88 113
+n ckid0_2 {t:spi0.state_0[0].C} Derived clock on input (not legal for GCC)
 p {t:clk_led_0[0].Q[0]}{t:clk_led_derived_clock[0].I[0]}{t:clk_led_derived_clock[0].OUT[0]}{t:repeat_count[0].C}
 e ckid0_3 {t:repeat_count[0].C} dffr
 d ckid0_4 {t:clk_led_0[0].Q[0]} dffre Derived clock on input (not legal for GCC)
 i rd_spi_i[0]
 m 0 0
 u 1 1
-n ckid0_5 {t:spi0.charreceivedn.C} Derived clock on input (not legal for GCC)
-p {t:rd_spi_0[0].Q[0]}{t:rd_spi_derived_clock[0].I[0]}{t:rd_spi_derived_clock[0].OUT[0]}{t:spi0.rd}{p:spi0.rd}{t:spi0.charreceivedn.C}
-e ckid0_5 {t:spi0.charreceivedn.C} dffre
+n ckid0_5 {t:spi0.charreceivedn[0].C} Derived clock on input (not legal for GCC)
+p {t:rd_spi_0[0].Q[0]}{t:rd_spi_derived_clock[0].I[0]}{t:rd_spi_derived_clock[0].OUT[0]}{t:spi0.rd[0]}{p:spi0.rd[0]}{t:spi0.charreceivedn[0].C}
+e ckid0_5 {t:spi0.charreceivedn[0].C} dffre
 d ckid0_6 {t:rd_spi_0[0].Q[0]} dffre Potential generated clock but with a nonconvertable driver or an unknown conversion method
 i clk_50M[0]
 m 0 0

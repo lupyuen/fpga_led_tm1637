@@ -1,2 +1,2 @@
-@E: CG425 :"C:\fpga_led_tm1637\src\led_tm1637.v":176:4:176:6|Assignment target led must be of type reg, genvar, or logic
+@E: CS168 :"C:\fpga_led_tm1637\src\led_tm1637.v":123:9:123:9|Port data_in does not exist
 
