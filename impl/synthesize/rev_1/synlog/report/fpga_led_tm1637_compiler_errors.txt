@@ -1,2 +1,0 @@
-@E: CG906 :"C:\fpga_led_tm1637\src\led_tm1637.v":136:8:136:23|Reference to unknown variable clk_led2.
-

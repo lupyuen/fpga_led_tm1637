@@ -1,91 +1,163 @@
+`include "rom.v"
+
+module demo (  //  Declare our demo module.
+    input   /* wire[0:0] */ clk_50M,  //  Onboard clock is 50MHz.  Pin 6.
+    input   /* wire[0:0] */ rst_n,    //  TODO: Reset pin is also an Input, triggered by board restart or reset button.
+    output  /* wire[0:0] */ tm1637_clk,  //  Pin 131, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  /* wire[0:0] */ tm1637_dio,  //  Pin 132, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  reg [3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
+    input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
+);
+
+reg[24:0] cnt;
+reg clk_led;
+
+//  The step ID that we are now executing: 0, 1, 2, ...
+reg[`BLOCK_ROM_INIT_ADDR_WIDTH-1:0] step_id;
+//  The step details, encoded in 48 bits.  This will be refetched whenever step_id changes.
+wire[`BLOCK_ROM_INIT_DATA_WIDTH-1:0] encoded_step;
+//  Whenever step_id is updated, fetch the encoded step from ROM.
+LED_TM1637_ROM oled_rom_init(
+    .addr(step_id),
+    .dout(encoded_step)
+);
+
+//  This block increments a counter and flips the clk_led bit on or off upon overflow.
+always@(                //  Code below is always triggered when these conditions are true...
+    posedge clk_50M or  //  When the clock signal transitions from low to high (positive edge) OR
+    negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
+    ) begin             //  happens when the board restarts or reset button is pressed.
+
+    if (!rst_n) begin     //  If board restarts or reset button is pressed...
+        clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
+        cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
+    end
+    else begin
+        if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
+            clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
+            cnt <= 25'd0;         //  Reset the counter to 0.
+        end
+        else begin
+            cnt <= cnt + 25'd1;  //  Else increment counter by 1. "25'd1" means "25-bit, Decimal Value 1"
+        end
+    end
+end
+
+reg[24:0] cnt2;  //// TODO
+reg[0:0] wait_spi; // = 1'b0;
+reg[0:0] rd_spi; // = 1'b0;
+reg[0:0] wr_spi; // = 1'b0;
+reg[0:0] rst_led; // = 1'b0;
+reg[0:0] internal_state_machine; // = 1'b0;
+reg[27:0] elapsed_time; // = 28'h0;
+reg[27:0] saved_elapsed_time; // = 28'h0;
+reg[14:0] repeat_count; // = 15'h0;
+reg[7:0] rx_data; // = 8'h0;
+reg[3:0] spi_debug; // = 4'h0;
+reg[7:0] test_display_on; // = 8'h8f;
+reg[7:0] test_display_off; // = 8'h80;
+reg[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
+reg[0:0] debug_waiting_for_step_time; // = 1'b0;
+reg[0:0] debug_waiting_for_spi; // = 1'b0;
+
+always@(                //  Code below is always triggered when these conditions are true...
+    posedge clk_led or  //  When the clk_led register transitions from low to high (positive edge) OR
+    negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
+    ) begin             //  happens when the board restarts or reset button is pressed.
+
+    if (!rst_n) begin     //  If board restarts or reset button is pressed...
+        //clk_led <= 1'b0;
+        cnt2 <= 25'd0;
+
+        //  Init registers here.
+        step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'h0;
+        /* reg[0:0] */ wait_spi <= 1'b0;
+        /* reg[0:0] */ rd_spi <= 1'b0;
+        /* reg[0:0] */ wr_spi <= 1'b0;
+        /* reg[0:0] */ rst_led <= 1'b0;
+        /* reg[0:0] */ internal_state_machine <= 1'b0;
+        /* reg[27:0] */ elapsed_time <= 28'h0;
+        /* reg[27:0] */ saved_elapsed_time <= 28'h0;
+        /* reg[14:0] */ repeat_count <= 15'h0;
+        /* reg[7:0] */ rx_data <= 8'h0;
+        /* reg[3:0] */ spi_debug <= 4'h0;
+        /* reg[7:0] */ test_display_on <= 8'h8f;
+        /* reg[7:0] */ test_display_off <= 8'h80;
+        /* reg[0:0] */ ss <= 1'b0;  //  Not used for DIO Mode.
+        /* reg[0:0] */ debug_waiting_for_step_time <= 1'b0;
+        /* reg[0:0] */ debug_waiting_for_spi <= 1'b0;
+    end
+    else begin
+        if (cnt2 == 25'd2499_9999) begin  //  If our counter has reached its limit...
+            //clk_led <= ~clk_led;
+            cnt2 <= 25'd0;
+        end
+        else begin
+            cnt2 <= cnt2 + 25'd1;
+        end
+    end
+end
+
+//  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
+//  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
+wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
+
+//  normalised_led[3:0] displays a binary value using onboard LEDs, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
+wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LEDs...
+    (normalised_switches == 4'b0000) ? cnt2[3:0] : ////
+    ////(normalised_switches == 4'b0000) ? step_id :    //  If {SW4,5,6,7}={0,0,0,0}, show the TM1637 ROM step ID that we are executing.
+    (normalised_switches == 4'b0001) ? spi_debug :  //  If {SW4,5,6,7}={0,0,0,1}, show the SPI step ID that we are executing.
+    (normalised_switches == 4'b0010) ? {   //  If {SW4,5,6,7}={0,0,1,0}, 
+        // clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
+        clk_led[0], 1'b1,
+        // rst_led[0], ~rst_led[0] } :        //  and rst_led (right 2 LEDs, {1,0}=High, {0,1}=Low).
+        1'b1, 1'b1 } :
+    (normalised_switches == 4'b0011) ? {   //  If {SW4,5,6,7}={0,0,1,1}, 
+        tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
+        tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
+    (normalised_switches == 4'b0100) ? {   //  If {SW4,5,6,7}={0,1,0,0}, 
+        debug_waiting_for_step_time[0], 
+        debug_waiting_for_spi[0],
+        1'b1, 1'b1 } :
+    normalised_switches;  //  Else show normalised switches using onboard LEDs.
+
+//  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
+assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
+//  assign led = { ~cnt2[0], ~cnt2[1], ~cnt2[2], ~cnt2[3] };
+
+//  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up our local registers vs decoded values.
+//  If encoded_step is changed, these will automatically change.
+wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
+wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
+wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
+wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
+wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
+wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
+
+// wire[0:0] step_oled_vdd = encoded_step[6];
+// wire[0:0] step_oled_vbat = encoded_step[5];
+// wire[0:0] step_oled_res = encoded_step[4];
+// wire[0:0] step_oled_dc = encoded_step[3];
+wire[0:0] step_wr_spi = encoded_step[2];
+wire[0:0] step_rd_spi = encoded_step[1];
+wire[0:0] step_wait_spi = encoded_step[0];
+wire[0:0] tx_buffer_is_empty;
+wire[0:0] charreceived;
+
+endmodule
+
 //  Based on https://github.com/MorgothCreator/Verilog_SSD1306_CFG_IP
-
-
 
 `ifdef NOTUSED == 1
 
     `timescale 20ns
-    `include "rom.v"
 
     module	LED_TM1637(
-        input   wire[0:0] clk_50M,  //  Onboard clock is 50MHz.  Pin 6.
-        input   wire[0:0] rst_n,    //  TODO: Reset pin is also an Input, triggered by board restart or reset button.
-        output  wire[0:0] tm1637_clk,  //  Pin 131, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
-        output  wire[0:0] tm1637_dio,  //  Pin 132, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
-        output  reg [3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
-        input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
     );
-
-    //  The step ID that we are now executing: 0, 1, 2, ...
-    reg[`BLOCK_ROM_INIT_ADDR_WIDTH-1:0] step_id;
-    //  The step details, encoded in 48 bits.  This will be refetched whenever step_id changes.
-    wire[`BLOCK_ROM_INIT_DATA_WIDTH-1:0] encoded_step;
-    //  Whenever step_id is updated, fetch the encoded step from ROM.
-    LED_TM1637_ROM oled_rom_init(
-        .addr(step_id),
-        .dout(encoded_step)
-    );
-
-    //  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up our local registers vs decoded values.
-    //  If encoded_step is changed, these will automatically change.
-    wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
-    wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
-    wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
-    wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
-    wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
-    wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
-
-    // wire[0:0] step_oled_vdd = encoded_step[6];
-    // wire[0:0] step_oled_vbat = encoded_step[5];
-    // wire[0:0] step_oled_res = encoded_step[4];
-    // wire[0:0] step_oled_dc = encoded_step[3];
-    wire[0:0] step_wr_spi = encoded_step[2];
-    wire[0:0] step_rd_spi = encoded_step[1];
-    wire[0:0] step_wait_spi = encoded_step[0];
-    wire[0:0] tx_buffer_is_empty;
-    wire[0:0] charreceived;
-
-    reg[0:0] wait_spi = 1'b0;
-    reg[0:0] rd_spi = 1'b0;
-    reg[0:0] wr_spi = 1'b0;
-    reg[0:0] clk_led = 1'b0;
-    reg[0:0] rst_led = 1'b0;
-    reg[0:0] internal_state_machine = 1'b0;
-    reg[15:0] cnt = 16'h0;
-    reg[27:0] elapsed_time = 28'h0;
-    reg[27:0] saved_elapsed_time = 28'h0;
-    reg[14:0] repeat_count = 15'h0;
-    reg[7:0] rx_data = 8'h0;
-    reg[3:0] spi_debug = 4'h0;
-    reg[7:0] test_display_on = 8'h8f;
-    reg[7:0] test_display_off = 8'h80;
-    reg[0:0] ss = 1'b0;  //  Not used for DIO Mode.
-    reg[0:0] debug_waiting_for_step_time = 1'b0;
-    reg[0:0] debug_waiting_for_spi = 1'b0;
 
     reg[0:0] temp_clk_led = 1'b0;  ////
 
-    //  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
-    //  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
-    wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
 
-    //  normalised_led[3:0] displays a binary value using onboard LEDs, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
-    wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LEDs...
-        (normalised_switches == 4'b0000) ? step_id :    //  If {SW4,5,6,7}={0,0,0,0}, show the TM1637 ROM step ID that we are executing.
-        (normalised_switches == 4'b0001) ? spi_debug :  //  If {SW4,5,6,7}={0,0,0,1}, show the SPI step ID that we are executing.
-        (normalised_switches == 4'b0010) ? {   //  If {SW4,5,6,7}={0,0,1,0}, 
-            // clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
-            clk_led[0], 1'b1,
-            // rst_led[0], ~rst_led[0] } :        //  and rst_led (right 2 LEDs, {1,0}=High, {0,1}=Low).
-            1'b1, 1'b1 } :
-        (normalised_switches == 4'b0011) ? {   //  If {SW4,5,6,7}={0,0,1,1}, 
-            tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
-            tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
-        (normalised_switches == 4'b0100) ? {   //  If {SW4,5,6,7}={0,1,0,0}, 
-            debug_waiting_for_step_time[0], 
-            debug_waiting_for_spi[0],
-            1'b1, 1'b1 } :
-        normalised_switches;  //  Else show normalised switches using onboard LEDs.
 
     //  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
     //  assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };

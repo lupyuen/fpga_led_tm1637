@@ -1,1 +1,1 @@
-@W: MT420 |Found inferred clock LED_TM1637|clk_50M[0] with period 10.00ns. Please declare a user-defined clock on port clk_50M[0].
+@W: MT420 |Found inferred clock demo|clk_50M with period 10.00ns. Please declare a user-defined clock on port clk_50M.

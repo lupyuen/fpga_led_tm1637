@@ -17,24 +17,25 @@ Implementation : rev_1
 
 Part:			GW1N_4LQFP144-6 (GoWin)
 
---------------------------------------------------------------------------
-########   Utilization report for  Top level view:   LED_TM1637   ########
-==========================================================================
+--------------------------------------------------------------------
+########   Utilization report for  Top level view:   demo   ########
+====================================================================
 
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     12                 100 %                
+REGISTERS     30                 100 %                
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block LED_TM1637:	12 (35.29 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block demo:	30 (28.30 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-LUTS     4                  100 %                
+LUTS     32                 100 %                
+ALU      25                 100 %                
 =================================================
-Total COMBINATIONAL LOGIC in the block LED_TM1637:	4 (11.76 % Utilization)
+Total COMBINATIONAL LOGIC in the block demo:	57 (53.77 % Utilization)
 
 
 ##### END OF AREA REPORT #####]

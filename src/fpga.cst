@@ -5,6 +5,7 @@
  Device:         GW1N-4
  Package:        LQFP144
 ************************************************************************/
+/*
 IO_LOC "clk_50M[0]" 6;
 IO_LOC "led[0]" 47;
 IO_LOC "led[1]" 57;
@@ -18,3 +19,16 @@ IO_LOC "tm1637_clk[0]" 131;
 IO_LOC "tm1637_dio[0]" 132;
 IO_PORT "tm1637_clk[0]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
 IO_PORT "tm1637_dio[0]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+*/
+IO_LOC "clk_50M" 6;
+IO_LOC "led[0]" 47;
+IO_LOC "led[1]" 57;
+IO_LOC "led[2]" 60;
+IO_LOC "led[3]" 61;
+IO_LOC "rst_n" 92;
+IO_LOC "switches[0]" 68;
+IO_LOC "switches[1]" 69;
+IO_LOC "switches[2]" 79;
+IO_LOC "switches[3]" 80;
+IO_LOC "tm1637_clk" 131;
+IO_LOC "tm1637_dio" 132;

@@ -1,11 +1,11 @@
 <html><body><samp><pre>
-<!@TC:1539618538>
+<!@TC:1539625354>
 #Build: Synplify Pro (R) N-2018.03G-Beta6, Build 118R, May 15 2018
 #install: C:\Gowin\1.8\SynplifyPro
 #OS: Windows 8 6.2
 #Hostname: BEACONDEV3
 
-# Mon Oct 15 23:48:58 2018
+# Tue Oct 16 01:42:34 2018
 
 #Implementation: rev_1
 
@@ -25,7 +25,7 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 <a name=compilerReport1></a>Synopsys HDL Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1539618539> | Running in 64-bit mode 
+@N: : <!@TM:1539625355> | Running in 64-bit mode 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
 This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
@@ -42,9 +42,9 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 <a name=compilerReport2></a>Synopsys Verilog Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1539618539> | Running in 64-bit mode 
-@N: : <!@TM:1539618539> | : Running Verilog Compiler in System Verilog mode 
-@N: : <!@TM:1539618539> | : Running Verilog Compiler in Multiple File Compilation Unit mode 
+@N: : <!@TM:1539625355> | Running in 64-bit mode 
+@N: : <!@TM:1539625355> | : Running Verilog Compiler in System Verilog mode 
+@N: : <!@TM:1539625355> | : Running Verilog Compiler in Multiple File Compilation Unit mode 
 @I::"C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v" (library work)
 @I::"C:\Gowin\1.8\SynplifyPro\lib\vlog\hypermods.v" (library __hyper__lib__)
 @I::"C:\Gowin\1.8\SynplifyPro\lib\vlog\umr_capim.v" (library snps_haps)
@@ -55,28 +55,49 @@ Implementation : rev_1
 @I:"C:\fpga_led_tm1637\src\led_tm1637.v":"C:\fpga_led_tm1637\src\rom.v" (library work)
 @I::"C:\fpga_led_tm1637\src\led_tm1637_rom.v" (library work)
 Verilog syntax check successful!
-Selecting top level module LED_TM1637
-@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:22:7:22:21:@N:CG364:@XP_MSG">led_tm1637_rom.v(22)</a><!@TM:1539618539> | Synthesizing module LED_TM1637_ROM in library work.
+File C:\fpga_led_tm1637\src\led_tm1637.v changed - recompiling
+Selecting top level module demo
+@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:22:7:22:21:@N:CG364:@XP_MSG">led_tm1637_rom.v(22)</a><!@TM:1539625355> | Synthesizing module LED_TM1637_ROM in library work.
 Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
-<font color=#A52A2A>@W:<a href="@W:CG532:@XP_HELP">CG532</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:30:0:30:7:@W:CG532:@XP_MSG">led_tm1637_rom.v(30)</a><!@TM:1539618539> | Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.</font>
-@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:17:@N:CG364:@XP_MSG">led_tm1637.v(5)</a><!@TM:1539618539> | Synthesizing module LED_TM1637 in library work.
-<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:8:19:8:29:@W:CG360:@XP_MSG">led_tm1637.v(8)</a><!@TM:1539618539> | Removing wire tm1637_clk, as there is no assignment to it.</font>
-<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:9:19:9:29:@W:CG360:@XP_MSG">led_tm1637.v(9)</a><!@TM:1539618539> | Removing wire tm1637_dio, as there is no assignment to it.</font>
-<font color=#A52A2A>@W:<a href="@W:CG133:@XP_HELP">CG133</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:15:36:15:43:@W:CG133:@XP_MSG">led_tm1637.v(15)</a><!@TM:1539618539> | Object step_id is declared but not assigned. Either assign a value or remove the declaration.</font>
-<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:40:10:40:28:@W:CG360:@XP_MSG">led_tm1637.v(40)</a><!@TM:1539618539> | Removing wire tx_buffer_is_empty, as there is no assignment to it.</font>
-<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:41:10:41:22:@W:CG360:@XP_MSG">led_tm1637.v(41)</a><!@TM:1539618539> | Removing wire charreceived, as there is no assignment to it.</font>
-<font color=#A52A2A>@W:<a href="@W:CL168:@XP_HELP">CL168</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:19:15:19:28:@W:CL168:@XP_MSG">led_tm1637.v(19)</a><!@TM:1539618539> | Removing instance oled_rom_init because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.</font>
-<font color=#A52A2A>@W:<a href="@W:CL157:@XP_HELP">CL157</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:8:19:8:29:@W:CL157:@XP_MSG">led_tm1637.v(8)</a><!@TM:1539618539> | *Output tm1637_clk has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.</font>
-<font color=#A52A2A>@W:<a href="@W:CL157:@XP_HELP">CL157</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:9:19:9:29:@W:CL157:@XP_MSG">led_tm1637.v(9)</a><!@TM:1539618539> | *Output tm1637_dio has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.</font>
-@N:<a href="@N:CL159:@XP_HELP">CL159</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:7:22:7:27:@N:CL159:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539618539> | Input rst_n is unused.
-@N:<a href="@N:CL159:@XP_HELP">CL159</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:11:22:11:30:@N:CL159:@XP_MSG">led_tm1637.v(11)</a><!@TM:1539618539> | Input switches is unused.
+<font color=#A52A2A>@W:<a href="@W:CG532:@XP_HELP">CG532</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:30:0:30:7:@W:CG532:@XP_MSG">led_tm1637_rom.v(30)</a><!@TM:1539625355> | Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.</font>
+@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:3:7:3:11:@N:CG364:@XP_MSG">led_tm1637.v(3)</a><!@TM:1539625355> | Synthesizing module demo in library work.
+<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:6:28:6:38:@W:CG360:@XP_MSG">led_tm1637.v(6)</a><!@TM:1539625355> | Removing wire tm1637_clk, as there is no assignment to it.</font>
+<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:7:28:7:38:@W:CG360:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539625355> | Removing wire tm1637_dio, as there is no assignment to it.</font>
+<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:144:10:144:28:@W:CG360:@XP_MSG">led_tm1637.v(144)</a><!@TM:1539625355> | Removing wire tx_buffer_is_empty, as there is no assignment to it.</font>
+<font color=#A52A2A>@W:<a href="@W:CG360:@XP_HELP">CG360</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:145:10:145:22:@W:CG360:@XP_MSG">led_tm1637.v(145)</a><!@TM:1539625355> | Removing wire charreceived, as there is no assignment to it.</font>
+<font color=#A52A2A>@W:<a href="@W:CL168:@XP_HELP">CL168</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:20:15:20:28:@W:CL168:@XP_MSG">led_tm1637.v(20)</a><!@TM:1539625355> | Removing instance oled_rom_init because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register step_id[6:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register wait_spi[0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register rd_spi[0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register wr_spi[0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register rst_led[0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register internal_state_machine[0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register elapsed_time[27:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register saved_elapsed_time[27:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register repeat_count[14:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register rx_data[7:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL169:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning unused register ss[0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL113:@XP_HELP">CL113</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL113:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Feedback mux created for signal spi_debug[3:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</font>
+<font color=#A52A2A>@W:<a href="@W:CL113:@XP_HELP">CL113</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL113:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Feedback mux created for signal debug_waiting_for_step_time[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</font>
+<font color=#A52A2A>@W:<a href="@W:CL113:@XP_HELP">CL113</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL113:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Feedback mux created for signal debug_waiting_for_spi[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.</font>
+<font color=#A52A2A>@W:<a href="@W:CL177:@XP_HELP">CL177</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL177:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Sharing sequential element debug_waiting_for_spi. Add a syn_preserve attribute to the element to prevent sharing.</font>
+<font color=#A52A2A>@W:<a href="@W:CL250:@XP_HELP">CL250</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL250:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | All reachable assignments to debug_waiting_for_step_time[0] assign 0, register removed by optimization</font>
+<font color=#A52A2A>@W:<a href="@W:CL250:@XP_HELP">CL250</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL250:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | All reachable assignments to spi_debug[3:0] assign 0, register removed by optimization</font>
+<font color=#A52A2A>@W:<a href="@W:CL279:@XP_HELP">CL279</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:63:0:63:6:@W:CL279:@XP_MSG">led_tm1637.v(63)</a><!@TM:1539625355> | Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.</font>
+<font color=#A52A2A>@W:<a href="@W:CL156:@XP_HELP">CL156</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:6:28:6:38:@W:CL156:@XP_MSG">led_tm1637.v(6)</a><!@TM:1539625355> | *Input tm1637_clk to expression [not] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.</font>
+<font color=#A52A2A>@W:<a href="@W:CL156:@XP_HELP">CL156</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:7:28:7:38:@W:CL156:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539625355> | *Input tm1637_dio to expression [not] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.</font>
+<font color=#A52A2A>@W:<a href="@W:CL156:@XP_HELP">CL156</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:116:8:117:39:@W:CL156:@XP_MSG">led_tm1637.v(116)</a><!@TM:1539625355> | *Input un1_tm1637_dio[3:0] to expression [pmux] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.</font>
+<font color=#A52A2A>@W:<a href="@W:CL157:@XP_HELP">CL157</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:6:28:6:38:@W:CL157:@XP_MSG">led_tm1637.v(6)</a><!@TM:1539625355> | *Output tm1637_clk has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.</font>
+<font color=#A52A2A>@W:<a href="@W:CL157:@XP_HELP">CL157</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:7:28:7:38:@W:CL157:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539625355> | *Output tm1637_dio has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.</font>
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 69MB peak: 71MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 23:48:58 2018
+# Tue Oct 16 01:42:35 2018
 
 ###########################################################]
 
@@ -95,17 +116,17 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 <a name=compilerReport3></a>Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1539618539> | Running in 64-bit mode 
+@N: : <!@TM:1539625355> | Running in 64-bit mode 
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\layer0.srs changed - recompiling
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:17:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1539618539> | Selected library: work cell: LED_TM1637 view verilog as top level
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:17:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1539618539> | Selected library: work cell: LED_TM1637 view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:3:7:3:11:@N:NF107:@XP_MSG">led_tm1637.v(3)</a><!@TM:1539625355> | Selected library: work cell: demo view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:3:7:3:11:@N:NF107:@XP_MSG">led_tm1637.v(3)</a><!@TM:1539625355> | Selected library: work cell: demo view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 23:48:58 2018
+# Tue Oct 16 01:42:35 2018
 
 ###########################################################]
 @END
@@ -115,13 +136,13 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 23:48:58 2018
+# Tue Oct 16 01:42:35 2018
 
 ###########################################################]
 
 </pre></samp></body></html>
 <html><body><samp><pre>
-<!@TC:1539618538>
+<!@TC:1539625354>
 
 Copyright (C) 1994-2018 Synopsys, Inc.
 This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
@@ -138,24 +159,24 @@ Hostname: BEACONDEV3
 Database state : C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\|rev_1
 <a name=compilerReport4></a>Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1539618540> | Running in 64-bit mode 
+@N: : <!@TM:1539625356> | Running in 64-bit mode 
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_comp.srs changed - recompiling
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:17:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1539618540> | Selected library: work cell: LED_TM1637 view verilog as top level
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:17:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1539618540> | Selected library: work cell: LED_TM1637 view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:3:7:3:11:@N:NF107:@XP_MSG">led_tm1637.v(3)</a><!@TM:1539625356> | Selected library: work cell: demo view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:3:7:3:11:@N:NF107:@XP_MSG">led_tm1637.v(3)</a><!@TM:1539625356> | Selected library: work cell: demo view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 23:49:00 2018
+# Tue Oct 16 01:42:36 2018
 
 ###########################################################]
 
 </pre></samp></body></html>
 <html><body><samp><pre>
-<!@TC:1539618538>
-# Mon Oct 15 23:49:00 2018
+<!@TC:1539625354>
+# Tue Oct 16 01:42:36 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -176,12 +197,12 @@ Implementation : rev_1
 
 Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
-@A:<a href="@A:MF827:@XP_HELP">MF827</a> : <!@TM:1539618543> | No constraint file specified. 
+@A:<a href="@A:MF827:@XP_HELP">MF827</a> : <!@TM:1539625358> | No constraint file specified. 
 Linked File:  <a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637_scck.rpt:@XP_FILE">fpga_led_tm1637_scck.rpt</a>
 Printing clock  summary report in "C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637_scck.rpt" file 
-@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1539618543> | Option synthesis_strategy=base is enabled.  
-@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1539618543> | Running in 64-bit mode. 
-@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1539618543> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
+@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1539625358> | Option synthesis_strategy=base is enabled.  
+@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1539625358> | Running in 64-bit mode. 
+@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1539625358> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
 
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
 
@@ -192,14 +213,14 @@ Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 100MB peak: 101MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 114MB)
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
-<font color=#A52A2A>@W:<a href="@W:FX474:@XP_HELP">FX474</a> : <!@TM:1539618543> | User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. </font> 
-@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1539618543> | UMR3 is only supported for HAPS-80. 
-@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1539618543> | UMR3 is only supported for HAPS-80. 
-@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:8:19:8:29:@N:MO111:@XP_MSG">led_tm1637.v(8)</a><!@TM:1539618543> | Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:9:19:9:29:@N:MO111:@XP_MSG">led_tm1637.v(9)</a><!@TM:1539618543> | Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-syn_allowed_resources : blockrams=10  set on top level netlist LED_TM1637
+@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:7:28:7:38:@N:MO111:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539625358> | Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
+@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:6:28:6:38:@N:MO111:@XP_MSG">led_tm1637.v(6)</a><!@TM:1539625358> | Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
+@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1539625358> | UMR3 is only supported for HAPS-80. 
+@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1539625358> | UMR3 is only supported for HAPS-80. 
+@N:<a href="@N:MF578:@XP_HELP">MF578</a> : <!@TM:1539625358> | Incompatible asynchronous control logic preventing generated clock conversion. 
+syn_allowed_resources : blockrams=10  set on top level netlist demo
 
 Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
@@ -208,26 +229,26 @@ Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0
 <a name=mapperReport6></a>Clock Summary</a>
 ******************
 
-          Start                                 Requested     Requested     Clock                                    Clock                     Clock
-Level     Clock                                 Frequency     Period        Type                                     Group                     Load 
-----------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       LED_TM1637|clk_50M[0]                 100.0 MHz     10.000        inferred                                 Autoconstr_clkgroup_0     4    
-1 .         LED_TM1637|cnt_derived_clock[3]     100.0 MHz     10.000        derived (from LED_TM1637|clk_50M[0])     Autoconstr_clkgroup_0     8    
-====================================================================================================================================================
+          Start                            Requested     Requested     Clock                           Clock                     Clock
+Level     Clock                            Frequency     Period        Type                            Group                     Load 
+--------------------------------------------------------------------------------------------------------------------------------------
+0 -       demo|clk_50M                     100.0 MHz     10.000        inferred                        Autoconstr_clkgroup_0     26   
+1 .         demo|clk_led_derived_clock     100.0 MHz     10.000        derived (from demo|clk_50M)     Autoconstr_clkgroup_0     4    
+======================================================================================================================================
 
 
 
 Clock Load Summary
 ***********************
 
-                                    Clock     Source                Clock Pin       Non-clock Pin     Non-clock Pin
-Clock                               Load      Pin                   Seq Example     Seq Example       Comb Example 
--------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]               4         clk_50M[0](port)      cnt[3].C        -                 -            
-LED_TM1637|cnt_derived_clock[3]     8         cnt[3].Q[0](dffr)     led[3:0].C      -                 -            
-===================================================================================================================
+                               Clock     Source                  Clock Pin       Non-clock Pin     Non-clock Pin
+Clock                          Load      Pin                     Seq Example     Seq Example       Comb Example 
+----------------------------------------------------------------------------------------------------------------
+demo|clk_50M                   26        clk_50M(port)           clk_led.C       -                 -            
+demo|clk_led_derived_clock     4         clk_led.Q[0](dffre)     cnt2[3:0].C     -                 -            
+================================================================================================================
 
-<font color=#A52A2A>@W:<a href="@W:MT529:@XP_HELP">MT529</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:102:0:102:6:@W:MT529:@XP_MSG">led_tm1637.v(102)</a><!@TM:1539618543> | Found inferred clock LED_TM1637|clk_50M[0] which controls 4 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. </font>
+<font color=#A52A2A>@W:<a href="@W:MT529:@XP_HELP">MT529</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:26:0:26:6:@W:MT529:@XP_MSG">led_tm1637.v(26)</a><!@TM:1539625358> | Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. </font>
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -240,53 +261,53 @@ Number of ICG latches not removed:	0
 
 <a name=clockReport7></a>#### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[</a>
 
-1 non-gated/non-generated clock tree(s) driving 4 clock pin(s) of sequential element(s)
-1 gated/generated clock tree(s) driving 8 clock pin(s) of sequential element(s)
-0 instances converted, 8 sequential instances remain driven by gated/generated clocks
+1 non-gated/non-generated clock tree(s) driving 26 clock pin(s) of sequential element(s)
+1 gated/generated clock tree(s) driving 4 clock pin(s) of sequential element(s)
+0 instances converted, 4 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
 ---------------------------------------------------------------------------------------
-<a href="@|L:C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_prem.srm@|S:clk_50M[0]@|E:cnt[0]@|F:@syn_dgcc_clockid0_2==1@|M:ClockId_0_2 @XP_NAMES_BY_PROP">ClockId_0_2</a>       clk_50M[0]          Unconstrained_port     4          cnt[0]         
+<a href="@|L:C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_prem.srm@|S:clk_50M@|E:cnt[24:0]@|F:@syn_dgcc_clockid0_0==1@|M:ClockId_0_0 @XP_NAMES_BY_PROP">ClockId_0_0</a>       clk_50M             Unconstrained_port     26         cnt[24:0]      
 =======================================================================================
 ============================================================= Gated/Generated Clocks =============================================================
 Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout     Sample Instance     Explanation                               
 --------------------------------------------------------------------------------------------------------------------------------------------------
-<a href="@|L:C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_prem.srm@|S:cnt[3].Q[0]@|E:cnt2[0]@|F:@syn_dgcc_clockid0_0==1@|M:ClockId_0_0 @XP_NAMES_BY_PROP">ClockId_0_0</a>       cnt[3].Q[0]         dffr                   8                      cnt2[0]             Derived clock on input (not legal for GCC)
+<a href="@|L:C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_prem.srm@|S:clk_led.Q[0]@|E:cnt2[3:0]@|F:@syn_dgcc_clockid0_1==1@|M:ClockId_0_1 @XP_NAMES_BY_PROP">ClockId_0_1</a>       clk_led.Q[0]        dffre                  4                      cnt2[3:0]           Derived clock on input (not legal for GCC)
 ==================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######
 
-@N: : <!@TM:1539618543> | Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized. 
+@N: : <!@TM:1539625358> | Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized. 
 Finished Pre Mapping Phase.
-@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:9:19:9:29:@N:MO111:@XP_MSG">led_tm1637.v(9)</a><!@TM:1539618543> | Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:8:19:8:29:@N:MO111:@XP_MSG">led_tm1637.v(8)</a><!@TM:1539618543> | Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N:<a href="@N:BN225:@XP_HELP">BN225</a> : <!@TM:1539618543> | Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap. 
+@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:7:28:7:38:@N:MO111:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539625358> | Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
+@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:6:28:6:38:@N:MO111:@XP_MSG">led_tm1637.v(6)</a><!@TM:1539625358> | Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
+@N:<a href="@N:BN225:@XP_HELP">BN225</a> : <!@TM:1539625358> | Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap. 
 
-Starting constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 None
 None
 
-Finished constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 103MB peak: 190MB)
+At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 103MB peak: 190MB)
 
-Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Mon Oct 15 23:49:03 2018
+Process took 0h:00m:01s realtime, 0h:00m:01s cputime
+# Tue Oct 16 01:42:38 2018
 
 ###########################################################]
 
 </pre></samp></body></html>
 <html><body><samp><pre>
-<!@TC:1539618538>
-# Mon Oct 15 23:49:03 2018
+<!@TC:1539625354>
+# Tue Oct 16 01:42:38 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -307,9 +328,9 @@ Implementation : rev_1
 
 Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
-@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1539618546> | Option synthesis_strategy=base is enabled.  
-@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1539618546> | Running in 64-bit mode. 
-@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1539618546> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
+@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1539625362> | Option synthesis_strategy=base is enabled.  
+@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1539625362> | Running in 64-bit mode. 
+@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1539625362> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
 
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
 
@@ -326,15 +347,13 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 
 Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
-@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:9:19:9:29:@N:MO111:@XP_MSG">led_tm1637.v(9)</a><!@TM:1539618546> | Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:8:19:8:29:@N:MO111:@XP_MSG">led_tm1637.v(8)</a><!@TM:1539618546> | Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:7:28:7:38:@N:MO111:@XP_MSG">led_tm1637.v(7)</a><!@TM:1539625362> | Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
+@N:<a href="@N:MO111:@XP_HELP">MO111</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:6:28:6:38:@N:MO111:@XP_MSG">led_tm1637.v(6)</a><!@TM:1539625362> | Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
 
 Available hyper_sources - for debug and ip models
 	None Found
 
-@N:<a href="@N:MT206:@XP_HELP">MT206</a> : <!@TM:1539618546> | Auto Constrain mode is enabled 
-@N:<a href="@N:FX493:@XP_HELP">FX493</a> : <!@TM:1539618546> | Applying initial value "0000" on instance cnt2[3:0]. 
-@N:<a href="@N:FX493:@XP_HELP">FX493</a> : <!@TM:1539618546> | Applying initial value "0000" on instance cnt[3:0]. 
+@N:<a href="@N:MT206:@XP_HELP">MT206</a> : <!@TM:1539625362> | Auto Constrain mode is enabled 
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
@@ -342,7 +361,7 @@ Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
 
-Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
+Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
 
 
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
@@ -364,11 +383,11 @@ Finished technology mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:0
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:00s		     8.27ns		  11 /        12
+   1		0h:00m:00s		     4.08ns		  60 /        30
 
 Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
-@N:<a href="@N:FX164:@XP_HELP">FX164</a> : <!@TM:1539618546> | The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.   
+@N:<a href="@N:FX164:@XP_HELP">FX164</a> : <!@TM:1539625362> | The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.   
 
 Finished restoring hierarchy (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
@@ -383,32 +402,32 @@ Writing Verilog Simulation files
 
 Writing scf file... (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 188MB peak: 190MB)
 
-@N:<a href="@N:BW103:@XP_HELP">BW103</a> : <!@TM:1539618546> | The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns. 
-@N:<a href="@N:BW107:@XP_HELP">BW107</a> : <!@TM:1539618546> | Synopsys Constraint File capacitance units using default value of 1pF  
-@A:<a href="@A:BN540:@XP_HELP">BN540</a> : <!@TM:1539618546> | No min timing constraints supplied; adding min timing constraints 
+@N:<a href="@N:BW103:@XP_HELP">BW103</a> : <!@TM:1539625362> | The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns. 
+@N:<a href="@N:BW107:@XP_HELP">BW107</a> : <!@TM:1539625362> | Synopsys Constraint File capacitance units using default value of 1pF  
+@A:<a href="@A:BN540:@XP_HELP">BN540</a> : <!@TM:1539625362> | No min timing constraints supplied; adding min timing constraints 
 
 Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 187MB peak: 190MB)
 
 
 Start final timing analysis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 188MB peak: 190MB)
 
-<font color=#A52A2A>@W:<a href="@W:MT420:@XP_HELP">MT420</a> : <!@TM:1539618546> | Found inferred clock LED_TM1637|clk_50M[0] with period 10.00ns. Please declare a user-defined clock on port clk_50M[0].</font> 
-@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1539618546> | Found clock LED_TM1637|cnt_derived_clock[3] with period 10.00ns  
+<font color=#A52A2A>@W:<a href="@W:MT420:@XP_HELP">MT420</a> : <!@TM:1539625362> | Found inferred clock demo|clk_50M with period 10.00ns. Please declare a user-defined clock on port clk_50M.</font> 
+@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1539625362> | Found clock demo|clk_led_derived_clock with period 10.00ns  
 
 
 <a name=timingReport9></a>##### START OF TIMING REPORT #####[</a>
-<a name=pnr10></a># Timing Report written on Mon Oct 15 23:49:06 2018</a>
+<a name=pnr10></a># Timing Report written on Tue Oct 16 01:42:41 2018</a>
 #
 
 
-Top view:               LED_TM1637
+Top view:               demo
 Requested Frequency:    100.0 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
-@N:<a href="@N:MT320:@XP_HELP">MT320</a> : <!@TM:1539618546> | This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report. 
+@N:<a href="@N:MT320:@XP_HELP">MT320</a> : <!@TM:1539625362> | This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report. 
 
-@N:<a href="@N:MT322:@XP_HELP">MT322</a> : <!@TM:1539618546> | Clock constraints include only register-to-register paths associated with each individual clock. 
+@N:<a href="@N:MT322:@XP_HELP">MT322</a> : <!@TM:1539625362> | Clock constraints include only register-to-register paths associated with each individual clock. 
 
 
 
@@ -416,15 +435,15 @@ Constraint File(s):
 *******************
 
 
-Worst slack in design: 7.380
+Worst slack in design: 1.537
 
-                                    Requested     Estimated     Requested     Estimated                Clock                                    Clock                
-Starting Clock                      Frequency     Frequency     Period        Period        Slack      Type                                     Group                
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]               100.0 MHz     381.7 MHz     10.000        2.620         7.380      inferred                                 Autoconstr_clkgroup_0
-LED_TM1637|cnt_derived_clock[3]     100.0 MHz     763.4 MHz     10.000        1.310         17.380     derived (from LED_TM1637|clk_50M[0])     Autoconstr_clkgroup_0
-System                              100.0 MHz     866.6 MHz     10.000        1.154         8.846      system                                   system_clkgroup      
-=====================================================================================================================================================================
+                               Requested     Estimated     Requested     Estimated                Clock                           Clock                
+Starting Clock                 Frequency     Frequency     Period        Period        Slack      Type                            Group                
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+demo|clk_50M                   100.0 MHz     118.2 MHz     10.000        8.463         1.537      inferred                        Autoconstr_clkgroup_0
+demo|clk_led_derived_clock     100.0 MHz     763.4 MHz     10.000        1.310         17.380     derived (from demo|clk_50M)     Autoconstr_clkgroup_0
+System                         100.0 MHz     866.6 MHz     10.000        1.154         8.846      system                          system_clkgroup      
+=======================================================================================================================================================
 
 
 
@@ -433,17 +452,17 @@ System                              100.0 MHz     866.6 MHz     10.000        1.
 <a name=clockRelationships12></a>Clock Relationships</a>
 *******************
 
-Clocks                                                            |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
----------------------------------------------------------------------------------------------------------------------------------------------------------
-Starting                         Ending                           |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
----------------------------------------------------------------------------------------------------------------------------------------------------------
-System                           LED_TM1637|clk_50M[0]            |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
-System                           LED_TM1637|cnt_derived_clock[3]  |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
-LED_TM1637|clk_50M[0]            System                           |  10.000      8.612   |  No paths    -      |  No paths    -      |  No paths    -    
-LED_TM1637|clk_50M[0]            LED_TM1637|clk_50M[0]            |  10.000      7.380   |  No paths    -      |  No paths    -      |  No paths    -    
-LED_TM1637|cnt_derived_clock[3]  System                           |  10.000      8.612   |  No paths    -      |  No paths    -      |  No paths    -    
-LED_TM1637|cnt_derived_clock[3]  LED_TM1637|cnt_derived_clock[3]  |  10.000      17.380  |  No paths    -      |  No paths    -      |  No paths    -    
-=========================================================================================================================================================
+Clocks                                                  |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Starting                    Ending                      |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
+-----------------------------------------------------------------------------------------------------------------------------------------------
+System                      demo|clk_50M                |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
+System                      demo|clk_led_derived_clock  |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
+demo|clk_50M                System                      |  10.000      8.612   |  No paths    -      |  No paths    -      |  No paths    -    
+demo|clk_50M                demo|clk_50M                |  10.000      1.537   |  No paths    -      |  No paths    -      |  No paths    -    
+demo|clk_led_derived_clock  System                      |  10.000      8.612   |  No paths    -      |  No paths    -      |  No paths    -    
+demo|clk_led_derived_clock  demo|clk_led_derived_clock  |  10.000      17.380  |  No paths    -      |  No paths    -      |  No paths    -    
+===============================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
 
@@ -457,7 +476,7 @@ No IO constraint found
 
 
 ====================================
-<a name=clockReport14></a>Detailed Report for Clock: LED_TM1637|clk_50M[0]</a>
+<a name=clockReport14></a>Detailed Report for Clock: demo|clk_50M</a>
 ====================================
 
 
@@ -465,37 +484,46 @@ No IO constraint found
 <a name=startingSlack15></a>Starting Points with Worst Slack</a>
 ********************************
 
-             Starting                                                Arrival          
-Instance     Reference                 Type     Pin     Net          Time        Slack
-             Clock                                                                    
---------------------------------------------------------------------------------------
-cnt[2]       LED_TM1637|clk_50M[0]     DFFE     Q       cnt[2]       0.367       7.380
-cnt[1]       LED_TM1637|clk_50M[0]     DFFE     Q       cnt[1]       0.367       7.447
-cnt[3]       LED_TM1637|clk_50M[0]     DFFE     Q       cnt_i[3]     0.367       7.657
-cnt[0]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[0]       0.367       8.479
-======================================================================================
+             Starting                                      Arrival          
+Instance     Reference        Type     Pin     Net         Time        Slack
+             Clock                                                          
+----------------------------------------------------------------------------
+cnt[17]      demo|clk_50M     DFFC     Q       cnt[17]     0.367       1.537
+cnt[15]      demo|clk_50M     DFFC     Q       cnt[15]     0.367       1.604
+cnt[12]      demo|clk_50M     DFFC     Q       cnt[12]     0.367       1.747
+cnt[3]       demo|clk_50M     DFFC     Q       cnt[3]      0.367       1.814
+cnt[11]      demo|clk_50M     DFFC     Q       cnt[11]     0.367       1.814
+cnt[2]       demo|clk_50M     DFFC     Q       cnt[2]      0.367       1.881
+cnt[13]      demo|clk_50M     DFFC     Q       cnt[13]     0.367       2.024
+cnt[18]      demo|clk_50M     DFFC     Q       cnt[18]     0.367       2.024
+cnt[4]       demo|clk_50M     DFFC     Q       cnt[4]      0.367       2.091
+cnt[16]      demo|clk_50M     DFFC     Q       cnt[16]     0.367       2.091
+============================================================================
 
 
 <a name=endingSlack16></a>Ending Points with Worst Slack</a>
 ******************************
 
-               Starting                                                Required          
-Instance       Reference                 Type     Pin     Net          Time         Slack
-               Clock                                                                     
------------------------------------------------------------------------------------------
-cnt[2]         LED_TM1637|clk_50M[0]     DFFE     D       cnt_1[2]     9.867        7.380
-cnt[3]         LED_TM1637|clk_50M[0]     DFFE     D       cnt_1[3]     9.867        7.380
-cnt[1]         LED_TM1637|clk_50M[0]     DFFE     CE      cnt[0]       9.867        8.479
-cnt[2]         LED_TM1637|clk_50M[0]     DFFE     CE      cnt[0]       9.867        8.479
-cnt[3]         LED_TM1637|clk_50M[0]     DFFE     CE      cnt[0]       9.867        8.479
-cnt_RNO[1]     LED_TM1637|clk_50M[0]     INV      I       cnt[1]       10.000       8.612
-cnt_i[0]       LED_TM1637|clk_50M[0]     INV      I       cnt[0]       10.000       8.612
-=========================================================================================
+             Starting                                        Required          
+Instance     Reference        Type     Pin     Net           Time         Slack
+             Clock                                                             
+-------------------------------------------------------------------------------
+cnt[6]       demo|clk_50M     DFFC     D       cnt_3[6]      9.867        1.537
+cnt[11]      demo|clk_50M     DFFC     D       cnt_3[11]     9.867        1.537
+cnt[12]      demo|clk_50M     DFFC     D       cnt_3[12]     9.867        1.537
+cnt[13]      demo|clk_50M     DFFC     D       cnt_3[13]     9.867        1.537
+cnt[14]      demo|clk_50M     DFFC     D       cnt_3[14]     9.867        1.537
+cnt[16]      demo|clk_50M     DFFC     D       cnt_3[16]     9.867        1.537
+cnt[18]      demo|clk_50M     DFFC     D       cnt_3[18]     9.867        1.537
+cnt[19]      demo|clk_50M     DFFC     D       cnt_3[19]     9.867        1.537
+cnt[20]      demo|clk_50M     DFFC     D       cnt_3[20]     9.867        1.537
+cnt[21]      demo|clk_50M     DFFC     D       cnt_3[21]     9.867        1.537
+===============================================================================
 
 
 
 <a name=worstPaths17></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:27688:28162:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:31335:32520:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -505,34 +533,43 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.867
 
-    - Propagation time:                      2.487
+    - Propagation time:                      8.330
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     7.380
+    = Slack (critical) :                     1.537
 
-    Number of logic level(s):                1
-    Starting point:                          cnt[2] / Q
-    Ending point:                            cnt[2] / D
-    The start point is clocked by            LED_TM1637|clk_50M[0] [rising] on pin CLK
-    The end   point is clocked by            LED_TM1637|clk_50M[0] [rising] on pin CLK
+    Number of logic level(s):                4
+    Starting point:                          cnt[17] / Q
+    Ending point:                            cnt[6] / D
+    The start point is clocked by            demo|clk_50M [rising] on pin CLK
+    The end   point is clocked by            demo|clk_50M [rising] on pin CLK
 
 Instance / Net              Pin      Pin               Arrival     No. of    
 Name               Type     Name     Dir     Delay     Time        Fan Out(s)
 -----------------------------------------------------------------------------
-cnt[2]             DFFE     Q        Out     0.367     0.367       -         
-cnt[2]             Net      -        -       1.021     -           2         
-cnt_RNO[2]         LUT2     I1       In      -         1.388       -         
-cnt_RNO[2]         LUT2     F        Out     1.099     2.487       -         
-cnt_1[2]           Net      -        -       0.000     -           1         
-cnt[2]             DFFE     D        In      -         2.487       -         
+cnt[17]            DFFC     Q        Out     0.367     0.367       -         
+cnt[17]            Net      -        -       1.021     -           2         
+clk_led4_11        LUT2     I1       In      -         1.388       -         
+clk_led4_11        LUT2     F        Out     1.099     2.487       -         
+clk_led4_11        Net      -        -       0.766     -           1         
+clk_led4_18        LUT4     I0       In      -         3.253       -         
+clk_led4_18        LUT4     F        Out     1.032     4.285       -         
+clk_led4_18        Net      -        -       0.766     -           1         
+clk_led4           LUT3     I1       In      -         5.050       -         
+clk_led4           LUT3     F        Out     1.099     6.149       -         
+clk_led4           Net      -        -       1.082     -           13        
+cnt_3[6]           LUT2     I1       In      -         7.231       -         
+cnt_3[6]           LUT2     F        Out     1.099     8.330       -         
+cnt_3[6]           Net      -        -       0.000     -           1         
+cnt[6]             DFFC     D        In      -         8.330       -         
 =============================================================================
-Total path delay (propagation time + setup) of 2.620 is 1.599(61.0%) logic and 1.021(39.0%) route.
+Total path delay (propagation time + setup) of 8.463 is 4.829(57.1%) logic and 3.634(42.9%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
 
 
 ====================================
-<a name=clockReport18></a>Detailed Report for Clock: LED_TM1637|cnt_derived_clock[3]</a>
+<a name=clockReport18></a>Detailed Report for Clock: demo|clk_led_derived_clock</a>
 ====================================
 
 
@@ -540,40 +577,34 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 <a name=startingSlack19></a>Starting Points with Worst Slack</a>
 ********************************
 
-             Starting                                                         Arrival          
-Instance     Reference                           Type     Pin     Net         Time        Slack
-             Clock                                                                             
------------------------------------------------------------------------------------------------
-cnt2[0]      LED_TM1637|cnt_derived_clock[3]     DFF      Q       cnt2[0]     0.367       8.612
-cnt2[1]      LED_TM1637|cnt_derived_clock[3]     DFFE     Q       cnt2[1]     0.367       8.612
-cnt2[2]      LED_TM1637|cnt_derived_clock[3]     DFFE     Q       cnt2[2]     0.367       8.612
-cnt2[3]      LED_TM1637|cnt_derived_clock[3]     DFFE     Q       cnt2[3]     0.367       8.612
-===============================================================================================
+             Starting                                                    Arrival           
+Instance     Reference                      Type     Pin     Net         Time        Slack 
+             Clock                                                                         
+-------------------------------------------------------------------------------------------
+cnt2[0]      demo|clk_led_derived_clock     DFFC     Q       cnt2[0]     0.367       8.612 
+cnt2[1]      demo|clk_led_derived_clock     DFFC     Q       cnt2[1]     0.367       17.380
+cnt2[2]      demo|clk_led_derived_clock     DFFC     Q       cnt2[2]     0.367       17.657
+cnt2[3]      demo|clk_led_derived_clock     DFFC     Q       cnt2[3]     0.367       17.853
+===========================================================================================
 
 
 <a name=endingSlack20></a>Ending Points with Worst Slack</a>
 ******************************
 
-                Starting                                                           Required           
-Instance        Reference                           Type     Pin     Net           Time         Slack 
-                Clock                                                                                 
-------------------------------------------------------------------------------------------------------
-cnt2_RNO[1]     LED_TM1637|cnt_derived_clock[3]     INV      I       cnt2[1]       10.000       8.612 
-cnt2_i[0]       LED_TM1637|cnt_derived_clock[3]     INV      I       cnt2[0]       10.000       8.612 
-led_RNO[0]      LED_TM1637|cnt_derived_clock[3]     INV      I       cnt2[3]       10.000       8.612 
-led_RNO[1]      LED_TM1637|cnt_derived_clock[3]     INV      I       cnt2[2]       10.000       8.612 
-led_RNO[2]      LED_TM1637|cnt_derived_clock[3]     INV      I       cnt2[1]       10.000       8.612 
-cnt2[2]         LED_TM1637|cnt_derived_clock[3]     DFFE     D       cnt2_1[2]     19.867       17.380
-cnt2[3]         LED_TM1637|cnt_derived_clock[3]     DFFE     D       cnt2_1[3]     19.867       17.380
-cnt2[1]         LED_TM1637|cnt_derived_clock[3]     DFFE     CE      cnt2[0]       19.867       18.479
-cnt2[2]         LED_TM1637|cnt_derived_clock[3]     DFFE     CE      cnt2[0]       19.867       18.479
-cnt2[3]         LED_TM1637|cnt_derived_clock[3]     DFFE     CE      cnt2[0]       19.867       18.479
-======================================================================================================
+                Starting                                                       Required           
+Instance        Reference                      Type     Pin     Net            Time         Slack 
+                Clock                                                                             
+--------------------------------------------------------------------------------------------------
+cnt2_RNO[0]     demo|clk_led_derived_clock     INV      I       cnt2[0]        10.000       8.612 
+cnt2[1]         demo|clk_led_derived_clock     DFFC     D       N_8_0_i        19.867       17.380
+cnt2[2]         demo|clk_led_derived_clock     DFFC     D       N_7_0_i        19.867       17.380
+cnt2[3]         demo|clk_led_derived_clock     DFFC     D       N_30_mux_i     19.867       17.380
+==================================================================================================
 
 
 
 <a name=worstPaths21></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:32287:32524:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:35941:36178:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -590,16 +621,16 @@ Path information for path number 1:
 
     Number of logic level(s):                0
     Starting point:                          cnt2[0] / Q
-    Ending point:                            cnt2_i[0] / I
-    The start point is clocked by            LED_TM1637|cnt_derived_clock[3] [rising] on pin CLK
+    Ending point:                            cnt2_RNO[0] / I
+    The start point is clocked by            demo|clk_led_derived_clock [rising] on pin CLK
     The end   point is clocked by            System [rising]
 
 Instance / Net              Pin      Pin               Arrival     No. of    
 Name               Type     Name     Dir     Delay     Time        Fan Out(s)
 -----------------------------------------------------------------------------
-cnt2[0]            DFF      Q        Out     0.367     0.367       -         
-cnt2[0]            Net      -        -       1.021     -           4         
-cnt2_i[0]          INV      I        In      -         1.388       -         
+cnt2[0]            DFFC     Q        Out     0.367     0.367       -         
+cnt2[0]            Net      -        -       1.021     -           5         
+cnt2_RNO[0]        INV      I        In      -         1.388       -         
 =============================================================================
 Total path delay (propagation time + setup) of 1.388 is 0.367(26.4%) logic and 1.021(73.6%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
@@ -616,41 +647,30 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 <a name=startingSlack23></a>Starting Points with Worst Slack</a>
 ********************************
 
-                Starting                                     Arrival          
-Instance        Reference     Type     Pin     Net           Time        Slack
-                Clock                                                         
-------------------------------------------------------------------------------
-cnt2_RNO[1]     System        INV      O       cnt2_1[1]     0.000       8.846
-cnt2_i[0]       System        INV      O       cnt2_i[0]     0.000       8.846
-cnt_RNO[1]      System        INV      O       cnt_1[1]      0.000       8.846
-cnt_i[0]        System        INV      O       cnt_i[0]      0.000       8.846
-led_RNO[0]      System        INV      O       cnt2_i[3]     0.000       8.846
-led_RNO[1]      System        INV      O       cnt2_i[2]     0.000       8.846
-led_RNO[2]      System        INV      O       cnt2_i[1]     0.000       8.846
-==============================================================================
+                Starting                                       Arrival          
+Instance        Reference     Type     Pin     Net             Time        Slack
+                Clock                                                           
+--------------------------------------------------------------------------------
+clk_led_RNO     System        INV      O       clk_led_i_i     0.000       8.846
+cnt2_RNO[0]     System        INV      O       cnt2_i[0]       0.000       8.846
+================================================================================
 
 
 <a name=endingSlack24></a>Ending Points with Worst Slack</a>
 ******************************
 
-             Starting                                     Required          
-Instance     Reference     Type     Pin     Net           Time         Slack
-             Clock                                                          
-----------------------------------------------------------------------------
-cnt2[0]      System        DFF      D       cnt2_i[0]     9.867        8.846
-cnt2[1]      System        DFFE     D       cnt2_1[1]     9.867        8.846
-cnt[0]       System        DFF      D       cnt_i[0]      9.867        8.846
-cnt[1]       System        DFFE     D       cnt_1[1]      9.867        8.846
-led[0]       System        DFF      D       cnt2_i[3]     9.867        8.846
-led[1]       System        DFF      D       cnt2_i[2]     9.867        8.846
-led[2]       System        DFF      D       cnt2_i[1]     9.867        8.846
-led[3]       System        DFF      D       cnt2_i[0]     9.867        8.846
-============================================================================
+             Starting                                        Required          
+Instance     Reference     Type      Pin     Net             Time         Slack
+             Clock                                                             
+-------------------------------------------------------------------------------
+clk_led      System        DFFCE     D       clk_led_i_i     9.867        8.846
+cnt2[0]      System        DFFC      D       cnt2_i[0]       9.867        8.846
+===============================================================================
 
 
 
 <a name=worstPaths25></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:36167:36404:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:38972:39212:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -666,18 +686,18 @@ Path information for path number 1:
     = Slack (non-critical) :                 8.846
 
     Number of logic level(s):                0
-    Starting point:                          cnt2_RNO[1] / O
-    Ending point:                            cnt2[1] / D
+    Starting point:                          clk_led_RNO / O
+    Ending point:                            clk_led / D
     The start point is clocked by            System [rising]
-    The end   point is clocked by            LED_TM1637|cnt_derived_clock[3] [rising] on pin CLK
+    The end   point is clocked by            demo|clk_50M [rising] on pin CLK
 
-Instance / Net              Pin      Pin               Arrival     No. of    
-Name               Type     Name     Dir     Delay     Time        Fan Out(s)
------------------------------------------------------------------------------
-cnt2_RNO[1]        INV      O        Out     0.000     0.000       -         
-cnt2_1[1]          Net      -        -       1.021     -           1         
-cnt2[1]            DFFE     D        In      -         1.021       -         
-=============================================================================
+Instance / Net               Pin      Pin               Arrival     No. of    
+Name               Type      Name     Dir     Delay     Time        Fan Out(s)
+------------------------------------------------------------------------------
+clk_led_RNO        INV       O        Out     0.000     0.000       -         
+clk_led_i_i        Net       -        -       1.021     -           1         
+clk_led            DFFCE     D        In      -         1.021       -         
+==============================================================================
 Total path delay (propagation time + setup) of 1.154 is 0.133(11.5%) logic and 1.021(88.5%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
@@ -694,38 +714,40 @@ Finished final timing analysis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0
 Finished timing report (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 188MB peak: 190MB)
 
 ---------------------------------------
-<a name=resourceUsage26></a>Resource Usage Report for LED_TM1637 </a>
+<a name=resourceUsage26></a>Resource Usage Report for demo </a>
 
 Mapping to part: gw1n_4lqfp144-6
 Cell usage:
-DFF             6 uses
-DFFE            6 uses
+ALU             25 uses
+DFFC            29 uses
+DFFCE           1 use
 GSR             1 use
-INV             7 uses
-LUT2            2 uses
-LUT3            2 uses
+INV             3 uses
+LUT2            14 uses
+LUT3            6 uses
+LUT4            12 uses
 
 I/O ports: 12
-I/O primitives: 7
-IBUF           1 use
+I/O primitives: 12
+IBUF           6 uses
 OBUF           4 uses
 TBUF           2 uses
 
 I/O Register bits:                  0
-Register bits not including I/Os:   12 of 3456 (0%)
+Register bits not including I/Os:   30 of 3456 (0%)
 Total load per clock:
-   LED_TM1637|clk_50M[0]: 4
-   LED_TM1637|cnt_derived_clock[3]: 8
+   demo|clk_50M: 26
+   demo|clk_led_derived_clock: 4
 
 @S |Mapping Summary:
-Total  LUTs: 4 (0%)
+Total  LUTs: 32 (0%)
 
 Mapper successful!
 
 At Mapper Exit (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 38MB peak: 190MB)
 
 Process took 0h:00m:03s realtime, 0h:00m:03s cputime
-# Mon Oct 15 23:49:06 2018
+# Tue Oct 16 01:42:42 2018
 
 ###########################################################]
 

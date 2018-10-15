@@ -1,14 +1,12 @@
 @N: MF916 |Option synthesis_strategy=base is enabled. 
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
 @N: MT206 |Auto Constrain mode is enabled
-@N: FX493 |Applying initial value "0000" on instance cnt2[3:0].
-@N: FX493 |Applying initial value "0000" on instance cnt[3:0].
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
-@N: MT615 |Found clock LED_TM1637|cnt_derived_clock[3] with period 10.00ns 
+@N: MT615 |Found clock demo|clk_led_derived_clock with period 10.00ns 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
 @N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

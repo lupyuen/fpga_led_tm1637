@@ -3,10 +3,8 @@
 @N:: Running Verilog Compiler in System Verilog mode
 @N:: Running Verilog Compiler in Multiple File Compilation Unit mode
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":22:7:22:20|Synthesizing module LED_TM1637_ROM in library work.
-@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Synthesizing module LED_TM1637 in library work.
-@N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:22:7:26|Input rst_n is unused.
-@N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":11:22:11:29|Input switches is unused.
+@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Synthesizing module demo in library work.
 @N|Running in 64-bit mode
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Selected library: work cell: demo view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Selected library: work cell: demo view verilog as top level
 

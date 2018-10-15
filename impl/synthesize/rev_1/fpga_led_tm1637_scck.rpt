@@ -13,7 +13,7 @@ Hostname: BEACONDEV3
 
 Implementation : rev_1
 
-# Written on Mon Oct 15 23:49:01 2018
+# Written on Tue Oct 16 01:42:36 2018
 
 ##### FILES SYNTAX CHECKED ##############################################
 Constraint File(s):      (none)
@@ -30,20 +30,20 @@ No issues found in constraint syntax.
 Clock Summary
 *************
 
-          Start                                 Requested     Requested     Clock                                    Clock                     Clock
-Level     Clock                                 Frequency     Period        Type                                     Group                     Load 
-----------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       LED_TM1637|clk_50M[0]                 100.0 MHz     10.000        inferred                                 Autoconstr_clkgroup_0     4    
-1 .         LED_TM1637|cnt_derived_clock[3]     100.0 MHz     10.000        derived (from LED_TM1637|clk_50M[0])     Autoconstr_clkgroup_0     8    
-====================================================================================================================================================
+          Start                            Requested     Requested     Clock                           Clock                     Clock
+Level     Clock                            Frequency     Period        Type                            Group                     Load 
+--------------------------------------------------------------------------------------------------------------------------------------
+0 -       demo|clk_50M                     100.0 MHz     10.000        inferred                        Autoconstr_clkgroup_0     26   
+1 .         demo|clk_led_derived_clock     100.0 MHz     10.000        derived (from demo|clk_50M)     Autoconstr_clkgroup_0     4    
+======================================================================================================================================
 
 
 Clock Load Summary
 ******************
 
-                                    Clock     Source                Clock Pin       Non-clock Pin     Non-clock Pin
-Clock                               Load      Pin                   Seq Example     Seq Example       Comb Example 
--------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]               4         clk_50M[0](port)      cnt[3].C        -                 -            
-LED_TM1637|cnt_derived_clock[3]     8         cnt[3].Q[0](dffr)     led[3:0].C      -                 -            
-===================================================================================================================
+                               Clock     Source                  Clock Pin       Non-clock Pin     Non-clock Pin
+Clock                          Load      Pin                     Seq Example     Seq Example       Comb Example 
+----------------------------------------------------------------------------------------------------------------
+demo|clk_50M                   26        clk_50M(port)           clk_led.C       -                 -            
+demo|clk_led_derived_clock     4         clk_led.Q[0](dffre)     cnt2[3:0].C     -                 -            
+================================================================================================================

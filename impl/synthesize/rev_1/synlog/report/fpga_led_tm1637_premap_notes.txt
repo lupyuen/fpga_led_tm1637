@@ -1,11 +1,12 @@
 @N: MF916 |Option synthesis_strategy=base is enabled. 
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @N: MH105 |UMR3 is only supported for HAPS-80.
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MF578 |Incompatible asynchronous control logic preventing generated clock conversion.
 @N|Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap.

@@ -1,2 +1,1 @@
-@W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":102:0:102:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 4 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":26:0:26:5|Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
