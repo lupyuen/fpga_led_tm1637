@@ -1,19 +1,19 @@
-@P:  Worst Slack : -0.635
-@P:  LED_TM1637|clk_50M[0] - Estimated Frequency : 181.6 MHz
+@P:  Worst Slack : -0.507
+@P:  LED_TM1637|clk_50M[0] - Estimated Frequency : 215.8 MHz
 @P:  LED_TM1637|clk_50M[0] - Requested Frequency : 100.0 MHz
-@P:  LED_TM1637|clk_50M[0] - Estimated Period : 5.506
+@P:  LED_TM1637|clk_50M[0] - Estimated Period : 4.633
 @P:  LED_TM1637|clk_50M[0] - Requested Period : 10.000
-@P:  LED_TM1637|clk_50M[0] - Slack : 4.494
-@P:  LED_TM1637|clk_led_derived_clock[0] - Estimated Frequency : 94.0 MHz
+@P:  LED_TM1637|clk_50M[0] - Slack : 5.367
+@P:  LED_TM1637|clk_led_derived_clock[0] - Estimated Frequency : 95.2 MHz
 @P:  LED_TM1637|clk_led_derived_clock[0] - Requested Frequency : 100.0 MHz
-@P:  LED_TM1637|clk_led_derived_clock[0] - Estimated Period : 10.635
+@P:  LED_TM1637|clk_led_derived_clock[0] - Estimated Period : 10.507
 @P:  LED_TM1637|clk_led_derived_clock[0] - Requested Period : 10.000
-@P:  LED_TM1637|clk_led_derived_clock[0] - Slack : 6.359
-@P:  LED_TM1637|rd_spi_derived_clock[0] - Estimated Frequency : 94.0 MHz
+@P:  LED_TM1637|clk_led_derived_clock[0] - Slack : 5.423
+@P:  LED_TM1637|rd_spi_derived_clock[0] - Estimated Frequency : 95.2 MHz
 @P:  LED_TM1637|rd_spi_derived_clock[0] - Requested Frequency : 100.0 MHz
-@P:  LED_TM1637|rd_spi_derived_clock[0] - Estimated Period : 10.635
+@P:  LED_TM1637|rd_spi_derived_clock[0] - Estimated Period : 10.507
 @P:  LED_TM1637|rd_spi_derived_clock[0] - Requested Period : 10.000
-@P:  LED_TM1637|rd_spi_derived_clock[0] - Slack : -0.635
+@P:  LED_TM1637|rd_spi_derived_clock[0] - Slack : -0.507
 @P:  LED_TM1637|wr_spi_derived_clock[0] - Estimated Frequency : 159.7 MHz
 @P:  LED_TM1637|wr_spi_derived_clock[0] - Requested Frequency : 100.0 MHz
 @P:  LED_TM1637|wr_spi_derived_clock[0] - Estimated Period : 6.261
@@ -27,7 +27,7 @@
 @P: LED_TM1637 Part : gw1n_4lqfp144-6
 @P: LED_TM1637 I/O primitives : 11
 @P: LED_TM1637 I/O Register bits : 0
-@P: LED_TM1637 Register bits (Non I/O) : 142 (4%)
+@P: LED_TM1637 Register bits (Non I/O) : 138 (3%)
 @P: LED_TM1637 Block Rams : 2 of 10 (20%)
-@P: LED_TM1637 Total Luts : 156 of 800 (3%)
+@P: LED_TM1637 Total Luts : 164 of 800 (3%)
 @P:  CPU Time : 0h:00m:04s

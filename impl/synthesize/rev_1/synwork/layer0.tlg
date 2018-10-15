@@ -12,4 +12,9 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Synthesizing module LED_TM1637 in library work.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Register bit cnt[12] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Register bit cnt[13] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Register bit cnt[14] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Register bit cnt[15] is always 0.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Pruning register bits 15 to 12 of cnt[15:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:22:7:26|Input rst_n is unused.

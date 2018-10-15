@@ -17,20 +17,20 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 <row>
 <data>LED_TM1637|clk_50M[0]</data>
 <data>100.0 MHz</data>
-<data>181.6 MHz</data>
-<data>4.494</data>
+<data>215.8 MHz</data>
+<data>5.367</data>
 </row>
 <row>
 <data>LED_TM1637|clk_led_derived_clock[0]</data>
 <data>100.0 MHz</data>
-<data>94.0 MHz</data>
-<data>6.359</data>
+<data>95.2 MHz</data>
+<data>5.423</data>
 </row>
 <row>
 <data>LED_TM1637|rd_spi_derived_clock[0]</data>
 <data>100.0 MHz</data>
-<data>94.0 MHz</data>
-<data>-0.635</data>
+<data>95.2 MHz</data>
+<data>-0.507</data>
 </row>
 <row>
 <data>LED_TM1637|wr_spi_derived_clock[0]</data>
