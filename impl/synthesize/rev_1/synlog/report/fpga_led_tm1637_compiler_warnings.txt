@@ -1,5 +1,5 @@
-@W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":31:0:31:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":75:0:75:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":75:0:75:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Pruning register bits 24 to 18 of cnt[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":30:0:30:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
+@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Pruning register bits 23 to 12 of cnt[23:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 

@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 //  Based on https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master
 ////////////////////////////////////////////////////////////////////////////////
 ////                                                                        ////

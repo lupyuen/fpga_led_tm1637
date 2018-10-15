@@ -6,7 +6,7 @@ module	LED_TM1637(
     input   wire[0:0] rst_n,    //  TODO: Reset pin is also an Input, triggered by board restart or reset button.
 	output  wire[0:0] tm1637_clk,  //  Pin 131, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
 	output  wire[0:0] tm1637_dio,  //  Pin 132, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
-    output  wire[3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
+    output  reg[3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
     input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
 );
 
@@ -45,7 +45,7 @@ reg[0:0] wr_spi = 1'b0;
 reg[0:0] clk_led = 1'b0;
 reg[0:0] rst_led = 1'b0;
 reg[0:0] internal_state_machine = 1'b0;
-reg[24:0] cnt = 25'h0;
+reg[23:0] cnt = 24'h0;
 reg[27:0] elapsed_time = 28'h0;
 reg[27:0] saved_elapsed_time = 28'h0;
 reg[14:0] repeat_count = 15'h0;
@@ -88,7 +88,7 @@ assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~norm
 */
 
 always@(  //  Code below is always triggered when these conditions are true...
-    posedge clk_50M  //  When the clock signal transitions from low to high (positive edge) OR
+    posedge clk_50M[0]  //  When the clock signal transitions from low to high (positive edge) OR
     // or negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
     ) begin             //  happens when the board restarts or reset button is pressed.
 
@@ -99,16 +99,19 @@ always@(  //  Code below is always triggered when these conditions are true...
     end
     else begin
     */
-        ////if (cnt >= 25'd2499_9999) begin  //  (Slower) If our counter has reached its limit...
-        ////if (cnt >= 25'd249_9999) begin  //  (Slow) If our counter has reached its limit...
-        if (cnt >= 25'd24_9999) begin  //  (Fast) If our counter has reached its limit...
+        if (cnt >= 24'h000fff) begin  //  (Slow) If our counter has reached its limit...
+        ////if (cnt >= 24'h0000ff) begin  //  (Fast) If our counter has reached its limit...
             clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
-            cnt <= 25'd0;         //  Reset the counter to 0.
+            cnt <= 24'h0;         //  Reset the counter to 0.
         end
         else begin
-            cnt <= cnt + 25'd1;  //  Else increment counter by 1. "25'd1" means "25-bit, Decimal Value 1"
+            cnt <= cnt + 24'h1;  //  Else increment counter by 1. "24'h1" means "24-bit, Hexadecimal Value 1"
         end
     //end
+
+    //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
+    //led <= { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
+    //led <= { ~clk_led[0], ~cnt[3], ~cnt[4], ~cnt[5] };
 end
 
 spi_master # (
@@ -145,7 +148,7 @@ spi0(
 );
 
 //  Synchronous lath to out commands directly from ROM except when is a repeat count load.
-always @ (posedge clk_led)
+always @ (posedge clk_led[0])
 begin
 /*
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
@@ -173,7 +176,7 @@ begin
     end
 end
 
-always @ (posedge clk_led)
+always @ (posedge clk_led[0])
 begin
 /*
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
@@ -185,6 +188,8 @@ begin
 		repeat_count <= 15'h0;
     end
 */
+
+    //led <= { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };
 
     //  If the start time is up and the step is ready to execute...
     if (elapsed_time >= step_time) begin
