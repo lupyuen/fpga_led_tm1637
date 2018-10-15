@@ -58,28 +58,24 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
    Generated name = spi_master_8s_8s_0_1
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Synthesizing module LED_TM1637 in library work.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[12] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[13] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[14] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[15] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[16] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[17] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[18] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[19] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[20] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[21] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[22] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[23] is always 0.
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Pruning register bits 23 to 12 of cnt[23:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":6:22:6:26|Input rst_n is unused.
+@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Synthesizing module LED_TM1637 in library work.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[8] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[9] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[10] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[11] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[12] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[13] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[14] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[15] is always 0.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Pruning register bits 15 to 8 of cnt[15:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:22:7:26|Input rst_n is unused.
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 73MB peak: 76MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:34 2018
+# Mon Oct 15 17:46:17 2018
 
 ###########################################################]
 
@@ -100,24 +96,24 @@ Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15
 
 @N|Running in 64-bit mode
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\layer0.srs changed - recompiling
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Selected library: work cell: LED_TM1637 view verilog as top level
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:34 2018
+# Mon Oct 15 17:46:17 2018
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:34 2018
+# Mon Oct 15 17:46:17 2018
 
 ###########################################################]

@@ -1,4 +1,4 @@
-# Mon Oct 15 17:29:36 2018
+# Mon Oct 15 17:46:19 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -44,7 +44,7 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":172:0:172:5|Removing sequential instance rx_buffer[7:0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 syn_allowed_resources : blockrams=10  set on top level netlist LED_TM1637
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
 
 
 
@@ -68,13 +68,13 @@ Clock Load Summary
                                         Clock     Source                       Clock Pin                      Non-clock Pin     Non-clock Pin
 Clock                                   Load      Pin                          Seq Example                    Seq Example       Comb Example 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             clk_led_0[0].C                 -                 -            
+LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             led[3:0].C                     -                 -            
 LED_TM1637|clk_led_derived_clock[0]     120       clk_led_0[0].Q[0](dffre)     step_id[6:0].C                 -                 -            
 LED_TM1637|wr_spi_derived_clock[0]      9         wr_spi_0[0].Q[0](dffre)      spi0.prescallerbuff[2:0].C     -                 -            
 LED_TM1637|rd_spi_derived_clock[0]      1         rd_spi_0[0].Q[0](dffre)      spi0.charreceivedn[0].C        -                 -            
 =============================================================================================================================================
 
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 13 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 13 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -126,6 +126,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Mon Oct 15 17:29:38 2018
+# Mon Oct 15 17:46:21 2018
 
 ###########################################################]

@@ -13,7 +13,7 @@ Hostname: BEACONDEV3
 
 Implementation : rev_1
 
-# Written on Mon Oct 15 17:29:36 2018
+# Written on Mon Oct 15 17:46:19 2018
 
 ##### FILES SYNTAX CHECKED ##############################################
 Constraint File(s):      (none)
@@ -46,7 +46,7 @@ Clock Load Summary
                                         Clock     Source                       Clock Pin                      Non-clock Pin     Non-clock Pin
 Clock                                   Load      Pin                          Seq Example                    Seq Example       Comb Example 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             clk_led_0[0].C                 -                 -            
+LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             led[3:0].C                     -                 -            
 LED_TM1637|clk_led_derived_clock[0]     120       clk_led_0[0].Q[0](dffre)     step_id[6:0].C                 -                 -            
 LED_TM1637|wr_spi_derived_clock[0]      9         wr_spi_0[0].Q[0](dffre)      spi0.prescallerbuff[2:0].C     -                 -            
 LED_TM1637|rd_spi_derived_clock[0]      1         rd_spi_0[0].Q[0](dffre)      spi0.charreceivedn[0].C        -                 -            

@@ -9,7 +9,7 @@
 @N: FX493 |Applying initial value "0000000000000000000000000000" on instance elapsed_time[27:0].
 @N: FX493 |Applying initial value "0000000000000000000000000000" on instance saved_elapsed_time[27:0].
 @N: FX493 |Applying initial value "0" on instance rst_led[0].
-@N: FX493 |Applying initial value "000000000000" on instance cnt[11:0].
+@N: FX493 |Applying initial value "00000000" on instance cnt[7:0].
 @N: FX493 |Applying initial value "0" on instance internal_state_machine[0].
 @N: FX493 |Applying initial value "0" on instance wr_spi[0].
 @N: FX493 |Applying initial value "0" on instance wait_spi[0].

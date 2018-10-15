@@ -1,4 +1,5 @@
 //  Based on https://github.com/MorgothCreator/Verilog_SSD1306_CFG_IP
+`timescale 20ns
 `include "rom.v"
 
 module	LED_TM1637(
@@ -45,7 +46,7 @@ reg[0:0] wr_spi = 1'b0;
 reg[0:0] clk_led = 1'b0;
 reg[0:0] rst_led = 1'b0;
 reg[0:0] internal_state_machine = 1'b0;
-reg[23:0] cnt = 24'h0;
+reg[15:0] cnt = 16'h0;
 reg[27:0] elapsed_time = 28'h0;
 reg[27:0] saved_elapsed_time = 28'h0;
 reg[14:0] repeat_count = 15'h0;
@@ -71,7 +72,7 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     normalised_switches;  //  Else show normalised switches using onboard LEDs.
 
 //  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
-assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
+//  assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
 
 /*
     reg [3:0]clk_div;
@@ -99,18 +100,18 @@ always@(  //  Code below is always triggered when these conditions are true...
     end
     else begin
     */
-        if (cnt >= 24'h000fff) begin  //  (Slow) If our counter has reached its limit...
-        ////if (cnt >= 24'h0000ff) begin  //  (Fast) If our counter has reached its limit...
+        ////if (cnt >= 24'h000fff) begin  //  (Slow) If our counter has reached its limit...
+        if (cnt >= 16'h00ff) begin  //  (Fast) If our counter has reached its limit...
             clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
-            cnt <= 24'h0;         //  Reset the counter to 0.
+            cnt <= 16'h0;         //  Reset the counter to 0.
         end
         else begin
-            cnt <= cnt + 24'h1;  //  Else increment counter by 1. "24'h1" means "24-bit, Hexadecimal Value 1"
+            cnt <= cnt + 16'h1;  //  Else increment counter by 1. "16'h1" means "16-bit, Hexadecimal Value 1"
         end
     //end
 
     //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
-    //led <= { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
+    led <= { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
     //led <= { ~clk_led[0], ~cnt[3], ~cnt[4], ~cnt[5] };
 end
 

@@ -3,7 +3,7 @@
 #OS: Windows 8 6.2
 #Hostname: BEACONDEV3
 
-# Mon Oct 15 17:29:33 2018
+# Mon Oct 15 17:46:16 2018
 
 #Implementation: rev_1
 
@@ -67,28 +67,24 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
    Generated name = spi_master_8s_8s_0_1
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Synthesizing module LED_TM1637 in library work.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[12] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[13] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[14] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[15] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[16] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[17] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[18] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[19] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[20] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[21] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[22] is always 0.
-@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[23] is always 0.
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Pruning register bits 23 to 12 of cnt[23:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
-@N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":6:22:6:26|Input rst_n is unused.
+@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Synthesizing module LED_TM1637 in library work.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[8] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[9] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[10] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[11] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[12] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[13] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[14] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Register bit cnt[15] is always 0.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Pruning register bits 15 to 8 of cnt[15:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:22:7:26|Input rst_n is unused.
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 73MB peak: 76MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:34 2018
+# Mon Oct 15 17:46:17 2018
 
 ###########################################################]
 
@@ -109,25 +105,25 @@ Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15
 
 @N|Running in 64-bit mode
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\layer0.srs changed - recompiling
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Selected library: work cell: LED_TM1637 view verilog as top level
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:34 2018
+# Mon Oct 15 17:46:17 2018
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:34 2018
+# Mon Oct 15 17:46:17 2018
 
 ###########################################################]
 
@@ -148,18 +144,18 @@ Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15
 
 @N|Running in 64-bit mode
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_comp.srs changed - recompiling
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Selected library: work cell: LED_TM1637 view verilog as top level
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:16|Selected library: work cell: LED_TM1637 view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 17:29:35 2018
+# Mon Oct 15 17:46:19 2018
 
 ###########################################################]
-# Mon Oct 15 17:29:36 2018
+# Mon Oct 15 17:46:19 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -205,7 +201,7 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":172:0:172:5|Removing sequential instance rx_buffer[7:0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 syn_allowed_resources : blockrams=10  set on top level netlist LED_TM1637
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
 
 
 
@@ -229,13 +225,13 @@ Clock Load Summary
                                         Clock     Source                       Clock Pin                      Non-clock Pin     Non-clock Pin
 Clock                                   Load      Pin                          Seq Example                    Seq Example       Comb Example 
 ---------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             clk_led_0[0].C                 -                 -            
+LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             led[3:0].C                     -                 -            
 LED_TM1637|clk_led_derived_clock[0]     120       clk_led_0[0].Q[0](dffre)     step_id[6:0].C                 -                 -            
 LED_TM1637|wr_spi_derived_clock[0]      9         wr_spi_0[0].Q[0](dffre)      spi0.prescallerbuff[2:0].C     -                 -            
 LED_TM1637|rd_spi_derived_clock[0]      1         rd_spi_0[0].Q[0](dffre)      spi0.charreceivedn[0].C        -                 -            
 =============================================================================================================================================
 
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 13 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":91:0:91:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 13 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -287,10 +283,10 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Mon Oct 15 17:29:38 2018
+# Mon Oct 15 17:46:21 2018
 
 ###########################################################]
-# Mon Oct 15 17:29:38 2018
+# Mon Oct 15 17:46:22 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -343,7 +339,7 @@ Available hyper_sources - for debug and ip models
 @N: FX493 |Applying initial value "0000000000000000000000000000" on instance elapsed_time[27:0].
 @N: FX493 |Applying initial value "0000000000000000000000000000" on instance saved_elapsed_time[27:0].
 @N: FX493 |Applying initial value "0" on instance rst_led[0].
-@N: FX493 |Applying initial value "000000000000" on instance cnt[11:0].
+@N: FX493 |Applying initial value "00000000" on instance cnt[7:0].
 @N: FX493 |Applying initial value "0" on instance internal_state_machine[0].
 @N: FX493 |Applying initial value "0" on instance wr_spi[0].
 @N: FX493 |Applying initial value "0" on instance wait_spi[0].
@@ -374,7 +370,7 @@ Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; M
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 191MB peak: 192MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 191MB peak: 192MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 191MB peak: 192MB)
 
 
 Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 191MB peak: 192MB)
@@ -419,39 +415,39 @@ Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:01s; CP
 Finished preparing to map (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 192MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 191MB peak: 192MB)
+Finished technology mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 194MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:01s		     2.49ns		 231 /       132
+   1		0h:00m:01s		     2.49ns		 228 /       132
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 191MB peak: 192MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 194MB)
 
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @W: BN114 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Removing instance oled_rom_init.dout_1_0_0 (in view: work.LED_TM1637(verilog)) of black box view:VIRTEX.RAMB16(PRIM) because it does not drive other instances.
 @W: BN114 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Removing instance oled_rom_init.dout_1_0_1 (in view: work.LED_TM1637(verilog)) of black box view:VIRTEX.RAMB16(PRIM) because it does not drive other instances.
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 191MB peak: 192MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 194MB)
 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 119MB peak: 192MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 121MB peak: 194MB)
 
 Writing Analyst data base C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 190MB peak: 192MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 191MB peak: 194MB)
 
 Writing Verilog Simulation files
 
-Writing scf file... (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 191MB peak: 192MB)
+Writing scf file... (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 194MB)
 
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
 @A: BN540 |No min timing constraints supplied; adding min timing constraints
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 189MB peak: 192MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 191MB peak: 194MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 191MB peak: 192MB)
+Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 194MB)
 
 @W: MT420 |Found inferred clock LED_TM1637|clk_50M[0] with period 10.00ns. Please declare a user-defined clock on port clk_50M[0].
 @N: MT615 |Found clock LED_TM1637|clk_led_derived_clock[0] with period 10.00ns 
@@ -460,7 +456,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Mon Oct 15 17:29:42 2018
+# Timing Report written on Mon Oct 15 17:46:26 2018
 #
 
 
@@ -484,11 +480,11 @@ Worst slack in design: 1.469
                                         Requested     Estimated     Requested     Estimated               Clock                                                  Clock                
 Starting Clock                          Frequency     Frequency     Period        Period        Slack     Type                                                   Group                
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]                   100.0 MHz     215.8 MHz     10.000        4.633         5.367     inferred                                               Autoconstr_clkgroup_0
-LED_TM1637|clk_led_derived_clock[0]     100.0 MHz     117.2 MHz     10.000        8.531         5.460     derived (from LED_TM1637|clk_50M[0])                   Autoconstr_clkgroup_0
+LED_TM1637|clk_50M[0]                   100.0 MHz     145.4 MHz     10.000        6.876         3.530     inferred                                               Autoconstr_clkgroup_0
+LED_TM1637|clk_led_derived_clock[0]     100.0 MHz     117.2 MHz     10.000        8.531         3.124     derived (from LED_TM1637|clk_50M[0])                   Autoconstr_clkgroup_0
 LED_TM1637|rd_spi_derived_clock[0]      100.0 MHz     117.2 MHz     10.000        8.531         1.469     derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0
 LED_TM1637|wr_spi_derived_clock[0]      100.0 MHz     120.0 MHz     10.000        8.335         1.665     derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0
-System                                  100.0 MHz     866.6 MHz     10.000        1.154         8.846     system                                                 system_clkgroup      
+System                                  100.0 MHz     337.2 MHz     10.000        2.966         7.034     system                                                 system_clkgroup      
 ======================================================================================================================================================================================
 
 
@@ -503,12 +499,13 @@ Clocks                                                                    |    r
 Starting                             Ending                               |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 System                               LED_TM1637|clk_50M[0]                |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
-System                               LED_TM1637|clk_led_derived_clock[0]  |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
+System                               LED_TM1637|clk_led_derived_clock[0]  |  10.000      7.034   |  No paths    -      |  No paths    -      |  No paths    -    
 System                               LED_TM1637|rd_spi_derived_clock[0]   |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
 System                               LED_TM1637|wr_spi_derived_clock[0]   |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
 LED_TM1637|clk_50M[0]                System                               |  10.000      6.965   |  No paths    -      |  No paths    -      |  No paths    -    
-LED_TM1637|clk_50M[0]                LED_TM1637|clk_50M[0]                |  10.000      5.367   |  No paths    -      |  No paths    -      |  No paths    -    
+LED_TM1637|clk_50M[0]                LED_TM1637|clk_50M[0]                |  10.000      3.530   |  No paths    -      |  No paths    -      |  No paths    -    
 LED_TM1637|clk_led_derived_clock[0]  System                               |  10.000      4.115   |  No paths    -      |  No paths    -      |  No paths    -    
+LED_TM1637|clk_led_derived_clock[0]  LED_TM1637|clk_50M[0]                |  10.000      3.124   |  No paths    -      |  No paths    -      |  No paths    -    
 LED_TM1637|clk_led_derived_clock[0]  LED_TM1637|clk_led_derived_clock[0]  |  10.000      5.460   |  No paths    -      |  No paths    -      |  No paths    -    
 LED_TM1637|clk_led_derived_clock[0]  LED_TM1637|rd_spi_derived_clock[0]   |  10.000      6.359   |  No paths    -      |  No paths    -      |  No paths    -    
 LED_TM1637|rd_spi_derived_clock[0]   System                               |  10.000      6.492   |  No paths    -      |  No paths    -      |  No paths    -    
@@ -538,41 +535,40 @@ Detailed Report for Clock: LED_TM1637|clk_50M[0]
 Starting Points with Worst Slack
 ********************************
 
-             Starting                                              Arrival          
-Instance     Reference                 Type     Pin     Net        Time        Slack
-             Clock                                                                  
-------------------------------------------------------------------------------------
-cnt[0]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[0]     0.367       5.367
-cnt[1]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[1]     0.367       5.424
-cnt[2]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[2]     0.367       5.481
-cnt[3]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[3]     0.367       5.538
-cnt[9]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[9]     0.367       5.582
-cnt[4]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[4]     0.367       5.595
-cnt[8]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[8]     0.367       5.649
-cnt[5]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[5]     0.367       5.652
-cnt[6]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[6]     0.367       5.709
-cnt[7]       LED_TM1637|clk_50M[0]     DFF      Q       cnt[7]     0.367       5.766
-====================================================================================
+                 Starting                                                    Arrival          
+Instance         Reference                 Type     Pin     Net              Time        Slack
+                 Clock                                                                        
+----------------------------------------------------------------------------------------------
+clk_led_0[0]     LED_TM1637|clk_50M[0]     DFFE     Q       clk_led_i[0]     0.367       3.530
+cnt[0]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[0]           0.367       5.595
+cnt[1]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[1]           0.367       5.652
+cnt[2]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[2]           0.367       5.709
+cnt[3]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[3]           0.367       5.766
+cnt[4]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[4]           0.367       5.823
+cnt[5]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[5]           0.367       5.880
+cnt[6]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[6]           0.367       5.937
+cnt[7]           LED_TM1637|clk_50M[0]     DFF      Q       cnt[7]           0.367       6.461
+==============================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                 Starting                                                            Required          
-Instance         Reference                 Type     Pin     Net                      Time         Slack
-                 Clock                                                                                 
--------------------------------------------------------------------------------------------------------
-cnt[11]          LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_s_11_0_SUM       9.867        5.367
-cnt[10]          LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_10_0_SUM     9.867        5.424
-cnt[9]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_9_0_SUM      9.867        5.481
-clk_led_0[0]     LED_TM1637|clk_50M[0]     DFFE     CE      un2_cntlto11_i_a2        9.867        5.515
-cnt[8]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_8_0_SUM      9.867        5.538
-cnt[7]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_7_0_SUM      9.867        5.595
-cnt[6]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_6_0_SUM      9.867        5.652
-cnt[5]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_5_0_SUM      9.867        5.709
-cnt[4]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_4_0_SUM      9.867        5.766
-cnt[3]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_3_0_SUM      9.867        5.823
-=======================================================================================================
+                 Starting                                                                Required          
+Instance         Reference                 Type     Pin     Net                          Time         Slack
+                 Clock                                                                                     
+-----------------------------------------------------------------------------------------------------------
+led[0]           LED_TM1637|clk_50M[0]     DFF      D       un2_step_id_i_a2_0_a2[3]     9.867        3.530
+led[1]           LED_TM1637|clk_50M[0]     DFF      D       N_170_i                      9.867        3.530
+cnt[7]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_s_7_0_SUM            9.867        5.595
+cnt[6]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_6_0_SUM          9.867        5.652
+cnt[5]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_5_0_SUM          9.867        5.709
+cnt[4]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_4_0_SUM          9.867        5.766
+clk_led_0[0]     LED_TM1637|clk_50M[0]     DFFE     CE      un2_cnt_i                    9.867        5.792
+cnt[3]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_3_0_SUM          9.867        5.823
+cnt[2]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_2_0_SUM          9.867        5.880
+cnt[1]           LED_TM1637|clk_50M[0]     DFF      D       un1_cnt_cry_1_0_SUM          9.867        5.937
+===========================================================================================================
 
 
 
@@ -586,60 +582,33 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.867
 
-    - Propagation time:                      4.500
+    - Propagation time:                      6.337
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 5.367
+    = Slack (non-critical) :                 3.530
 
-    Number of logic level(s):                12
-    Starting point:                          cnt[0] / Q
-    Ending point:                            cnt[11] / D
+    Number of logic level(s):                3
+    Starting point:                          clk_led_0[0] / Q
+    Ending point:                            led[1] / D
     The start point is clocked by            LED_TM1637|clk_50M[0] [rising] on pin CLK
     The end   point is clocked by            LED_TM1637|clk_50M[0] [rising] on pin CLK
 
-Instance / Net                  Pin      Pin               Arrival     No. of    
-Name                   Type     Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------
-cnt[0]                 DFF      Q        Out     0.367     0.367       -         
-cnt[0]                 Net      -        -       1.021     -           2         
-un1_cnt_cry_0_0        ALU      I0       In      -         1.388       -         
-un1_cnt_cry_0_0        ALU      COUT     Out     0.958     2.346       -         
-un1_cnt_cry_0          Net      -        -       0.000     -           1         
-un1_cnt_cry_1_0        ALU      CIN      In      -         2.346       -         
-un1_cnt_cry_1_0        ALU      COUT     Out     0.057     2.403       -         
-un1_cnt_cry_1          Net      -        -       0.000     -           1         
-un1_cnt_cry_2_0        ALU      CIN      In      -         2.403       -         
-un1_cnt_cry_2_0        ALU      COUT     Out     0.057     2.460       -         
-un1_cnt_cry_2          Net      -        -       0.000     -           1         
-un1_cnt_cry_3_0        ALU      CIN      In      -         2.460       -         
-un1_cnt_cry_3_0        ALU      COUT     Out     0.057     2.517       -         
-un1_cnt_cry_3          Net      -        -       0.000     -           1         
-un1_cnt_cry_4_0        ALU      CIN      In      -         2.517       -         
-un1_cnt_cry_4_0        ALU      COUT     Out     0.057     2.574       -         
-un1_cnt_cry_4          Net      -        -       0.000     -           1         
-un1_cnt_cry_5_0        ALU      CIN      In      -         2.574       -         
-un1_cnt_cry_5_0        ALU      COUT     Out     0.057     2.631       -         
-un1_cnt_cry_5          Net      -        -       0.000     -           1         
-un1_cnt_cry_6_0        ALU      CIN      In      -         2.631       -         
-un1_cnt_cry_6_0        ALU      COUT     Out     0.057     2.688       -         
-un1_cnt_cry_6          Net      -        -       0.000     -           1         
-un1_cnt_cry_7_0        ALU      CIN      In      -         2.688       -         
-un1_cnt_cry_7_0        ALU      COUT     Out     0.057     2.745       -         
-un1_cnt_cry_7          Net      -        -       0.000     -           1         
-un1_cnt_cry_8_0        ALU      CIN      In      -         2.745       -         
-un1_cnt_cry_8_0        ALU      COUT     Out     0.057     2.802       -         
-un1_cnt_cry_8          Net      -        -       0.000     -           1         
-un1_cnt_cry_9_0        ALU      CIN      In      -         2.802       -         
-un1_cnt_cry_9_0        ALU      COUT     Out     0.057     2.859       -         
-un1_cnt_cry_9          Net      -        -       0.000     -           1         
-un1_cnt_cry_10_0       ALU      CIN      In      -         2.859       -         
-un1_cnt_cry_10_0       ALU      COUT     Out     0.057     2.916       -         
-un1_cnt_cry_10         Net      -        -       0.000     -           1         
-un1_cnt_s_11_0         ALU      CIN      In      -         2.916       -         
-un1_cnt_s_11_0         ALU      SUM      Out     0.563     3.479       -         
-un1_cnt_s_11_0_SUM     Net      -        -       1.021     -           1         
-cnt[11]                DFF      D        In      -         4.500       -         
-=================================================================================
-Total path delay (propagation time + setup) of 4.633 is 2.591(55.9%) logic and 2.042(44.1%) route.
+Instance / Net                                        Pin      Pin               Arrival     No. of    
+Name                                    Type          Name     Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------
+clk_led_0[0]                            DFFE          Q        Out     0.367     0.367       -         
+clk_led_i[0]                            Net           -        -       2.668     -           120       
+spi0.un2_step_id_1_0_m3_am[2]           LUT3          I1       In      -         3.035       -         
+spi0.un2_step_id_1_0_m3_am[2]           LUT3          F        Out     1.099     4.134       -         
+un2_step_id_1_0_m3_am[2]                Net           -        -       0.000     -           1         
+spi0.un2_step_id_1_0_m3[2]              MUX2_LUT5     I0       In      -         4.134       -         
+spi0.un2_step_id_1_0_m3[2]              MUX2_LUT5     O        Out     0.150     4.284       -         
+N_123                                   Net           -        -       1.021     -           1         
+spi0.un2_step_id_1_0_m3_RNITMG61[2]     LUT3          I0       In      -         5.305       -         
+spi0.un2_step_id_1_0_m3_RNITMG61[2]     LUT3          F        Out     1.032     6.337       -         
+N_170_i                                 Net           -        -       0.000     -           1         
+led[1]                                  DFF           D        In      -         6.337       -         
+=======================================================================================================
+Total path delay (propagation time + setup) of 6.470 is 2.781(43.0%) logic and 3.689(57.0%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -658,37 +627,37 @@ Starting Points with Worst Slack
 Instance                     Reference                               Type      Pin        Net                  Time        Slack
                              Clock                                                                                              
 --------------------------------------------------------------------------------------------------------------------------------
+spi0._sck[0]                 LED_TM1637|clk_led_derived_clock[0]     DFFCE     Q          _sck[0]              0.367       3.124
+spi0._diomode[0]             LED_TM1637|clk_led_derived_clock[0]     DFFCE     Q          _mode[0]             0.367       3.130
+spi0._mosi[0]                LED_TM1637|clk_led_derived_clock[0]     DFFPE     Q          _mosi[0]             0.367       3.672
+spi0.ss[0]                   LED_TM1637|clk_led_derived_clock[0]     DFFPE     Q          ss[0]                0.367       3.949
 oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[16]     encoded_step[16]     0.818       4.115
 oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[17]     encoded_step[17]     0.818       4.172
 oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[18]     encoded_step[18]     0.818       4.229
 oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[19]     encoded_step[19]     0.818       4.286
 oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[20]     encoded_step[20]     0.818       4.343
 oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[21]     encoded_step[21]     0.818       4.400
-oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[22]     encoded_step[22]     0.818       4.457
-elapsed_time[0]              LED_TM1637|clk_led_derived_clock[0]     DFFE      Q          elapsed_time[0]      0.367       4.479
-oled_rom_init.dout_1_0_0     LED_TM1637|clk_led_derived_clock[0]     ROMX9     DO[23]     encoded_step[23]     0.818       4.514
-elapsed_time[1]              LED_TM1637|clk_led_derived_clock[0]     DFFE      Q          elapsed_time[1]      0.367       4.536
 ================================================================================================================================
 
 
 Ending Points with Worst Slack
 ******************************
 
-                                    Starting                                                                             Required          
-Instance                            Reference                               Type     Pin     Net                         Time         Slack
-                                    Clock                                                                                                  
--------------------------------------------------------------------------------------------------------------------------------------------
-internal_state_machine_0_RNO[0]     LED_TM1637|clk_led_derived_clock[0]     INV      I       un1_elapsed_time_cry_27     10.000       4.115
-repeat_count[14]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[14]          19.867       5.460
-repeat_count[13]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[13]          19.867       5.517
-repeat_count[12]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[12]          19.867       5.574
-repeat_count[11]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[11]          19.867       5.631
-repeat_count[10]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[10]          19.867       5.688
-repeat_count[9]                     LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[9]           19.867       5.745
-repeat_count[8]                     LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[8]           19.867       5.802
-repeat_count[7]                     LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[7]           19.867       5.859
-repeat_count[6]                     LED_TM1637|clk_led_derived_clock[0]     DFF      D       repeat_count_7[6]           19.867       5.916
-===========================================================================================================================================
+                                    Starting                                                                                 Required          
+Instance                            Reference                               Type     Pin       Net                           Time         Slack
+                                    Clock                                                                                                      
+-----------------------------------------------------------------------------------------------------------------------------------------------
+led[0]                              LED_TM1637|clk_led_derived_clock[0]     DFF      D         un2_step_id_i_a2_0_a2[3]      9.867        3.124
+led[1]                              LED_TM1637|clk_led_derived_clock[0]     DFF      D         N_170_i                       9.867        3.124
+led[2]                              LED_TM1637|clk_led_derived_clock[0]     DFF      D         N_169_i                       9.867        3.672
+internal_state_machine_0_RNO[0]     LED_TM1637|clk_led_derived_clock[0]     INV      I         un1_elapsed_time_cry_27       10.000       4.115
+spi0._sck_cry_0_RNO[0]              LED_TM1637|clk_led_derived_clock[0]     INV      I         N_172                         10.000       5.039
+repeat_count[14]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D         repeat_count_7[14]            19.867       5.460
+led[3]                              LED_TM1637|clk_led_derived_clock[0]     DFFR     RESET     spi0.un2_step_id_1_0_1[0]     9.867        5.515
+repeat_count[13]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D         repeat_count_7[13]            19.867       5.517
+led[3]                              LED_TM1637|clk_led_derived_clock[0]     DFFR     D         N_168_i_0                     9.867        5.537
+repeat_count[12]                    LED_TM1637|clk_led_derived_clock[0]     DFF      D         repeat_count_7[12]            19.867       5.574
+===============================================================================================================================================
 
 
 
@@ -698,113 +667,40 @@ Worst Path Information
 
 Path information for path number 1: 
       Requested Period:                      10.000
-    - Setup time:                            0.000
+    - Setup time:                            0.133
     + Clock delay at ending point:           0.000 (ideal)
-    + Estimated clock delay at ending point: 0.000
-    = Required time:                         10.000
+    = Required time:                         9.867
 
-    - Propagation time:                      5.885
+    - Propagation time:                      6.743
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 4.115
+    = Slack (non-critical) :                 3.124
 
-    Number of logic level(s):                28
-    Starting point:                          oled_rom_init.dout_1_0_0 / DO[16]
-    Ending point:                            internal_state_machine_0_RNO[0] / I
+    Number of logic level(s):                4
+    Starting point:                          spi0._sck[0] / Q
+    Ending point:                            led[1] / D
     The start point is clocked by            LED_TM1637|clk_led_derived_clock[0] [rising] on pin CLK
-    The end   point is clocked by            System [rising]
+    The end   point is clocked by            LED_TM1637|clk_50M[0] [rising] on pin CLK
 
-Instance / Net                                Pin        Pin               Arrival     No. of    
-Name                                Type      Name       Dir     Delay     Time        Fan Out(s)
--------------------------------------------------------------------------------------------------
-oled_rom_init.dout_1_0_0            ROMX9     DO[16]     Out     0.818     0.818       -         
-encoded_step[16]                    Net       -          -       1.021     -           1         
-un1_elapsed_time_cry_0_0            ALU       I0         In      -         1.839       -         
-un1_elapsed_time_cry_0_0            ALU       COUT       Out     0.958     2.797       -         
-un1_elapsed_time_cry_0              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_1_0            ALU       CIN        In      -         2.797       -         
-un1_elapsed_time_cry_1_0            ALU       COUT       Out     0.057     2.854       -         
-un1_elapsed_time_cry_1              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_2_0            ALU       CIN        In      -         2.854       -         
-un1_elapsed_time_cry_2_0            ALU       COUT       Out     0.057     2.911       -         
-un1_elapsed_time_cry_2              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_3_0            ALU       CIN        In      -         2.911       -         
-un1_elapsed_time_cry_3_0            ALU       COUT       Out     0.057     2.968       -         
-un1_elapsed_time_cry_3              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_4_0            ALU       CIN        In      -         2.968       -         
-un1_elapsed_time_cry_4_0            ALU       COUT       Out     0.057     3.025       -         
-un1_elapsed_time_cry_4              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_5_0            ALU       CIN        In      -         3.025       -         
-un1_elapsed_time_cry_5_0            ALU       COUT       Out     0.057     3.082       -         
-un1_elapsed_time_cry_5              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_6_0            ALU       CIN        In      -         3.082       -         
-un1_elapsed_time_cry_6_0            ALU       COUT       Out     0.057     3.139       -         
-un1_elapsed_time_cry_6              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_7_0            ALU       CIN        In      -         3.139       -         
-un1_elapsed_time_cry_7_0            ALU       COUT       Out     0.057     3.196       -         
-un1_elapsed_time_cry_7              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_8_0            ALU       CIN        In      -         3.196       -         
-un1_elapsed_time_cry_8_0            ALU       COUT       Out     0.057     3.253       -         
-un1_elapsed_time_cry_8              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_9_0            ALU       CIN        In      -         3.253       -         
-un1_elapsed_time_cry_9_0            ALU       COUT       Out     0.057     3.310       -         
-un1_elapsed_time_cry_9              Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_10_0           ALU       CIN        In      -         3.310       -         
-un1_elapsed_time_cry_10_0           ALU       COUT       Out     0.057     3.367       -         
-un1_elapsed_time_cry_10             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_11_0           ALU       CIN        In      -         3.367       -         
-un1_elapsed_time_cry_11_0           ALU       COUT       Out     0.057     3.424       -         
-un1_elapsed_time_cry_11             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_12_0           ALU       CIN        In      -         3.424       -         
-un1_elapsed_time_cry_12_0           ALU       COUT       Out     0.057     3.481       -         
-un1_elapsed_time_cry_12             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_13_0           ALU       CIN        In      -         3.481       -         
-un1_elapsed_time_cry_13_0           ALU       COUT       Out     0.057     3.538       -         
-un1_elapsed_time_cry_13             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_14_0           ALU       CIN        In      -         3.538       -         
-un1_elapsed_time_cry_14_0           ALU       COUT       Out     0.057     3.595       -         
-un1_elapsed_time_cry_14             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_15_0           ALU       CIN        In      -         3.595       -         
-un1_elapsed_time_cry_15_0           ALU       COUT       Out     0.057     3.652       -         
-un1_elapsed_time_cry_15             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_16_0           ALU       CIN        In      -         3.652       -         
-un1_elapsed_time_cry_16_0           ALU       COUT       Out     0.057     3.709       -         
-un1_elapsed_time_cry_16             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_17_0           ALU       CIN        In      -         3.709       -         
-un1_elapsed_time_cry_17_0           ALU       COUT       Out     0.057     3.766       -         
-un1_elapsed_time_cry_17             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_18_0           ALU       CIN        In      -         3.766       -         
-un1_elapsed_time_cry_18_0           ALU       COUT       Out     0.057     3.823       -         
-un1_elapsed_time_cry_18             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_19_0           ALU       CIN        In      -         3.823       -         
-un1_elapsed_time_cry_19_0           ALU       COUT       Out     0.057     3.880       -         
-un1_elapsed_time_cry_19             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_20_0           ALU       CIN        In      -         3.880       -         
-un1_elapsed_time_cry_20_0           ALU       COUT       Out     0.057     3.937       -         
-un1_elapsed_time_cry_20             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_21_0           ALU       CIN        In      -         3.937       -         
-un1_elapsed_time_cry_21_0           ALU       COUT       Out     0.057     3.994       -         
-un1_elapsed_time_cry_21             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_22_0           ALU       CIN        In      -         3.994       -         
-un1_elapsed_time_cry_22_0           ALU       COUT       Out     0.057     4.051       -         
-un1_elapsed_time_cry_22             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_23_0           ALU       CIN        In      -         4.051       -         
-un1_elapsed_time_cry_23_0           ALU       COUT       Out     0.057     4.108       -         
-un1_elapsed_time_cry_23             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_24_0           ALU       CIN        In      -         4.108       -         
-un1_elapsed_time_cry_24_0           ALU       COUT       Out     0.057     4.165       -         
-un1_elapsed_time_cry_24             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_25_0           ALU       CIN        In      -         4.165       -         
-un1_elapsed_time_cry_25_0           ALU       COUT       Out     0.057     4.222       -         
-un1_elapsed_time_cry_25             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_26_0           ALU       CIN        In      -         4.222       -         
-un1_elapsed_time_cry_26_0           ALU       COUT       Out     0.057     4.279       -         
-un1_elapsed_time_cry_26             Net       -          -       0.000     -           1         
-un1_elapsed_time_cry_27_0           ALU       CIN        In      -         4.279       -         
-un1_elapsed_time_cry_27_0           ALU       COUT       Out     0.057     4.336       -         
-un1_elapsed_time_cry_27             Net       -          -       1.549     -           5         
-internal_state_machine_0_RNO[0]     INV       I          In      -         5.885       -         
-=================================================================================================
-Total path delay (propagation time + setup) of 5.885 is 3.315(56.3%) logic and 2.570(43.7%) route.
+Instance / Net                                        Pin      Pin               Arrival     No. of    
+Name                                    Type          Name     Dir     Delay     Time        Fan Out(s)
+-------------------------------------------------------------------------------------------------------
+spi0._sck[0]                            DFFCE         Q        Out     0.367     0.367       -         
+_sck[0]                                 Net           -        -       1.021     -           8         
+spi0.debug32_i_x2_i_x3                  LUT2          I1       In      -         1.388       -         
+spi0.debug32_i_x2_i_x3                  LUT2          F        Out     1.099     2.487       -         
+N_55_i                                  Net           -        -       1.021     -           6         
+spi0.un2_step_id_1_0_m3_am[2]           LUT3          I0       In      -         3.508       -         
+spi0.un2_step_id_1_0_m3_am[2]           LUT3          F        Out     1.032     4.540       -         
+un2_step_id_1_0_m3_am[2]                Net           -        -       0.000     -           1         
+spi0.un2_step_id_1_0_m3[2]              MUX2_LUT5     I0       In      -         4.540       -         
+spi0.un2_step_id_1_0_m3[2]              MUX2_LUT5     O        Out     0.150     4.690       -         
+N_123                                   Net           -        -       1.021     -           1         
+spi0.un2_step_id_1_0_m3_RNITMG61[2]     LUT3          I0       In      -         5.711       -         
+spi0.un2_step_id_1_0_m3_RNITMG61[2]     LUT3          F        Out     1.032     6.743       -         
+N_170_i                                 Net           -        -       0.000     -           1         
+led[1]                                  DFF           D        In      -         6.743       -         
+=======================================================================================================
+Total path delay (propagation time + setup) of 6.876 is 3.813(55.5%) logic and 3.063(44.5%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -875,7 +771,7 @@ spi0.charreceivedn[0]                 DFFCE     Q          Out     0.367     0.3
 charreceivedn[0]                      Net       -          -       1.021     -           3         
 spi0.elapsed_time_0_sqmuxa_i_0_a2     LUT4      I1         In      -         1.388       -         
 spi0.elapsed_time_0_sqmuxa_i_0_a2     LUT4      F          Out     1.099     2.487       -         
-N_160                                 Net       -          -       1.021     -           9         
+N_164                                 Net       -          -       1.021     -           9         
 un2_step_id_2_cry_1_0_RNO             LUT3      I1         In      -         3.508       -         
 un2_step_id_2_cry_1_0_RNO             LUT3      F          Out     1.099     4.607       -         
 un2_step_id_2_cry_1_0_RNO             Net       -          -       1.021     -           1         
@@ -975,10 +871,10 @@ spi0.debug23                       LUT2      F        Out     1.099     2.487   
 debug23                            Net       -        -       1.021     -           6         
 spi0.un1_debug23_4_i_0_0_m3[0]     LUT3      I0       In      -         3.508       -         
 spi0.un1_debug23_4_i_0_0_m3[0]     LUT3      F        Out     1.032     4.540       -         
-N_663                              Net       -        -       0.766     -           1         
+N_652                              Net       -        -       0.766     -           1         
 spi0.un1_debug23_4_i_0_0_a2[0]     LUT4      I1       In      -         5.306       -         
 spi0.un1_debug23_4_i_0_0_a2[0]     LUT4      F        Out     1.099     6.405       -         
-N_143                              Net       -        -       0.766     -           1         
+N_147                              Net       -        -       0.766     -           1         
 spi0.un1_debug23_4_i_0_0[0]        LUT4      I0       In      -         7.170       -         
 spi0.un1_debug23_4_i_0_0[0]        LUT4      F        Out     1.032     8.202       -         
 un1_debug23_4_i_0_0[0]             Net       -        -       0.000     -           1         
@@ -1003,16 +899,16 @@ Starting Points with Worst Slack
 Instance                                      Reference     Type     Pin     Net                           Time        Slack
                                               Clock                                                                         
 ----------------------------------------------------------------------------------------------------------------------------
+spi0._sck_cry_0_RNO[0]                        System        INV      O       _sck                          0.000       7.034
 spi0.charreceivedn_i[0]                       System        INV      O       charreceivedn_i[0]            0.000       8.846
 spi0.charreceivedp_i[0]                       System        INV      O       charreceivedp_i[0]            0.000       8.846
 clk_led_i_i[0]                                System        INV      O       clk_led_i_i[0]                0.000       8.846
 spi0.debug23_RNIMSF2                          System        INV      O       debug23_i                     0.000       8.846
 oled_rom_init.dout_1_0_0_RNISSQ6              System        INV      O       encoded_step_i[7]             0.000       8.846
-spi0.elapsed_time_0_sqmuxa_i_0_a2_RNICQ9D     System        INV      O       N_160_i                       0.000       8.846
+spi0.elapsed_time_0_sqmuxa_i_0_a2_RNICQ9D     System        INV      O       N_164_i                       0.000       8.846
 internal_state_machine_0_RNO[0]               System        INV      O       un1_elapsed_time_cry_27_i     0.000       8.846
 spi0.state_0_RNO[0]                           System        INV      O       state_i[0]                    0.000       8.846
 spi0.tx_buffer_fulln_i[0]                     System        INV      O       tx_buffer_fulln_i[0]          0.000       8.846
-spi0.tx_buffer_fullp_i[0]                     System        INV      O       tx_buffer_fullp_i[0]          0.000       8.846
 ============================================================================================================================
 
 
@@ -1023,16 +919,16 @@ Ending Points with Worst Slack
 Instance                        Reference     Type      Pin     Net                           Time         Slack
                                 Clock                                                                           
 ----------------------------------------------------------------------------------------------------------------
+spi0._sck[4]                    System        DFFCE     D       _sck_s[4]                     9.867        7.034
+spi0._sck[3]                    System        DFFCE     D       _sck_s[3]                     9.867        7.091
+spi0._sck[2]                    System        DFFCE     D       _sck_s[2]                     9.867        7.148
+spi0._sck[1]                    System        DFFCE     D       _sck_s[1]                     9.867        7.205
+spi0._sck[0]                    System        DFFCE     D       _sck_s[0]                     9.867        7.262
 spi0.charreceivedn[0]           System        DFFCE     D       charreceivedn_i[0]            9.867        8.846
 spi0.charreceivedp[0]           System        DFFCE     D       charreceivedp_i[0]            9.867        8.846
 clk_led_0[0]                    System        DFFE      D       clk_led_i_i[0]                9.867        8.846
 internal_state_machine_0[0]     System        DFFE      CE      un1_elapsed_time_cry_27_i     9.867        8.846
-internal_state_machine_0[0]     System        DFFE      D       N_160_i                       9.867        8.846
-spi0.prescallerbuff[0]          System        DFFCE     CE      debug23_i                     9.867        8.846
-rd_spi_0[0]                     System        DFFE      CE      encoded_step_i[7]             9.867        8.846
-spi0.ss[0]                      System        DFFPE     D       debug23_i                     9.867        8.846
-spi0.state_0[0]                 System        DFFCE     D       state_i[0]                    9.867        8.846
-spi0.tx_buffer[0]               System        DFFE      CE      debug23_i                     9.867        8.846
+internal_state_machine_0[0]     System        DFFE      D       N_164_i                       9.867        8.846
 ================================================================================================================
 
 
@@ -1047,25 +943,40 @@ Path information for path number 1:
     + Clock delay at ending point:           0.000 (ideal)
     = Required time:                         9.867
 
-    - Propagation time:                      1.021
+    - Propagation time:                      2.833
     - Clock delay at starting point:         0.000 (ideal)
     - Estimated clock delay at start point:  -0.000
-    = Slack (non-critical) :                 8.846
+    = Slack (non-critical) :                 7.034
 
-    Number of logic level(s):                0
-    Starting point:                          spi0.charreceivedn_i[0] / O
-    Ending point:                            spi0.charreceivedn[0] / D
+    Number of logic level(s):                5
+    Starting point:                          spi0._sck_cry_0_RNO[0] / O
+    Ending point:                            spi0._sck[4] / D
     The start point is clocked by            System [rising]
-    The end   point is clocked by            LED_TM1637|rd_spi_derived_clock[0] [rising] on pin CLK
+    The end   point is clocked by            LED_TM1637|clk_led_derived_clock[0] [rising] on pin CLK
 
-Instance / Net                        Pin      Pin               Arrival     No. of    
-Name                        Type      Name     Dir     Delay     Time        Fan Out(s)
----------------------------------------------------------------------------------------
-spi0.charreceivedn_i[0]     INV       O        Out     0.000     0.000       -         
-charreceivedn_i[0]          Net       -        -       1.021     -           1         
-spi0.charreceivedn[0]       DFFCE     D        In      -         1.021       -         
-=======================================================================================
-Total path delay (propagation time + setup) of 1.154 is 0.133(11.5%) logic and 1.021(88.5%) route.
+Instance / Net                       Pin      Pin               Arrival     No. of    
+Name                       Type      Name     Dir     Delay     Time        Fan Out(s)
+--------------------------------------------------------------------------------------
+spi0._sck_cry_0_RNO[0]     INV       O        Out     0.000     0.000       -         
+_sck                       Net       -        -       1.021     -           1         
+spi0._sck_cry_0[0]         ALU       CIN      In      -         1.021       -         
+spi0._sck_cry_0[0]         ALU       COUT     Out     0.057     1.078       -         
+_sck_cry[0]                Net       -        -       0.000     -           1         
+spi0._sck_cry_0[1]         ALU       CIN      In      -         1.078       -         
+spi0._sck_cry_0[1]         ALU       COUT     Out     0.057     1.135       -         
+_sck_cry[1]                Net       -        -       0.000     -           1         
+spi0._sck_cry_0[2]         ALU       CIN      In      -         1.135       -         
+spi0._sck_cry_0[2]         ALU       COUT     Out     0.057     1.192       -         
+_sck_cry[2]                Net       -        -       0.000     -           1         
+spi0._sck_cry_0[3]         ALU       CIN      In      -         1.192       -         
+spi0._sck_cry_0[3]         ALU       COUT     Out     0.057     1.249       -         
+_sck_cry[3]                Net       -        -       0.000     -           1         
+spi0._sck_s_0[4]           ALU       CIN      In      -         1.249       -         
+spi0._sck_s_0[4]           ALU       SUM      Out     0.563     1.812       -         
+_sck_s[4]                  Net       -        -       1.021     -           1         
+spi0._sck[4]               DFFCE     D        In      -         2.833       -         
+======================================================================================
+Total path delay (propagation time + setup) of 2.966 is 0.924(31.2%) logic and 2.042(68.8%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1075,28 +986,29 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 Timing exceptions that could not be applied
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 191MB peak: 192MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 193MB peak: 194MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 191MB peak: 192MB)
+Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 193MB peak: 194MB)
 
 ---------------------------------------
 Resource Usage Report for LED_TM1637 
 
 Mapping to part: gw1n_4lqfp144-6
 Cell usage:
-ALU             103 uses
-DFF             34 uses
+ALU             99 uses
+DFF             33 uses
 DFFCE           32 uses
 DFFE            63 uses
 DFFPE           3 uses
+DFFR            1 use
 GSR             1 use
-INV             10 uses
+INV             11 uses
 MUX2_LUT5       2 uses
 ROMX9           2 uses
 LUT2            29 uses
-LUT3            76 uses
-LUT4            31 uses
+LUT3            75 uses
+LUT4            32 uses
 
 I/O ports: 12
 I/O primitives: 11
@@ -1120,9 +1032,9 @@ Total  LUTs: 136 (2%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 40MB peak: 192MB)
+At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 40MB peak: 194MB)
 
 Process took 0h:00m:04s realtime, 0h:00m:04s cputime
-# Mon Oct 15 17:29:43 2018
+# Mon Oct 15 17:46:26 2018
 
 ###########################################################]

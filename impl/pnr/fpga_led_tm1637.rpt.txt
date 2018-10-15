@@ -30,7 +30,7 @@ Table of Contents
   <Physical Constraint File>: C:\fpga_led_tm1637\src\fpga.cst
   <Timing Constraint File>: ---
   <PnR Report File>: C:\fpga_led_tm1637\impl\pnr\fpga_led_tm1637.rpt.txt
-  <Created Time>: Mon Oct 15 17:29:49 2018
+  <Created Time>: Mon Oct 15 17:46:31 2018
   <Command Line>: C:\Gowin\1.8\Pnr\bin\gowin.exe -do C:\fpga_led_tm1637\impl\pnr\cmd.do 
   <Legal Announcement>: Copyright ©2014-2018 Gowin Semiconductor Corporation. All rights reserved.
 
@@ -38,11 +38,11 @@ Table of Contents
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 3.1e-005 secs
+    Placement Phase 0 ...   REAL time: 2.9e-005 secs
     Placement Phase 1 ...   REAL time: 8.9e-005 secs
-    Placement Phase 2 ...   REAL time: 4.1e-005 secs
-    Placement Phase 3 ...   REAL time: 0.001104 secs
-  Total REAL time to Placement completion: 1.265 secs.
+    Placement Phase 2 ...   REAL time: 2.5e-005 secs
+    Placement Phase 3 ...   REAL time: 0.001105 secs
+  Total REAL time to Placement completion: 1.248 secs.
 
 
 3. Resource Usage Summary
@@ -50,18 +50,18 @@ Table of Contents
   ----------------------------------------------------------
   Resources            | Usage
   ----------------------------------------------------------
-  CFU Logics           | 239(136 LUTs, 103 ALUs)/4608  5%
+  CFU Logics           | 235(136 LUTs, 99 ALUs)/4608  5%
   Registers            | 132/3556  3%
-    --Logic Registers  | 132/3456  3%
-    --I/O Registers    | 0/100  0%
-  CLSs(ideal)          | 129/2304  5%
-  CLSs(used)           | 147/2304  6%
+    --Logic Registers  | 128/3456  3%
+    --I/O Registers    | 4/100  4%
+  CLSs(ideal)          | 128/2304  5%
+  CLSs(used)           | 158/2304  6%
   I/O Ports            | 12
   I/O Bufs             | 11/104  10%
     --Input Bufs       | 5
     --Output Bufs      | 6
     --Inout Bufs       | 0
-  Iologics             | 0/312  0%
+  Iologics             | 4/312  1%
   BSRAMs               | 2/10  20%
   DSP macros           | 0/(4*2)   0%
   PLLs                 | 0/2  0%
@@ -89,10 +89,10 @@ Table of Contents
 5. Router
 
   Starting Router:
-    Route Phase 0: 585 unrouted; REAL time: 0 secs
-    Route Phase 1: 310 unrouted; REAL time: 0.095 secs
-    Route Phase 2: 0  unrouted; REAL time: 0.083 secs
-  Total REAL time to Router completion: 0.178 secs.
+    Route Phase 0: 578 unrouted; REAL time: 0 secs
+    Route Phase 1: 307 unrouted; REAL time: 0.086 secs
+    Route Phase 2: 0  unrouted; REAL time: 0.089 secs
+  Total REAL time to Router completion: 0.175 secs.
 
 
 6. Global Clock Usage Summary
