@@ -100,14 +100,14 @@ always@(  //  Code below is always triggered when these conditions are true...
     end
     else begin
     */
-        ////if (cnt >= 24'h000fff) begin  //  (Slow) If our counter has reached its limit...
-        if (cnt >= 16'h00ff) begin  //  (Fast) If our counter has reached its limit...
-            clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
-            cnt <= 16'h0;         //  Reset the counter to 0.
-        end
-        else begin
-            cnt <= cnt + 16'h1;  //  Else increment counter by 1. "16'h1" means "16-bit, Hexadecimal Value 1"
-        end
+    ////if (cnt >= 24'h000fff) begin  //  (Slow) If our counter has reached its limit...
+    if (cnt == 16'h00ff) begin  //  (Fast) If our counter has reached its limit...
+        clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
+        cnt <= 16'h0;         //  Reset the counter to 0.
+    end
+    else begin
+        cnt <= cnt + 16'h1;  //  Else increment counter by 1. "16'h1" means "16-bit, Hexadecimal Value 1"
+    end
     //end
 
     //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.

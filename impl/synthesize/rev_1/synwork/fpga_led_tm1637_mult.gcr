@@ -21,7 +21,7 @@ e ckid0_5 {t:spi0.charreceivedn[0].C} dffre
 d ckid0_6 {t:rd_spi_0[0].Q[0]} dffre Potential generated clock but with a nonconvertable driver or an unknown conversion method
 i clk_50M[0]
 m 0 0
-u 10 13
+u 18 21
 p {p:clk_50M[0]}{t:cnt[0].C}
 e ckid0_7 {t:cnt[0].C} dffr
 c ckid0_7 {p:clk_50M[0]} Unconstrained_port Inferred clock from port
