@@ -78,7 +78,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Sat Oct 13 22:55:54 2018
+<td>Mon Oct 15 14:11:51 2018
 </td>
 </tr>
 <tr>
@@ -121,10 +121,66 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>1.2</td>
 </tr>
 <tr>
+<td class="label">switches[0]</td>
+<td>68/2</td>
+<td>in</td>
+<td>IOB28[A]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">switches[1]</td>
+<td>69/2</td>
+<td>in</td>
+<td>IOB28[B]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">switches[2]</td>
+<td>79/1</td>
+<td>in</td>
+<td>IOR17[B]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td class="label">switches[3]</td>
+<td>80/1</td>
+<td>in</td>
+<td>IOR17[A]</td>
+<td>LVCMOS18</td>
+<td>NA</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>1.2</td>
+</tr>
+<tr>
 <td class="label">oled_dc</td>
-<td>56/2</td>
+<td>44/2</td>
 <td>out</td>
-<td>IOB19[A]</td>
+<td>IOB10[A]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -136,9 +192,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">oled_res</td>
-<td>43/2</td>
+<td>51/2</td>
 <td>out</td>
-<td>IOB8[B]</td>
+<td>IOB14[B]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -178,9 +234,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">oled_vbat</td>
-<td>44/2</td>
+<td>59/2</td>
 <td>out</td>
-<td>IOB10[A]</td>
+<td>IOB20[B]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -192,9 +248,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">oled_vdd</td>
-<td>50/2</td>
+<td>62/2</td>
 <td>out</td>
-<td>IOB14[A]</td>
+<td>IOB22[A]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -690,17 +746,17 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">43/2</td>
-<td>oled_res</td>
-<td>out</td>
+<td>UNUSED</td>
+<td>-</td>
 <td>IOB8[B]</td>
-<td>LVCMOS18</td>
-<td>UP</td>
-<td>NA</td>
-<td>NA</td>
-<td>NA</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <td class="label">44/2</td>
-<td>oled_vbat</td>
+<td>oled_dc</td>
 <td>out</td>
 <td>IOB10[A]</td>
 <td>LVCMOS18</td>
@@ -760,24 +816,24 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">50/2</td>
-<td>oled_vdd</td>
-<td>out</td>
+<td>UNUSED</td>
+<td>-</td>
 <td>IOB14[A]</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<td class="label">51/2</td>
+<td>oled_res</td>
+<td>out</td>
+<td>IOB14[B]</td>
 <td>LVCMOS18</td>
 <td>UP</td>
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-</tr>
-<td class="label">51/2</td>
-<td>UNUSED</td>
-<td>-</td>
-<td>IOB14[B]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
 </tr>
 <td class="label">52/2</td>
 <td>UNUSED</td>
@@ -800,14 +856,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">56/2</td>
-<td>oled_dc</td>
-<td>out</td>
+<td>UNUSED</td>
+<td>-</td>
 <td>IOB19[A]</td>
-<td>LVCMOS18</td>
-<td>UP</td>
-<td>NA</td>
-<td>NA</td>
-<td>NA</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <td class="label">57/2</td>
 <td>led[1]</td>
@@ -830,14 +886,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">59/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>oled_vbat</td>
+<td>out</td>
 <td>IOB20[B]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">60/2</td>
 <td>led[2]</td>
@@ -860,14 +916,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 </tr>
 <td class="label">62/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>oled_vdd</td>
+<td>out</td>
 <td>IOB22[A]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">63/2</td>
 <td>UNUSED</td>
@@ -920,24 +976,24 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">68/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>switches[0]</td>
+<td>in</td>
 <td>IOB28[A]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">69/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>switches[1]</td>
+<td>in</td>
 <td>IOB28[B]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">70/2</td>
 <td>UNUSED</td>
@@ -1470,24 +1526,24 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">80/1</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>switches[3]</td>
+<td>in</td>
 <td>IOR17[A]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">79/1</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>switches[2]</td>
+<td>in</td>
 <td>IOR17[B]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 </table>
 <br/>

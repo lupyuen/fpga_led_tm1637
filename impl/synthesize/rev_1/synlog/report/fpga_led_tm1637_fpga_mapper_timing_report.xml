@@ -15,28 +15,28 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 <data tcl_name="slack">Slack</data>
 </row>
 <row>
-<data>LED_TM1637|clk_50M</data>
+<data>LED_TM1637|clk_50M[0]</data>
 <data>100.0 MHz</data>
-<data>141.0 MHz</data>
-<data>2.907</data>
+<data>139.8 MHz</data>
+<data>2.846</data>
 </row>
 <row>
-<data>LED_TM1637|clk_led_derived_clock</data>
+<data>LED_TM1637|clk_led_derived_clock[0]</data>
 <data>100.0 MHz</data>
-<data>117.4 MHz</data>
-<data>6.298</data>
+<data>94.6 MHz</data>
+<data>6.359</data>
 </row>
 <row>
-<data>LED_TM1637|rd_spi_derived_clock</data>
+<data>LED_TM1637|rd_spi_derived_clock[0]</data>
 <data>100.0 MHz</data>
-<data>117.4 MHz</data>
-<data>1.485</data>
+<data>94.6 MHz</data>
+<data>-0.574</data>
 </row>
 <row>
-<data>LED_TM1637|wr_spi_derived_clock</data>
+<data>LED_TM1637|wr_spi_derived_clock[0]</data>
 <data>100.0 MHz</data>
-<data>164.9 MHz</data>
-<data>3.935</data>
+<data>170.8 MHz</data>
+<data>4.145</data>
 </row>
 <row>
 <data>System</data>

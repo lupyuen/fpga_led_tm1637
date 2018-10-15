@@ -1,18 +1,18 @@
 //  Based on https://github.com/MorgothCreator/Verilog_SSD1306_CFG_IP
-//  and https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master.
 `include "rom.v"
 
 module	LED_TM1637(
-    input   clk_50M,  //  Onboard clock is 50MHz.
-    input   rst_n,    //  Reset pin is also an Input, triggered by board restart or reset button.
-	output	reg oled_dc,
-	output	reg oled_res,
-	output	oled_sclk,
-	output	oled_sdin,
-	output	reg oled_vbat,
-	output	reg oled_vdd,
-    output  reg ss,
-    output  [3:0] led  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.
+    input   wire[0:0] clk_50M,  //  Onboard clock is 50MHz.
+    input   wire[0:0] rst_n,    //  Reset pin is also an Input, triggered by board restart or reset button.
+	output	reg [0:0] oled_dc,
+	output	reg [0:0] oled_res,
+	output  wire[0:0] oled_sclk,
+	output  wire[0:0] oled_sdin,
+	output	reg [0:0] oled_vbat,
+	output	reg [0:0] oled_vdd,
+    output  reg [0:0] ss,
+    output  wire[3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0], [1], [2], [3], [4] to Pins 47, 57, 60, 61
+    input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0], [1], [2], [3], [4] to Pins 68, 69, 79, 80
 );
 
 //  The step ID that we are now executing: 0, 1, 2, ...
@@ -27,29 +27,29 @@ LED_TM1637_ROM oled_rom_init(
 
 //  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up our local registers vs decoded values.
 //  If encoded_step is changed, these will automatically change.
-wire step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
-wire step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
-wire step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
-wire step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
-wire step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
-wire step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
+wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
+wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
+wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
+wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
+wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
+wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
 
-wire step_oled_vdd = encoded_step[6];
-wire step_oled_vbat = encoded_step[5];
-wire step_oled_res = encoded_step[4];
-wire step_oled_dc = encoded_step[3];
-wire step_wr_spi = encoded_step[2];
-wire step_rd_spi = encoded_step[1];
-wire step_wait_spi = encoded_step[0];
-wire buffempty;
-wire charreceived;
+wire[0:0] step_oled_vdd = encoded_step[6];
+wire[0:0] step_oled_vbat = encoded_step[5];
+wire[0:0] step_oled_res = encoded_step[4];
+wire[0:0] step_oled_dc = encoded_step[3];
+wire[0:0] step_wr_spi = encoded_step[2];
+wire[0:0] step_rd_spi = encoded_step[1];
+wire[0:0] step_wait_spi = encoded_step[0];
+wire[0:0] tx_buffer_is_empty;
+wire[0:0] charreceived;
 
-reg wait_spi = 1'b0;
-reg rd_spi = 1'b0;
-reg wr_spi = 1'b0;				
-reg clk_led = 1'b0;
-reg rst_led = 1'b0;
-reg internal_state_machine = 1'b0;
+reg[0:0] wait_spi = 1'b0;
+reg[0:0] rd_spi = 1'b0;
+reg[0:0] wr_spi = 1'b0;				
+reg[0:0] clk_led = 1'b0;
+reg[0:0] rst_led = 1'b0;
+reg[0:0] internal_state_machine = 1'b0;
 reg[24:0] cnt = 25'h0;
 reg[27:0] elapsed_time = 28'h0;
 reg[27:0] saved_elapsed_time = 28'h0;
@@ -59,7 +59,14 @@ reg[3:0] debug = 4'h0;
 reg[7:0] test_display_on = 8'h8f;
 reg[7:0] test_display_off = 8'h80;
 
-assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug value in LED.
+//  switches[3:0] is {1,1,1,1} when all switches {SW4, SW5, SW6, SW7} are in the down position.
+//  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.
+wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
+
+// assign led = { ~debug[0], ~debug[1], ~debug[2], ~debug[3] };  //  Show the debug value in LED.
+// assign led = { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
+// assign led = { ~step_id[0], ~step_id[1], ~debug[0], ~debug[1] };  //  Show the state machine step ID and debug in LED.
+assign led = { ~normalised_switches[0], ~normalised_switches[1], ~normalised_switches[2], ~normalised_switches[3] };
 
 /*
     reg [3:0]clk_div;
@@ -87,8 +94,8 @@ always@(  //  Code below is always triggered when these conditions are true...
     end
     else begin
     */
-        if (cnt == 25'd249_9999) begin  //  If our counter has reached its limit...
-        ////if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
+        ////if (cnt == 25'd249_9999) begin  //  If our counter has reached its limit...
+        if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
             clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
             cnt <= 25'd0;         //  Reset the counter to 0.
         end
@@ -118,7 +125,7 @@ spi0(
 	.data_out(data_tmp),
 	.wr(wr_spi),
 	.rd(rd_spi),
-	.buffempty(buffempty),
+	.tx_buffer_is_empty(tx_buffer_is_empty),
 	.sck(oled_sclk),
 	.mosi(oled_sdin),
 	.miso(1'b1),
@@ -173,7 +180,6 @@ begin
 		repeat_count <= 15'h0;
     end
 */
-    //// led <= { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
 
     //  If the start time is up and the step is ready to execute...
     if (elapsed_time >= step_time) begin
@@ -198,18 +204,21 @@ begin
                 //  Handle as a normal step in the next clock tick.
                 internal_state_machine <= 1'b1;
 
-                if (step_rd_spi || step_wr_spi) begin
+                if (rd_spi || wr_spi) begin
                     //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led low to high transition).
                     rst_led <= 1'b1;
                 end
                 else begin
-                    //  If this is not an SPI read or write step, init rst_led to low.
+                    //  Reset rst_led to low in case we have previously set to high due to SPI read or write step.
                     rst_led <= 1'b0;
                 end
 
             end
             //  Second Part: Execute the step.
             1'b1 : begin
+                //  Reset rst_led to low in case we have previously set to high due to SPI read or write step.
+                ////rst_led <= 1'b0;
+
                 //  If we are waiting for SPI command to complete...
                 if (wait_spi) begin
                     //  If SPI command has completed...
