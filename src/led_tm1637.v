@@ -54,11 +54,54 @@ reg[27:0] saved_elapsed_time; // = 28'h0;
 reg[14:0] repeat_count; // = 15'h0;
 reg[7:0] rx_data; // = 8'h0;
 reg[3:0] spi_debug; // = 4'h0;
+reg[3:0] spi_debug_bit_num; // = 4'h0;
 reg[7:0] test_display_on; // = 8'h8f;
 reg[7:0] test_display_off; // = 8'h80;
 reg[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
 reg[0:0] debug_waiting_for_step_time; // = 1'b0;
 reg[0:0] debug_waiting_for_spi; // = 1'b0;
+reg[0:0] debug_waiting_for_tx_data;
+reg[0:0] debug_waiting_for_prescaller;
+wire[0:0] tx_buffer_is_empty;
+wire[0:0] charreceived;
+
+spi_master # (
+    .WORD_LEN(8),        //  Default 8
+    .PRESCALLER_SIZE(8)  //  Default 8, Max 8
+)
+spi0(
+    .clk(clk_led),  //  Use the LED clock.
+
+    .prescaller(3'h0),  //  No prescaler (fast).
+    ////.prescaller(3'h1),  //  Prescale by 2 (slow).
+    ////.prescaller(3'h2),  //  Prescale by 4 (slower).
+
+    .rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
+
+    ////.tx_data(step_tx_data),  //  Transmit real data to SPI device.
+    .tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
+
+    .rx_data(rx_data),
+    .wr(wr_spi),
+    .rd(rd_spi),
+    .tx_buffer_is_empty(tx_buffer_is_empty),
+    .sck(tm1637_clk),
+    .mosi(tm1637_dio),
+    .miso(1'b1),  //  MISO Pin is not used in DIO Mode.
+    .ss(ss),  //  SPI SS Pin is not used in DIO Mode.
+    .lsbfirst(1'b1),  //  Transmit least significant bit first.
+    .mode(2'b11),  //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
+    //.senderr(senderr),
+    .res_senderr(1'b0),
+    .charreceived(charreceived),
+    .diomode(1'b1),  //  Select DIO Mode instead of SPI Mode.
+
+    //  Debug output for tracing the SPI operations.
+    .debug(spi_debug),
+    .debug_bit_num(spi_debug_bit_num),
+    .debug_waiting_for_tx_data(debug_waiting_for_tx_data),
+    .debug_waiting_for_prescaller(debug_waiting_for_prescaller)
+);
 
 //  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
 //  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
@@ -69,20 +112,24 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     (normalised_switches == 4'b0000) ? cnt2[3:0] :  //  If {SW4,5,6,7}={0,0,0,0}, show the cnt2 counter, which is always increasing.
     (normalised_switches == 4'b0001) ? step_id :    //  If {SW4,5,6,7}={0,0,0,1}, show the TM1637 ROM step ID that we are executing.
     (normalised_switches == 4'b0010) ? spi_debug :  //  If {SW4,5,6,7}={0,0,1,0}, show the SPI step ID that we are executing.
-    (normalised_switches == 4'b0011) ? {   //  If {SW4,5,6,7}={0,0,1,1},
+    (normalised_switches == 4'b0011) ? spi_debug_bit_num :  //  If {SW4,5,6,7}={0,0,1,1}, show the SPI bit number being sent/received.
+    (normalised_switches == 4'b0100) ? {   //  If {SW4,5,6,7}={0,1,0,0},
         clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
         rst_led[0], ~rst_led[0] } :        //  and rst_led (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b0100) ? {   //  If {SW4,5,6,7}={0,1,0,0},
+    (normalised_switches == 4'b0101) ? {   //  If {SW4,5,6,7}={0,1,0,1},
         tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
         tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b0101) ? {   //  If {SW4,5,6,7}={0,1,0,1}, 
+    (normalised_switches == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0}, 
         debug_waiting_for_step_time[0], 
         debug_waiting_for_spi[0],
-        1'b1, 1'b1 } :
+        debug_waiting_for_tx_data[0], 
+        debug_waiting_for_prescaller[0] } :
     normalised_switches;  //  Else show normalised switches using onboard LEDs.
 
 //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
-assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
+assign led =
+    (!rst_n) ? { 0, 0, 0, 0 } :     //  If board restarts or reset button is pressed, switch on all 4 LEDs.
+    { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };  //  Else show the debug values.
 //  assign led = { ~cnt2[0], ~cnt2[1], ~cnt2[2], ~cnt2[3] };
 
 //  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up our local registers vs decoded values.
@@ -90,7 +137,7 @@ assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~norm
 wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
 wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
 ////wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
-wire[23:0] step_time = 24'h1; //// TODO
+wire[23:0] step_time = 24'h1; //// TODO: Hardcoded step_time to avoid waiting.
 wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
 wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
 wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
@@ -102,8 +149,6 @@ wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many time
 wire[0:0] step_wr_spi = encoded_step[2];
 wire[0:0] step_rd_spi = encoded_step[1];
 wire[0:0] step_wait_spi = encoded_step[0];
-wire[0:0] tx_buffer_is_empty;
-wire[0:0] charreceived;
 
 always@(                //  Code below is always triggered when these conditions are true...
     posedge clk_led or  //  When the clk_led register transitions from low to high (positive edge) OR
@@ -126,11 +171,14 @@ always@(                //  Code below is always triggered when these conditions
         /* reg[14:0] */ repeat_count <= 15'h0;
         /* reg[7:0] */ rx_data <= 8'h0;
         /* reg[3:0] */ spi_debug <= 4'h0;
+        /* reg[3:0] */ spi_debug_bit_num <= 4'h0;
         /* reg[7:0] */ test_display_on <= 8'h8f;
         /* reg[7:0] */ test_display_off <= 8'h80;
         /* reg[0:0] */ ss <= 1'b0;  //  Not used for DIO Mode.
         /* reg[0:0] */ debug_waiting_for_step_time <= 1'b0;
         /* reg[0:0] */ debug_waiting_for_spi <= 1'b0;
+        /* reg[0:0] */ debug_waiting_for_tx_data <= 1'b0;
+        /* reg[0:0] */ debug_waiting_for_prescaller <= 1'b0;
     end
     else begin
         if (cnt2 == 25'd2499_9999) begin  //  If our counter has reached its limit...
@@ -329,39 +377,6 @@ endmodule
     end
 
     `ifdef NOTUSED == 1
-
-        spi_master # (
-        .WORD_LEN(8),        //  Default 8
-        .PRESCALLER_SIZE(8)  //  Default 8, Max 8
-        )
-        spi0(
-            .clk(temp_clk_led),  //  Use the LED clock.
-
-            .prescaller(3'h0),  //  No prescaler (fast).
-            ////.prescaller(3'h1),  //  Prescale by 2 (slow).
-            ////.prescaller(3'h2),  //  Prescale by 4 (slower).
-
-            .rst(rst_led),  //  Start transmitting to SPI device when rst_led transitions from low to high.
-
-            ////.tx_data(step_tx_data),  //  Transmit real data to SPI device.
-            .tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
-
-            .rx_data(rx_data),
-            .wr(wr_spi),
-            .rd(rd_spi),
-            .tx_buffer_is_empty(tx_buffer_is_empty),
-            .sck(tm1637_clk),
-            .mosi(tm1637_dio),
-            .miso(1'b1),
-            .ss(ss),  //  SPI SS Pin is not used in DIO Mode.
-            .lsbfirst(1'b1),  //  Transmit least significant bit first.
-            .mode(2'b11),  //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
-            //.senderr(senderr),
-            .res_senderr(1'b0),
-            .charreceived(charreceived),
-            .diomode(1'b1),  //  Select DIO Mode instead of SPI Mode.
-            .debug(spi_debug)
-        );
 
         //  Synchronous lath to out commands directly from ROM except when is a repeat count load.
         always @ (posedge temp_clk_led)

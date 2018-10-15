@@ -19,32 +19,35 @@ module spi_master #(
 		parameter WORD_LEN = 8,
 		parameter PRESCALLER_SIZE = 8
 	)(
-        input  wire[0:0] rst_n,/* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
-        input  wire[0:0] clk,/* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
+        input  /* wire[0:0] */ rst_n,  /* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
+        input  /* wire[0:0] */ clk,  /* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
         input  wire[WORD_LEN - 1:0] tx_data,  //  Data to be transmitted to SPI device (1 byte)
         output wire[WORD_LEN - 1:0] rx_data,  //  Data received from SPI device (1 byte)
-        input  wire[0:0] wr,  //  1 if we should transmit data, asynchronus with 'clk', active on posedge or negedge (input)
-        input  wire[0:0] rd,  //  1 if we should receive data, asynchronus with 'clk', active on posedge or negedge (input)
-        output wire[0:0] tx_buffer_is_empty,/* '1' if transmit buffer is empty (output) */
+        input  /* wire[0:0] */ wr,  //  1 if we should transmit data, asynchronus with 'clk', active on posedge or negedge (input)
+        input  /* wire[0:0] */ rd,  //  1 if we should receive data, asynchronus with 'clk', active on posedge or negedge (input)
+        output /* wire[0:0] */ tx_buffer_is_empty,/* '1' if transmit buffer is empty (output) */
         input  wire[2:0] prescaller,/* The prescaller divider is = (1 << prescaller) value between 0 and 7 for dividers by:1,2,4,8,16,32,64,128 and 256 (input)*/
-        output wire[0:0] sck,/* SPI 'sck' signal (output) */
-        output wire[0:0] mosi,/* SPI 'mosi' signal (output) */
-        input  wire[0:0] miso,/* SPI 'miso' signal (input) */
-        output reg [0:0] ss,/* SPI 'ss' signal (if send buffer is maintained full the ss signal will not go high between between transmit chars)(output) */
-        input  wire[0:0] lsbfirst,/* If '0' msb is send first, if '1' lsb is send first (input) */
+        output /* wire[0:0] */ sck,/* SPI 'sck' signal (output) */
+        output /* wire[0:0] */ mosi,/* SPI 'mosi' signal (output) */
+        input  /* wire[0:0] */ miso,/* SPI 'miso' signal (input) */
+        output reg /* [0:0] */ ss,/* SPI 'ss' signal (if send buffer is maintained full the ss signal will not go high between between transmit chars)(output) */
+        input  /* wire[0:0] */ lsbfirst,/* If '0' msb is send first, if '1' lsb is send first (input) */
         input  wire[1:0] mode,/* All four modes is supported (input) */
-        output reg [0:0] senderr,/* If you try to send a character if send buffer is full this bit is set to '1', this can be ignored and if is '1' does not affect the interface (output) */
-        input  wire[0:0] res_senderr,/* To reset 'senderr' signal write '1' wait minimum half core clock and and after '0' to this bit, is asynchronous with 'clk' (input)*/
-        output wire[0:0] charreceived,/* Is set to '1' if a character is received, if you read the receive buffe this bit will go '0', if you ignore it and continue to send data this bit will remain '1' until you read the read register (output) */
-        input  wire[0:0] diomode,  //  1 if we are sending to a DIO device (TM1637 LED) instead of an SPI device.
-        output reg [3:0] debug  //  Debug value to be shown on the LEDs.
+        output reg /* [0:0] */ senderr,/* If you try to send a character if send buffer is full this bit is set to '1', this can be ignored and if is '1' does not affect the interface (output) */
+        input  /* wire[0:0] */ res_senderr,/* To reset 'senderr' signal write '1' wait minimum half core clock and and after '0' to this bit, is asynchronous with 'clk' (input)*/
+        output /* wire[0:0] */ charreceived,/* Is set to '1' if a character is received, if you read the receive buffe this bit will go '0', if you ignore it and continue to send data this bit will remain '1' until you read the read register (output) */
+        input  /* wire[0:0] */ diomode,  //  1 if we are sending to a DIO device (TM1637 LED) instead of an SPI device.
+        output reg [3:0] debug,  //  Debug value to be shown on the LEDs.
+        output reg [3:0] debug_bit_num,  //  Bit number (0 to 8) being transmitted/received now.
+        output reg debug_waiting_for_tx_data,  //  1 if we are waiting for data to transmit.
+        output reg debug_waiting_for_prescaller  //  1 if we are waiting for prescaller to count down.
     );
 
 reg[0:0] _mosi;
 reg[0:0] charreceivedp;
 reg[0:0] charreceivedn;
-reg[0:0] tx_buffer_fullp = 1'b0;
-reg[0:0] tx_buffer_fulln = 1'b0;
+reg[0:0] tx_buffer_fullp; // = 1'b0;
+reg[0:0] tx_buffer_fulln; // = 1'b0;
 reg[2:0] prescallerbuff;
 reg[WORD_LEN - 1:0] tx_buffer;
 reg[WORD_LEN - 1:0] rx_buffer;
@@ -55,12 +58,7 @@ assign tx_buffer_is_empty = ~(tx_buffer_fullp ^ tx_buffer_fulln);
 //  Asynchronus Send
 
 //  You need to put the data on the bus and wait a half of core clock to assert the wr signal(see simulation).
-`ifdef WRITE_ON_NEG_EDGE == 1
-always @ (negedge wr)  //  Not used.
-`else
-always @ (posedge wr)  //  Normally we transmit when "wr" transitions from low to high.
-`endif
-begin
+always @ (posedge wr) begin  //  Normally we transmit when "wr" transitions from low to high.
     //  If we should send data and the send buffer is empty...
     if (wr && tx_buffer_fullp == tx_buffer_fulln && tx_buffer_is_empty) begin
         //  Copy the transmit data (1 byte) into the transmit buffer.
@@ -68,21 +66,17 @@ begin
     end
 end
 
-`ifdef WRITE_ON_NEG_EDGE == 1
-always @ (negedge wr or posedge res_senderr or posedge rst)  //  Not used.
-`else
-always @ (posedge wr or posedge res_senderr or posedge rst)  //  Normally we transmit when "wr" transitions from low to high.
-`endif
-begin
-    if (rst) begin
-        //  When reset signal transitions from low to high, reset the internal registers.
+always @ (posedge wr or posedge res_senderr or negedge rst_n) begin  //  Normally we transmit when "wr" transitions from low to high.
+    if (!rst_n) begin
+        //  When reset signal transitions from high to low, reset the internal registers.
         tx_buffer_fullp <= 1'b0;
         senderr <= 1'b0;
         prescallerbuff <= 3'b0;
     end
     else
-    if (res_senderr)
+    if (res_senderr) begin
         senderr <= 1'b0;
+    end
     else
     //  If we should send data and the send buffer is empty...
     if (wr && tx_buffer_fullp == tx_buffer_fulln && tx_buffer_is_empty) begin
@@ -91,17 +85,18 @@ begin
     end
     else
     //  If we should send data and the send buffer is full...
-    if (!tx_buffer_is_empty)
+    if (!tx_buffer_is_empty) begin
         senderr <= 1'b1;  //  Return an error.
+    end
 end
 
 ///////////////////////////////////////////////////////////////////////////////
-//  Non-Asynchronus Send
+//  Synchronous Send
 
 //  Constants to represent the current SPI state: Idle and Busy.
 localparam[0:0] state_idle = 1'b0;
 localparam[0:0] state_busy = 1'b1;
-reg[0:0] state = state_idle;
+reg[0:0] state; // = state_idle;
 
 //  What's a "Prescaller"?  The FPGA clock runs on 50 MHz but that might be too fast for SPI devices
 //  (and might be harder to debug).  So we scale it down by a factor, so that the SPI device will
@@ -148,8 +143,8 @@ end
 reg[WORD_LEN - 1:0] shift_reg_tx;  //  Next bits to be transmitted to SPI device.
 reg[WORD_LEN - 1:0] shift_reg_rx;  //  Bits received from the SPI device.
 
-reg[4:0] _sck;  //  Count the number of bits sent and phase of the SPI clock.
 //  Decode _sck into bit number and the clock phase.  If _sck changes, these will also change.
+reg[4:0] _sck;  //  Count the number of bits sent and phase of the SPI clock.
 wire[3:0] _sck_bit_num = _sck[4:1];   //  Bit number currently being sent. _sck_bit_num=7 when 8 bits have been sent
 wire[0:0] _sck_transition = _sck[0];  //  Current high/low transition phase of the clock.  _sck_transition=0 during first transition phase of the clock, 1 during second transition phase
 
@@ -157,8 +152,8 @@ reg[0:0] _lsbfirst;  //  1 if we should send Least Significant Bit first.
 wire[0:0] _msbfirst = ~_lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if _lsbfirst changes.
 wire[0:0] msbfirst = ~lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if lsbfirst changes.
 
-reg[1:0] _mode;
 //  Decode _mode (Internal SPI Mode) into clock phase and polarity.  If _mode changes, these will also change.
+reg[1:0] _mode;
 wire[0:0] _mode_clk_phase = _mode[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
 wire[0:0] _mode_clk_polarity = _mode[1];  //  Clock Polarity: 0 means Idle Low, 1 means Idle High
 wire[0:0] _mode_clk_idle_low = ~_mode_clk_polarity;
@@ -175,16 +170,16 @@ reg[0:0] _diomode;  //  "diomode" parameter stored locally.
 //  The last bit must be 0 to keep the DIO connection open.
 
 //  Number of bits to transmit.  For SPI: 8, for DIO: 9.  WORD_LEN is normally 8.
-wire[3:0] num_bits = _diomode ? (WORD_LEN + 1) : WORD_LEN;
+wire[3:0] num_bits = _diomode ? { 4{WORD_LEN + 1} } : { 4{WORD_LEN} };
 
 //  When all the bits have been transmitted, we transmit empty_tx_bit.  For SPI this is 1.
 //  For DIO this is 0, so that the 9th bit is set low to keep the connection open.
 wire[0:0] empty_tx_bit = _diomode ? 1'b0 : 1'b1;
 
-always @ (posedge clk or posedge rst) begin
+always @ (posedge clk or negedge rst_n) begin
     //  When reset signal transitions from low to high, prepare to transmit data to SPI device.
     //  When clock transitions from low to high, transmit 1 bit to SPI device.
-    if (rst) begin
+    if (!rst_n) begin
         //  When reset signal transitions from low to high, prepare to transmit data to SPI device.
         //  Reset the internal registers.
         debug <= 4'd1;  //  Show the debug value in LEDs.
@@ -202,6 +197,9 @@ always @ (posedge clk or posedge rst) begin
         _lsbfirst <= 1'b0;
         _mode <= 2'b0;
         _diomode <= 2'b0;
+        debug_bit_num <= 4'b0;
+        debug_waiting_for_tx_data <= 1'b0;
+        debug_waiting_for_prescaller <= 1'b0;
     end
     else begin
         //  When clock transitions from low to high, transmit 1 bit to SPI device.
@@ -210,9 +208,11 @@ always @ (posedge clk or posedge rst) begin
                 //  If we don't have data to transmit...
                 if (tx_buffer_fullp == tx_buffer_fulln) begin
                     //  Stay in the Idle State and wait for data to transmit.
+                    debug_waiting_for_tx_data <= 1'b1;  //  Waiting for data to transmit.
                 end
                 //  If we have data to transmit...
                 else begin
+                    debug_waiting_for_tx_data <= 1'b0;  //  Not waiting for data to transmit.
                     debug <= 4'd2;  //  Show the debug value in LEDs.
                     tx_buffer_fulln <= ~tx_buffer_fulln;  //  Mark the data sent.
                     ss <= 1'b0;  //  Set Slave Select Pin to low to activate the SPI device.
@@ -252,11 +252,13 @@ always @ (posedge clk or posedge rst) begin
             state_busy: begin  //  If we are busy now...
                 //  If we haven't finished counting the prescaller...
                 if (prescaller_cnt != prescdemux) begin
+                    debug_waiting_for_prescaller <= 1'b1;  //  Waiting for prescaller countdown.
                     //  Continue counting and check again at next clock transition.
                     prescaller_cnt <= prescaller_cnt + 1;
                 end
                 //  If we have finished counting the prescaller...
                 else begin
+                    debug_waiting_for_prescaller <= 1'b0;  //  Not waiting for prescaller countdown.
                     debug <= 4'd3;  //  Show the debug value in LEDs.
                     prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };  //  Reset the prescaller count to 0.
                     _sck <= _sck + 1;  //  Increment the Internal Clock Pin (5 bits wide), that will be truncated as the SPI Clock Pin (SCK Pin, 1 bit).
@@ -279,6 +281,7 @@ always @ (posedge clk or posedge rst) begin
 
                     //  If we should transmit data now...
                     else begin
+                        debug_bit_num <= _sck_bit_num;
                         //  If we have transmitted all 8 bits for SPI (9 bits for DIO)...
                         if (_sck_bit_num == num_bits - 1) begin
                             debug <= 4'd5;  //  Show the debug value in LEDs.
@@ -317,18 +320,16 @@ end
 /*
  *  You need to assert rd signal, wait a half core clock and after read the data(see simulation).
  */
-`ifdef READ_ON_NEG_EDGE == 1
-always @ (negedge rd or posedge rst)  //  Not used.
-`else
-always @ (posedge rd or posedge rst)  //  Normally we read when "rd" transitions from low to high.
-`endif
-begin
-    if (rst)
+always @ (posedge rd or negedge rst_n) begin  //  Normally we read when "rd" transitions from low to high.
+    if (!rst_n) begin
         //  When reset signal transitions from low to high, reset the internal registers.
         charreceivedn <= 1'b0;
-    else
-    if (charreceivedp != charreceivedn)
-        charreceivedn <= ~charreceivedn;
+    end
+    else begin
+        if (charreceivedp != charreceivedn) begin
+            charreceivedn <= ~charreceivedn;
+        end
+    end
 end
 
 //  If we are receiving data from the SPI device, return the receive buffer to the caller.  Else return a hardcoded value "z" (High Impedence)
