@@ -1,13 +1,13 @@
 i wr_spi_i[0]
 m 0 0
-u 3 6
+u 4 9
 n ckid0_0 {t:spi0.tx_buffer[7].C} Derived clock on input (not legal for GCC)
 p {t:wr_spi_0[0].Q[0]}{t:wr_spi_derived_clock[0].I[0]}{t:wr_spi_derived_clock[0].OUT[0]}{t:spi0.wr[0]}{p:spi0.wr[0]}{t:spi0.tx_buffer[7].C}
 e ckid0_0 {t:spi0.tx_buffer[7].C} dffe
 d ckid0_1 {t:wr_spi_0[0].Q[0]} dffre Potential generated clock but with a nonconvertable driver or an unknown conversion method
 i clk_led_i[0]
 m 0 0
-u 89 117
+u 90 120
 n ckid0_2 {t:spi0.state_0[0].C} Derived clock on input (not legal for GCC)
 p {t:clk_led_0[0].Q[0]}{t:clk_led_derived_clock[0].I[0]}{t:clk_led_derived_clock[0].OUT[0]}{t:repeat_count[0].C}
 e ckid0_3 {t:repeat_count[0].C} dffr
@@ -21,8 +21,8 @@ e ckid0_5 {t:spi0.charreceivedn[0].C} dffre
 d ckid0_6 {t:rd_spi_0[0].Q[0]} dffre Potential generated clock but with a nonconvertable driver or an unknown conversion method
 i clk_50M[0]
 m 0 0
-u 26 26
-p {p:clk_50M[0]}{t:cnt[0].C}
-e ckid0_7 {t:cnt[0].C} dffr
+u 19 19
+p {p:clk_50M[0]}{t:clk_led_0[0].C}
+e ckid0_7 {t:clk_led_0[0].C} dffre
 c ckid0_7 {p:clk_50M[0]} Unconstrained_port Inferred clock from port
 l 0 0 0 0 0

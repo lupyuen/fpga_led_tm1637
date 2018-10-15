@@ -1,12 +1,5 @@
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:29:63:29|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:31:63:31|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:33:63:33|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:35:63:35|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:29:64:29|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:31:64:31|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:33:64:33|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:35:64:35|Unsized number in concatenation is 32 bits
 @W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":31:0:31:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":75:0:75:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":75:0:75:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Pruning register bits 24 to 18 of cnt[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 

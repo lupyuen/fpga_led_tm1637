@@ -54,15 +54,21 @@ reg[3:0] spi_debug = 4'h0;
 reg[7:0] test_display_on = 8'h8f;
 reg[7:0] test_display_off = 8'h80;
 
-//  switches[3:0] is {1,1,1,1} when all switches {SW4, SW5, SW6, SW7} are in the down position.
+//  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
 //  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
 wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
 
-//  normalised_led[3:0] displays a binary value using onboard LED, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
-wire[3:0] normalised_led = //  Depending on the switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LED...
-    (normalised_switches == {0,0,0,0}) ? step_id :    //  If switches={0,0,0,0}, show the TM1637 ROM step ID that we are executing.
-    (normalised_switches == {0,0,0,1}) ? spi_debug :  //  If switches={0,0,0,1}, show the SPI step ID that we are executing.
-    normalised_switches;  //  Else show normalised switches using onboard LED.
+//  normalised_led[3:0] displays a binary value using onboard LEDs, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
+wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LEDs...
+    (normalised_switches == 4'b0000) ? step_id :    //  If {SW4,5,6,7}={0,0,0,0}, show the TM1637 ROM step ID that we are executing.
+    (normalised_switches == 4'b0001) ? spi_debug :  //  If {SW4,5,6,7}={0,0,0,1}, show the SPI step ID that we are executing.
+    (normalised_switches == 4'b0010) ? {   //  If {SW4,5,6,7}={0,0,1,0}, 
+        clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
+        rst_led[0], ~rst_led[0] } :        //  and rst_led (right 2 LEDs, {1,0}=High, {0,1}=Low).
+    (normalised_switches == 4'b0011) ? {   //  If {SW4,5,6,7}={0,0,1,1}, 
+        tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
+        tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
+    normalised_switches;  //  Else show normalised switches using onboard LEDs.
 
 //  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
 assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
@@ -86,15 +92,16 @@ always@(  //  Code below is always triggered when these conditions are true...
     // or negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
     ) begin             //  happens when the board restarts or reset button is pressed.
 
-/*
+    /*
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
         clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
         cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
     end
     else begin
     */
-        ////if (cnt == 25'd249_9999) begin  //  If our counter has reached its limit...
-        if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
+        ////if (cnt >= 25'd2499_9999) begin  //  (Slower) If our counter has reached its limit...
+        ////if (cnt >= 25'd249_9999) begin  //  (Slow) If our counter has reached its limit...
+        if (cnt >= 25'd24_9999) begin  //  (Fast) If our counter has reached its limit...
             clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
             cnt <= 25'd0;         //  Reset the counter to 0.
         end
@@ -109,17 +116,16 @@ spi_master # (
 .PRESCALLER_SIZE(8)  //  Default 8, Max 8
 )
 spi0(
-    ////.clk(clk_50M),  //  Fast clock.
-	.clk(clk_led),  //  Very slow clock.
+	.clk(clk_led),  //  Use the LED clock.
 
-	.prescaller(3'h0),  //  No prescaler.  Fast.
-	////.prescaller(3'h2),  //  Prescale by 4.  Slow.
+	////.prescaller(3'h0),  //  No prescaler (fast).
+	.prescaller(3'h1),  //  Prescale by 2 (slow).
+	////.prescaller(3'h2),  //  Prescale by 4 (slower).
 
-	////.rst(rst_n),
-    .rst(rst_led),  //  Start sending when rst_led transitions from low to hi.
+    .rst(rst_led),  //  Start transmitting to SPI device when rst_led transitions from low to high.
 
-	////.tx_data(step_tx_data),  //  Send real data.
-	.tx_data(test_display_on),  //  Send test data to switch on display (0xAF).
+	////.tx_data(step_tx_data),  //  Transmit real data to SPI device.
+	.tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
 
 	.rx_data(rx_data),
 	.wr(wr_spi),
@@ -128,13 +134,13 @@ spi0(
 	.sck(tm1637_clk),
 	.mosi(tm1637_dio),
 	.miso(1'b1),
-	.ss(ss),
+	.ss(ss),  //  SPI SS Pin is not used in DIO Mode.
 	.lsbfirst(1'b1),  //  Transmit least significant bit first.
 	.mode(2'b11),  //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
 	//.senderr(senderr),
 	.res_senderr(1'b0),
 	.charreceived(charreceived),
-    .diomode(1'b1),
+    .diomode(1'b1),  //  Select DIO Mode instead of SPI Mode.
     .debug(spi_debug)
 );
 

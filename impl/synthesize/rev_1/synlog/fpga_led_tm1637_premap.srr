@@ -1,4 +1,4 @@
-# Mon Oct 15 15:45:43 2018
+# Mon Oct 15 16:27:19 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -54,9 +54,9 @@ Clock Summary
           Start                                      Requested     Requested     Clock                                                  Clock                     Clock
 Level     Clock                                      Frequency     Period        Type                                                   Group                     Load 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       LED_TM1637|clk_50M[0]                      100.0 MHz     10.000        inferred                                               Autoconstr_clkgroup_0     26   
-1 .         LED_TM1637|clk_led_derived_clock[0]      100.0 MHz     10.000        derived (from LED_TM1637|clk_50M[0])                   Autoconstr_clkgroup_0     117  
-2 ..          LED_TM1637|wr_spi_derived_clock[0]     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0     6    
+0 -       LED_TM1637|clk_50M[0]                      100.0 MHz     10.000        inferred                                               Autoconstr_clkgroup_0     19   
+1 .         LED_TM1637|clk_led_derived_clock[0]      100.0 MHz     10.000        derived (from LED_TM1637|clk_50M[0])                   Autoconstr_clkgroup_0     120  
+2 ..          LED_TM1637|wr_spi_derived_clock[0]     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0     9    
 2 ..          LED_TM1637|rd_spi_derived_clock[0]     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0     1    
 =======================================================================================================================================================================
 
@@ -65,16 +65,16 @@ Level     Clock                                      Frequency     Period       
 Clock Load Summary
 ***********************
 
-                                        Clock     Source                       Clock Pin                       Non-clock Pin     Non-clock Pin
-Clock                                   Load      Pin                          Seq Example                     Seq Example       Comb Example 
-----------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]                   26        clk_50M[0](port)             clk_led_0[0].C                  -                 -            
-LED_TM1637|clk_led_derived_clock[0]     117       clk_led_0[0].Q[0](dffre)     step_id[6:0].C                  -                 -            
-LED_TM1637|wr_spi_derived_clock[0]      6         wr_spi_0[0].Q[0](dffre)      spi0.tx_buffer_fullp_0[0].C     -                 -            
-LED_TM1637|rd_spi_derived_clock[0]      1         rd_spi_0[0].Q[0](dffre)      spi0.charreceivedn[0].C         -                 -            
-==============================================================================================================================================
+                                        Clock     Source                       Clock Pin                      Non-clock Pin     Non-clock Pin
+Clock                                   Load      Pin                          Seq Example                    Seq Example       Comb Example 
+---------------------------------------------------------------------------------------------------------------------------------------------
+LED_TM1637|clk_50M[0]                   19        clk_50M[0](port)             cnt[0].C                       -                 -            
+LED_TM1637|clk_led_derived_clock[0]     120       clk_led_0[0].Q[0](dffre)     step_id[6:0].C                 -                 -            
+LED_TM1637|wr_spi_derived_clock[0]      9         wr_spi_0[0].Q[0](dffre)      spi0.prescallerbuff[2:0].C     -                 -            
+LED_TM1637|rd_spi_derived_clock[0]      1         rd_spi_0[0].Q[0](dffre)      spi0.charreceivedn[0].C        -                 -            
+=============================================================================================================================================
 
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":84:0:84:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 26 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 19 sequential elements including clk_led_0[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -87,20 +87,20 @@ Number of ICG latches not removed:	0
 
 #### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[
 
-1 non-gated/non-generated clock tree(s) driving 26 clock pin(s) of sequential element(s)
-3 gated/generated clock tree(s) driving 124 clock pin(s) of sequential element(s)
-0 instances converted, 124 sequential instances remain driven by gated/generated clocks
+1 non-gated/non-generated clock tree(s) driving 19 clock pin(s) of sequential element(s)
+3 gated/generated clock tree(s) driving 130 clock pin(s) of sequential element(s)
+0 instances converted, 130 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
 ---------------------------------------------------------------------------------------
-@KP:ckid0_7       clk_50M[0]          Unconstrained_port     26         cnt[0]         
+@KP:ckid0_7       clk_50M[0]          Unconstrained_port     19         clk_led_0[0]   
 =======================================================================================
 ================================================================= Gated/Generated Clocks =================================================================
 Clock Tree ID     Driving Element       Drive Element Type     Unconverted Fanout     Sample Instance           Explanation                               
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
-@KP:ckid0_0       wr_spi_0[0].Q[0]      dffre                  6                      spi0.tx_buffer[7]         Derived clock on input (not legal for GCC)
-@KP:ckid0_3       clk_led_0[0].Q[0]     dffre                  117                    repeat_count[0]           Derived clock on input (not legal for GCC)
+@KP:ckid0_0       wr_spi_0[0].Q[0]      dffre                  9                      spi0.tx_buffer[7]         Derived clock on input (not legal for GCC)
+@KP:ckid0_3       clk_led_0[0].Q[0]     dffre                  120                    repeat_count[0]           Derived clock on input (not legal for GCC)
 @KP:ckid0_5       rd_spi_0[0].Q[0]      dffre                  1                      spi0.charreceivedn[0]     Derived clock on input (not legal for GCC)
 ==========================================================================================================================================================
 
@@ -119,13 +119,13 @@ Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Tim
 None
 None
 
-Finished constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
+Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
+At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Mon Oct 15 15:45:45 2018
+# Mon Oct 15 16:27:21 2018
 
 ###########################################################]

@@ -42,14 +42,6 @@ Synopsys Verilog Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 0
 @I::"C:\fpga_led_tm1637\src\spi_master.v" (library work)
 @I::"C:\fpga_led_tm1637\src\led_tm1637.v" (library work)
 @I:"C:\fpga_led_tm1637\src\led_tm1637.v":"C:\fpga_led_tm1637\src\rom.v" (library work)
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:29:63:29|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:31:63:31|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:33:63:33|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":63:35:63:35|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:29:64:29|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:31:64:31|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:33:64:33|Unsized number in concatenation is 32 bits
-@W: CG104 :"C:\fpga_led_tm1637\src\led_tm1637.v":64:35:64:35|Unsized number in concatenation is 32 bits
 @I::"C:\fpga_led_tm1637\src\led_tm1637_rom.v" (library work)
 Verilog syntax check successful!
 File C:\fpga_led_tm1637\src\led_tm1637.v changed - recompiling
@@ -67,14 +59,22 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":75:0:75:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":75:0:75:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":4:7:4:16|Synthesizing module LED_TM1637 in library work.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[18] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[19] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[20] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[21] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[22] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[23] is always 0.
+@N: CL189 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Register bit cnt[24] is always 0.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":90:0:90:5|Pruning register bits 24 to 18 of cnt[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @N: CL159 :"C:\fpga_led_tm1637\src\led_tm1637.v":6:22:6:26|Input rst_n is unused.
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 73MB peak: 76MB)
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 73MB peak: 77MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 15:45:41 2018
+# Mon Oct 15 16:27:17 2018
 
 ###########################################################]
 
@@ -103,16 +103,16 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 15:45:41 2018
+# Mon Oct 15 16:27:17 2018
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Mon Oct 15 15:45:41 2018
+# Mon Oct 15 16:27:17 2018
 
 ###########################################################]
