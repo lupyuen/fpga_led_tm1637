@@ -24,18 +24,34 @@ Part:			GW1N_4LQFP144-6 (GoWin)
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     30                 100 %                
+REGISTERS     112                100 %                
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block demo:	30 (28.30 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block demo:	112 (23.33 % Utilization)
 
 
 COMBINATIONAL LOGIC
-Name     Total elements     Utilization     Notes
--------------------------------------------------
-LUTS     32                 100 %                
-ALU      25                 100 %                
-=================================================
-Total COMBINATIONAL LOGIC in the block demo:	57 (53.77 % Utilization)
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+LUTS          205                100 %                
+MUX2_LUT5     34                 100 %                
+MUX2_LUT6     2                  100 %                
+ALU           103                100 %                
+======================================================
+Total COMBINATIONAL LOGIC in the block demo:	344 (71.67 % Utilization)
+
+--------------------------------------------------------------------
+########   Utilization report for  cell:   LED_TM1637_ROM   ########
+Instance path:   demo.LED_TM1637_ROM                                
+====================================================================
+
+COMBINATIONAL LOGIC
+Name          Total elements     Utilization     Notes
+------------------------------------------------------
+LUTS          78                 38 %                 
+MUX2_LUT5     11                 32.4 %               
+MUX2_LUT6     1                  50 %                 
+======================================================
+Total COMBINATIONAL LOGIC in the block demo.LED_TM1637_ROM:	90 (18.75 % Utilization)
 
 
 ##### END OF AREA REPORT #####]

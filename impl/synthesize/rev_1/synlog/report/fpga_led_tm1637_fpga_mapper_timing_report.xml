@@ -16,20 +16,20 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 </row>
 <row>
 <data>demo|clk_50M</data>
-<data>100.0 MHz</data>
-<data>118.2 MHz</data>
-<data>1.537</data>
+<data>137.7 MHz</data>
+<data>123.6 MHz</data>
+<data>-0.831</data>
 </row>
 <row>
 <data>demo|clk_led_derived_clock</data>
-<data>100.0 MHz</data>
-<data>763.4 MHz</data>
-<data>17.380</data>
+<data>137.7 MHz</data>
+<data>107.9 MHz</data>
+<data>-4.020</data>
 </row>
 <row>
 <data>System</data>
 <data>100.0 MHz</data>
-<data>866.6 MHz</data>
-<data>8.846</data>
+<data>256.9 MHz</data>
+<data>6.107</data>
 </row>
 </report_table>
