@@ -1,3 +1,2 @@
-@E: CG351 :"C:\fpga_led_tm1637\src\led_tm1637.v":254:49:254:50|Integer size out of range 1 to 1048576
-@E: CS187 :"C:\fpga_led_tm1637\src\led_tm1637.v":305:0:305:8|Expecting endmodule
+@E: CG906 :"C:\fpga_led_tm1637\src\led_tm1637.v":136:8:136:23|Reference to unknown variable clk_led2.
 

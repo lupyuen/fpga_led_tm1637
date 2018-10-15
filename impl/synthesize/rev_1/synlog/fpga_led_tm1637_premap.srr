@@ -1,4 +1,4 @@
-# Mon Oct 15 23:00:03 2018
+# Mon Oct 15 23:49:00 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -35,46 +35,42 @@ Mapper Initialization Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0
 Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 100MB peak: 101MB)
 
 
-Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
+Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 111MB peak: 114MB)
 
 @W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @N: MH105 |UMR3 is only supported for HAPS-80.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Removing sequential instance senderr[0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":172:0:172:5|Removing sequential instance rx_buffer[7:0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
 syn_allowed_resources : blockrams=10  set on top level netlist LED_TM1637
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
 
 
 Clock Summary
 ******************
 
-          Start                                      Requested     Requested     Clock                                                  Clock                     Clock
-Level     Clock                                      Frequency     Period        Type                                                   Group                     Load 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-0 -       LED_TM1637|clk_50M[0]                      100.0 MHz     10.000        inferred                                               Autoconstr_clkgroup_0     13   
-1 .         LED_TM1637|clk_led_derived_clock[0]      100.0 MHz     10.000        derived (from LED_TM1637|clk_50M[0])                   Autoconstr_clkgroup_0     126  
-2 ..          LED_TM1637|wr_spi_derived_clock[0]     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0     9    
-2 ..          LED_TM1637|rd_spi_derived_clock[0]     100.0 MHz     10.000        derived (from LED_TM1637|clk_led_derived_clock[0])     Autoconstr_clkgroup_0     1    
-=======================================================================================================================================================================
+          Start                                 Requested     Requested     Clock                                    Clock                     Clock
+Level     Clock                                 Frequency     Period        Type                                     Group                     Load 
+----------------------------------------------------------------------------------------------------------------------------------------------------
+0 -       LED_TM1637|clk_50M[0]                 100.0 MHz     10.000        inferred                                 Autoconstr_clkgroup_0     4    
+1 .         LED_TM1637|cnt_derived_clock[3]     100.0 MHz     10.000        derived (from LED_TM1637|clk_50M[0])     Autoconstr_clkgroup_0     8    
+====================================================================================================================================================
 
 
 
 Clock Load Summary
 ***********************
 
-                                        Clock     Source                       Clock Pin                      Non-clock Pin     Non-clock Pin
-Clock                                   Load      Pin                          Seq Example                    Seq Example       Comb Example 
----------------------------------------------------------------------------------------------------------------------------------------------
-LED_TM1637|clk_50M[0]                   13        clk_50M[0](port)             clk_led_0[0].C                 -                 -            
-LED_TM1637|clk_led_derived_clock[0]     126       clk_led_0[0].Q[0](dffre)     led[3:0].C                     -                 -            
-LED_TM1637|wr_spi_derived_clock[0]      9         wr_spi_0[0].Q[0](dffre)      spi0.prescallerbuff[2:0].C     -                 -            
-LED_TM1637|rd_spi_derived_clock[0]      1         rd_spi_0[0].Q[0](dffre)      spi0.charreceivedn[0].C        -                 -            
-=============================================================================================================================================
+                                    Clock     Source                Clock Pin       Non-clock Pin     Non-clock Pin
+Clock                               Load      Pin                   Seq Example     Seq Example       Comb Example 
+-------------------------------------------------------------------------------------------------------------------
+LED_TM1637|clk_50M[0]               4         clk_50M[0](port)      cnt[3].C        -                 -            
+LED_TM1637|cnt_derived_clock[3]     8         cnt[3].Q[0](dffr)     led[3:0].C      -                 -            
+===================================================================================================================
 
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 13 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":102:0:102:5|Found inferred clock LED_TM1637|clk_50M[0] which controls 4 sequential elements including cnt[0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -87,45 +83,45 @@ Number of ICG latches not removed:	0
 
 #### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[
 
-1 non-gated/non-generated clock tree(s) driving 13 clock pin(s) of sequential element(s)
-3 gated/generated clock tree(s) driving 136 clock pin(s) of sequential element(s)
-0 instances converted, 136 sequential instances remain driven by gated/generated clocks
+1 non-gated/non-generated clock tree(s) driving 4 clock pin(s) of sequential element(s)
+1 gated/generated clock tree(s) driving 8 clock pin(s) of sequential element(s)
+0 instances converted, 8 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
 ---------------------------------------------------------------------------------------
-@KP:ckid0_7       clk_50M[0]          Unconstrained_port     13         cnt[0]         
+@KP:ckid0_2       clk_50M[0]          Unconstrained_port     4          cnt[0]         
 =======================================================================================
-================================================================= Gated/Generated Clocks =================================================================
-Clock Tree ID     Driving Element       Drive Element Type     Unconverted Fanout     Sample Instance           Explanation                               
-----------------------------------------------------------------------------------------------------------------------------------------------------------
-@KP:ckid0_0       wr_spi_0[0].Q[0]      dffre                  9                      spi0.tx_buffer[7]         Derived clock on input (not legal for GCC)
-@KP:ckid0_3       clk_led_0[0].Q[0]     dffre                  126                    repeat_count[0]           Derived clock on input (not legal for GCC)
-@KP:ckid0_5       rd_spi_0[0].Q[0]      dffre                  1                      spi0.charreceivedn[0]     Derived clock on input (not legal for GCC)
-==========================================================================================================================================================
+============================================================= Gated/Generated Clocks =============================================================
+Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout     Sample Instance     Explanation                               
+--------------------------------------------------------------------------------------------------------------------------------------------------
+@KP:ckid0_0       cnt[3].Q[0]         dffr                   8                      cnt2[0]             Derived clock on input (not legal for GCC)
+==================================================================================================================================================
 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######
 
 @N|Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
 Finished Pre Mapping Phase.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Starting constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 None
 None
 
-Finished constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
+Finished constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 Pre-mapping successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
+At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 103MB peak: 190MB)
 
-Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Mon Oct 15 23:00:05 2018
+Process took 0h:00m:02s realtime, 0h:00m:01s cputime
+# Mon Oct 15 23:49:03 2018
 
 ###########################################################]

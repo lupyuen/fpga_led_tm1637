@@ -12,18 +12,18 @@ The file contains the area information from mapper to be displayed as part of th
 <data>12</data>
 </parameter>
 <parameter tcl_name="non_io_reg" tooltip="Total Non I/O Register bits used" name="Non I/O Register bits">
-<data>138 (3%)</data>
+<data>12 (0%)</data>
 </parameter>
 <parameter tcl_name="total_io_reg" tooltip="Total I/O Register bits used" name="I/O Register bits">
 <data>0</data>
 </parameter>
 <parameter tcl_name="v_ram" tooltip="Total Block Rams used" name="Block Rams">
-<data>2 (10)</data>
+<data>0 (10)</data>
 </parameter>
 <parameter tcl_name="dsp_used" tooltip="Total Block Multipliers used" name="Block Multipliers">
 <data>0 (8)</data>
 </parameter>
 <parameter tcl_name="total_luts" tooltip="Total LUTs used" name="LUTs">
-<data>164 (3%)</data>
+<data>4 (0%)</data>
 </parameter>
 </report_table>

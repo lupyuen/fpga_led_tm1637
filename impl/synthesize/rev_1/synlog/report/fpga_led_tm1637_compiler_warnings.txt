@@ -1,5 +1,10 @@
 @W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":30:0:30:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":98:0:98:5|Pruning register bits 15 to 12 of cnt[15:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Removing wire tm1637_clk, as there is no assignment to it.
+@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Removing wire tm1637_dio, as there is no assignment to it.
+@W: CG133 :"C:\fpga_led_tm1637\src\led_tm1637.v":15:36:15:42|Object step_id is declared but not assigned. Either assign a value or remove the declaration.
+@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":40:10:40:27|Removing wire tx_buffer_is_empty, as there is no assignment to it.
+@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":41:10:41:21|Removing wire charreceived, as there is no assignment to it.
+@W: CL168 :"C:\fpga_led_tm1637\src\led_tm1637.v":19:15:19:27|Removing instance oled_rom_init because it does not drive other instances. To preserve this instance, use the syn_noprune synthesis directive.
+@W: CL157 :"C:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|*Output tm1637_clk has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.
+@W: CL157 :"C:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|*Output tm1637_dio has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.
 

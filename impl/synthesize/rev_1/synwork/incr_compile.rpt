@@ -16,17 +16,15 @@ Synopsys HDL compiler and linker, Version comp2018q1p1, Build 118R, Built May 15
 
 Modified Files: 1
 FID:  path (prevtimestamp, timestamp)
-5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:48:45, 2018-10-15 22:59:29)
+5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 23:47:53, 2018-10-15 23:48:46)
 
 *******************************************************************
-Modules that may have changed as a result of file changes: 3
+Modules that may have changed as a result of file changes: 2
 MID:  lib.cell.view
 1        work.LED_TM1637.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:48:45, 2018-10-15 22:59:29) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 23:47:53, 2018-10-15 23:48:46) <-- (module definition)
 0        work.LED_TM1637_ROM.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:48:45, 2018-10-15 22:59:29) <-- (may instantiate this module)
-2        work.spi_master.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:48:45, 2018-10-15 22:59:29) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 23:47:53, 2018-10-15 23:48:46) <-- (may instantiate this module)
 
 *******************************************************************
 Unmodified files: 9
@@ -42,5 +40,6 @@ FID:  path (timestamp)
 8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-15 22:18:53)
 
 *******************************************************************
-Unchanged modules: 0
+Unchanged modules: 1
 MID:  lib.cell.view
+2        work.spi_master.verilog

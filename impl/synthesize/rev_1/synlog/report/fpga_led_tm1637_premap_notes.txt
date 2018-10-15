@@ -3,7 +3,9 @@
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @N: MH105 |UMR3 is only supported for HAPS-80.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Removing sequential instance senderr[0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":172:0:172:5|Removing sequential instance rx_buffer[7:0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
 @N|Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":9:19:9:28|Tristate driver tm1637_dio_1 (in view: work.LED_TM1637(verilog)) on net tm1637_dio[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
+@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":8:19:8:28|Tristate driver tm1637_clk_1 (in view: work.LED_TM1637(verilog)) on net tm1637_clk[0] (in view: work.LED_TM1637(verilog)) has its enable tied to GND.
 @N: BN225 |Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap.
