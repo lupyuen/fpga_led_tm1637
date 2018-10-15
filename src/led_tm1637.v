@@ -54,6 +54,9 @@ reg[7:0] rx_data = 8'h0;
 reg[3:0] spi_debug = 4'h0;
 reg[7:0] test_display_on = 8'h8f;
 reg[7:0] test_display_off = 8'h80;
+reg[0:0] ss = 1'b0;  //  Not used for DIO Mode.
+reg[0:0] debug_waiting_for_step_time = 1'b0;
+reg[0:0] debug_waiting_for_spi = 1'b0;
 
 //  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
 //  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
@@ -69,6 +72,10 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     (normalised_switches == 4'b0011) ? {   //  If {SW4,5,6,7}={0,0,1,1}, 
         tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
         tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
+    (normalised_switches == 4'b0100) ? {   //  If {SW4,5,6,7}={0,1,0,0}, 
+        debug_waiting_for_step_time[0], 
+        debug_waiting_for_spi[0],
+        1'b1, 1'b1 } :
     normalised_switches;  //  Else show normalised switches using onboard LEDs.
 
 //  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
@@ -94,11 +101,11 @@ always@(  //  Code below is always triggered when these conditions are true...
     ) begin             //  happens when the board restarts or reset button is pressed.
 
     /*
-    if (!rst_n) begin     //  If board restarts or reset button is pressed...
-        clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
-        cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
-    end
-    else begin
+        if (!rst_n) begin     //  If board restarts or reset button is pressed...
+            clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
+            cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
+        end
+        else begin
     */
     ////if (cnt >= 24'h000fff) begin  //  (Slow) If our counter has reached its limit...
     if (cnt == 16'h00ff) begin  //  (Fast) If our counter has reached its limit...
@@ -111,7 +118,7 @@ always@(  //  Code below is always triggered when these conditions are true...
     //end
 
     //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
-    led <= { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
+    //led <= { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
     //led <= { ~clk_led[0], ~cnt[3], ~cnt[4], ~cnt[5] };
 end
 
@@ -190,11 +197,20 @@ begin
     end
 */
 
+    //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
+    led <= { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
     //led <= { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };
 
+    //  If the step start time has not been reached...
+    if (elapsed_time < step_time) begin
+        debug_waiting_for_step_time <= 1'b1;  //  Waiting for step start time.
+        //  Wait until the step start time has elapsed.
+        elapsed_time <= elapsed_time + 1;
+    end
     //  If the start time is up and the step is ready to execute...
-    if (elapsed_time >= step_time) begin
-        case(internal_state_machine)
+    else begin
+        debug_waiting_for_step_time <= 1'b0;  //  Not waiting for step start time.
+        case (internal_state_machine)
             //  First Part: Set up repeating steps.
             1'b0 : begin
                 //  If this is a repeating step...
@@ -221,19 +237,20 @@ begin
                 end
                 else begin
                     //  Reset rst_led to low in case we have previously set to high due to SPI read or write step.
-                    rst_led <= 1'b0;
+                    ////rst_led <= 1'b0;
                 end
 
             end
             //  Second Part: Execute the step.
             1'b1 : begin
                 //  Reset rst_led to low in case we have previously set to high due to SPI read or write step.
-                ////rst_led <= 1'b0;
+                rst_led <= 1'b0;
 
                 //  If we are waiting for SPI command to complete...
                 if (wait_spi) begin
                     //  If SPI command has completed...
                     if (charreceived) begin
+                        debug_waiting_for_spi <= 1'b0;  //  SPI command has just completed.
                         internal_state_machine <= 1'b0;
                         //  If we are still repeating...
                         if (repeat_count) begin
@@ -253,9 +270,14 @@ begin
                         end
                     end
                     //  Else continue waiting for SPI command to complete.
+                    else begin
+                        debug_waiting_for_spi <= 1'b1;  //  Waiting for SPI command to complete.
+                        //  Continue waiting for SPI command to complete.
+                    end
                 end
                 //  Else we are not waiting for SPI command to complete...
                 else begin
+                    debug_waiting_for_spi <= 1'b0;  //  Not waiting for SPI command to complete.
                     internal_state_machine <= 1'b0;
                     //  If we are still repeating...
                     if (repeat_count) begin
@@ -276,11 +298,6 @@ begin
                 end
             end
         endcase
-    end
-    //  If the step start time has not been reached...
-    else begin
-        //  Wait until the step start time has elapsed.
-        elapsed_time <= elapsed_time + 1;
     end
 end
 

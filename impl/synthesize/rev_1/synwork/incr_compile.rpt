@@ -16,17 +16,17 @@ Synopsys HDL compiler and linker, Version comp2018q1p1, Build 118R, Built May 15
 
 Modified Files: 1
 FID:  path (prevtimestamp, timestamp)
-5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 17:49:40, 2018-10-15 17:50:45)
+5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:46:32, 2018-10-15 22:48:45)
 
 *******************************************************************
 Modules that may have changed as a result of file changes: 3
 MID:  lib.cell.view
 1        work.LED_TM1637.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 17:49:40, 2018-10-15 17:50:45) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:46:32, 2018-10-15 22:48:45) <-- (module definition)
 0        work.LED_TM1637_ROM.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 17:49:40, 2018-10-15 17:50:45) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:46:32, 2018-10-15 22:48:45) <-- (may instantiate this module)
 2        work.spi_master.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 17:49:40, 2018-10-15 17:50:45) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-15 22:46:32, 2018-10-15 22:48:45) <-- (may instantiate this module)
 
 *******************************************************************
 Unmodified files: 9
@@ -39,7 +39,7 @@ FID:  path (timestamp)
 9        C:\fpga_led_tm1637\src\led_tm1637_rom.mem (2018-10-13 21:46:05)
 6        C:\fpga_led_tm1637\src\led_tm1637_rom.v (2018-10-15 16:51:06)
 7        C:\fpga_led_tm1637\src\rom.v (2018-10-13 21:45:18)
-8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-15 16:50:47)
+8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-15 22:18:53)
 
 *******************************************************************
 Unchanged modules: 0

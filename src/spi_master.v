@@ -194,9 +194,13 @@ always @ (posedge clk or posedge rst) begin
     else begin
         //  When clock transitions from low to high, transmit 1 bit to SPI device.
         case (state)
-            state_idle: begin  //  If we are idle now...            
+            state_idle: begin  //  If we are idle now...
+                //  If we don't have data to transmit...
+                if (tx_buffer_fullp == tx_buffer_fulln) begin
+                    //  Stay in the Idle State and wait for data to transmit.
+                end
                 //  If we have data to transmit...
-                if (tx_buffer_fullp != tx_buffer_fulln) begin
+                else begin
                     debug <= 4'd2;  //  Show the debug value in LEDs.
                     tx_buffer_fulln <= ~tx_buffer_fulln;  //  Mark the data sent.
                     ss <= 1'b0;  //  Set Slave Select Pin to low to activate the SPI device.

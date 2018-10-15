@@ -24,19 +24,19 @@ Part:			GW1N_4LQFP144-6 (GoWin)
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     140                100 %                
+REGISTERS     142                100 %                
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block LED_TM1637:	140 (33.41 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block LED_TM1637:	142 (32.35 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-LUTS          137                100 %                
+LUTS          156                100 %                
 MUX2_LUT5     2                  100 %                
 ALU           107                100 %                
 ======================================================
-Total COMBINATIONAL LOGIC in the block LED_TM1637:	246 (58.71 % Utilization)
+Total COMBINATIONAL LOGIC in the block LED_TM1637:	265 (60.36 % Utilization)
 
 
 MEMORY ELEMENTS
@@ -44,7 +44,7 @@ Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
 BLOCK RAMS/ROMS     2                  100 %                
 ============================================================
-Total MEMORY ELEMENTS in the block LED_TM1637:	2 (0.48 % Utilization)
+Total MEMORY ELEMENTS in the block LED_TM1637:	2 (0.46 % Utilization)
 
 --------------------------------------------------------------------
 ########   Utilization report for  cell:   LED_TM1637_ROM   ########
@@ -56,7 +56,7 @@ Name                Total elements     Utilization     Notes
 ------------------------------------------------------------
 BLOCK RAMS/ROMS     2                  100 %                
 ============================================================
-Total MEMORY ELEMENTS in the block LED_TM1637.LED_TM1637_ROM:	2 (0.48 % Utilization)
+Total MEMORY ELEMENTS in the block LED_TM1637.LED_TM1637_ROM:	2 (0.46 % Utilization)
 
 --------------------------------------------------------------------------
 ########   Utilization report for  cell:   spi_master_8s_8s_0_1   ########
@@ -66,19 +66,19 @@ Instance path:   LED_TM1637.spi_master_8s_8s_0_1
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     36                 25.7 %               
+REGISTERS     36                 25.4 %               
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block LED_TM1637.spi_master_8s_8s_0_1:	36 (8.59 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block LED_TM1637.spi_master_8s_8s_0_1:	36 (8.20 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-LUTS          124                90.5 %               
+LUTS          129                82.7 %               
 MUX2_LUT5     2                  100 %                
 ALU           13                 12.1 %               
 ======================================================
-Total COMBINATIONAL LOGIC in the block LED_TM1637.spi_master_8s_8s_0_1:	139 (33.17 % Utilization)
+Total COMBINATIONAL LOGIC in the block LED_TM1637.spi_master_8s_8s_0_1:	144 (32.80 % Utilization)
 
 
 ##### END OF AREA REPORT #####]
