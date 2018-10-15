@@ -52,35 +52,35 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Synthesizing module demo in library work.
 @W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|Removing wire tm1637_clk, as there is no assignment to it.
 @W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|Removing wire tm1637_dio, as there is no assignment to it.
-@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":104:10:104:27|Removing wire tx_buffer_is_empty, as there is no assignment to it.
-@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:21|Removing wire charreceived, as there is no assignment to it.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning unused register rd_spi[0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning unused register wr_spi[0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning unused register rx_data[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning unused register ss[0]. Make sure that there are no unused intermediate registers.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Feedback mux created for signal spi_debug[3:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Feedback mux created for signal rst_led[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|All reachable assignments to rst_led[0] assign 0, register removed by optimization
-@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|All reachable assignments to spi_debug[3:0] assign 0, register removed by optimization
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":107:0:107:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:27|Removing wire tx_buffer_is_empty, as there is no assignment to it.
+@W: CG360 :"C:\fpga_led_tm1637\src\led_tm1637.v":106:10:106:21|Removing wire charreceived, as there is no assignment to it.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning unused register rd_spi[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning unused register wr_spi[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning unused register rx_data[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning unused register ss[0]. Make sure that there are no unused intermediate registers.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Feedback mux created for signal spi_debug[3:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Feedback mux created for signal rst_led[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|All reachable assignments to rst_led[0] assign 0, register removed by optimization
+@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|All reachable assignments to spi_debug[3:0] assign 0, register removed by optimization
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 @W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|*Input tm1637_clk to expression [not] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
 @W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|*Input tm1637_dio to expression [not] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:21|*Input charreceived[0] to expression [not] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:21|*Input charreceived[0] to expression [and] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:21|*Input charreceived[0] to expression [and] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:21|*Input charreceived[0] to expression [and] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
-@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":105:10:105:21|*Input un1_tm1637_dio[3:0] to expression [primux] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
+@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":106:10:106:21|*Input charreceived[0] to expression [not] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
+@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":106:10:106:21|*Input charreceived[0] to expression [and] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
+@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":106:10:106:21|*Input charreceived[0] to expression [and] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
+@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":106:10:106:21|*Input charreceived[0] to expression [and] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
+@W: CL156 :"C:\fpga_led_tm1637\src\led_tm1637.v":106:10:106:21|*Input un1_tm1637_dio[3:0] to expression [primux] has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the input.
 @W: CL157 :"C:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|*Output tm1637_clk has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.
 @W: CL157 :"C:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|*Output tm1637_dio has undriven bits; assigning undriven bits to 0.  Simulation mismatch possible. Assign all bits of the output.
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 72MB peak: 79MB)
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 72MB peak: 80MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 03:09:36 2018
+# Tue Oct 16 03:17:35 2018
 
 ###########################################################]
 
@@ -109,16 +109,16 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 03:09:36 2018
+# Tue Oct 16 03:17:36 2018
 
 ###########################################################]
 @END
 
-At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
+At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 3MB peak: 4MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 03:09:36 2018
+# Tue Oct 16 03:17:36 2018
 
 ###########################################################]

@@ -13,7 +13,7 @@ Hostname: BEACONDEV3
 
 Implementation : rev_1
 
-# Written on Tue Oct 16 03:09:38 2018
+# Written on Tue Oct 16 03:17:38 2018
 
 ##### FILES SYNTAX CHECKED ##############################################
 Constraint File(s):      (none)
@@ -41,9 +41,9 @@ Level     Clock                            Frequency     Period        Type     
 Clock Load Summary
 ******************
 
-                               Clock     Source                  Clock Pin         Non-clock Pin     Non-clock Pin
-Clock                          Load      Pin                     Seq Example       Seq Example       Comb Example 
-------------------------------------------------------------------------------------------------------------------
-demo|clk_50M                   26        clk_50M(port)           clk_led.C         -                 -            
-demo|clk_led_derived_clock     86        clk_led.Q[0](dffre)     wait_spi[0].C     -                 -            
-==================================================================================================================
+                               Clock     Source                  Clock Pin                      Non-clock Pin     Non-clock Pin
+Clock                          Load      Pin                     Seq Example                    Seq Example       Comb Example 
+-------------------------------------------------------------------------------------------------------------------------------
+demo|clk_50M                   26        clk_50M(port)           clk_led.C                      -                 -            
+demo|clk_led_derived_clock     86        clk_led.Q[0](dffre)     debug_waiting_for_spi[0].C     -                 -            
+===============================================================================================================================

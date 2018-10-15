@@ -89,7 +89,8 @@ assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~norm
 //  If encoded_step is changed, these will automatically change.
 wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
 wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
-wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
+////wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
+wire[23:0] step_time = 24'h1; //// TODO
 wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
 wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
 wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1

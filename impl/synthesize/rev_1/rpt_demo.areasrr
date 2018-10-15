@@ -24,20 +24,20 @@ Part:			GW1N_4LQFP144-6 (GoWin)
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     112                100 %                
+REGISTERS     115                100 %                
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block demo:	112 (23.33 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block demo:	115 (29.04 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-LUTS          205                100 %                
-MUX2_LUT5     34                 100 %                
-MUX2_LUT6     2                  100 %                
-ALU           103                100 %                
+LUTS          153                100 %                
+MUX2_LUT5     16                 100 %                
+MUX2_LUT6     4                  100 %                
+ALU           82                 100 %                
 ======================================================
-Total COMBINATIONAL LOGIC in the block demo:	344 (71.67 % Utilization)
+Total COMBINATIONAL LOGIC in the block demo:	255 (64.39 % Utilization)
 
 --------------------------------------------------------------------
 ########   Utilization report for  cell:   LED_TM1637_ROM   ########
@@ -47,11 +47,11 @@ Instance path:   demo.LED_TM1637_ROM
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-LUTS          78                 38 %                 
-MUX2_LUT5     11                 32.4 %               
-MUX2_LUT6     1                  50 %                 
+LUTS          19                 12.4 %               
+MUX2_LUT5     4                  25 %                 
+MUX2_LUT6     1                  25 %                 
 ======================================================
-Total COMBINATIONAL LOGIC in the block demo.LED_TM1637_ROM:	90 (18.75 % Utilization)
+Total COMBINATIONAL LOGIC in the block demo.LED_TM1637_ROM:	24 (6.06 % Utilization)
 
 
 ##### END OF AREA REPORT #####]

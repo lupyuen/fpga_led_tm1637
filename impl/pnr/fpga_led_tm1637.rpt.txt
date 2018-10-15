@@ -30,7 +30,7 @@ Table of Contents
   <Physical Constraint File>: C:\fpga_led_tm1637\src\fpga.cst
   <Timing Constraint File>: ---
   <PnR Report File>: C:\fpga_led_tm1637\impl\pnr\fpga_led_tm1637.rpt.txt
-  <Created Time>: Tue Oct 16 03:09:50 2018
+  <Created Time>: Tue Oct 16 03:17:49 2018
   <Command Line>: C:\Gowin\1.8\Pnr\bin\gowin.exe -do C:\fpga_led_tm1637\impl\pnr\cmd.do 
   <Legal Announcement>: Copyright ©2014-2018 Gowin Semiconductor Corporation. All rights reserved.
 
@@ -38,11 +38,11 @@ Table of Contents
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 2e-005 secs
-    Placement Phase 1 ...   REAL time: 9e-005 secs
-    Placement Phase 2 ...   REAL time: 9.6e-005 secs
-    Placement Phase 3 ...   REAL time: 0.001113 secs
-  Total REAL time to Placement completion: 1.319 secs.
+    Placement Phase 0 ...   REAL time: 1.7e-005 secs
+    Placement Phase 1 ...   REAL time: 0.000109 secs
+    Placement Phase 2 ...   REAL time: 4.1e-005 secs
+    Placement Phase 3 ...   REAL time: 0.001122 secs
+  Total REAL time to Placement completion: 1.289 secs.
 
 
 3. Resource Usage Summary
@@ -50,12 +50,12 @@ Table of Contents
   ----------------------------------------------------------
   Resources            | Usage
   ----------------------------------------------------------
-  CFU Logics           | 308(205 LUTs, 103 ALUs)/4608  6%
-  Registers            | 112/3556  3%
-    --Logic Registers  | 112/3456  3%
+  CFU Logics           | 235(153 LUTs, 82 ALUs)/4608  5%
+  Registers            | 115/3556  3%
+    --Logic Registers  | 115/3456  3%
     --I/O Registers    | 0/100  0%
-  CLSs(ideal)          | 160/2304  6%
-  CLSs(used)           | 178/2304  7%
+  CLSs(ideal)          | 125/2304  5%
+  CLSs(used)           | 148/2304  6%
   I/O Ports            | 12
   I/O Bufs             | 12/104  11%
     --Input Bufs       | 6
@@ -79,9 +79,9 @@ Table of Contents
   -----------------------
   I/O Bank  | Usage       
   -----------------------
-  bank 0   | 3/33(9%)    
+  bank 0   | 2/33(6%)    
   bank 1   | 2/24(8%)    
-  bank 2   | 6/38(15%)   
+  bank 2   | 7/38(18%)   
   bank 3   | 1/25(4%)    
   =======================
 
@@ -89,10 +89,10 @@ Table of Contents
 5. Router
 
   Starting Router:
-    Route Phase 0: 587 unrouted; REAL time: 0.001 secs
-    Route Phase 1: 297 unrouted; REAL time: 0.081 secs
-    Route Phase 2: 0  unrouted; REAL time: 0.074 secs
-  Total REAL time to Router completion: 0.156 secs.
+    Route Phase 0: 482 unrouted; REAL time: 0 secs
+    Route Phase 1: 256 unrouted; REAL time: 0.084 secs
+    Route Phase 2: 0  unrouted; REAL time: 0.057 secs
+  Total REAL time to Router completion: 0.141 secs.
 
 
 6. Global Clock Usage Summary
@@ -127,7 +127,7 @@ Table of Contents
 Port Name    | Loc./Bank  | Dir.  | Site     | IO Type    | Drive      | Pull Mode  | Slew Rate  | Clamp      | OpenDrain  | VREF       | BankVccio 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 clk_50M      | 6/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
-rst_n        | 137/0      | in    | IOT7[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+rst_n        | 71/2       | in    | IOB30[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[0]  | 68/2       | in    | IOB28[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[1]  | 69/2       | in    | IOB28[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[2]  | 79/1       | in    | IOR17[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
@@ -155,7 +155,7 @@ Loc./Bank| Signal       | Dir.  | Site     | IO Type  | Pull Mode | Hysteresis |
 140/0    | UNUSED       | -     | IOT6[A]  | -        | -         | -          | -            | -             
 139/0    | UNUSED       | -     | IOT6[B]  | -        | -         | -          | -            | -             
 138/0    | UNUSED       | -     | IOT7[A]  | -        | -         | -          | -            | -             
-137/0    | rst_n        | in    | IOT7[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+137/0    | UNUSED       | -     | IOT7[B]  | -        | -         | -          | -            | -             
 136/0    | UNUSED       | -     | IOT9[A]  | -        | -         | -          | -            | -             
 135/0    | UNUSED       | -     | IOT9[B]  | -        | -         | -          | -            | -             
 134/0    | UNUSED       | -     | IOT12[A] | -        | -         | -          | -            | -             
@@ -215,7 +215,7 @@ Loc./Bank| Signal       | Dir.  | Site     | IO Type  | Pull Mode | Hysteresis |
 68/2     | switches[0]  | in    | IOB28[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
 69/2     | switches[1]  | in    | IOB28[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 70/2     | UNUSED       | -     | IOB30[A] | -        | -         | -          | -            | -             
-71/2     | UNUSED       | -     | IOB30[B] | -        | -         | -          | -            | -             
+71/2     | rst_n        | in    | IOB30[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 75/2     | UNUSED       | -     | IOB34[A] | -        | -         | -          | -            | -             
 72/2     | UNUSED       | -     | IOB34[B] | -        | -         | -          | -            | -             
 78/2     | UNUSED       | -     | IOB36[A] | -        | -         | -          | -            | -             
