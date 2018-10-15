@@ -55,13 +55,17 @@ reg[7:0] test_display_on = 8'h8f;
 reg[7:0] test_display_off = 8'h80;
 
 //  switches[3:0] is {1,1,1,1} when all switches {SW4, SW5, SW6, SW7} are in the down position.
-//  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.
+//  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
 wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
 
-// assign led = { ~spi_debug[0], ~spi_debug[1], ~spi_debug[2], ~spi_debug[3] };  //  Show the debug value in LED.
-// assign led = { ~step_id[0], ~step_id[1], ~step_id[2], ~step_id[3] };  //  Show the state machine step ID in LED.
-// assign led = { ~step_id[0], ~step_id[1], ~spi_debug[0], ~spi_debug[1] };  //  Show the state machine step ID and debug in LED.
-assign led = { ~normalised_switches[0], ~normalised_switches[1], ~normalised_switches[2], ~normalised_switches[3] };
+//  normalised_led[3:0] displays a binary value using onboard LED, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
+wire[3:0] normalised_led = //  Depending on the switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LED...
+    (normalised_switches == {0,0,0,0}) ? step_id :    //  If switches={0,0,0,0}, show the TM1637 ROM step ID that we are executing.
+    (normalised_switches == {0,0,0,1}) ? spi_debug :  //  If switches={0,0,0,1}, show the SPI step ID that we are executing.
+    normalised_switches;  //  Else show normalised switches using onboard LED.
+
+//  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
+assign led = { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };
 
 /*
     reg [3:0]clk_div;

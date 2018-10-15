@@ -1,7 +1,7 @@
 C:\Gowin\1.8\SynplifyPro\bin64\syn_nfilter.exe  -link  -multisrs  C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_comp.srs  -osyn  C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_mult.srs  -log  C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_multi_srs_gen.srr 
 relcom:..\..\..\..\..\Gowin\1.8\SynplifyPro\bin64\syn_nfilter.exe -link -multisrs ..\synwork\fpga_led_tm1637_comp.srs -osyn ..\synwork\fpga_led_tm1637_mult.srs -log ..\synlog\fpga_led_tm1637_multi_srs_gen.srr
-rc:0 success:1 runtime:0
-file:..\synwork\fpga_led_tm1637_comp.srs|io:i|time:1539587988|size:13200|exec:0|csum:8E76126B27DF370A55A6529D9600C723
-file:..\synwork\fpga_led_tm1637_mult.srs|io:o|time:1539587989|size:6477|exec:0|csum:
-file:..\synlog\fpga_led_tm1637_multi_srs_gen.srr|io:o|time:1539587989|size:1367|exec:0|csum:
+rc:0 success:1 runtime:1
+file:..\synwork\fpga_led_tm1637_comp.srs|io:i|time:1539589541|size:13643|exec:0|csum:9C6CD5F812F465CEB47275443A885F29
+file:..\synwork\fpga_led_tm1637_mult.srs|io:o|time:1539589543|size:6955|exec:0|csum:
+file:..\synlog\fpga_led_tm1637_multi_srs_gen.srr|io:o|time:1539589543|size:1367|exec:0|csum:
 file:..\..\..\..\..\Gowin\1.8\SynplifyPro\bin64\syn_nfilter.exe|io:i|time:1526401362|size:8704000|exec:1|csum:B95ED65EC47187934F9262CDAE086B51

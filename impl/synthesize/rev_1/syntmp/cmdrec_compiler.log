@@ -1,11 +1,11 @@
 C:\Gowin\1.8\SynplifyPro\bin64\c_hdl.exe  -osyn  C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_comp.srs  -hdllog  C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_compiler.srr  -encrypt  -mp  4  -verification_mode 0  -verilog  -prodtype  synplify_pro  -primux -fixsmult -sdff_counter -nram -divnmod -nostructver -infer_seqShift   -I C:\fpga_led_tm1637\src  -I C:\fpga_led_tm1637\impl\synthesize\  -I C:\Gowin\1.8\SynplifyPro\lib   -sysv  -devicelib  C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v  -encrypt  -pro  -dmgen  C:\fpga_led_tm1637\impl\synthesize\rev_1\dm  -ui -fid2 -ram -sharing on -ll 2000 -autosm  -D_MULTIPLE_FILE_COMPILATION_UNIT_  -lib work C:\fpga_led_tm1637\src\spi_master.v -lib work C:\fpga_led_tm1637\src\led_tm1637.v -lib work C:\fpga_led_tm1637\src\led_tm1637_rom.v -lib work C:\fpga_led_tm1637\src\rom.v  -jobname  "compiler" 
 relcom:..\..\..\..\..\Gowin\1.8\SynplifyPro\bin64\c_hdl.exe -osyn ..\synwork\fpga_led_tm1637_comp.srs -hdllog ..\synlog\fpga_led_tm1637_compiler.srr -encrypt -mp 4 -verification_mode 0 -verilog -prodtype synplify_pro -primux -fixsmult -sdff_counter -nram -divnmod -nostructver -infer_seqShift -I ..\..\..\..\src -I ..\..\ -I ..\..\..\..\..\Gowin\1.8\SynplifyPro\lib -sysv -devicelib ..\..\..\..\..\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v -encrypt -pro -dmgen ..\dm -ui -fid2 -ram -sharing on -ll 2000 -autosm -D_MULTIPLE_FILE_COMPILATION_UNIT_ -lib work ..\..\..\..\src\spi_master.v -lib work ..\..\..\..\src\led_tm1637.v -lib work ..\..\..\..\src\led_tm1637_rom.v -lib work ..\..\..\..\src\rom.v -jobname "compiler"
 rc:0 success:1 runtime:2
-file:..\synwork\fpga_led_tm1637_comp.srs|io:o|time:1539587988|size:13200|exec:0|csum:
-file:..\synlog\fpga_led_tm1637_compiler.srr|io:o|time:1539587988|size:5455|exec:0|csum:
+file:..\synwork\fpga_led_tm1637_comp.srs|io:o|time:1539589541|size:13643|exec:0|csum:
+file:..\synlog\fpga_led_tm1637_compiler.srr|io:o|time:1539589541|size:6295|exec:0|csum:
 file:..\..\..\..\..\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v|io:i|time:1526403272|size:91162|exec:0|csum:6FE3EB7A2EE8E73111EC688BAE636AC2
 file:..\..\..\..\src\spi_master.v|io:i|time:1539586820|size:20047|exec:0|csum:180423E92DF30B8541C6012695062251
-file:..\..\..\..\src\led_tm1637.v|io:i|time:1539587976|size:11576|exec:0|csum:174B9C93B589C465AF27F562D0DC1151
+file:..\..\..\..\src\led_tm1637.v|io:i|time:1539589468|size:12054|exec:0|csum:0B345AB83C08440E31B95A597B5C7293
 file:..\..\..\..\src\led_tm1637_rom.v|io:i|time:1539438450|size:874|exec:0|csum:199CAF6C59A9D946BFE8278EF9148BDB
 file:..\..\..\..\src\rom.v|io:i|time:1539438318|size:142|exec:0|csum:B75699240193A4ED07E20C61A8766BB0
 file:..\..\..\..\..\Gowin\1.8\SynplifyPro\bin64\c_hdl.exe|io:i|time:1526401110|size:5638656|exec:1|csum:A07E98B1F866A78E561FFF388E018ADA
