@@ -16,13 +16,13 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Synthesizing module demo in library work.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Feedback mux created for signal test_display_on[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Feedback mux created for signal rst_led[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|All reachable assignments to rst_led[0] assign 0, register removed by optimization
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|All reachable assignments to test_display_on[7] assign 1, register removed by optimization
-@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|All reachable assignments to test_display_on[6:4] assign 0, register removed by optimization
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|All reachable assignments to test_display_on[3:0] assign 1, register removed by optimization
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Feedback mux created for signal test_display_on[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Feedback mux created for signal rst_led[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to rst_led[0] assign 0, register removed by optimization
+@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to test_display_on[7] assign 1, register removed by optimization
+@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to test_display_on[6:4] assign 0, register removed by optimization
+@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to test_display_on[3:0] assign 1, register removed by optimization
+@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.

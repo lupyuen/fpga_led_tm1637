@@ -8,22 +8,25 @@ DFF             1 use
 DFFC            43 uses
 DFFCE           108 uses
 DFFE            1 use
-DFFPE           2 uses
+DFFPE           3 uses
+DFFS            1 use
 GSR             1 use
-INV             11 uses
-MUX2_LUT5       10 uses
-LUT2            56 uses
-LUT3            57 uses
-LUT4            102 uses
+INV             14 uses
+MUX2_LUT5       15 uses
+MUX2_LUT6       2 uses
+LUT2            61 uses
+LUT3            51 uses
+LUT4            107 uses
 
-I/O ports: 13
-I/O primitives: 13
+I/O ports: 15
+I/O primitives: 15
 IBUF           6 uses
 OBUF           7 uses
+TBUF           2 uses
 
 I/O Register bits:                  0
-Register bits not including I/Os:   155 of 3456 (4%)
+Register bits not including I/Os:   157 of 3456 (4%)
 
 @S |Mapping Summary:
-Total  LUTs: 215 (4%)
+Total  LUTs: 219 (4%)
 

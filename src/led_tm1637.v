@@ -3,12 +3,17 @@
 module demo (  //  Declare our demo module.
     input   /* wire[0:0] */ clk_50M,  //  Onboard clock is 50MHz.  Pin 6.
     input   /* wire[0:0] */ rst_n,    //  TODO: Reset pin is also an Input, triggered by board restart or reset button.
-    output  /* wire[0:0] */ tm1637_clk,  //  Pin 131, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
-    output  /* wire[0:0] */ tm1637_dio,  //  Pin 132, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
-    output  reg tm1637_vcc,  //  Pin 133, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  /* wire[0:0] */ tm1637_clk,  //  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  /* wire[0:0] */ tm1637_dio,  //  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  /* wire[0:0] */ tm1637_clk_drain,  //  Pin 131, IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+    output  /* wire[0:0] */ tm1637_dio_drain,  //  Pin 132, IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+    output  reg tm1637_vcc,  //  Pin 133, IO_TYPE=LVCMOS33 DRIVE=24 BANK_VCCIO=3.3
     output  reg [3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
     input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
 );
+
+assign tm1637_clk_drain = tm1637_clk ? 1'bz : 1'b0;
+assign tm1637_dio_drain = tm1637_dio ? 1'bz : 1'b0;
 
 reg[24:0] cnt;
 reg clk_led;
