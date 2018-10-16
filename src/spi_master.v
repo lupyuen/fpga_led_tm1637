@@ -104,8 +104,7 @@ reg[0:0] state; // = state_idle;
 
 reg[2:0] _prescaller;  //  "prescaller" parameter stored locally.
 reg[PRESCALLER_SIZE - 1:0] prescaller_cnt;  //  Count down for the prescaller.
-////reg[7:0] prescdemux;  //  The demux prescaller.
-wire[7:0] prescdemux =  //  Compute the demux prescaller.  Changes when _prescaller changes.
+wire[7:0] prescdemux =  //  Compute the demux prescaller.  We will count to this demux value before acting on the clock.  Changes when _prescaller changes.
     (_prescaller == 3'b000) ? 8'b00000001 :
     (_prescaller == 3'b001) ? 8'b00000011 :
     (_prescaller == 3'b010) ? 8'b00000111 :
@@ -114,30 +113,7 @@ wire[7:0] prescdemux =  //  Compute the demux prescaller.  Changes when _prescal
     (_prescaller == 3'b101) ? 8'b00111111 :
     (_prescaller == 3'b110) ? 8'b01111111 :
     (_prescaller == 3'b111) ? 8'b11111111 :
-    8'b00000001;  //  Assume demux=1.
-
-/*
-always @ (*) begin  //  This code is triggered when any of the module's inputs change.
-    //  Compute the demux prescaller.  The prescaller indicates the power of 2 to count down,
-    //  so demux(0)=1, demux(1)=3, demux(2)=7, ...
-    if (_prescaller < PRESCALLER_SIZE) begin
-        case (_prescaller)
-            3'b000: prescdemux <= 8'b00000001;
-            3'b001: prescdemux <= 8'b00000011;
-            3'b010: prescdemux <= 8'b00000111;
-            3'b011: prescdemux <= 8'b00001111;
-            3'b100: prescdemux <= 8'b00011111;
-            3'b101: prescdemux <= 8'b00111111;
-            3'b110: prescdemux <= 8'b01111111;
-            3'b111: prescdemux <= 8'b11111111;
-        endcase
-    end
-    //  If prescaller is invalid...
-    else begin
-        prescdemux <= 8'b00000001;  //  Assume demux=1.
-    end
-end
-*/
+    8'b00000001;  //  Should not come here.
 
 //  Shift Registers for transmitting and receiving bits.  They are called "Shift" because we shift the bits out/in while transmitting/receiving bits.
 reg[WORD_LEN - 1:0] shift_reg_tx;  //  Next bits to be transmitted to SPI device.
@@ -169,9 +145,15 @@ reg[0:0] _diomode;  //  "diomode" parameter stored locally.
 //  For DIO: We transmit 9 data bits instead of the normal 8 data bits for SPI.  The last bit is meant for the DIO device to respond with the acknowledgement bit.
 //  The last bit must be 0 to keep the DIO connection open.
 
-//  Number of bits to transmit.  For SPI: 8, for DIO: 9.  WORD_LEN is normally 8.
-wire[3:0] num_bits = _diomode ? { 4{WORD_LEN + 1} } : { 4{WORD_LEN} };
-//wire[3:0] num_bits = _diomode ? { 4{WORD_LEN + 2} } : { 4{WORD_LEN + 1} };
+//  Number of bits to transmit/receive.
+wire[3:0] num_bits = 
+    _diomode ? { 4{WORD_LEN + 1} }  //  For DIO: 9 bits, counting the acknowledgement bit from device.
+    : { 4{WORD_LEN} };  //  For SPI: 8 bits.  WORD_LEN is normally 8.
+
+//  Number of extra bits we need to transmit to close the SPI or DIO connection, if there are no more bytes to send.
+wire[0:0] num_close_bits = 
+    _diomode && (tx_buffer_fullp == tx_buffer_fulln) ? 1'b1   //  For DIO: 1 bit, on top of the 9 bits above
+    : 1'b0;  //  For SPI: None.
 
 //  When all the bits have been transmitted, we transmit empty_tx_bit.  For SPI this is 1.
 //  For DIO this is 0, so that the 9th bit is set low to keep the connection open.
@@ -196,7 +178,6 @@ always @ (posedge clk or negedge rst_n) begin
 
         prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };
         _prescaller <= prescaller; // { PRESCALLER_SIZE{3'b0} };
-        //prescallerbuff <= prescaller;  //  New
         _lsbfirst <= lsbfirst; // 1'b0;
         _mode <= mode; // 2'b0;  //  Init SPI Mode so that SCK Pin will be output correctly at next clock tick.
         _diomode <= diomode; // 2'b0;  //  Init DIO Mode so that SCK Pin will be output correctly at next clock tick.
@@ -288,12 +269,12 @@ always @ (posedge clk or negedge rst_n) begin
                     else begin
                         debug_bit_num <= _sck_bit_num;
                         //  If we have transmitted all 8 bits for SPI (9 bits for DIO)...
-                        //  TODO: For DIO, if no more bytes to transmit, we actually transmit 10 bits before closing.  If there are more bytes to transmit, we transit 9 bits followed by the new byte.
-                        if (_sck_bit_num == num_bits + 4'h1) begin
-                        ////if (_sck_bit_num + 4'h1 == num_bits) begin
-                        ////if (_sck_bit_num == num_bits) begin
+                        //  For DIO, if no more bytes to transmit, we actually transmit 1 more bit (total 10 bits) to close the connection.  
+                        //  If there are more bytes to transmit, we transit 9 bits followed by the new byte.
+                        if (_sck_bit_num == num_bits + num_close_bits) begin  //  num_close_bits=1 for DIO Mode and no more bytes to transmit.
                             debug <= 4'd5;  //  Show the debug value in LEDs.
                             _sck <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin (SCK Pin) to low.
+                            
                             //  If no more bytes to transmit...
                             if (tx_buffer_fullp == tx_buffer_fulln) begin
                                 debug <= 4'd6;  //  Show the debug value in LEDs.

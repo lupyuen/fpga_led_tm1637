@@ -1,8 +1,8 @@
-::  Given a video file (e.g. file.mov), extract the video frames and merge the frames into one long image file timeline.jpg.
+::  Given a video filename as the parameter (e.g. file.mov), extract the video frames and merge the frames into one long image file timeline.jpg.
 ::  Requires ImageMagick to be installed (with the ffmpeg option selected):
 ::  https://www.imagemagick.org/script/download.php
 ::  Select "Win64 dynamic at 16 bits-per-pixel component"
-::  This script produces many .jpg files, so best to run this in a folder:
+::  This script produces many .jpg files in the current folder, so best to run this in a separate folder:
 ::      mkdir video
 ::      cd video
 ::      (...Copy file.mov into the video folder...)
