@@ -9,7 +9,7 @@
 set frames_per_second=1
 
 ::  Increase the value of overlap to merge the frames closer.  If the frames are too close and the LEDs are not visible, decrease the overlap.
-set overlap=800
+set overlap=1000
 
 ::  Delete previous frames.
 del frame-???????.jpg
