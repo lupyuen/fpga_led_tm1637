@@ -1,7 +1,2 @@
-@E: CG410 :"C:\fpga_led_tm1637\src\led_tm1637.v":84:13:84:19|Only one assignment is legal on rx_data
-@E: CG410 :"C:\fpga_led_tm1637\src\led_tm1637.v":91:8:91:9|Only one assignment is legal on ss
-@E: CG410 :"C:\fpga_led_tm1637\src\led_tm1637.v":100:11:100:19|Only one assignment is legal on spi_debug
-@E: CG410 :"C:\fpga_led_tm1637\src\led_tm1637.v":101:19:101:35|Only one assignment is legal on spi_debug_bit_num
-@E: CG410 :"C:\fpga_led_tm1637\src\led_tm1637.v":102:31:102:55|Only one assignment is legal on debug_waiting_for_tx_data
-@E: CG410 :"C:\fpga_led_tm1637\src\led_tm1637.v":103:34:103:61|Only one assignment is legal on debug_waiting_for_prescaller
+@E: CL119 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|More than one edge-sensitive signal unused in always block
 

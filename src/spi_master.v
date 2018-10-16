@@ -182,21 +182,25 @@ always @ (posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         //  When reset signal transitions from low to high, prepare to transmit data to SPI device.
         //  Reset the internal registers.
-        debug <= 4'd1;  //  Show the debug value in LEDs.
-        tx_buffer_fulln <= 1'b0;  //  Mark the tx buffer as empty.
-        ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.  We will activate later.  Not used for DIO Mode.
         state <= state_idle;  //  Start in Idle state.
-        prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };
-        _prescaller <= { PRESCALLER_SIZE{3'b0} };
+        tx_buffer_fulln <= 1'b0;  //  Mark the tx buffer as empty.
+        charreceivedp <= 1'b0;
         shift_reg_tx <= { WORD_LEN{1'b0} };
         shift_reg_rx <= { WORD_LEN{1'b0} };
-        _sck <= { 5{1'b0} };
-        _mosi <= 1'b1;
         rx_buffer <= { WORD_LEN{1'b0} };
-        charreceivedp <= 1'b0;
-        _lsbfirst <= 1'b0;
-        _mode <= 2'b0;
-        _diomode <= 2'b0;
+
+        _sck <= { 5{1'b0} };  //  Init SPI Clock Pin (SCK) to Idle, which may be Idle High or Idle Low depending on SPI Mode.
+        _mosi <= 1'b1;  //  For DIO: Init SPI MOSI Pin (Slave Input) to high.
+        ss <= 1'b1;  //  Set Slave Select Pin to high to deactivate the SPI device.  We will activate later.  Not used for DIO Mode.
+
+        prescaller_cnt <= { PRESCALLER_SIZE{1'b0} };
+        _prescaller <= prescaller; // { PRESCALLER_SIZE{3'b0} };
+        //prescallerbuff <= prescaller;  //  New
+        _lsbfirst <= lsbfirst; // 1'b0;
+        _mode <= mode; // 2'b0;  //  Init SPI Mode so that SCK Pin will be output correctly at next clock tick.
+        _diomode <= diomode; // 2'b0;  //  Init DIO Mode so that SCK Pin will be output correctly at next clock tick.
+
+        debug <= 4'd1;  //  Show the debug value in LEDs.
         debug_bit_num <= 4'b0;
         debug_waiting_for_tx_data <= 1'b0;
         debug_waiting_for_prescaller <= 1'b0;
@@ -337,9 +341,9 @@ assign rx_data = (rd) ? rx_buffer : { WORD_LEN{1'bz} };
 
 //  Set the value of the SPI Clock Pin (SCK Pin) for the SPI device.  Depending on the mode, we return the same value as the
 //  Internal Clock Pin.  Or we return the reverse of the Internal Clock Pin.  "sck" changes whenever "_sck" changes.
-//  _mode_clk_polarity=0 means Idle Low, _mode_clk_polarity=1 means Idle High
+//  _mode_clk_idle_high=0 means Idle Low, _mode_clk_idle_high=1 means Idle High
 
-//  For DIO: _mode_clk_polarity=1 for Idle High before and after transmission.
+//  For DIO: _mode_clk_idle_high=1 (Idle High) so that SCK Pin stays high before and after transmission.
 
 assign sck = (_mode_clk_idle_high) ? ~_sck[0] : _sck[0];
 

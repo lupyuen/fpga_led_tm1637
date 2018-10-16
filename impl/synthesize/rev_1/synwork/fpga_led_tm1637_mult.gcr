@@ -1,14 +1,14 @@
 i wr_spi_i[0]
 m 0 0
-u 3 6
+u 4 9
 n ckid0_0 {t:spi0.tx_buffer[7].C} Derived clock on input (not legal for GCC)
 p {t:wr_spi[0].Q[0]}{t:wr_spi_derived_clock[0].I[0]}{t:wr_spi_derived_clock[0].OUT[0]}{t:spi0.wr}{p:spi0.wr}{t:spi0.tx_buffer[7].C}
 e ckid0_0 {t:spi0.tx_buffer[7].C} dffe
 d ckid0_1 {t:wr_spi[0].Q[0]} dffre Potential generated clock but with a nonconvertable driver or an unknown conversion method
 i clk_led_i
 m 0 0
-u 26 128
-n ckid0_2 {t:spi0.debug[3:0].C} Derived clock on input (not legal for GCC)
+u 35 136
+n ckid0_2 {t:spi0._mode[0].C} Derived clock on input (not legal for GCC)
 p {t:clk_led.Q[0]}{t:clk_led_derived_clock.I[0]}{t:clk_led_derived_clock.OUT[0]}{t:step_id[6:0].C}
 e ckid0_3 {t:step_id[6:0].C} dffr
 d ckid0_4 {t:clk_led.Q[0]} dffre Derived clock on input (not legal for GCC)

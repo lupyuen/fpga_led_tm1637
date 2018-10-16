@@ -73,8 +73,8 @@ spi_master # (
 spi0(
     .clk(clk_led),  //  Use the LED clock.
 
-    .prescaller(3'h0),  //  No prescaler (fast).
-    ////.prescaller(3'h1),  //  Prescale by 2 (slow).
+    ////.prescaller(3'h0),  //  No prescaler (fast).
+    .prescaller(3'h1),  //  Prescale by 2 (slow).
     ////.prescaller(3'h2),  //  Prescale by 4 (slower).
 
     .rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
