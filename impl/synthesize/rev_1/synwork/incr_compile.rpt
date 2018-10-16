@@ -16,13 +16,17 @@ Synopsys HDL compiler and linker, Version comp2018q1p1, Build 118R, Built May 15
 
 Modified Files: 1
 FID:  path (prevtimestamp, timestamp)
-8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-16 13:10:04, 2018-10-16 13:56:09)
+5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 09:16:13, 2018-10-16 14:33:08)
 
 *******************************************************************
-Modules that may have changed as a result of file changes: 1
+Modules that may have changed as a result of file changes: 3
 MID:  lib.cell.view
+0        work.LED_TM1637_ROM.verilog may have changed because the following files changed:
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 09:16:13, 2018-10-16 14:33:08) <-- (may instantiate this module)
+1        work.demo.verilog may have changed because the following files changed:
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 09:16:13, 2018-10-16 14:33:08) <-- (module definition)
 2        work.spi_master.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\spi_master.v (2018-10-16 13:10:04, 2018-10-16 13:56:09) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 09:16:13, 2018-10-16 14:33:08) <-- (may instantiate this module)
 
 *******************************************************************
 Unmodified files: 9
@@ -32,13 +36,11 @@ FID:  path (timestamp)
 2        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_objects.v (2018-05-16 00:08:32)
 3        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_pipes.svh (2018-05-16 00:08:32)
 4        C:\Gowin\1.8\SynplifyPro\lib\vlog\umr_capim.v (2018-05-16 00:08:32)
-5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 09:16:13)
 9        C:\fpga_led_tm1637\src\led_tm1637_rom.mem (2018-10-13 21:46:05)
 6        C:\fpga_led_tm1637\src\led_tm1637_rom.v (2018-10-15 16:51:06)
 7        C:\fpga_led_tm1637\src\rom.v (2018-10-13 21:45:18)
+8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-16 13:56:09)
 
 *******************************************************************
-Unchanged modules: 2
+Unchanged modules: 0
 MID:  lib.cell.view
-0        work.LED_TM1637_ROM.verilog
-1        work.demo.verilog

@@ -13,7 +13,7 @@ Hostname: BEACONDEV3
 
 Implementation : rev_1
 
-# Written on Tue Oct 16 13:57:30 2018
+# Written on Tue Oct 16 14:33:29 2018
 
 ##### DESIGN INFO #######################################################
 
@@ -64,6 +64,7 @@ p:switches[2]
 p:switches[3]
 p:tm1637_clk
 p:tm1637_dio
+p:tm1637_vcc
 
 
 Inapplicable constraints

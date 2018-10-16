@@ -16,10 +16,10 @@ LUT2            56 uses
 LUT3            57 uses
 LUT4            102 uses
 
-I/O ports: 12
-I/O primitives: 12
+I/O ports: 13
+I/O primitives: 13
 IBUF           6 uses
-OBUF           6 uses
+OBUF           7 uses
 
 I/O Register bits:                  0
 Register bits not including I/Os:   155 of 3456 (4%)

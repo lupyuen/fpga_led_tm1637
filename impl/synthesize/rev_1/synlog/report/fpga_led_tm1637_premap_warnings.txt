@@ -8,4 +8,4 @@
 @W: MO129 :|Sequential instance spi0._mode_32 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._mode_22 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._diomode_2 is reduced to a combinational gate by constant propagation.
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":26:0:26:5|Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":27:0:27:5|Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 

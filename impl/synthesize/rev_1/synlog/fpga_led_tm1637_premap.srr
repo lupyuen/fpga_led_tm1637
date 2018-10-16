@@ -1,4 +1,4 @@
-# Tue Oct 16 13:57:28 2018
+# Tue Oct 16 14:33:27 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -84,7 +84,7 @@ demo|wr_spi_derived_clock[0]     9         wr_spi[0].Q[0](dffre)     spi0.tx_buf
 demo|rd_spi_derived_clock[0]     1         rd_spi[0].Q[0](dffre)     spi0.charreceivedn[0].C       -                 -            
 ==================================================================================================================================
 
-@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":26:0:26:5|Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":27:0:27:5|Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -136,6 +136,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Oct 16 13:57:30 2018
+# Tue Oct 16 14:33:29 2018
 
 ###########################################################]

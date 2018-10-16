@@ -1,4 +1,4 @@
-# Tue Oct 16 13:57:30 2018
+# Tue Oct 16 14:33:29 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -52,7 +52,7 @@ Available hyper_sources - for debug and ip models
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
 
-@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":154:0:154:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
 @W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Removing instance spi0.prescallerbuff[2] because it is equivalent to instance spi0.prescallerbuff[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":61:0:61:5|Removing instance spi0.tx_buffer[3] because it is equivalent to instance spi0.tx_buffer[2]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":61:0:61:5|Removing instance spi0.tx_buffer[2] because it is equivalent to instance spi0.tx_buffer[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
@@ -72,7 +72,7 @@ Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; M
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 192MB peak: 193MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 193MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 192MB peak: 193MB)
 
 
 Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 193MB)
@@ -119,7 +119,7 @@ Writing scf file... (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; 
 Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 201MB peak: 205MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 202MB peak: 205MB)
+Start final timing analysis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 202MB peak: 205MB)
 
 @W: MT420 |Found inferred clock demo|clk_50M with period 10.34ns. Please declare a user-defined clock on port clk_50M.
 @N: MT615 |Found clock demo|clk_led_derived_clock with period 10.34ns 
@@ -128,7 +128,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Tue Oct 16 13:57:34 2018
+# Timing Report written on Tue Oct 16 14:33:33 2018
 #
 
 
@@ -325,7 +325,7 @@ Instance                            Reference                      Type      Pin
                                     Clock                                                                                               
 ----------------------------------------------------------------------------------------------------------------------------------------
 oled_rom_init.encoded_step_i[7]     demo|clk_led_derived_clock     INV       I       encoded_step[7]                  10.337       2.918
-internal_state_machine_RNO[0]       demo|clk_led_derived_clock     INV       I       debug_waiting_for_step_time6     10.337       3.390
+internal_state_machine_RNO[0]       demo|clk_led_derived_clock     INV       I       debug_waiting_for_step_time5     10.337       3.390
 repeat_count[14]                    demo|clk_led_derived_clock     DFFCE     D       repeat_count_s[14]               20.542       4.135
 repeat_count[13]                    demo|clk_led_derived_clock     DFFCE     D       repeat_count_s[13]               20.542       4.192
 repeat_count[12]                    demo|clk_led_derived_clock     DFFCE     D       repeat_count_s[12]               20.542       4.249
@@ -795,7 +795,7 @@ spi0.charreceivedp_i[0]             System        INV      O       charreceivedp
 clk_led_RNO                         System        INV      O       clk_led_i_i                        0.000       9.183
 cnt2_RNO[0]                         System        INV      O       cnt2_i[0]                          0.000       9.183
 oled_rom_init.encoded_step_i[7]     System        INV      O       encoded_step_i[7]                  0.000       9.183
-internal_state_machine_RNO[0]       System        INV      O       debug_waiting_for_step_time6_i     0.000       9.183
+internal_state_machine_RNO[0]       System        INV      O       debug_waiting_for_step_time5_i     0.000       9.183
 spi0.state_RNIJQ3D[0]               System        INV      O       state_i[0]                         0.000       9.183
 spi0.tx_buffer_fulln_i[0]           System        INV      O       tx_buffer_fulln_i[0]               0.000       9.183
 spi0.tx_buffer_fullp_i[0]           System        INV      O       tx_buffer_fullp_i[0]               0.000       9.183
@@ -814,7 +814,7 @@ spi0.charreceivedp[0]              System        DFFCE     D       charreceivedp
 clk_led                            System        DFFCE     D       clk_led_i_i                        10.204       9.183
 cnt2[0]                            System        DFFC      D       cnt2_i[0]                          10.204       9.183
 spi0.debug_waiting_for_tx_data     System        DFFCE     CE      state_i[0]                         10.204       9.183
-internal_state_machine[0]          System        DFFCE     CE      debug_waiting_for_step_time6_i     10.204       9.183
+internal_state_machine[0]          System        DFFCE     CE      debug_waiting_for_step_time5_i     10.204       9.183
 rd_spi[0]                          System        DFFCE     CE      encoded_step_i[7]                  10.204       9.183
 spi0.state[0]                      System        DFFCE     D       state_i[0]                         10.204       9.183
 spi0.tx_buffer_fulln[0]            System        DFFCE     D       tx_buffer_fulln_i[0]               10.204       9.183
@@ -861,10 +861,10 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 Timing exceptions that could not be applied
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 202MB peak: 205MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 202MB peak: 205MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 202MB peak: 205MB)
+Finished timing report (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 202MB peak: 205MB)
 
 ---------------------------------------
 Resource Usage Report for demo 
@@ -884,10 +884,10 @@ LUT2            56 uses
 LUT3            57 uses
 LUT4            102 uses
 
-I/O ports: 12
-I/O primitives: 12
+I/O ports: 13
+I/O primitives: 13
 IBUF           6 uses
-OBUF           6 uses
+OBUF           7 uses
 
 I/O Register bits:                  0
 Register bits not including I/Os:   155 of 3456 (4%)
@@ -905,6 +905,6 @@ Mapper successful!
 At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 40MB peak: 205MB)
 
 Process took 0h:00m:04s realtime, 0h:00m:04s cputime
-# Tue Oct 16 13:57:35 2018
+# Tue Oct 16 14:33:33 2018
 
 ###########################################################]

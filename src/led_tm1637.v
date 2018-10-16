@@ -5,6 +5,7 @@ module demo (  //  Declare our demo module.
     input   /* wire[0:0] */ rst_n,    //  TODO: Reset pin is also an Input, triggered by board restart or reset button.
     output  /* wire[0:0] */ tm1637_clk,  //  Pin 131, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
     output  /* wire[0:0] */ tm1637_dio,  //  Pin 132, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
+    output  reg tm1637_vcc,  //  Pin 133, IO_TYPE=LVCMOS33 BANK_VCCIO=3.3
     output  reg [3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
     input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
 );
@@ -161,6 +162,7 @@ always@(                //  Code below is always triggered when these conditions
         cnt2 <= 25'd0;
 
         //  Init registers here.
+        tm1637_vcc <= 1'b1;  //  Turn on power supply.
         step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'h0;
         /* reg[0:0] */ wait_spi <= 1'b0;
         /* reg[0:0] */ rd_spi <= 1'b0;

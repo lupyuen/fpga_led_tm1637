@@ -2,7 +2,7 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MT206 |Auto Constrain mode is enabled
-@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":154:0:154:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":155:0:155:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
 @N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance prescaller_cnt[7:0] 
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Removing sequential instance prescallerbuff[1] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Removing sequential instance spi0._prescaller[1] (in view: work.demo(verilog)) because it does not drive other instances.
