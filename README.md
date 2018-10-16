@@ -1,5 +1,5 @@
-# fpga_oled_ssd1306
-FPGA controller for SSD1306 OLED module on SPI. Optimised for GOWIN FPGA
+# fpga_led_tm1637
+FPGA controller for TM1637 LED module on pseudo-SPI interface. Optimised for GOWIN FPGA
 
 Based on:
 
@@ -11,13 +11,11 @@ https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master.v
 
 |  FPGA Pin (J8)  | FPGA Function | OLED Pin | Bus Pirate | Function | Description |
 |-----------------|---------------|----------|------------|----------|-------------|
-| 1 (Red)         |               | VCC         | 3.3V | 3.3 to 5.0 volts | Supply voltage (up to ?? mA) |
+| 1 (Red) (133)        |    tm1637_vcc           | VCC         | 3.3V | 3.3 to 5.0 volts | Supply voltage (up to ?? mA) - `IO_TYPE=LVCMOS33 DRIVE=24 BANK_VCCIO=3.3;` |
 | 2 (Black)       |               | GND         | GND  | Ground           | Common return path |
-| 3 (Green) (131)      | oled_sclk       | CLK  | CLK |    |  |
-| 4 (Yellow) (132)      | oled_sdin      | DIO  | MOSI  |          |  |
-| 5 (Orange)      |      |  |  |              |  |
-| 6 (Brown/White) |      |  |  |              |  |
-| 7 (?) (133)              | ss            | CS          | CS   | ChipSelect       | Chip select (active low) |
+| 3 (Green) (131)      | tm1637_clk_drain       | CLK  | CLK |    |  Open Drain with Pull-Up Resistors - `IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;` |
+| 4 (Yellow) (132)      | tm1637_dio_drain      | DIO  | MOSI  |          |  Open Drain with Pull-Up Resistors - `IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;`  |
+
   
 ## FPGA Power
 
