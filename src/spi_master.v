@@ -1,4 +1,4 @@
-//  Based on https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master
+//  Based on https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master.v
 ////////////////////////////////////////////////////////////////////////////////
 ////                                                                        ////
 //// Project Name: ASYNCHRONOUS SPI MASTER (Verilog)                        ////

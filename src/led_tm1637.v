@@ -52,16 +52,17 @@ reg[0:0] internal_state_machine; // = 1'b0;
 reg[27:0] elapsed_time; // = 28'h0;
 reg[27:0] saved_elapsed_time; // = 28'h0;
 reg[14:0] repeat_count; // = 15'h0;
-reg[7:0] rx_data; // = 8'h0;
-reg[3:0] spi_debug; // = 4'h0;
-reg[3:0] spi_debug_bit_num; // = 4'h0;
 reg[7:0] test_display_on; // = 8'h8f;
 reg[7:0] test_display_off; // = 8'h80;
-reg[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
 reg[0:0] debug_waiting_for_step_time; // = 1'b0;
 reg[0:0] debug_waiting_for_spi; // = 1'b0;
-reg[0:0] debug_waiting_for_tx_data;
-reg[0:0] debug_waiting_for_prescaller;
+
+wire[7:0] rx_data; // = 8'h0;
+wire[3:0] spi_debug; // = 4'h0;
+wire[3:0] spi_debug_bit_num; // = 4'h0;
+wire[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
+wire[0:0] debug_waiting_for_tx_data;
+wire[0:0] debug_waiting_for_prescaller;
 wire[0:0] tx_buffer_is_empty;
 wire[0:0] charreceived;
 
@@ -128,7 +129,7 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
 
 //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
 assign led =
-    (!rst_n) ? { 0, 0, 0, 0 } :     //  If board restarts or reset button is pressed, switch on all 4 LEDs.
+    (!rst_n) ? 4'b1111 :     //  If board restarts or reset button is pressed, switch on all 4 LEDs.
     { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };  //  Else show the debug values.
 //  assign led = { ~cnt2[0], ~cnt2[1], ~cnt2[2], ~cnt2[3] };
 
@@ -169,16 +170,16 @@ always@(                //  Code below is always triggered when these conditions
         /* reg[27:0] */ elapsed_time <= 28'h0;
         /* reg[27:0] */ saved_elapsed_time <= 28'h0;
         /* reg[14:0] */ repeat_count <= 15'h0;
-        /* reg[7:0] */ rx_data <= 8'h0;
-        /* reg[3:0] */ spi_debug <= 4'h0;
-        /* reg[3:0] */ spi_debug_bit_num <= 4'h0;
+        ///* reg[7:0] */ rx_data <= 8'h0;
+        ///* reg[3:0] */ spi_debug <= 4'h0;
+        ///* reg[3:0] */ spi_debug_bit_num <= 4'h0;
         /* reg[7:0] */ test_display_on <= 8'h8f;
         /* reg[7:0] */ test_display_off <= 8'h80;
-        /* reg[0:0] */ ss <= 1'b0;  //  Not used for DIO Mode.
+        ///* reg[0:0] */ ss <= 1'b0;  //  Not used for DIO Mode.
         /* reg[0:0] */ debug_waiting_for_step_time <= 1'b0;
         /* reg[0:0] */ debug_waiting_for_spi <= 1'b0;
-        /* reg[0:0] */ debug_waiting_for_tx_data <= 1'b0;
-        /* reg[0:0] */ debug_waiting_for_prescaller <= 1'b0;
+        ///* reg[0:0] */ debug_waiting_for_tx_data <= 1'b0;
+        ///* reg[0:0] */ debug_waiting_for_prescaller <= 1'b0;
     end
     else begin
         if (cnt2 == 25'd2499_9999) begin  //  If our counter has reached its limit...

@@ -16,15 +16,17 @@ Synopsys HDL compiler and linker, Version comp2018q1p1, Build 118R, Built May 15
 
 Modified Files: 1
 FID:  path (prevtimestamp, timestamp)
-5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 03:07:43, 2018-10-16 03:17:00)
+5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 08:08:34, 2018-10-16 08:12:51)
 
 *******************************************************************
-Modules that may have changed as a result of file changes: 2
+Modules that may have changed as a result of file changes: 3
 MID:  lib.cell.view
 0        work.LED_TM1637_ROM.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 03:07:43, 2018-10-16 03:17:00) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 08:08:34, 2018-10-16 08:12:51) <-- (may instantiate this module)
 1        work.demo.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 03:07:43, 2018-10-16 03:17:00) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 08:08:34, 2018-10-16 08:12:51) <-- (module definition)
+2        work.spi_master.verilog may have changed because the following files changed:
+                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-16 08:08:34, 2018-10-16 08:12:51) <-- (may instantiate this module)
 
 *******************************************************************
 Unmodified files: 9
@@ -37,9 +39,8 @@ FID:  path (timestamp)
 9        C:\fpga_led_tm1637\src\led_tm1637_rom.mem (2018-10-13 21:46:05)
 6        C:\fpga_led_tm1637\src\led_tm1637_rom.v (2018-10-15 16:51:06)
 7        C:\fpga_led_tm1637\src\rom.v (2018-10-13 21:45:18)
-8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-15 22:18:53)
+8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-16 08:05:02)
 
 *******************************************************************
-Unchanged modules: 1
+Unchanged modules: 0
 MID:  lib.cell.view
-2        work.spi_master.verilog

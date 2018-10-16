@@ -1,17 +1,16 @@
 @N: MF916 |Option synthesis_strategy=base is enabled. 
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":7:28:7:37|Tristate driver tm1637_dio (in view: work.demo(verilog)) on net tm1637_dio (in view: work.demo(verilog)) has its enable tied to GND.
-@N: MO111 :"c:\fpga_led_tm1637\src\led_tm1637.v":6:28:6:37|Tristate driver tm1637_clk (in view: work.demo(verilog)) on net tm1637_clk (in view: work.demo(verilog)) has its enable tied to GND.
 @N: MT206 |Auto Constrain mode is enabled
-@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":108:0:108:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":154:0:154:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _sck[4:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance prescaller_cnt[7:0] 
 @N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
-@N: FX271 :"c:\fpga_led_tm1637\src\led_tm1637.v":26:0:26:5|Replicating instance cnt[7] (in view: work.demo(verilog)) with 4 loads 1 time to improve timing.
-@N: FX271 :"c:\fpga_led_tm1637\src\led_tm1637.v":26:0:26:5|Replicating instance cnt[0] (in view: work.demo(verilog)) with 4 loads 1 time to improve timing.
-@N: FX271 :"c:\fpga_led_tm1637\src\led_tm1637.v":26:0:26:5|Replicating instance cnt[1] (in view: work.demo(verilog)) with 4 loads 1 time to improve timing.
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
-@N: MT615 |Found clock demo|clk_led_derived_clock with period 6.67ns 
+@N: MT615 |Found clock demo|clk_led_derived_clock with period 10.00ns 
+@N: MT615 |Found clock demo|rd_spi_derived_clock[0] with period 10.00ns 
+@N: MT615 |Found clock demo|wr_spi_derived_clock[0] with period 10.00ns 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
 @N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

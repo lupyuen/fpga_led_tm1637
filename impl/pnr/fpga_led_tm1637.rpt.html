@@ -85,7 +85,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Tue Oct 16 03:17:49 2018
+<td>Tue Oct 16 08:13:17 2018
 </td>
 </tr>
 <tr>
@@ -101,11 +101,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <!--<h1><a name="Summary">PnR Summaries</a></h1>-->
 <h2><a name="Placer">Placer:</a></h2>
 <p style="font-size: 14px;">Starting Placer:</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 0 ...  &nbsp  REAL time: 1.7e-005 secs</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 1 ...  &nbsp  REAL time: 0.000109 secs</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 2 ...  &nbsp  REAL time: 4.1e-005 secs</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 3 ...  &nbsp  REAL time: 0.001122 secs</p>
-<p style="font-size: 14px;">Total REAL time to Placement completion: 1.289 secs.<p><br/>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 0 ...  &nbsp  REAL time: 2.1e-005 secs</p>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 1 ...  &nbsp  REAL time: 9.2e-005 secs</p>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 2 ...  &nbsp  REAL time: 4.8e-005 secs</p>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 3 ...  &nbsp  REAL time: 0.00107 secs</p>
+<p style="font-size: 14px;">Total REAL time to Placement completion: 1.231 secs.<p><br/>
 <h2><a name="Resource_Usage_Summary">Resource Usage Summary:</a></h2>
 <table class="summary_table">
 <tr>
@@ -115,18 +115,18 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">CFU Logics</td>
-<td>235(153 LUTs, 82 ALUs)/4608</td>
-<td>5%</td>
+<td>301(213 LUTs, 88 ALUs)/4608</td>
+<td>6%</td>
 </tr>
 <tr>
 <td class="label">Registers</td>
-<td>115/3556</td>
-<td>3%</td>
+<td>154/3556</td>
+<td>4%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --logic Registers</td>
-<td>115/3456</td>
-<td>3%</td>
+<td>154/3456</td>
+<td>4%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --I/O Registers</td>
@@ -135,13 +135,13 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">CLSs(ideal)</td>
-<td>125/2304</td>
-<td>5%</td>
+<td>162/2304</td>
+<td>7%</td>
 </tr>
 <tr>
 <td class="label">CLSs(used)</td>
-<td>148/2304</td>
-<td>6%</td>
+<td>195/2304</td>
+<td>8%</td>
 </tr>
 <tr>
 <td class="label">I/O Ports</td>
@@ -240,10 +240,10 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <br/>
 <h2><a name="Router">Router:</a></h2>
 <p  style="font-size: 14px;">Starting Router:</p>
-<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 0: 482 unrouted; &nbsp REAL time: 0 secs</p>
-<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 1: 256 unrouted; &nbsp REAL time: 0.084 secs</p>
-<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 2: 0 unrouted; &nbsp REAL time: 0.057 secs</p>
-<p  style="font-size: 14px;">  Total REAL time to Router completion: 0.141 secs.</p><br/>
+<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 0: 593 unrouted; &nbsp REAL time: 0 secs</p>
+<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 1: 347 unrouted; &nbsp REAL time: 0.082 secs</p>
+<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 2: 0 unrouted; &nbsp REAL time: 0.074 secs</p>
+<p  style="font-size: 14px;">  Total REAL time to Router completion: 0.156 secs.</p><br/>
 <h2><a name="Global_Clock_Usage_Summary">Global Clock Usage Summary:</a></h2>
 <table class="summary_table">
 <tr>
@@ -295,7 +295,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <tr>
 <td class="label">clk_50M_c</td>
 <td>PRIMARY</td>
-<td>RIGHT</td>
+<td>LEFT</td>
 </tr>
 <tr>
 <td class="label">rst_n_c</td>
@@ -336,9 +336,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">rst_n</td>
-<td>71/2</td>
+<td>64/2</td>
 <td>in</td>
-<td>IOB30[B]</td>
+<td>IOB24[A]</td>
 <td>LVCMOS18</td>
 <td>NA</td>
 <td>UP</td>
@@ -1094,14 +1094,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">64/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>rst_n</td>
+<td>in</td>
 <td>IOB24[A]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">65/2</td>
 <td>UNUSED</td>
@@ -1164,14 +1164,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">71/2</td>
-<td>rst_n</td>
-<td>in</td>
+<td>UNUSED</td>
+<td>-</td>
 <td>IOB30[B]</td>
-<td>LVCMOS18</td>
-<td>UP</td>
-<td>NONE</td>
-<td>NA</td>
-<td>NA</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <td class="label">75/2</td>
 <td>UNUSED</td>
