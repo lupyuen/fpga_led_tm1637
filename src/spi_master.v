@@ -1,19 +1,4 @@
 //  Based on https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master.v
-////////////////////////////////////////////////////////////////////////////////
-////                                                                        ////
-//// Project Name: ASYNCHRONOUS SPI MASTER (Verilog)                        ////
-////                                                                        ////
-//// Module Name: spi_master                                                ////
-////                                                                        ////
-////                                                                        ////
-////  Author(s):                                                            ////
-////      Iulian Gheorghiu                                                  ////
-////                                                                        ////
-////  Create Date: 01/17/2017 11:21:57 AM                                   ////
-////  Refer to simulate.v for more information                              ////
-////  Revision 0.01 - File Created                                          ////
-////                                                                        ////
-////////////////////////////////////////////////////////////////////////////////
 
 module spi_master #(
 		parameter WORD_LEN = 8,
@@ -146,12 +131,12 @@ reg[0:0] _diomode;  //  "diomode" parameter stored locally.
 //  The last bit must be 0 to keep the DIO connection open.
 
 //  Number of bits to transmit/receive.
-wire[3:0] num_bits = 
+wire[3:0] _num_bits = 
     _diomode ? { 4{WORD_LEN + 1} }  //  For DIO: 9 bits, counting the acknowledgement bit from device.
     : { 4{WORD_LEN} };  //  For SPI: 8 bits.  WORD_LEN is normally 8.
 
 //  Number of extra bits we need to transmit to close the SPI or DIO connection, if there are no more bytes to send.
-wire[0:0] num_close_bits = 
+wire[0:0] _num_close_bits = 
     _diomode && (tx_buffer_fullp == tx_buffer_fulln) ? 1'b1   //  For DIO: 1 bit, on top of the 9 bits above
     : 1'b0;  //  For SPI: None.
 
@@ -271,10 +256,10 @@ always @ (posedge clk or negedge rst_n) begin
                         //  If we have transmitted all 8 bits for SPI (9 bits for DIO)...
                         //  For DIO, if no more bytes to transmit, we actually transmit 1 more bit (total 10 bits) to close the connection.  
                         //  If there are more bytes to transmit, we transit 9 bits followed by the new byte.
-                        if (_sck_bit_num == num_bits + num_close_bits) begin  //  num_close_bits=1 for DIO Mode and no more bytes to transmit.
+                        if (_sck_bit_num == _num_bits + _num_close_bits) begin  //  num_close_bits=1 for DIO Mode and no more bytes to transmit.
                             debug <= 4'd5;  //  Show the debug value in LEDs.
                             _sck <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin (SCK Pin) to low.
-                            
+
                             //  If no more bytes to transmit...
                             if (tx_buffer_fullp == tx_buffer_fulln) begin
                                 debug <= 4'd6;  //  Show the debug value in LEDs.
