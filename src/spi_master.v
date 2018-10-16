@@ -171,6 +171,7 @@ reg[0:0] _diomode;  //  "diomode" parameter stored locally.
 
 //  Number of bits to transmit.  For SPI: 8, for DIO: 9.  WORD_LEN is normally 8.
 wire[3:0] num_bits = _diomode ? { 4{WORD_LEN + 1} } : { 4{WORD_LEN} };
+//wire[3:0] num_bits = _diomode ? { 4{WORD_LEN + 2} } : { 4{WORD_LEN + 1} };
 
 //  When all the bits have been transmitted, we transmit empty_tx_bit.  For SPI this is 1.
 //  For DIO this is 0, so that the 9th bit is set low to keep the connection open.
@@ -287,7 +288,10 @@ always @ (posedge clk or negedge rst_n) begin
                     else begin
                         debug_bit_num <= _sck_bit_num;
                         //  If we have transmitted all 8 bits for SPI (9 bits for DIO)...
-                        if (_sck_bit_num == num_bits - 1) begin
+                        //  TODO: For DIO, if no more bytes to transmit, we actually transmit 10 bits before closing.  If there are more bytes to transmit, we transit 9 bits followed by the new byte.
+                        if (_sck_bit_num == num_bits + 4'h1) begin
+                        ////if (_sck_bit_num + 4'h1 == num_bits) begin
+                        ////if (_sck_bit_num == num_bits) begin
                             debug <= 4'd5;  //  Show the debug value in LEDs.
                             _sck <= { 5{1'b0} };  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin (SCK Pin) to low.
                             //  If no more bytes to transmit...

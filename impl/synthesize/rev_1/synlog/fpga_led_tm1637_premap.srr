@@ -1,4 +1,4 @@
-# Tue Oct 16 10:35:42 2018
+# Tue Oct 16 13:57:28 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -37,7 +37,7 @@ Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 
 Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
-@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
+@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @W: MO129 :|Sequential instance spi0._prescaller_16 is reduced to a combinational gate by constant propagation.
@@ -50,7 +50,7 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 @W: MO129 :|Sequential instance spi0._mode_22 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._diomode_2 is reduced to a combinational gate by constant propagation.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Removing sequential instance senderr (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Removing sequential instance rx_buffer[7:0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Removing sequential instance rx_buffer[7:0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dffre(prim) because it does not drive other instances.
 @N: MF578 |Incompatible asynchronous control logic preventing generated clock conversion.
 syn_allowed_resources : blockrams=10  set on top level netlist demo
 
@@ -136,6 +136,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Tue Oct 16 10:35:44 2018
+# Tue Oct 16 13:57:30 2018
 
 ###########################################################]

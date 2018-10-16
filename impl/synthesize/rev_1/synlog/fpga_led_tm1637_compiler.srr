@@ -44,6 +44,7 @@ Synopsys Verilog Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 0
 @I:"C:\fpga_led_tm1637\src\led_tm1637.v":"C:\fpga_led_tm1637\src\rom.v" (library work)
 @I::"C:\fpga_led_tm1637\src\led_tm1637_rom.v" (library work)
 Verilog syntax check successful!
+File C:\fpga_led_tm1637\src\spi_master.v changed - recompiling
 Selecting top level module demo
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":22:7:22:20|Synthesizing module LED_TM1637_ROM in library work.
 Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
@@ -55,10 +56,10 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 	state_idle=1'b0
 	state_busy=1'b1
    Generated name = spi_master_8s_8s_0_1
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _diomode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _lsbfirst with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _mode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _prescaller with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _diomode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _lsbfirst with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _mode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _prescaller with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Synthesizing module demo in library work.
@@ -71,12 +72,12 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 @W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":154:0:154:5|All reachable assignments to test_display_on[3:0] assign 1, register removed by optimization
 @W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":154:0:154:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 78MB peak: 85MB)
+At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 78MB peak: 84MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 10:35:40 2018
+# Tue Oct 16 13:57:27 2018
 
 ###########################################################]
 
@@ -105,7 +106,7 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 10:35:40 2018
+# Tue Oct 16 13:57:27 2018
 
 ###########################################################]
 @END
@@ -115,6 +116,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 10:35:40 2018
+# Tue Oct 16 13:57:27 2018
 
 ###########################################################]

@@ -9,10 +9,10 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 	state_idle=1'b0
 	state_busy=1'b1
    Generated name = spi_master_8s_8s_0_1
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _diomode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _lsbfirst with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _mode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Register _prescaller with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _diomode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _lsbfirst with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _mode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _prescaller with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Synthesizing module demo in library work.

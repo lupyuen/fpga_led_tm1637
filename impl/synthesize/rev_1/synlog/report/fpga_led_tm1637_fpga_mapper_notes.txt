@@ -2,19 +2,19 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MT206 |Auto Constrain mode is enabled
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Removing sequential instance _lsbfirst[0] (in view: work.spi_master_8s_8s_0_1(verilog)) of type view:PrimLib.dff(prim) because it does not drive other instances.
 @N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":154:0:154:5|Found counter in view:work.demo(verilog) instance repeat_count[14:0] 
-@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _sck[4:0] 
-@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance prescaller_cnt[7:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance prescaller_cnt[7:0] 
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Removing sequential instance prescallerbuff[1] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Removing sequential instance spi0._prescaller[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Removing sequential instance spi0._prescaller[1] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Removing sequential instance spi0._diomode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Removing sequential instance spi0.ss (in view: work.demo(verilog)) because it does not drive other instances.
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
-@N: MT615 |Found clock demo|clk_led_derived_clock with period 10.00ns 
-@N: MT615 |Found clock demo|rd_spi_derived_clock[0] with period 10.00ns 
-@N: MT615 |Found clock demo|wr_spi_derived_clock[0] with period 10.00ns 
+@N: MT615 |Found clock demo|clk_led_derived_clock with period 10.34ns 
+@N: MT615 |Found clock demo|rd_spi_derived_clock[0] with period 10.34ns 
+@N: MT615 |Found clock demo|wr_spi_derived_clock[0] with period 10.34ns 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
 @N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
