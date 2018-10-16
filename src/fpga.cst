@@ -32,3 +32,5 @@ IO_LOC "switches[2]" 79;
 IO_LOC "switches[3]" 80;
 IO_LOC "tm1637_clk" 131;
 IO_LOC "tm1637_dio" 132;
+IO_PORT "tm1637_clk"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "tm1637_dio"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
