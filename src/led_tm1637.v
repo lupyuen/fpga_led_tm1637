@@ -150,7 +150,7 @@ wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=
 wire[23:0] step_time = 24'h1; //// TODO: Hardcoded step_time to avoid waiting.
 wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
 wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
-wire[14:0] step_repeat = { encoded_step[6:0], step_tx_data };  //  How many times the step should be repeated.  Only if step_should_repeat=1
+wire[3:0] step_repeat = encoded_step[6:3];  //  How many times the step should be repeated.  Only if step_should_repeat=1
 
 // wire[0:0] step_oled_vdd = encoded_step[6];
 // wire[0:0] step_oled_vbat = encoded_step[5];
@@ -179,7 +179,7 @@ always@(                //  Code below is always triggered when these conditions
         /* reg[0:0] */ internal_state_machine <= 1'b0;
         /* reg[27:0] */ elapsed_time <= 28'h0;
         /* reg[27:0] */ saved_elapsed_time <= 28'h0;
-        /* reg[14:0] */ repeat_count <= 15'h0;
+        /* reg[14:0] */ repeat_count <= 4'h0;
         ///* reg[7:0] */ rx_data <= 8'h0;
         ///* reg[3:0] */ spi_debug <= 4'h0;
         ///* reg[3:0] */ spi_debug_bit_num <= 4'h0;
@@ -234,7 +234,7 @@ always@(                //  Code below is always triggered when these conditions
                         //  If we are still repeating...
                         if (repeat_count && step_next > 1) begin
                             //  Count down number of times to repeat.
-                            repeat_count <= repeat_count - 15'h1;
+                            repeat_count <= repeat_count - 4'h1;
                         end
                     end
 
