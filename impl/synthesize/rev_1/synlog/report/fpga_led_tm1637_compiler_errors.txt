@@ -1,2 +1,0 @@
-@E: CG425 :"C:\fpga_led_tm1637\src\led_tm1637.v":208:12:208:18|Assignment target tx_data must be of type reg, genvar, or logic
-

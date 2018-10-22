@@ -73,6 +73,8 @@ wire[3:0] spi_debug_bit_num; // = 4'h0;
 wire[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
 wire[0:0] debug_waiting_for_tx_data;
 wire[0:0] debug_waiting_for_prescaller;
+wire[7:0] debug_tx_buffer;
+wire[7:0] debug_rx_buffer;
 wire[0:0] tx_buffer_is_empty;
 wire[0:0] charreceived;
 
@@ -124,13 +126,15 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     (normalised_switches == 4'b0001) ? step_id :    //  If {SW4,5,6,7}={0,0,0,1}, show the TM1637 ROM step ID that we are executing.
     (normalised_switches == 4'b0010) ? spi_debug :  //  If {SW4,5,6,7}={0,0,1,0}, show the SPI step ID that we are executing.
     (normalised_switches == 4'b0011) ? spi_debug_bit_num :  //  If {SW4,5,6,7}={0,0,1,1}, show the SPI bit number being sent/received.
-    (normalised_switches == 4'b0100) ? {   //  If {SW4,5,6,7}={0,1,0,0},
+    (normalised_switches == 4'b0100) ? debug_tx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,0}, show the byte being sent (lowest 4 bits).
+    (normalised_switches == 4'b0101) ? debug_rx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,1}, show the byte just received (lowest 4 bits).
+    (normalised_switches == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0},
         clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
         rst_led[0], ~rst_led[0] } :        //  and rst_led (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b0101) ? {   //  If {SW4,5,6,7}={0,1,0,1},
+    (normalised_switches == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
         tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
         tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0}, 
+    (normalised_switches == 4'b1000) ? {   //  If {SW4,5,6,7}={1,0,0,0}, 
         debug_waiting_for_step_time[0], 
         debug_waiting_for_spi[0],
         debug_waiting_for_tx_data[0], 

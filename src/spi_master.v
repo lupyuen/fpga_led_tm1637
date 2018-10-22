@@ -25,7 +25,9 @@ module spi_master #(
         output reg [3:0] debug,  //  Debug value to be shown on the LEDs.
         output reg [3:0] debug_bit_num,  //  Bit number (0 to 8) being transmitted/received now.
         output reg debug_waiting_for_tx_data,  //  1 if we are waiting for data to transmit.
-        output reg debug_waiting_for_prescaller  //  1 if we are waiting for prescaller to count down.
+        output reg debug_waiting_for_prescaller,  //  1 if we are waiting for prescaller to count down.
+        output wire[(WORD_LEN-1):0] debug_tx_buffer,  //  Byte currently transmitting.
+        output wire[(WORD_LEN-1):0] debug_rx_buffer  //  Byte just received.
     );
 
 reg[0:0] _mosi;
@@ -34,10 +36,12 @@ reg[0:0] charreceivedn;
 reg[0:0] tx_buffer_fullp; // = 1'b0;
 reg[0:0] tx_buffer_fulln; // = 1'b0;
 reg[2:0] prescallerbuff;
-reg[WORD_LEN - 1:0] tx_buffer;
-reg[WORD_LEN - 1:0] rx_buffer;
+reg[(WORD_LEN-1):0] tx_buffer;
+reg[(WORD_LEN-1):0] rx_buffer;
 
 assign tx_buffer_is_empty = ~(tx_buffer_fullp ^ tx_buffer_fulln);
+assign debug_tx_buffer = tx_buffer;
+assign debug_rx_buffer = rx_buffer;
 
 ///////////////////////////////////////////////////////////////////////////////
 //  Asynchronus Send
