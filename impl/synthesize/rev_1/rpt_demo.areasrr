@@ -24,19 +24,19 @@ Part:			GW1N_4LQFP144-6 (GoWin)
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     116                100 %                
+REGISTERS     123                100 %                
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block demo:	116 (29.15 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block demo:	123 (32.71 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-LUTS          148                100 %                
+LUTS          118                100 %                
 MUX2_LUT5     4                  100 %                
 ALU           96                 100 %                
 ======================================================
-Total COMBINATIONAL LOGIC in the block demo:	248 (62.31 % Utilization)
+Total COMBINATIONAL LOGIC in the block demo:	218 (57.98 % Utilization)
 
 --------------------------------------------------------------------
 ########   Utilization report for  cell:   LED_TM1637_ROM   ########
@@ -46,9 +46,9 @@ Instance path:   demo.LED_TM1637_ROM
 COMBINATIONAL LOGIC
 Name     Total elements     Utilization     Notes
 -------------------------------------------------
-LUTS     20                 13.5 %               
+LUTS     20                 16.9 %               
 =================================================
-Total COMBINATIONAL LOGIC in the block demo.LED_TM1637_ROM:	20 (5.03 % Utilization)
+Total COMBINATIONAL LOGIC in the block demo.LED_TM1637_ROM:	20 (5.32 % Utilization)
 
 --------------------------------------------------------------------------
 ########   Utilization report for  cell:   spi_master_8s_8s_0_1   ########
@@ -58,19 +58,19 @@ Instance path:   demo.spi_master_8s_8s_0_1
 SEQUENTIAL ELEMENTS
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-REGISTERS     46                 39.7 %               
+REGISTERS     46                 37.4 %               
 ======================================================
-Total SEQUENTIAL ELEMENTS in the block demo.spi_master_8s_8s_0_1:	46 (11.56 % Utilization)
+Total SEQUENTIAL ELEMENTS in the block demo.spi_master_8s_8s_0_1:	46 (12.23 % Utilization)
 
 
 COMBINATIONAL LOGIC
 Name          Total elements     Utilization     Notes
 ------------------------------------------------------
-LUTS          83                 56.1 %               
+LUTS          77                 65.3 %               
 MUX2_LUT5     4                  100 %                
 ALU           8                  8.33 %               
 ======================================================
-Total COMBINATIONAL LOGIC in the block demo.spi_master_8s_8s_0_1:	95 (23.87 % Utilization)
+Total COMBINATIONAL LOGIC in the block demo.spi_master_8s_8s_0_1:	89 (23.67 % Utilization)
 
 
 ##### END OF AREA REPORT #####]

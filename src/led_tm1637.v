@@ -61,6 +61,7 @@ reg[0:0] internal_state_machine; // = 1'b0;
 reg[27:0] elapsed_time; // = 28'h0;
 reg[27:0] saved_elapsed_time; // = 28'h0;
 reg[14:0] repeat_count; // = 15'h0;
+reg[7:0] tx_data; // = 8'h0;
 reg[7:0] test_display_on; // = 8'h8f;
 reg[7:0] test_display_off; // = 8'h80;
 reg[0:0] debug_waiting_for_step_time; // = 1'b0;
@@ -88,7 +89,7 @@ spi0(
 
     .rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
 
-    .tx_data(step_tx_data),  //  Transmit real data to SPI device.
+    .tx_data(tx_data),  //  Transmit real data to SPI device.
     //.tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
 
     .rx_data(rx_data),
@@ -204,6 +205,7 @@ always@(                //  Code below is always triggered when these conditions
         if (!step_should_repeat) begin
             //  Copy the decoded values into registers so they won't change when we go to next step.
             //  Values are valid only in next clk_led tick.
+            tx_data <= step_tx_data;
             wr_spi <= step_wr_spi;
             rd_spi <= step_rd_spi;
             wait_spi <= step_wait_spi;

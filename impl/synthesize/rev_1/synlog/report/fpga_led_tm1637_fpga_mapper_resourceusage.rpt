@@ -7,14 +7,14 @@ ALU             96 uses
 DFF             1 use
 DFFC            45 uses
 DFFCE           61 uses
-DFFE            7 uses
+DFFE            14 uses
 DFFPE           2 uses
 GSR             1 use
-INV             10 uses
+INV             11 uses
 MUX2_LUT5       4 uses
-LUT2            33 uses
+LUT2            29 uses
 LUT3            46 uses
-LUT4            69 uses
+LUT4            43 uses
 
 I/O ports: 15
 I/O primitives: 15
@@ -23,8 +23,8 @@ OBUF           7 uses
 TBUF           2 uses
 
 I/O Register bits:                  0
-Register bits not including I/Os:   116 of 3456 (3%)
+Register bits not including I/Os:   123 of 3456 (3%)
 
 @S |Mapping Summary:
-Total  LUTs: 148 (3%)
+Total  LUTs: 118 (2%)
 

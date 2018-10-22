@@ -1,4 +1,4 @@
-# Mon Oct 22 10:10:48 2018
+# Mon Oct 22 10:38:11 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -65,7 +65,7 @@ Clock Summary
 Level     Clock                                Frequency     Period        Type                                          Group                     Load 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 0 -       demo|clk_50M                         100.0 MHz     10.000        inferred                                      Autoconstr_clkgroup_0     26   
-1 .         demo|clk_led_derived_clock         100.0 MHz     10.000        derived (from demo|clk_50M)                   Autoconstr_clkgroup_0     132  
+1 .         demo|clk_led_derived_clock         100.0 MHz     10.000        derived (from demo|clk_50M)                   Autoconstr_clkgroup_0     140  
 2 ..          demo|wr_spi_derived_clock[0]     100.0 MHz     10.000        derived (from demo|clk_led_derived_clock)     Autoconstr_clkgroup_0     12   
 2 ..          demo|rd_spi_derived_clock[0]     100.0 MHz     10.000        derived (from demo|clk_led_derived_clock)     Autoconstr_clkgroup_0     1    
 ========================================================================================================================================================
@@ -79,7 +79,7 @@ Clock Load Summary
 Clock                            Load      Pin                       Seq Example                 Seq Example       Comb Example 
 --------------------------------------------------------------------------------------------------------------------------------
 demo|clk_50M                     26        clk_50M(port)             clk_led.C                   -                 -            
-demo|clk_led_derived_clock       132       clk_led.Q[0](dffre)       rd_spi[0].C                 -                 -            
+demo|clk_led_derived_clock       140       clk_led.Q[0](dffre)       rd_spi[0].C                 -                 -            
 demo|wr_spi_derived_clock[0]     12        wr_spi[0].Q[0](dffre)     spi0.tx_buffer[7:0].C       -                 -            
 demo|rd_spi_derived_clock[0]     1         rd_spi[0].Q[0](dffre)     spi0.charreceivedn[0].C     -                 -            
 ================================================================================================================================
@@ -98,8 +98,8 @@ Number of ICG latches not removed:	0
 #### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[
 
 1 non-gated/non-generated clock tree(s) driving 26 clock pin(s) of sequential element(s)
-3 gated/generated clock tree(s) driving 145 clock pin(s) of sequential element(s)
-0 instances converted, 145 sequential instances remain driven by gated/generated clocks
+3 gated/generated clock tree(s) driving 153 clock pin(s) of sequential element(s)
+0 instances converted, 153 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
@@ -109,7 +109,7 @@ Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample I
 ================================================================= Gated/Generated Clocks ==================================================================
 Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout     Sample Instance              Explanation                               
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-@KP:ckid0_1       clk_led.Q[0]        dffre                  132                    step_id[6:0]                 Derived clock on input (not legal for GCC)
+@KP:ckid0_1       clk_led.Q[0]        dffre                  140                    step_id[6:0]                 Derived clock on input (not legal for GCC)
 @KP:ckid0_3       wr_spi[0].Q[0]      dffre                  12                     spi0.prescallerbuff[2:0]     Derived clock on input (not legal for GCC)
 @KP:ckid0_5       rd_spi[0].Q[0]      dffre                  1                      spi0.charreceivedn[0]        Derived clock on input (not legal for GCC)
 ===========================================================================================================================================================
@@ -121,10 +121,10 @@ Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout 
 Finished Pre Mapping Phase.
 @N: BN225 |Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap.
 
-Starting constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 None
 None
@@ -136,6 +136,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Mon Oct 22 10:10:50 2018
+# Mon Oct 22 10:38:14 2018
 
 ###########################################################]
