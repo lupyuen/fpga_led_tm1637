@@ -1,6 +1,6 @@
 i clk_led_i
 m 0 0
-u 36 140
+u 38 156
 n ckid0_0 {t:spi0._mode[0].C} Derived clock on input (not legal for GCC)
 p {t:clk_led.Q[0]}{t:clk_led_derived_clock.I[0]}{t:clk_led_derived_clock.OUT[0]}{t:step_id[6:0].C}
 e ckid0_1 {t:step_id[6:0].C} dffr

@@ -30,7 +30,7 @@ Table of Contents
   <Physical Constraint File>: C:\fpga_led_tm1637\src\fpga.cst
   <Timing Constraint File>: ---
   <PnR Report File>: C:\fpga_led_tm1637\impl\pnr\fpga_led_tm1637.rpt.txt
-  <Created Time>: Mon Oct 22 22:49:25 2018
+  <Created Time>: Mon Oct 22 22:56:10 2018
   <Command Line>: C:\Gowin\1.8\Pnr\bin\gowin.exe -do C:\fpga_led_tm1637\impl\pnr\cmd.do 
   <Legal Announcement>: Copyright ©2014-2018 Gowin Semiconductor Corporation. All rights reserved.
 
@@ -39,10 +39,10 @@ Table of Contents
 
   Starting Placer:
     Placement Phase 0 ...   REAL time: 1.7e-005 secs
-    Placement Phase 1 ...   REAL time: 9.2e-005 secs
-    Placement Phase 2 ...   REAL time: 4e-005 secs
-    Placement Phase 3 ...   REAL time: 0.001103 secs
-  Total REAL time to Placement completion: 1.252 secs.
+    Placement Phase 1 ...   REAL time: 0.000109 secs
+    Placement Phase 2 ...   REAL time: 3.7e-005 secs
+    Placement Phase 3 ...   REAL time: 0.001095 secs
+  Total REAL time to Placement completion: 1.258 secs.
 
 
 3. Resource Usage Summary
@@ -50,12 +50,12 @@ Table of Contents
   ----------------------------------------------------------
   Resources            | Usage
   ----------------------------------------------------------
-  CFU Logics           | 253(157 LUTs, 96 ALUs)/4608  5%
-  Registers            | 123/3556  3%
-    --Logic Registers  | 123/3456  3%
+  CFU Logics           | 249(153 LUTs, 96 ALUs)/4608  5%
+  Registers            | 137/3556  3%
+    --Logic Registers  | 137/3456  3%
     --I/O Registers    | 0/100  0%
-  CLSs(ideal)          | 135/2304  5%
-  CLSs(used)           | 150/2304  6%
+  CLSs(ideal)          | 133/2304  5%
+  CLSs(used)           | 149/2304  6%
   I/O Ports            | 15
   I/O Bufs             | 15/104  14%
     --Input Bufs       | 6
@@ -89,10 +89,10 @@ Table of Contents
 5. Router
 
   Starting Router:
-    Route Phase 0: 521 unrouted; REAL time: 0 secs
-    Route Phase 1: 248 unrouted; REAL time: 0.087 secs
-    Route Phase 2: 0  unrouted; REAL time: 0.064 secs
-  Total REAL time to Router completion: 0.151 secs.
+    Route Phase 0: 536 unrouted; REAL time: 0 secs
+    Route Phase 1: 247 unrouted; REAL time: 0.093 secs
+    Route Phase 2: 0  unrouted; REAL time: 0.081 secs
+  Total REAL time to Router completion: 0.174 secs.
 
 
 6. Global Clock Usage Summary
@@ -115,9 +115,9 @@ Table of Contents
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  wr_spi[0]      | PRIMARY        | LEFT
+  wr_spi[0]      | PRIMARY        | RIGHT
   clk_led        | PRIMARY        | LEFT
-  clk_50M_c      | PRIMARY        | RIGHT
+  clk_50M_c      | PRIMARY        | LEFT
   rst_n_c        | SECONDARY      |  -
   ===========================================
 
@@ -128,13 +128,13 @@ Table of Contents
 Port Name         | Loc./Bank  | Dir.  | Site     | IO Type    | Drive      | Pull Mode  | Slew Rate  | Clamp      | OpenDrain  | VREF       | BankVccio 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 clk_50M           | 6/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
-rst_n             | 139/0      | in    | IOT6[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 3.3       
+rst_n             | 126/0      | in    | IOT18[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 3.3       
 switches[0]       | 68/2       | in    | IOB28[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[1]       | 69/2       | in    | IOB28[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[2]       | 79/1       | in    | IOR17[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[3]       | 80/1       | in    | IOR17[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 tm1637_clk        | 106/1      | out   | IOR3[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-tm1637_dio        | 66/2       | out   | IOB26[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+tm1637_dio        | 62/2       | out   | IOB22[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
 tm1637_clk_drain  | 131/0      | out   | IOT14[B] | LVCMOS33   | 24         | UP         | FAST       | NA         | ON         | NA         | 3.3       
 tm1637_dio_drain  | 132/0      | out   | IOT14[A] | LVCMOS33   | 24         | UP         | FAST       | NA         | ON         | NA         | 3.3       
 tm1637_vcc        | 133/0      | out   | IOT12[B] | LVCMOS33   | 24         | UP         | FAST       | NA         | OFF        | NA         | 3.3       
@@ -157,7 +157,7 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 142/0    | UNUSED            | -     | IOT4[A]  | -        | -         | -          | -            | -             
 141/0    | UNUSED            | -     | IOT4[B]  | -        | -         | -          | -            | -             
 140/0    | UNUSED            | -     | IOT6[A]  | -        | -         | -          | -            | -             
-139/0    | rst_n             | in    | IOT6[B]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+139/0    | UNUSED            | -     | IOT6[B]  | -        | -         | -          | -            | -             
 138/0    | UNUSED            | -     | IOT7[A]  | -        | -         | -          | -            | -             
 137/0    | UNUSED            | -     | IOT7[B]  | -        | -         | -          | -            | -             
 136/0    | UNUSED            | -     | IOT9[A]  | -        | -         | -          | -            | -             
@@ -169,7 +169,7 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 130/0    | UNUSED            | -     | IOT16[A] | -        | -         | -          | -            | -             
 129/0    | UNUSED            | -     | IOT16[B] | -        | -         | -          | -            | -             
 128/0    | UNUSED            | -     | IOT17[A] | -        | -         | -          | -            | -             
-126/0    | UNUSED            | -     | IOT18[B] | -        | -         | -          | -            | -             
+126/0    | rst_n             | in    | IOT18[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 124/0    | UNUSED            | -     | IOT20[A] | -        | -         | -          | -            | -             
 123/0    | UNUSED            | -     | IOT22[A] | -        | -         | -          | -            | -             
 122/0    | UNUSED            | -     | IOT22[B] | -        | -         | -          | -            | -             
@@ -210,11 +210,11 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 59/2     | UNUSED            | -     | IOB20[B] | -        | -         | -          | -            | -             
 60/2     | led[2]            | out   | IOB21[A] | LVCMOS18 | UP        | NA         | NA           | NA            
 61/2     | led[3]            | out   | IOB21[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-62/2     | UNUSED            | -     | IOB22[A] | -        | -         | -          | -            | -             
+62/2     | tm1637_dio        | out   | IOB22[A] | LVCMOS18 | UP        | NA         | NA           | NA            
 63/2     | UNUSED            | -     | IOB22[B] | -        | -         | -          | -            | -             
 64/2     | UNUSED            | -     | IOB24[A] | -        | -         | -          | -            | -             
 65/2     | UNUSED            | -     | IOB24[B] | -        | -         | -          | -            | -             
-66/2     | tm1637_dio        | out   | IOB26[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+66/2     | UNUSED            | -     | IOB26[A] | -        | -         | -          | -            | -             
 67/2     | UNUSED            | -     | IOB26[B] | -        | -         | -          | -            | -             
 68/2     | switches[0]       | in    | IOB28[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
 69/2     | switches[1]       | in    | IOB28[B] | LVCMOS18 | UP        | NONE       | NA           | NA            

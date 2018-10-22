@@ -1,0 +1,2 @@
+@E: CG849 :"C:\fpga_led_tm1637\src\spi_master.v":31:4:31:4|Unexpected ) after , missing port in ANSI list
+

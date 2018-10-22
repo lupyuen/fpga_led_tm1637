@@ -112,6 +112,8 @@ spi0(
     //  Debug output for tracing the SPI operations.
     .debug(spi_debug),
     .debug_bit_num(spi_debug_bit_num),
+    .debug_tx_buffer(debug_tx_buffer),
+    .debug_rx_buffer(debug_rx_buffer),
     .debug_waiting_for_tx_data(debug_waiting_for_tx_data),
     .debug_waiting_for_prescaller(debug_waiting_for_prescaller)
 );
