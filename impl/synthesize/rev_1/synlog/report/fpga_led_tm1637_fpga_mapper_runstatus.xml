@@ -13,13 +13,13 @@ The file contains the job information from mapper to be displayed as part of the
 </job_status>
 <job_info>
 <info name="Notes">
-<data>18</data>
+<data>62</data>
 <report_link name="more">
 <data>C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\report\fpga_led_tm1637_fpga_mapper_notes.txt</data>
 </report_link>
 </info>
 <info name="Warnings">
-<data>14</data>
+<data>11</data>
 <report_link name="more">
 <data>C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\report\fpga_led_tm1637_fpga_mapper_warnings.txt</data>
 </report_link>
@@ -37,10 +37,10 @@ The file contains the job information from mapper to be displayed as part of the
 <data>0h:00m:04s</data>
 </info>
 <info name="Peak Memory">
-<data>210MB</data>
+<data>195MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1539673735</data>
+<data type="timestamp">1540174255</data>
 </info>
 </job_info>
 </job_run_status>

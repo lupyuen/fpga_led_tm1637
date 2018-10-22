@@ -88,8 +88,8 @@ spi0(
 
     .rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
 
-    ////.tx_data(step_tx_data),  //  Transmit real data to SPI device.
-    .tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
+    .tx_data(step_tx_data),  //  Transmit real data to SPI device.
+    //.tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
 
     .rx_data(rx_data),
     .wr(wr_spi),
@@ -146,8 +146,8 @@ assign led =
 //  If encoded_step is changed, these will automatically change.
 wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
 wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
-////wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
-wire[23:0] step_time = 24'h1; //// TODO: Hardcoded step_time to avoid waiting.
+wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
+// wire[23:0] step_time = 24'h1; //// TODO: Hardcoded step_time to avoid waiting.
 wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
 wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
 wire[3:0] step_repeat = encoded_step[6:3];  //  How many times the step should be repeated.  Only if step_should_repeat=1

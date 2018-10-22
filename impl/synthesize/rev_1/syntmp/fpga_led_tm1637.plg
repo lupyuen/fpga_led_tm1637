@@ -1,32 +1,27 @@
-@P:  Worst Slack : -0.393
-@P:  demo|clk_50M - Estimated Frequency : 124.1 MHz
-@P:  demo|clk_50M - Requested Frequency : 100.0 MHz
-@P:  demo|clk_50M - Estimated Period : 8.057
-@P:  demo|clk_50M - Requested Period : 10.000
-@P:  demo|clk_50M - Slack : 1.943
-@P:  demo|clk_led_derived_clock - Estimated Frequency : 96.2 MHz
-@P:  demo|clk_led_derived_clock - Requested Frequency : 100.0 MHz
-@P:  demo|clk_led_derived_clock - Estimated Period : 10.393
-@P:  demo|clk_led_derived_clock - Requested Period : 10.000
-@P:  demo|clk_led_derived_clock - Slack : 3.707
-@P:  demo|rd_spi_derived_clock[0] - Estimated Frequency : 96.2 MHz
-@P:  demo|rd_spi_derived_clock[0] - Requested Frequency : 100.0 MHz
-@P:  demo|rd_spi_derived_clock[0] - Estimated Period : 10.393
-@P:  demo|rd_spi_derived_clock[0] - Requested Period : 10.000
-@P:  demo|rd_spi_derived_clock[0] - Slack : -0.393
-@P:  demo|wr_spi_derived_clock[0] - Estimated Frequency : 164.9 MHz
-@P:  demo|wr_spi_derived_clock[0] - Requested Frequency : 100.0 MHz
-@P:  demo|wr_spi_derived_clock[0] - Estimated Period : 6.065
-@P:  demo|wr_spi_derived_clock[0] - Requested Period : 10.000
-@P:  demo|wr_spi_derived_clock[0] - Slack : 3.935
-@P:  System - Estimated Frequency : 866.6 MHz
+@P:  Worst Slack : -2.687
+@P:  demo|clk_50M - Estimated Frequency : 121.2 MHz
+@P:  demo|clk_50M - Requested Frequency : 138.3 MHz
+@P:  demo|clk_50M - Estimated Period : 8.253
+@P:  demo|clk_50M - Requested Period : 7.231
+@P:  demo|clk_50M - Slack : -1.022
+@P:  demo|clk_led_derived_clock - Estimated Frequency : 117.6 MHz
+@P:  demo|clk_led_derived_clock - Requested Frequency : 138.3 MHz
+@P:  demo|clk_led_derived_clock - Estimated Period : 8.507
+@P:  demo|clk_led_derived_clock - Requested Period : 7.231
+@P:  demo|clk_led_derived_clock - Slack : -0.536
+@P:  demo|wr_spi_derived_clock[0] - Estimated Frequency : 117.6 MHz
+@P:  demo|wr_spi_derived_clock[0] - Requested Frequency : 138.3 MHz
+@P:  demo|wr_spi_derived_clock[0] - Estimated Period : 8.507
+@P:  demo|wr_spi_derived_clock[0] - Requested Period : 7.231
+@P:  demo|wr_spi_derived_clock[0] - Slack : -1.276
+@P:  System - Estimated Frequency : 254.9 MHz
 @P:  System - Requested Frequency : 100.0 MHz
-@P:  System - Estimated Period : 1.154
+@P:  System - Estimated Period : 3.923
 @P:  System - Requested Period : 10.000
-@P:  System - Slack : 8.846
+@P:  System - Slack : 6.077
 @P: demo Part : gw1n_4lqfp144-6
 @P: demo I/O primitives : 15
 @P: demo I/O Register bits : 0
-@P: demo Register bits (Non I/O) : 157 (4%)
-@P: demo Total Luts : 219 of 800 (4%)
+@P: demo Register bits (Non I/O) : 116 (3%)
+@P: demo Total Luts : 148 of 800 (3%)
 @P:  CPU Time : 0h:00m:04s

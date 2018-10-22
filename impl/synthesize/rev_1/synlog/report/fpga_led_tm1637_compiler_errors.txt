@@ -1,2 +1,0 @@
-@E: CL119 :"C:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|More than one edge-sensitive signal unused in always block
-

@@ -5,13 +5,13 @@
 #CUR:"C:\\Gowin\\1.8\\SynplifyPro\\lib\\vlog\\umr_capim.v":1526400512
 #CUR:"C:\\Gowin\\1.8\\SynplifyPro\\lib\\vlog\\scemi_objects.v":1526400512
 #CUR:"C:\\Gowin\\1.8\\SynplifyPro\\lib\\vlog\\scemi_pipes.svh":1526400512
-#CUR:"C:\\fpga_led_tm1637\\src\\spi_master.v":1539669369
-#CUR:"C:\\fpga_led_tm1637\\src\\led_tm1637.v":1539673649
+#CUR:"C:\\fpga_led_tm1637\\src\\spi_master.v":1539689874
+#CUR:"C:\\fpga_led_tm1637\\src\\led_tm1637.v":1540174230
 #CUR:"C:\\fpga_led_tm1637\\src\\rom.v":1539438318
 #CUR:"C:\\fpga_led_tm1637\\src\\led_tm1637_rom.v":1539593466
 #CUR:"C:\\fpga_led_tm1637\\src\\rom.v":1539438318
 #CUR:"C:\\fpga_led_tm1637\\src\\rom.v":1539438318
-#CUR:"C:\\fpga_led_tm1637\\src\\led_tm1637_rom.mem":1539438365
+#CUR:"C:\\fpga_led_tm1637\\src\\led_tm1637_rom.mem":1540172908
 0			"C:\fpga_led_tm1637\src\spi_master.v" verilog
 1			"C:\fpga_led_tm1637\src\led_tm1637.v" verilog
 2		*	"C:\fpga_led_tm1637\src\rom.v" verilog

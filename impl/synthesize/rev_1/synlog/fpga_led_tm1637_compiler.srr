@@ -42,6 +42,7 @@ Synopsys Verilog Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 0
 @I::"C:\fpga_led_tm1637\src\spi_master.v" (library work)
 @I::"C:\fpga_led_tm1637\src\led_tm1637.v" (library work)
 @I:"C:\fpga_led_tm1637\src\led_tm1637.v":"C:\fpga_led_tm1637\src\rom.v" (library work)
+@W: CG1249 :"C:\fpga_led_tm1637\src\led_tm1637.v":151:10:151:21|Redeclaration of implicit signal step_tx_data
 @I::"C:\fpga_led_tm1637\src\led_tm1637_rom.v" (library work)
 Verilog syntax check successful!
 File C:\fpga_led_tm1637\src\led_tm1637.v changed - recompiling
@@ -49,37 +50,42 @@ Selecting top level module demo
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":22:7:22:20|Synthesizing module LED_TM1637_ROM in library work.
 Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 @W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":30:0:30:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
-@N: CG364 :"C:\fpga_led_tm1637\src\spi_master.v":18:7:18:16|Synthesizing module spi_master in library work.
+@N: CG364 :"C:\fpga_led_tm1637\src\spi_master.v":3:7:3:16|Synthesizing module spi_master in library work.
 
 	WORD_LEN=32'b00000000000000000000000000001000
 	PRESCALLER_SIZE=32'b00000000000000000000000000001000
 	state_idle=1'b0
 	state_busy=1'b1
    Generated name = spi_master_8s_8s_0_1
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _diomode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _lsbfirst with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _mode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":180:0:180:5|Register _prescaller with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":69:0:69:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Synthesizing module demo in library work.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Feedback mux created for signal test_display_on[7:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Feedback mux created for signal rst_led[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to rst_led[0] assign 0, register removed by optimization
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to test_display_on[7] assign 1, register removed by optimization
-@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to test_display_on[6:4] assign 0, register removed by optimization
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to test_display_on[3:0] assign 1, register removed by optimization
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
-@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":160:0:160:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":147:0:147:5|Register _diomode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":147:0:147:5|Register _lsbfirst with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":147:0:147:5|Register _mode with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@A: CL291 :"C:\fpga_led_tm1637\src\spi_master.v":147:0:147:5|Register _prescaller with asynchronous load is being synthesized in compatability mode. A synthesis/simulation mismatch is possible.
+@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":54:0:54:5|Feedback mux created for signal tx_buffer_fullp[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":54:0:54:5|Feedback mux created for signal prescallerbuff[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:10|Synthesizing module demo in library work.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Feedback mux created for signal rst_led[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL250 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|All reachable assignments to rst_led[0] assign 0, register removed by optimization
+@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL279 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning register bits 24 to 4 of cnt2[24:0]. If this is not the intended behavior, drive the inputs with valid values, or inputs from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":163:0:163:5|Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
 
-At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 78MB peak: 84MB)
+At c_ver Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 79MB peak: 86MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 15:08:46 2018
+# Mon Oct 22 10:10:46 2018
 
 ###########################################################]
 
@@ -100,15 +106,15 @@ Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15
 
 @N|Running in 64-bit mode
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\layer0.srs changed - recompiling
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Selected library: work cell: demo view verilog as top level
-@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":3:7:3:10|Selected library: work cell: demo view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:10|Selected library: work cell: demo view verilog as top level
+@N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:10|Selected library: work cell: demo view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 15:08:46 2018
+# Mon Oct 22 10:10:46 2018
 
 ###########################################################]
 @END
@@ -118,6 +124,6 @@ At c_hdl Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Tue Oct 16 15:08:46 2018
+# Mon Oct 22 10:10:46 2018
 
 ###########################################################]
