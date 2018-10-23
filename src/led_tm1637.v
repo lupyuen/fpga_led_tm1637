@@ -19,7 +19,7 @@ assign tm1637_clk_drain = tm1637_clk ? 1'bz : 1'b0;
 assign tm1637_dio_drain = tm1637_dio ? 1'bz : 1'b0;
 
 reg[24:0] cnt;
-reg clk_led;
+reg clk_spi;
 
 //  The step ID that we are now executing: 0, 1, 2, ...
 reg[`BLOCK_ROM_INIT_ADDR_WIDTH-1:0] step_id;
@@ -31,19 +31,19 @@ LED_TM1637_ROM oled_rom_init(
     .dout(encoded_step)
 );
 
-//  This block increments a counter and flips the clk_led bit on or off upon overflow.
+//  This block increments a counter and flips the clk_spi bit on or off upon overflow.
 always@(                //  Code below is always triggered when these conditions are true...
     posedge clk_50M or  //  When the clock signal transitions from low to high (positive edge) OR
     negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
     ) begin             //  happens when the board restarts or reset button is pressed.
 
     if (!rst_n) begin     //  If board restarts or reset button is pressed...
-        clk_led <= 1'b0;  //  Init clk_led and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
+        clk_spi <= 1'b0;  //  Init clk_spi and cnt to 0. "1'b0" means "1-Bit, Binary Value 0"
         cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
     end
     else begin
         if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
-            clk_led <= ~clk_led;  //  Toggle the clk_led from 0 to 1 (and 1 to 0).
+            clk_spi <= ~clk_spi;  //  Toggle the clk_spi from 0 to 1 (and 1 to 0).
             cnt <= 25'd0;         //  Reset the counter to 0.
         end
         else begin
@@ -52,32 +52,34 @@ always@(                //  Code below is always triggered when these conditions
     end
 end
 
-reg[24:0] cnt2;  //// TODO
-reg[0:0] wait_spi; // = 1'b0;
-reg[0:0] rd_spi; // = 1'b0;
-reg[0:0] wr_spi; // = 1'b0;
-reg[0:0] rst_led; // = 1'b0;
-reg[0:0] rst_led_n; // = 1'b0;
-reg[0:0] internal_state_machine; // = 1'b0;
-reg[27:0] elapsed_time; // = 28'h0;
-reg[27:0] saved_elapsed_time; // = 28'h0;
-reg[14:0] repeat_count; // = 15'h0;
-reg[7:0] tx_data; // = 8'h0;
-reg[7:0] test_display_on; // = 8'h8f;
-reg[7:0] test_display_off; // = 8'h80;
-reg[0:0] debug_waiting_for_step_time; // = 1'b0;
-reg[0:0] debug_waiting_for_spi; // = 1'b0;
+reg[0:0] internal_state_machine;
+reg[27:0] elapsed_time;
+reg[27:0] saved_elapsed_time;
+reg[14:0] repeat_count;
 
-wire[7:0] rx_data; // = 8'h0;
-wire[3:0] spi_debug; // = 4'h0;
-wire[3:0] spi_debug_bit_num; // = 4'h0;
-wire[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
+reg[24:0] cnt_spi;  //  Watchdog counter for LED device.
+reg[0:0] rd_spi;
+reg[0:0] wr_spi;
+reg[0:0] reset_spi;
+reg[0:0] wait_spi;
+reg[0:0] rst_led_n; //// TODO: Remove
+reg[7:0] tx_data;
+
+reg[7:0] test_display_on;
+reg[7:0] test_display_off;
+reg[0:0] debug_waiting_for_step_time;
+reg[0:0] debug_waiting_for_spi;
+
+wire[0:0] tx_completed;
+wire[0:0] rx_completed;
+wire[7:0] rx_data;
+wire[3:0] spi_debug;
+wire[3:0] spi_debug_bit_num;
 wire[0:0] debug_waiting_for_tx_data;
 wire[0:0] debug_waiting_for_prescaler;
 wire[7:0] debug_tx_buffer;
 wire[7:0] debug_rx_buffer;
-wire[0:0] tx_completed;
-wire[0:0] rx_completed;
+wire[0:0] ss;  //  Not used for DIO Mode.
 
 spi_master # (
     .WORD_LEN(8),       //  Default 8
@@ -93,8 +95,8 @@ spi0(
     ///._prescaler(3'h2),  //  Prescale by 4 (slower).
 
     //  Input signals.
-    .clk(clk_led),      //  Assign the LED device clock.
-    .rst(rst_led),      //  Init connection to LED device when rst_led transitions from low to high.
+    .clk(clk_spi),      //  Assign the LED device clock.
+    .rst(reset_spi),      //  Init connection to LED device when reset_spi transitions from low to high.
     .wr(wr_spi),        //  Transmit to LED device when wr_spi is 1.
     .rd(rd_spi),        //  Receive from LED device when rd_spi is 1 (not used).
     .tx_data(tx_data),  //  Byte to be transmitted to LED device.
@@ -128,15 +130,15 @@ wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~swi
 
 //  normalised_led[3:0] displays a binary value using onboard LEDs, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
 wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LEDs...
-    (normalised_switches == 4'b0000) ? cnt2[3:0] :  //  If {SW4,5,6,7}={0,0,0,0}, show the cnt2 counter, which is always increasing.
-    (normalised_switches == 4'b0001) ? step_id :    //  If {SW4,5,6,7}={0,0,0,1}, show the TM1637 ROM step ID that we are executing.
-    (normalised_switches == 4'b0010) ? spi_debug :  //  If {SW4,5,6,7}={0,0,1,0}, show the SPI step ID that we are executing.
-    (normalised_switches == 4'b0011) ? spi_debug_bit_num :  //  If {SW4,5,6,7}={0,0,1,1}, show the SPI bit number being sent/received.
+    (normalised_switches == 4'b0000) ? cnt_spi[3:0] :  //  If {SW4,5,6,7}={0,0,0,0}, show the cnt_spi counter, which is always increasing.
+    (normalised_switches == 4'b0001) ? step_id :       //  If {SW4,5,6,7}={0,0,0,1}, show the TM1637 ROM step ID that we are executing.
+    (normalised_switches == 4'b0010) ? spi_debug :     //  If {SW4,5,6,7}={0,0,1,0}, show the SPI step ID that we are executing.
+    (normalised_switches == 4'b0011) ? spi_debug_bit_num :     //  If {SW4,5,6,7}={0,0,1,1}, show the SPI bit number being sent/received.
     (normalised_switches == 4'b0100) ? debug_tx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,0}, show the byte being sent (lowest 4 bits).
     (normalised_switches == 4'b0101) ? debug_rx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,1}, show the byte just received (lowest 4 bits).
     (normalised_switches == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0},
-        clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
-        rst_led_n[0], ~rst_led_n[0] } :    //  and rst_led_n (right 2 LEDs, {1,0}=High, {0,1}=Low).
+        clk_spi[0], ~clk_spi[0],           //  show clk_spi (left 2 LEDs, {1,0}=High, {0,1}=Low)
+        reset_spi[0], ~reset_spi[0] } :    //  and reset_spi (right 2 LEDs, {1,0}=High, {0,1}=Low).
     (normalised_switches == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
         tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
         tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
@@ -151,89 +153,72 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
 assign led =
     (!rst_n) ? 4'b1111 :     //  If board restarts or reset button is pressed, switch on all 4 LEDs.
     { ~normalised_led[0], ~normalised_led[1], ~normalised_led[2], ~normalised_led[3] };  //  Else show the debug values.
-//  assign led = { ~cnt2[0], ~cnt2[1], ~cnt2[2], ~cnt2[3] };
+//  assign led = { ~cnt_spi[0], ~cnt_spi[1], ~cnt_spi[2], ~cnt_spi[3] };
 
 //  We define convenience wires to decode our encoded step.  Prefix by "step" so we don't mix up our local registers vs decoded values.
 //  If encoded_step is changed, these will automatically change.
 wire[0:0] step_backward = encoded_step[47];  //  1 if next step is backwards i.e. a negative offset.
 wire[2:0] step_next = encoded_step[46:44];  //  Offset to the next step, i.e. 1=go to following step.  If step_backward=1, go backwards.
-wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_led clock cycles to wait before starting this step. This time is relative to the time of power on.
+wire[23:0] step_time = encoded_step[39:16];  //  Number of clk_spi clock cycles to wait before starting this step. This time is relative to the time of power on.
 // wire[23:0] step_time = 24'h1; //// TODO: Hardcoded step_time to avoid waiting.
 wire[7:0] step_tx_data = encoded_step[15:8];  //  Data to be transmitted via SPI (1 byte).
 wire[0:0] step_should_repeat = encoded_step[7];  //  1 if step should be repeated.
 wire[3:0] step_repeat = encoded_step[6:3];  //  How many times the step should be repeated.  Only if step_should_repeat=1
 
-// wire[0:0] step_oled_vdd = encoded_step[6];
-// wire[0:0] step_oled_vbat = encoded_step[5];
-// wire[0:0] step_oled_res = encoded_step[4];
-// wire[0:0] step_oled_dc = encoded_step[3];
 wire[0:0] step_wr_spi = encoded_step[2];
 wire[0:0] step_rd_spi = encoded_step[1];
 wire[0:0] step_wait_spi = encoded_step[0];
 wire[0:0] step_reset_spi = encoded_step[43];
 
 always@(                //  Code below is always triggered when these conditions are true...
-    posedge clk_led or  //  When the clk_led register transitions from low to high (positive edge) OR
+    posedge clk_spi or  //  When the clk_spi register transitions from low to high (positive edge) OR
     negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
     ) begin             //  happens when the board restarts or reset button is pressed.
 
-    if (!rst_n) begin     //  If board restarts or reset button is pressed...
-        //clk_led2 <= 1'b0;
-        cnt2 <= 25'd0;
+    if (!rst_n) begin      //  If board restarts or reset button is pressed...
+        cnt_spi <= 25'd0;  //  Increment the watchdog timer.
 
         //  Init registers here.
-        tm1637_vcc <= 1'b1;  //  Turn on power supply.
-        step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'h0;
-        /* reg[0:0] */ wait_spi <= 1'b0;
-        /* reg[0:0] */ rd_spi <= 1'b0;
-        /* reg[0:0] */ wr_spi <= 1'b0;
-        /* reg[0:0] */ rst_led <= 1'b0;
-        /* reg[0:0] */ rst_led_n <= 1'b1;
-        /* reg[0:0] */ internal_state_machine <= 1'b0;
-        /* reg[27:0] */ elapsed_time <= 28'h0;
-        /* reg[27:0] */ saved_elapsed_time <= 28'h0;
-        /* reg[14:0] */ repeat_count <= 4'h0;
-        tx_data <= 8'h0;
-        ///* reg[7:0] */ rx_data <= 8'h0;
-        ///* reg[3:0] */ spi_debug <= 4'h0;
-        ///* reg[3:0] */ spi_debug_bit_num <= 4'h0;
-        /* reg[7:0] */ test_display_on <= 8'h8f;
-        /* reg[7:0] */ test_display_off <= 8'h80;
-        ///* reg[0:0] */ ss <= 1'b0;  //  Not used for DIO Mode.
-        /* reg[0:0] */ debug_waiting_for_step_time <= 1'b0;
-        /* reg[0:0] */ debug_waiting_for_spi <= 1'b0;
-        ///* reg[0:0] */ debug_waiting_for_tx_data <= 1'b0;
-        ///* reg[0:0] */ debug_waiting_for_prescaler <= 1'b0;
+        tm1637_vcc <= 1'b1;  //  Turn on power supply to LED device.
+        step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'b0;
+        wait_spi <= 1'b0;
+        rd_spi <= 1'b0;
+        wr_spi <= 1'b0;
+        reset_spi <= 1'b0;
+        rst_led_n <= 1'b1;
+        internal_state_machine <= 1'b0;
+        elapsed_time <= 28'b0;
+        saved_elapsed_time <= 28'b0;
+        repeat_count <= 4'b0;
+        tx_data <= 8'b0;
+        //  rx_data <= 8'h0;
+        test_display_on <= 8'h8f;
+        test_display_off <= 8'h80;
+        debug_waiting_for_step_time <= 1'b0;
+        debug_waiting_for_spi <= 1'b0;
     end
     else begin
-        if (cnt2 == 25'd2499_9999) begin  //  If our counter has reached its limit...
-            //clk_led2 <= ~clk_led2;
-            cnt2 <= 25'd0;
-        end
-        else begin
-            cnt2 <= cnt2 + 25'd1;
-        end
-
+        cnt_spi <= cnt_spi + 25'd1;
         //  If this is not a repeated step...
         if (!step_should_repeat) begin
             //  Copy the decoded values into registers so they won't change when we go to next step.
-            //  Values are valid only in next clk_led tick.
-            tx_data <= step_tx_data;
-            wr_spi <= step_wr_spi;
-            rd_spi <= step_rd_spi;
+            //  Values are valid only in next clk_spi tick.
+            reset_spi <= step_reset_spi;  //  If 1, will trigger the reset of SPI interface.
+            wr_spi <= step_wr_spi;  //  If 1, will trigger an SPI Transmit operation.
+            rd_spi <= step_rd_spi;  //  If 1, will trigger an SPI Receive operation.
             wait_spi <= step_wait_spi;
-            rst_spi <= step_reset_spi;
+            tx_data <= step_tx_data;  //  Byte to be transmitted.
             /*
-            if (step_rd_spi || step_wr_spi) begin
-                //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led high to low transition).
-                rst_led_n <= 1'b0;
-                rst_led <= 1'b1;
-            end
-            else begin
-                //  Reset rst_led to high in case we have previously set to low due to SPI read or write step.
-                rst_led_n <= 1'b1;
-                rst_led <= 1'b0;
-            end
+                if (step_rd_spi || step_wr_spi) begin
+                    //  If this is an SPI read or write step, signal to SPI module to start the transfer (reset_spi high to low transition).
+                    rst_led_n <= 1'b0;
+                    reset_spi <= 1'b1;
+                end
+                else begin
+                    //  Reset reset_spi to high in case we have previously set to low due to SPI read or write step.
+                    rst_led_n <= 1'b1;
+                    reset_spi <= 1'b0;
+                end
             */            
         end
 
@@ -246,9 +231,9 @@ always@(                //  Code below is always triggered when these conditions
         //  If the start time is up and the step is ready to execute...
         else begin
             debug_waiting_for_step_time <= 1'b0;  //  Not waiting for step start time.
-            //  Execute the steps for First Tick and Second Tick of clk_led...
+            //  Execute the steps for First Tick and Second Tick of clk_spi...
             case (internal_state_machine)
-                //  First Tick: Set up repeating steps.  Don't use wr_spi, rd_spi, wait_spi here because they are only valud in the next clk_led tick.
+                //  First Tick: Set up repeating steps.  Don't use wr_spi, rd_spi, wait_spi here because they are only valud in the next clk_spi tick.
                 1'b0 : begin
                     //  If this is a repeating step...
                     if (step_should_repeat) begin
@@ -266,23 +251,25 @@ always@(                //  Code below is always triggered when these conditions
                         end
                     end
 
+                    /*
                     if (step_rd_spi || step_wr_spi) begin
-                        //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led low to high transition).
-                        ////rst_led <= 1'b1;
+                        //  If this is an SPI read or write step, signal to SPI module to start the transfer (reset_spi low to high transition).
+                        ////reset_spi <= 1'b1;
                     end
                     else begin
-                        //  Reset rst_led to low in case we have previously set to high due to SPI read or write step.
-                        ////rst_led <= 1'b0;
+                        //  Reset reset_spi to low in case we have previously set to high due to SPI read or write step.
+                        ////reset_spi <= 1'b0;
                     end
+                    */
 
                     //  Jump to Second Tick step below in the next clock tick.
                     internal_state_machine <= 1'b1;
                 end
 
-                //  Second Tick: Execute the step.  We can use wr_spi, rd_spi, wait_spi here because this is already the next clk_led tick.
+                //  Second Tick: Execute the step.  We can use wr_spi, rd_spi, wait_spi here because this is already the next clk_spi tick.
                 1'b1 : begin
-                    //  Reset rst_led to low in case we have previously set to high due to SPI read or write step.
-                    ////rst_led <= 1'b0;
+                    //  Reset reset_spi to low in case we have previously set to high due to SPI read or write step.
+                    ////reset_spi <= 1'b0;
 
                     //  If we are waiting for SPI command to complete...
                     if (wait_spi) begin

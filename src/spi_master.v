@@ -1,4 +1,4 @@
-//  Based on https://git.morgothdisk.com/VERILOG/VERILOG-UTIL-IP/blob/master/spi_master.v
+//  Based on https://opencores.org/project/asynchronous_master_spi
 
 module spi_master #(
 		parameter WORD_LEN = 8,
@@ -48,7 +48,7 @@ reg[2:0] _prescaler;
 reg[(WORD_LEN-1):0] _tx_buffer;
 reg[(WORD_LEN-1):0] _rx_buffer;
 
-//  No pending data to be transmitted is true IF...
+//  Transmission is complete IF...
 //  transmit buffer is unoccupied and transmit buffer has not been sent
 //  OR transmit buffer is occupied and transmit buffer has been sent
 assign tx_completed = (_tx_buffer_occupied == _tx_buffer_sent);
