@@ -30,7 +30,7 @@ Table of Contents
   <Physical Constraint File>: C:\fpga_led_tm1637\src\fpga.cst
   <Timing Constraint File>: ---
   <PnR Report File>: C:\fpga_led_tm1637\impl\pnr\fpga_led_tm1637.rpt.txt
-  <Created Time>: Wed Oct 24 03:05:22 2018
+  <Created Time>: Wed Oct 24 03:15:00 2018
   <Command Line>: C:\Gowin\1.8\Pnr\bin\gowin.exe -do C:\fpga_led_tm1637\impl\pnr\cmd.do 
   <Legal Announcement>: Copyright ©2014-2018 Gowin Semiconductor Corporation. All rights reserved.
 
@@ -38,11 +38,11 @@ Table of Contents
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 1.8e-005 secs
-    Placement Phase 1 ...   REAL time: 9.2e-005 secs
-    Placement Phase 2 ...   REAL time: 4e-005 secs
-    Placement Phase 3 ...   REAL time: 0.001088 secs
-  Total REAL time to Placement completion: 1.238 secs.
+    Placement Phase 0 ...   REAL time: 2e-005 secs
+    Placement Phase 1 ...   REAL time: 0.000102 secs
+    Placement Phase 2 ...   REAL time: 2.7e-005 secs
+    Placement Phase 3 ...   REAL time: 0.001166 secs
+  Total REAL time to Placement completion: 1.315 secs.
 
 
 3. Resource Usage Summary
@@ -50,12 +50,12 @@ Table of Contents
   ----------------------------------------------------------
   Resources            | Usage
   ----------------------------------------------------------
-  CFU Logics           | 264(168 LUTs, 96 ALUs)/4608  5%
-  Registers            | 131/3556  3%
-    --Logic Registers  | 131/3456  3%
+  CFU Logics           | 270(174 LUTs, 96 ALUs)/4608  5%
+  Registers            | 132/3556  3%
+    --Logic Registers  | 132/3456  3%
     --I/O Registers    | 0/100  0%
-  CLSs(ideal)          | 139/2304  6%
-  CLSs(used)           | 159/2304  6%
+  CLSs(ideal)          | 142/2304  6%
+  CLSs(used)           | 158/2304  6%
   I/O Ports            | 15
   I/O Bufs             | 15/104  14%
     --Input Bufs       | 6
@@ -81,18 +81,18 @@ Table of Contents
   -----------------------
   bank 0   | 3/33(9%)    
   bank 1   | 2/24(8%)    
-  bank 2   | 8/38(21%)   
-  bank 3   | 2/25(8%)    
+  bank 2   | 9/38(23%)   
+  bank 3   | 1/25(4%)    
   =======================
 
 
 5. Router
 
   Starting Router:
-    Route Phase 0: 539 unrouted; REAL time: 0 secs
-    Route Phase 1: 265 unrouted; REAL time: 0.084 secs
-    Route Phase 2: 0  unrouted; REAL time: 0.074 secs
-  Total REAL time to Router completion: 0.158 secs.
+    Route Phase 0: 542 unrouted; REAL time: 0 secs
+    Route Phase 1: 275 unrouted; REAL time: 0.087 secs
+    Route Phase 2: 0  unrouted; REAL time: 0.066 secs
+  Total REAL time to Router completion: 0.153 secs.
 
 
 6. Global Clock Usage Summary
@@ -102,7 +102,7 @@ Table of Contents
   -------------------------------
   PRIMARY       | 3/8(37%)
   SECONDARY     | 1/8(12%)
-  GCLK_PIN      | 0/6(0%)
+  GCLK_PIN      | 1/6(16%)
   PLL           | 0/2(0%)
   DLL           | 0/2(0%)
   CLKDIV        | 0/6(0%)
@@ -127,14 +127,14 @@ Table of Contents
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 Port Name         | Loc./Bank  | Dir.  | Site     | IO Type    | Drive      | Pull Mode  | Slew Rate  | Clamp      | OpenDrain  | VREF       | BankVccio 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
-clk_50M           | 6/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
-rst_n             | 40/2       | in    | IOB7[A]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+clk_50M           | 6/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
+rst_n             | 62/2       | in    | IOB22[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[0]       | 68/2       | in    | IOB28[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[1]       | 69/2       | in    | IOB28[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[2]       | 79/1       | in    | IOR17[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
 switches[3]       | 80/1       | in    | IOR17[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
-tm1637_clk        | 52/2       | out   | IOB16[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-tm1637_dio        | 29/3       | out   | IOL15[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+tm1637_clk        | 56/2       | out   | IOB19[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+tm1637_dio        | 48/2       | out   | IOB12[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
 tm1637_clk_drain  | 131/0      | out   | IOT14[B] | LVCMOS33   | 24         | UP         | FAST       | NA         | ON         | NA         | 3.3       
 tm1637_dio_drain  | 132/0      | out   | IOT14[A] | LVCMOS33   | 24         | UP         | FAST       | NA         | ON         | NA         | 3.3       
 tm1637_vcc        | 133/0      | out   | IOT12[B] | LVCMOS33   | 24         | UP         | FAST       | NA         | OFF        | NA         | 3.3       
@@ -190,7 +190,7 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 34/2     | UNUSED            | -     | IOB5[B]  | -        | -         | -          | -            | -             
 38/2     | UNUSED            | -     | IOB6[A]  | -        | -         | -          | -            | -             
 39/2     | UNUSED            | -     | IOB6[B]  | -        | -         | -          | -            | -             
-40/2     | rst_n             | in    | IOB7[A]  | LVCMOS18 | UP        | NONE       | NA           | NA            
+40/2     | UNUSED            | -     | IOB7[A]  | -        | -         | -          | -            | -             
 41/2     | UNUSED            | -     | IOB7[B]  | -        | -         | -          | -            | -             
 42/2     | UNUSED            | -     | IOB8[A]  | -        | -         | -          | -            | -             
 43/2     | UNUSED            | -     | IOB8[B]  | -        | -         | -          | -            | -             
@@ -198,19 +198,19 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 45/2     | UNUSED            | -     | IOB10[B] | -        | -         | -          | -            | -             
 46/2     | UNUSED            | -     | IOB11[A] | -        | -         | -          | -            | -             
 47/2     | led[0]            | out   | IOB11[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-48/2     | UNUSED            | -     | IOB12[A] | -        | -         | -          | -            | -             
+48/2     | tm1637_dio        | out   | IOB12[A] | LVCMOS18 | UP        | NA         | NA           | NA            
 49/2     | UNUSED            | -     | IOB12[B] | -        | -         | -          | -            | -             
 50/2     | UNUSED            | -     | IOB14[A] | -        | -         | -          | -            | -             
 51/2     | UNUSED            | -     | IOB14[B] | -        | -         | -          | -            | -             
-52/2     | tm1637_clk        | out   | IOB16[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+52/2     | UNUSED            | -     | IOB16[A] | -        | -         | -          | -            | -             
 54/2     | UNUSED            | -     | IOB16[B] | -        | -         | -          | -            | -             
-56/2     | UNUSED            | -     | IOB19[A] | -        | -         | -          | -            | -             
+56/2     | tm1637_clk        | out   | IOB19[A] | LVCMOS18 | UP        | NA         | NA           | NA            
 57/2     | led[1]            | out   | IOB19[B] | LVCMOS18 | UP        | NA         | NA           | NA            
 58/2     | UNUSED            | -     | IOB20[A] | -        | -         | -          | -            | -             
 59/2     | UNUSED            | -     | IOB20[B] | -        | -         | -          | -            | -             
 60/2     | led[2]            | out   | IOB21[A] | LVCMOS18 | UP        | NA         | NA           | NA            
 61/2     | led[3]            | out   | IOB21[B] | LVCMOS18 | UP        | NA         | NA           | NA            
-62/2     | UNUSED            | -     | IOB22[A] | -        | -         | -          | -            | -             
+62/2     | rst_n             | in    | IOB22[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
 63/2     | UNUSED            | -     | IOB22[B] | -        | -         | -          | -            | -             
 64/2     | UNUSED            | -     | IOB24[A] | -        | -         | -          | -            | -             
 65/2     | UNUSED            | -     | IOB24[B] | -        | -         | -          | -            | -             
@@ -248,7 +248,7 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 26/3     | UNUSED            | -     | IOL11[B] | -        | -         | -          | -            | -             
 27/3     | UNUSED            | -     | IOL13[A] | -        | -         | -          | -            | -             
 28/3     | UNUSED            | -     | IOL13[B] | -        | -         | -          | -            | -             
-29/3     | tm1637_dio        | out   | IOL15[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+29/3     | UNUSED            | -     | IOL15[A] | -        | -         | -          | -            | -             
 30/3     | UNUSED            | -     | IOL15[B] | -        | -         | -          | -            | -             
 -----------------------------------------------------------------------------------------------------------------------
 106/1    | UNUSED            | -     | IOR3[A]  | -        | -         | -          | -            | -             

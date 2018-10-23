@@ -7,7 +7,7 @@ e ckid0_1 {t:step_id[6:0].C} dffr
 d ckid0_2 {t:clk_spi.Q[0]} dffre Derived clock on input (not legal for GCC)
 i wr_spi_i[0]
 m 0 0
-u 3 12
+u 4 13
 n ckid0_3 {t:spi0._prescaler_buffer[2:0].C} Derived clock on input (not legal for GCC)
 p {t:wr_spi[0].Q[0]}{t:wr_spi_derived_clock[0].I[0]}{t:wr_spi_derived_clock[0].OUT[0]}{t:spi0.wr}{p:spi0.wr}{t:spi0._prescaler_buffer[2:0].C}
 e ckid0_3 {t:spi0._prescaler_buffer[2:0].C} dffre

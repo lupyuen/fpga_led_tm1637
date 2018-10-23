@@ -2,7 +2,7 @@
 @N: MF248 |Running in 64-bit mode.
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MT206 |Auto Constrain mode is enabled
-@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
+@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[4] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[5] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[6] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
@@ -11,46 +11,46 @@
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Removing sequential instance _prescaler_buffer[1] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._prescaler[1] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[3] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[4] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[8] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[9] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[10] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[11] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[12] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[13] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[14] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[15] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[16] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[17] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[18] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[19] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[20] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[21] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[22] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[23] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[24] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[25] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[26] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[27] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance rd_spi[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[1] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[2] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[3] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[4] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[3] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[8] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[9] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[10] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[11] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[12] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[13] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[14] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[15] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[16] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[17] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[18] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[19] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[20] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[21] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[22] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[23] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[24] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[25] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[26] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance saved_elapsed_time[27] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance rd_spi[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[2] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[3] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":323:0:323:5|Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._diomode[0] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
@@ -63,7 +63,7 @@
 @N: MT611 :|Automatically generated clock demo|rd_spi_derived_clock[0] is not used and is being removed
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
 @N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
-@N: MT615 |Found clock demo|clk_spi_derived_clock with period 9.21ns 
-@N: MT615 |Found clock demo|wr_spi_derived_clock[0] with period 9.21ns 
+@N: MT615 |Found clock demo|clk_spi_derived_clock with period 10.00ns 
+@N: MT615 |Found clock demo|wr_spi_derived_clock[0] with period 10.00ns 
 @N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
 @N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.

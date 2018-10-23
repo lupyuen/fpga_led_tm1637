@@ -1,8 +1,8 @@
-# Written by Synplify Pro version mapgw, Build 1086R. Synopsys Run ID: sid1540321513 
+# Written by Synplify Pro version mapgw, Build 1086R. Synopsys Run ID: sid1540322089 
 # Top Level Design Parameters 
 
 # Clocks 
-create_clock -period 9.214 -waveform {0.000 4.607} -name {demo|clk_50M} [get_ports {clk_50M}] 
+create_clock -period 10.000 -waveform {0.000 5.000} -name {demo|clk_50M} [get_ports {clk_50M}] 
 
 # Virtual Clocks 
 
@@ -15,6 +15,8 @@ create_generated_clock -name {demo|wr_spi_derived_clock[0]} -add -divide_by 1 -m
 # Multicycle Constraints 
 set_multicycle_path 2 -setup -from [get_clocks {demo|clk_spi_derived_clock}] -to [get_clocks {demo|clk_spi_derived_clock}] 
 set_multicycle_path 1 -hold -from [get_clocks {demo|clk_spi_derived_clock}] -to [get_clocks {demo|clk_spi_derived_clock}] 
+set_multicycle_path 2 -setup -from [get_clocks {demo|wr_spi_derived_clock[0]}] -to [get_clocks {demo|wr_spi_derived_clock[0]}] 
+set_multicycle_path 1 -hold -from [get_clocks {demo|wr_spi_derived_clock[0]}] -to [get_clocks {demo|wr_spi_derived_clock[0]}] 
 
 # Point-to-point Delay Constraints 
 

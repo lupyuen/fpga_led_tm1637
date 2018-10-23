@@ -72,6 +72,7 @@ reg[0:0] debug_waiting_for_spi;
 
 wire[0:0] tx_completed;
 wire[0:0] rx_completed;
+wire[0:0] tx_error;
 wire[7:0] rx_data;
 wire[3:0] spi_debug;
 wire[3:0] spi_debug_bit_num;
@@ -105,7 +106,7 @@ spi0(
     //  Outputs.
     .tx_completed(tx_completed),  //  Transmission to LED device completed.
     .rx_completed(rx_completed),  //  Receive from LED device completed.
-    //.tx_error(tx_error),  //  Trasmission error.
+    .tx_error(tx_error),  //  Trasmission error.
     .rst_tx_error(1'b0),  //  Reset transmission error.
     .rx_data(rx_data),    //  Byte received from LED device (not used).
 
@@ -126,28 +127,33 @@ spi0(
 
 //  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
 //  We normalise switches[3:0] to {0,0,0,0} such that down=0, up=1.  SW4 is the highest bit, SW7 is the lowest bit.  So {0,0,1,0} becomes value 4'b0010 (decimal 2).
-wire[3:0] normalised_switches = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
+wire[3:0] sw = { ~switches[0], ~switches[1], ~switches[2], ~switches[3] };
 
 //  normalised_led[3:0] displays a binary value using onboard LEDs, e.g. it displays {0,0,1,0} when value is 4'b0010 (decimal 2).  {1} means LED On, {0} means LED Off.
 wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6, SW7}, we show different debug values with the onboard LEDs...
-    (normalised_switches == 4'b0000) ? cnt_spi[3:0] :  //  If {SW4,5,6,7}={0,0,0,0}, show the cnt_spi counter, which is always increasing.
-    (normalised_switches == 4'b0001) ? step_id :       //  If {SW4,5,6,7}={0,0,0,1}, show the TM1637 ROM step ID that we are executing.
-    (normalised_switches == 4'b0010) ? spi_debug :     //  If {SW4,5,6,7}={0,0,1,0}, show the SPI step ID that we are executing.
-    (normalised_switches == 4'b0011) ? spi_debug_bit_num :     //  If {SW4,5,6,7}={0,0,1,1}, show the SPI bit number being sent/received.
-    (normalised_switches == 4'b0100) ? debug_tx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,0}, show the byte being sent (lowest 4 bits).
-    (normalised_switches == 4'b0101) ? debug_rx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,1}, show the byte just received (lowest 4 bits).
-    (normalised_switches == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0},
-        clk_spi[0], ~clk_spi[0],           //  show clk_spi (left 2 LEDs, {1,0}=High, {0,1}=Low)
-        reset_spi[0], ~reset_spi[0] } :    //  and reset_spi (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
-        tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
-        tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b1000) ? {   //  If {SW4,5,6,7}={1,0,0,0}... 
-        debug_waiting_for_step_time[0], 
-        debug_waiting_for_spi[0],
-        debug_waiting_for_tx_data[0], 
-        debug_waiting_for_prescaler[0] } :
-    normalised_switches;  //  Else show normalised switches using onboard LEDs.
+    (sw == 4'b0000) ? cnt_spi[3:0] :  //  If {SW4,5,6,7}={0,0,0,0}, show the cnt_spi counter, which is always increasing.
+    (sw == 4'b0001) ? step_id :       //  If {SW4,5,6,7}={0,0,0,1}, show the TM1637 ROM step ID that we are executing.
+    (sw == 4'b0010) ? spi_debug :     //  If {SW4,5,6,7}={0,0,1,0}, show the SPI step ID that we are executing.
+    (sw == 4'b0011) ? spi_debug_bit_num :     //  If {SW4,5,6,7}={0,0,1,1}, show the SPI bit number being sent/received.
+    (sw == 4'b0100) ? debug_tx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,0}, show the byte being sent (lowest 4 bits).
+    (sw == 4'b0101) ? debug_rx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,1}, show the byte just received (lowest 4 bits).
+    (sw == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0},
+                        clk_spi[0], ~clk_spi[0],           //  show clk_spi (left 2 LEDs, {1,0}=High, {0,1}=Low)
+                        reset_spi[0], ~reset_spi[0] } :    //  and reset_spi (right 2 LEDs, {1,0}=High, {0,1}=Low).
+    (sw == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
+                        tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
+                        tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
+    (sw == 4'b1000) ? {   //  If {SW4,5,6,7}={1,0,0,0}... 
+                        debug_waiting_for_step_time[0], 
+                        debug_waiting_for_spi[0],
+                        debug_waiting_for_tx_data[0], 
+                        debug_waiting_for_prescaler[0] } :
+    (sw == 4'b1001) ? {   //  If {SW4,5,6,7}={1,0,0,1}... 
+                        tx_completed[0],
+                        rx_completed[0],
+                        tx_error[0],
+                        1'b1 } :
+    sw;  //  Else show the current state of onboard switches using onboard LEDs.
 
 //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
 assign led =
