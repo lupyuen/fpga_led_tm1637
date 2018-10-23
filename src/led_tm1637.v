@@ -87,12 +87,12 @@ spi_master # (
 )
 spi0(
     //  Input parameters.
-    .diomode(1'b1),     //  Select DIO Mode instead of SPI Mode.
-    .mode(2'b11),       //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
-    .lsbfirst(1'b1),    //  Transmit least significant bit first.
-    ._prescaler(3'h1),  //  Prescale LED device clock by 2 (slow).
-    ///._prescaler(3'h0),  //  No prescaler (fast).
-    ///._prescaler(3'h2),  //  Prescale by 4 (slower).
+    .diomode(1'b1),    //  Select DIO Mode instead of SPI Mode.
+    .mode(2'b11),      //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
+    .lsbfirst(1'b1),   //  Transmit least significant bit first.
+    .prescaler(3'h1),  //  Prescale LED device clock by 2 (slow).
+    ///.prescaler(3'h0),  //  No prescaler (fast).
+    ///.prescaler(3'h2),  //  Prescale by 4 (slower).
 
     //  Input signals.
     .clk(clk_spi),      //  Assign the LED device clock.

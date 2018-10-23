@@ -14,34 +14,31 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 Synopsys HDL compiler and linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11
 
-Modified Files: 2
+Modified Files: 1
 FID:  path (prevtimestamp, timestamp)
-5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-23 12:04:21, 2018-10-23 12:27:10)
-8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-22 22:54:53, 2018-10-23 12:30:17)
+8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-24 02:26:33, 2018-10-24 02:31:25)
 
 *******************************************************************
-Modules that may have changed as a result of file changes: 3
+Modules that may have changed as a result of file changes: 1
 MID:  lib.cell.view
-0        work.LED_TM1637_ROM.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-23 12:04:21, 2018-10-23 12:27:10) <-- (may instantiate this module)
-1        work.demo.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-23 12:04:21, 2018-10-23 12:27:10) <-- (module definition)
 2        work.spi_master.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\spi_master.v (2018-10-22 22:54:53, 2018-10-23 12:30:17) <-- (module definition)
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-23 12:04:21, 2018-10-23 12:27:10) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\spi_master.v (2018-10-24 02:26:33, 2018-10-24 02:31:25) <-- (module definition)
 
 *******************************************************************
-Unmodified files: 8
+Unmodified files: 9
 FID:  path (timestamp)
 0        C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v (2018-05-16 00:54:32)
 1        C:\Gowin\1.8\SynplifyPro\lib\vlog\hypermods.v (2018-05-16 00:08:32)
 2        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_objects.v (2018-05-16 00:08:32)
 3        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_pipes.svh (2018-05-16 00:08:32)
 4        C:\Gowin\1.8\SynplifyPro\lib\vlog\umr_capim.v (2018-05-16 00:08:32)
-9        C:\fpga_led_tm1637\src\led_tm1637_rom.mem (2018-10-22 18:34:56)
+5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-24 02:28:20)
+9        C:\fpga_led_tm1637\src\led_tm1637_rom.mem (2018-10-24 00:39:29)
 6        C:\fpga_led_tm1637\src\led_tm1637_rom.v (2018-10-15 16:51:06)
 7        C:\fpga_led_tm1637\src\rom.v (2018-10-13 21:45:18)
 
 *******************************************************************
-Unchanged modules: 0
+Unchanged modules: 2
 MID:  lib.cell.view
+0        work.LED_TM1637_ROM.verilog
+1        work.demo.verilog

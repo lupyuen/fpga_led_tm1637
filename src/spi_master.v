@@ -44,7 +44,7 @@ reg[0:0] _rx_buffer_occupied;
 reg[0:0] _rx_buffer_received;
 reg[0:0] _tx_buffer_occupied;
 reg[0:0] _tx_buffer_sent;
-reg[2:0] _prescaler;
+reg[2:0] _prescaler_buffer;
 reg[(WORD_LEN-1):0] _tx_buffer;
 reg[(WORD_LEN-1):0] _rx_buffer;
 
@@ -76,7 +76,7 @@ always @ (posedge wr or posedge rst_tx_error or posedge rst) begin  //  Normally
         //  When reset signal transitions from high to low, reset the internal registers.
         _tx_buffer_occupied <= 1'b0;  //  Init transmit buffer as unoccupied.  
         tx_error <= 1'b0;
-        _prescaler <= 3'b0;
+        _prescaler_buffer <= 3'b0;
     end
     else if (rst_tx_error) begin
         tx_error <= 1'b0;
@@ -86,7 +86,7 @@ always @ (posedge wr or posedge rst_tx_error or posedge rst) begin  //  Normally
     ////else if (wr && _tx_buffer_occupied == _tx_buffer_sent && tx_completed) begin  //  Redundant: If tx_completed, then _tx_buffer_occupied and _tx_buffer_sent are already identical
         _tx_buffer_occupied <= 1'b1;  //  Mark transmit buffer as occupied.  See above _tx_buffer <= tx_data.
         ////_tx_buffer_occupied <= ~_tx_buffer_occupied;
-        _prescaler <= prescaler;
+        _prescaler_buffer <= prescaler;
     end
     //  If we should transmit data and the transmit buffer is full...
     else if (!tx_completed) begin
@@ -209,13 +209,13 @@ always @ (posedge clk or posedge rst) begin
                     _tx_buffer_sent <= 1'b1;  //  Mark the tx buffer as sent.
                     ////_tx_buffer_sent <= ~_tx_buffer_sent;  //  Mark the tx buffer as sent.
                     ss <= 1'b0;  //  Set Slave Select Pin to low to activate the SPI device.
-                    _prescaler_cnt <= { PRESCALER_SIZE{1'b0} };  //  Reset the prescaler count to 0.
+                    _prescaler_cnt <= { PRESCALER_SIZE{1'b0} };  //  Reset the prescaler count to 0.                    
 
                     //  Copy the SPI tx/rx parameters to internal registers so they won't change if the caller changes them.
                     _diomode <= diomode;
                     _mode <= mode;
                     _lsbfirst <= lsbfirst;
-                    _prescaler <= _prescaler;
+                    _prescaler <= _prescaler_buffer;
 
                     //  Get ready to transmit data to the SPI device.
                     _shift_reg_tx <= _tx_buffer;  //  Copy the byte that will be transmitted.

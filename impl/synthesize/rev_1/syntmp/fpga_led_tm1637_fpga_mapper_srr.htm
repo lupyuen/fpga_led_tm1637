@@ -1,3 +1,5 @@
+<html><body><samp><pre>
+<!@TC:1540319322>
 # Wed Oct 24 02:28:35 2018
 
 
@@ -14,14 +16,14 @@ OS: Windows 6.2
 Hostname: BEACONDEV3
 
 Implementation : rev_1
-Synopsys Generic Technology Mapper, Version mapgw, Build 1086R, Built May 17 2018 10:22:59
+<a name=mapperReport8></a>Synopsys Generic Technology Mapper, Version mapgw, Build 1086R, Built May 17 2018 10:22:59</a>
 
 
 Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
-@N: MF916 |Option synthesis_strategy=base is enabled. 
-@N: MF248 |Running in 64-bit mode.
-@N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
+@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1540319322> | Option synthesis_strategy=base is enabled.  
+@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1540319322> | Running in 64-bit mode. 
+@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1540319322> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
 
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
 
@@ -38,34 +40,34 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 
 Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 188MB peak: 190MB)
 
-@W: BN132 :|Removing sequential instance spi0._prescaler_26 because it is equivalent to instance spi0._mode_31. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :|Removing sequential instance spi0._mode_31 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :|Removing sequential instance spi0._lsbfirst_6 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :|Removing sequential instance spi0._diomode_1 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <!@TM:1540319322> | Removing sequential instance spi0._prescaler_26 because it is equivalent to instance spi0._mode_31. To keep the instance, apply constraint syn_preserve=1 on the instance.</font> 
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <!@TM:1540319322> | Removing sequential instance spi0._mode_31 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.</font> 
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <!@TM:1540319322> | Removing sequential instance spi0._lsbfirst_6 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.</font> 
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <!@TM:1540319322> | Removing sequential instance spi0._diomode_1 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.</font> 
 
 Available hyper_sources - for debug and ip models
 	None Found
 
-@N: MT206 |Auto Constrain mode is enabled
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing user instance spi0._lsbfirst_0[0] because it is equivalent to instance spi0._diomode_0[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._lsbfirst[0] because it is equivalent to instance spi0._diomode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@N:<a href="@N:MT206:@XP_HELP">MT206</a> : <!@TM:1540319322> | Auto Constrain mode is enabled 
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@W:BN132:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing user instance spi0._lsbfirst_0[0] because it is equivalent to instance spi0._diomode_0[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@W:BN132:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._lsbfirst[0] because it is equivalent to instance spi0._diomode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
 
-@N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[4] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[5] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[6] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[7] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Removing instance spi0._tx_buffer_occupied[0] because it is equivalent to instance spi0._prescaler_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Removing instance spi0._prescaler_buffer[2] because it is equivalent to instance spi0._prescaler_buffer[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _prescaler_cnt[7:0] 
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Removing sequential instance _prescaler_buffer[1] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing instance spi0._prescaler[2] because it is equivalent to instance spi0._prescaler[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@N:<a href="@N:MO231:@XP_HELP">MO231</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:MO231:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance _rx_buffer[4] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance _rx_buffer[5] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance _rx_buffer[6] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance _rx_buffer[7] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:73:0:73:6:@W:BN132:@XP_MSG">spi_master.v(73)</a><!@TM:1540319322> | Removing instance spi0._tx_buffer_occupied[0] because it is equivalent to instance spi0._prescaler_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:73:0:73:6:@W:BN132:@XP_MSG">spi_master.v(73)</a><!@TM:1540319322> | Removing instance spi0._prescaler_buffer[2] because it is equivalent to instance spi0._prescaler_buffer[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+@N:<a href="@N:MO231:@XP_HELP">MO231</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:MO231:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _prescaler_cnt[7:0] 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:73:0:73:6:@N:BN362:@XP_MSG">spi_master.v(73)</a><!@TM:1540319322> | Removing sequential instance _prescaler_buffer[1] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@W:BN132:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing instance spi0._prescaler[2] because it is equivalent to instance spi0._prescaler[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
 
 Starting factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 190MB peak: 191MB)
 
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._prescaler[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._prescaler[1] (in view: work.demo(verilog)) because it does not drive other instances.
 
 Finished factoring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 193MB peak: 193MB)
 
@@ -81,58 +83,58 @@ Finished Early Timing Optimization (Real Time elapsed 0h:00m:02s; CPU Time elaps
 
 Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 194MB)
 
-@N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
-@W: BN132 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":63:0:63:5|Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[3] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[4] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[8] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[9] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[10] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[11] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[12] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[13] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[14] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[15] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[16] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[17] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[18] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[19] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[20] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[21] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[22] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[23] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[24] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[25] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[26] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance saved_elapsed_time[27] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance rd_spi[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[1] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[2] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[3] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[4] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing instance spi0._mode[1] because it is equivalent to instance spi0._mode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":323:0:323:5|Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._diomode[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0.ss (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:MO106:@XP_HELP">MO106</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637_rom.v:31:14:31:24:@N:MO106:@XP_MSG">led_tm1637_rom.v(31)</a><!@TM:1540319322> | Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@W:BN132:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:63:0:63:6:@W:BN132:@XP_MSG">spi_master.v(63)</a><!@TM:1540319322> | Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[3] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[8] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[9] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[10] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[11] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[12] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[13] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[14] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[15] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[16] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[17] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[18] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[19] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[20] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[21] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[22] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[23] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[24] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[25] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[26] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance saved_elapsed_time[27] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance rd_spi[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[2] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[3] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:173:0:173:6:@N:BN362:@XP_MSG">led_tm1637.v(173)</a><!@TM:1540319322> | Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@W:BN132:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing instance spi0._mode[1] because it is equivalent to instance spi0._mode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:323:0:323:6:@N:BN362:@XP_MSG">spi_master.v(323)</a><!@TM:1540319322> | Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._diomode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0.ss (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._shift_reg_rx[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._shift_reg_rx[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._shift_reg_rx[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:167:0:167:6:@N:BN362:@XP_MSG">spi_master.v(167)</a><!@TM:1540319322> | Removing sequential instance spi0._shift_reg_rx[4] (in view: work.demo(verilog)) because it does not drive other instances.
 
 Finished preparing to map (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 194MB peak: 196MB)
 
@@ -145,11 +147,11 @@ Pass		 CPU time		Worst Slack		Luts / Registers
 
 Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 196MB)
 
-@N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
+@N:<a href="@N:FX164:@XP_HELP">FX164</a> : <!@TM:1540319322> | The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.   
 
 Finished restoring hierarchy (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 196MB)
 
-@N: MT611 :|Automatically generated clock demo|rd_spi_derived_clock[0] is not used and is being removed
+@N:<a href="@N:MT611:@XP_HELP">MT611</a> : <!@TM:1540319322> | Automatically generated clock demo|rd_spi_derived_clock[0] is not used and is being removed 
 
 Start Writing Netlists (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 122MB peak: 196MB)
 
@@ -161,22 +163,22 @@ Writing Verilog Simulation files
 
 Writing scf file... (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 193MB peak: 196MB)
 
-@N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.
-@N: BW107 |Synopsys Constraint File capacitance units using default value of 1pF 
-@A: BN540 |No min timing constraints supplied; adding min timing constraints
+@N:<a href="@N:BW103:@XP_HELP">BW103</a> : <!@TM:1540319322> | The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns. 
+@N:<a href="@N:BW107:@XP_HELP">BW107</a> : <!@TM:1540319322> | Synopsys Constraint File capacitance units using default value of 1pF  
+@A:<a href="@A:BN540:@XP_HELP">BN540</a> : <!@TM:1540319322> | No min timing constraints supplied; adding min timing constraints 
 
 Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 196MB)
 
 
 Start final timing analysis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 193MB peak: 196MB)
 
-@W: MT420 |Found inferred clock demo|clk_50M with period 9.21ns. Please declare a user-defined clock on port clk_50M.
-@N: MT615 |Found clock demo|clk_spi_derived_clock with period 9.21ns 
-@N: MT615 |Found clock demo|wr_spi_derived_clock[0] with period 9.21ns 
+<font color=#A52A2A>@W:<a href="@W:MT420:@XP_HELP">MT420</a> : <!@TM:1540319322> | Found inferred clock demo|clk_50M with period 9.21ns. Please declare a user-defined clock on port clk_50M.</font> 
+@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1540319322> | Found clock demo|clk_spi_derived_clock with period 9.21ns  
+@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1540319322> | Found clock demo|wr_spi_derived_clock[0] with period 9.21ns  
 
 
-##### START OF TIMING REPORT #####[
-# Timing Report written on Wed Oct 24 02:28:41 2018
+<a name=timingReport9></a>##### START OF TIMING REPORT #####[</a>
+<a name=pnr10></a># Timing Report written on Wed Oct 24 02:28:41 2018</a>
 #
 
 
@@ -185,13 +187,13 @@ Requested Frequency:    108.5 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
-@N: MT320 |This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report.
+@N:<a href="@N:MT320:@XP_HELP">MT320</a> : <!@TM:1540319322> | This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report. 
 
-@N: MT322 |Clock constraints include only register-to-register paths associated with each individual clock.
+@N:<a href="@N:MT322:@XP_HELP">MT322</a> : <!@TM:1540319322> | Clock constraints include only register-to-register paths associated with each individual clock. 
 
 
 
-Performance Summary
+<a name=performanceSummary11></a>Performance Summary</a>
 *******************
 
 
@@ -210,7 +212,7 @@ System                           100.0 MHz     515.4 MHz     10.000        1.940
 
 
 
-Clock Relationships
+<a name=clockRelationships12></a>Clock Relationships</a>
 *******************
 
 Clocks                                                      |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise 
@@ -233,7 +235,7 @@ demo|wr_spi_derived_clock[0]  demo|clk_spi_derived_clock    |  9.214       0.301
 
 
 
-Interface Information 
+<a name=interfaceInfo13></a>Interface Information </a>
 *********************
 
 No IO constraint found
@@ -241,12 +243,12 @@ No IO constraint found
 
 
 ====================================
-Detailed Report for Clock: demo|clk_50M
+<a name=clockReport14></a>Detailed Report for Clock: demo|clk_50M</a>
 ====================================
 
 
 
-Starting Points with Worst Slack
+<a name=startingSlack15></a>Starting Points with Worst Slack</a>
 ********************************
 
              Starting                                      Arrival          
@@ -266,7 +268,7 @@ cnt[24]      demo|clk_50M     DFFC     Q       cnt[24]     0.367       1.629
 ============================================================================
 
 
-Ending Points with Worst Slack
+<a name=endingSlack16></a>Ending Points with Worst Slack</a>
 ******************************
 
              Starting                                        Required          
@@ -287,7 +289,8 @@ cnt[21]      demo|clk_50M     DFFC     D       cnt_3[21]     9.081        1.156
 
 
 
-Worst Path Information
+<a name=worstPaths17></a>Worst Path Information</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_fpga_mapper.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:26220:27435:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -333,12 +336,12 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 
 ====================================
-Detailed Report for Clock: demo|clk_spi_derived_clock
+<a name=clockReport18></a>Detailed Report for Clock: demo|clk_spi_derived_clock</a>
 ====================================
 
 
 
-Starting Points with Worst Slack
+<a name=startingSlack19></a>Starting Points with Worst Slack</a>
 ********************************
 
                     Starting                                                             Arrival           
@@ -358,7 +361,7 @@ elapsed_time[2]     demo|clk_spi_derived_clock     DFFCE     Q       elapsed_tim
 ===========================================================================================================
 
 
-Ending Points with Worst Slack
+<a name=endingSlack20></a>Ending Points with Worst Slack</a>
 ******************************
 
                                   Starting                                                                          Required           
@@ -379,7 +382,8 @@ elapsed_time[1]                   demo|clk_spi_derived_clock     DFFCE     D    
 
 
 
-Worst Path Information
+<a name=worstPaths21></a>Worst Path Information</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_fpga_mapper.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:32902:43000:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -997,12 +1001,12 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 
 ====================================
-Detailed Report for Clock: demo|wr_spi_derived_clock[0]
+<a name=clockReport22></a>Detailed Report for Clock: demo|wr_spi_derived_clock[0]</a>
 ====================================
 
 
 
-Starting Points with Worst Slack
+<a name=startingSlack23></a>Starting Points with Worst Slack</a>
 ********************************
 
                               Starting                                                                    Arrival          
@@ -1020,7 +1024,7 @@ spi0._tx_buffer[6]            demo|wr_spi_derived_clock[0]     DFFE      Q      
 ===========================================================================================================================
 
 
-Ending Points with Worst Slack
+<a name=endingSlack24></a>Ending Points with Worst Slack</a>
 ******************************
 
                            Starting                                                                     Required          
@@ -1041,7 +1045,8 @@ spi0._prescaler_cnt[1]     demo|wr_spi_derived_clock[0]     DFFCE     CE      _p
 
 
 
-Worst Path Information
+<a name=worstPaths25></a>Worst Path Information</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_fpga_mapper.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:93542:94922:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -1087,12 +1092,12 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 
 
 ====================================
-Detailed Report for Clock: System
+<a name=clockReport26></a>Detailed Report for Clock: System</a>
 ====================================
 
 
 
-Starting Points with Worst Slack
+<a name=startingSlack27></a>Starting Points with Worst Slack</a>
 ********************************
 
                                       Starting                                                          Arrival          
@@ -1108,7 +1113,7 @@ internal_state_machine_RNO[0]         System        INV      O       debug_waiti
 =========================================================================================================================
 
 
-Ending Points with Worst Slack
+<a name=endingSlack28></a>Ending Points with Worst Slack</a>
 ******************************
 
                               Starting                                        Required          
@@ -1129,7 +1134,8 @@ clk_spi                       System        DFFCE     D       clk_spi_i_i     9.
 
 
 
-Worst Path Information
+<a name=worstPaths29></a>Worst Path Information</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_fpga_mapper.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:99466:99730:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -1173,7 +1179,7 @@ Finished final timing analysis (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0
 Finished timing report (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 193MB peak: 196MB)
 
 ---------------------------------------
-Resource Usage Report for demo 
+<a name=resourceUsage30></a>Resource Usage Report for demo </a>
 
 Mapping to part: gw1n_4lqfp144-6
 Cell usage:
@@ -1215,3 +1221,5 @@ Process took 0h:00m:06s realtime, 0h:00m:04s cputime
 # Wed Oct 24 02:28:42 2018
 
 ###########################################################]
+
+</pre></samp></body></html>

@@ -13,7 +13,7 @@ Hostname: BEACONDEV3
 
 Implementation : rev_1
 
-# Written on Tue Oct 23 12:30:53 2018
+# Written on Wed Oct 24 02:32:48 2018
 
 ##### DESIGN INFO #######################################################
 
@@ -38,12 +38,12 @@ Clock Relationships
 Starting                         Ending                           |     rise to rise     |     fall to fall     |     rise to fall     |     fall to rise                     
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 demo|clk_50M                     demo|clk_50M                     |     10.000           |     No paths         |     No paths         |     No paths                         
-demo|clk_led_derived_clock       demo|clk_led_derived_clock       |     10.000           |     No paths         |     No paths         |     No paths                         
-demo|clk_led_derived_clock       demo|rd_spi_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
-demo|clk_led_derived_clock       demo|wr_spi_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
-demo|rd_spi_derived_clock[0]     demo|clk_led_derived_clock       |     10.000           |     No paths         |     No paths         |     No paths                         
+demo|clk_spi_derived_clock       demo|clk_spi_derived_clock       |     10.000           |     No paths         |     No paths         |     No paths                         
+demo|clk_spi_derived_clock       demo|rd_spi_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
+demo|clk_spi_derived_clock       demo|wr_spi_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
+demo|rd_spi_derived_clock[0]     demo|clk_spi_derived_clock       |     10.000           |     No paths         |     No paths         |     No paths                         
 demo|rd_spi_derived_clock[0]     demo|rd_spi_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
-demo|wr_spi_derived_clock[0]     demo|clk_led_derived_clock       |     10.000           |     No paths         |     No paths         |     No paths                         
+demo|wr_spi_derived_clock[0]     demo|clk_spi_derived_clock       |     10.000           |     No paths         |     No paths         |     No paths                         
 demo|wr_spi_derived_clock[0]     demo|wr_spi_derived_clock[0]     |     10.000           |     No paths         |     No paths         |     No paths                         
 =============================================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.

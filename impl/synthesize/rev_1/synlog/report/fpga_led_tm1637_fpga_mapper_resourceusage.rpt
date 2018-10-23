@@ -5,18 +5,17 @@ Mapping to part: gw1n_4lqfp144-6
 Cell usage:
 ALU             96 uses
 DFF             1 use
-DFFC            52 uses
-DFFCE           69 uses
+DFFC            53 uses
+DFFCE           68 uses
 DFFE            7 uses
-DFFP            1 use
 DFFPE           2 uses
 GSR             1 use
-INV             11 uses
-MUX2_LUT5       11 uses
+INV             8 uses
+MUX2_LUT5       8 uses
 MUX2_LUT6       4 uses
-LUT2            39 uses
-LUT3            48 uses
-LUT4            43 uses
+LUT2            67 uses
+LUT3            46 uses
+LUT4            55 uses
 
 I/O ports: 15
 I/O primitives: 15
@@ -25,8 +24,8 @@ OBUF           7 uses
 TBUF           2 uses
 
 I/O Register bits:                  0
-Register bits not including I/Os:   132 of 3456 (3%)
+Register bits not including I/Os:   131 of 3456 (3%)
 
 @S |Mapping Summary:
-Total  LUTs: 130 (2%)
+Total  LUTs: 168 (3%)
 

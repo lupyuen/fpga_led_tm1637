@@ -1,11 +1,11 @@
-@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":155:0:155:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
-@W: MO129 :|Sequential instance spi0._prescaller_16 is reduced to a combinational gate by constant propagation.
-@W: MO129 :|Sequential instance spi0._prescaller_17 is reduced to a combinational gate by constant propagation.
-@W: MO129 :|Sequential instance spi0._prescaller_11 is reduced to a combinational gate by constant propagation.
-@W: MO129 :|Sequential instance spi0._prescaller_12 is reduced to a combinational gate by constant propagation.
-@W: MO129 :|Sequential instance spi0._prescaller_27 is reduced to a combinational gate by constant propagation.
-@W: MO129 :|Sequential instance spi0._lsbfirst_7 is reduced to a combinational gate by constant propagation.
+@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
+@W: MO129 :|Sequential instance spi0._prescaler_16 is reduced to a combinational gate by constant propagation.
+@W: MO129 :|Sequential instance spi0._prescaler_17 is reduced to a combinational gate by constant propagation.
+@W: MO129 :|Sequential instance spi0._prescaler_11 is reduced to a combinational gate by constant propagation.
+@W: MO129 :|Sequential instance spi0._prescaler_12 is reduced to a combinational gate by constant propagation.
+@W: MO129 :|Sequential instance spi0._diomode_2 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._mode_32 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._mode_22 is reduced to a combinational gate by constant propagation.
-@W: MO129 :|Sequential instance spi0._diomode_2 is reduced to a combinational gate by constant propagation.
+@W: MO129 :|Sequential instance spi0._lsbfirst_7 is reduced to a combinational gate by constant propagation.
+@W: MO129 :|Sequential instance spi0._prescaler_27 is reduced to a combinational gate by constant propagation.
 @W: MT529 :"c:\fpga_led_tm1637\src\led_tm1637.v":35:0:35:5|Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 

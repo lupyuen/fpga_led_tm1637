@@ -1,13 +1,13 @@
-@W: BN132 :|Removing sequential instance spi0._prescaller_26 because it is equivalent to instance spi0._mode_31. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :|Removing sequential instance spi0._prescaler_26 because it is equivalent to instance spi0._mode_31. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :|Removing sequential instance spi0._mode_31 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :|Removing sequential instance spi0._lsbfirst_6 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :|Removing sequential instance spi0._diomode_1 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":155:0:155:5|Removing user instance spi0._diomode_0[0] because it is equivalent to instance spi0._lsbfirst_0[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":155:0:155:5|Removing sequential instance spi0._lsbfirst[0] because it is equivalent to instance spi0._diomode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":60:0:60:5|Removing instance spi0.prescallerbuff[2] because it is equivalent to instance spi0.prescallerbuff[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":155:0:155:5|Removing instance spi0._prescaller[2] because it is equivalent to instance spi0._prescaller[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\led_tm1637.v":172:0:172:5|Removing instance rst_led[0] because it is equivalent to instance wr_spi[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\led_tm1637.v":172:0:172:5|Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":51:0:51:5|Removing instance spi0.tx_buffer[3] because it is equivalent to instance spi0.tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":155:0:155:5|Removing instance spi0._mode[1] because it is equivalent to instance spi0._mode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: MT420 |Found inferred clock demo|clk_50M with period 7.17ns. Please declare a user-defined clock on port clk_50M.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing user instance spi0._lsbfirst_0[0] because it is equivalent to instance spi0._diomode_0[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._lsbfirst[0] because it is equivalent to instance spi0._diomode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Removing instance spi0._tx_buffer_occupied[0] because it is equivalent to instance spi0._prescaler_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Removing instance spi0._prescaler_buffer[2] because it is equivalent to instance spi0._prescaler_buffer[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing instance spi0._prescaler[2] because it is equivalent to instance spi0._prescaler[1]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\led_tm1637.v":173:0:173:5|Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":63:0:63:5|Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing instance spi0._mode[1] because it is equivalent to instance spi0._mode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: MT420 |Found inferred clock demo|clk_50M with period 9.21ns. Please declare a user-defined clock on port clk_50M.
