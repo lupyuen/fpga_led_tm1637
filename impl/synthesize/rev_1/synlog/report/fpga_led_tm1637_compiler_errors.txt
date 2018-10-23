@@ -1,2 +1,2 @@
-@E: CG849 :"C:\fpga_led_tm1637\src\spi_master.v":31:4:31:4|Unexpected ) after , missing port in ANSI list
+@E: CG791 :"C:\fpga_led_tm1637\src\led_tm1637.v":136:32:136:32|Could not resolve hierarchical name 'rst_led[0]'.
 

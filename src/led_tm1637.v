@@ -57,6 +57,7 @@ reg[0:0] wait_spi; // = 1'b0;
 reg[0:0] rd_spi; // = 1'b0;
 reg[0:0] wr_spi; // = 1'b0;
 reg[0:0] rst_led; // = 1'b0;
+reg[0:0] rst_led_n; // = 1'b0;
 reg[0:0] internal_state_machine; // = 1'b0;
 reg[27:0] elapsed_time; // = 28'h0;
 reg[27:0] saved_elapsed_time; // = 28'h0;
@@ -89,7 +90,8 @@ spi0(
     .prescaller(3'h1),  //  Prescale by 2 (slow).
     ////.prescaller(3'h2),  //  Prescale by 4 (slower).
 
-    .rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
+    ////.rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
+    .rst(rst_led),  //  Init connection to SPI device when rst_n transitions from high to low.
 
     .tx_data(tx_data),  //  Transmit real data to SPI device.
     //.tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
@@ -132,7 +134,7 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     (normalised_switches == 4'b0101) ? debug_rx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,1}, show the byte just received (lowest 4 bits).
     (normalised_switches == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0},
         clk_led[0], ~clk_led[0],           //  show clk_led (left 2 LEDs, {1,0}=High, {0,1}=Low)
-        rst_led[0], ~rst_led[0] } :        //  and rst_led (right 2 LEDs, {1,0}=High, {0,1}=Low).
+        rst_led_n[0], ~rst_led_n[0] } :    //  and rst_led_n (right 2 LEDs, {1,0}=High, {0,1}=Low).
     (normalised_switches == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
         tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
         tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
@@ -183,10 +185,12 @@ always@(                //  Code below is always triggered when these conditions
         /* reg[0:0] */ rd_spi <= 1'b0;
         /* reg[0:0] */ wr_spi <= 1'b0;
         /* reg[0:0] */ rst_led <= 1'b0;
+        /* reg[0:0] */ rst_led_n <= 1'b1;
         /* reg[0:0] */ internal_state_machine <= 1'b0;
         /* reg[27:0] */ elapsed_time <= 28'h0;
         /* reg[27:0] */ saved_elapsed_time <= 28'h0;
         /* reg[14:0] */ repeat_count <= 4'h0;
+        tx_data <= 8'h0;
         ///* reg[7:0] */ rx_data <= 8'h0;
         ///* reg[3:0] */ spi_debug <= 4'h0;
         ///* reg[3:0] */ spi_debug_bit_num <= 4'h0;
@@ -215,6 +219,16 @@ always@(                //  Code below is always triggered when these conditions
             wr_spi <= step_wr_spi;
             rd_spi <= step_rd_spi;
             wait_spi <= step_wait_spi;
+            if (step_rd_spi || step_wr_spi) begin
+                //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led high to low transition).
+                rst_led_n <= 1'b0;
+                rst_led <= 1'b1;
+            end
+            else begin
+                //  Reset rst_led to high in case we have previously set to low due to SPI read or write step.
+                rst_led_n <= 1'b1;
+                rst_led <= 1'b0;
+            end            
         end
 
         //  If the step start time has not been reached...

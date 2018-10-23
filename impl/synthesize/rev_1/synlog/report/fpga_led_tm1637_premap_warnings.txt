@@ -1,4 +1,4 @@
-@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":151:0:151:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
+@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":155:0:155:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
 @W: MO129 :|Sequential instance spi0._prescaller_16 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._prescaller_17 is reduced to a combinational gate by constant propagation.
 @W: MO129 :|Sequential instance spi0._prescaller_11 is reduced to a combinational gate by constant propagation.
