@@ -142,7 +142,7 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     (normalised_switches == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
         tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
         tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
-    (normalised_switches == 4'b1000) ? {   //  If {SW4,5,6,7}={1,0,0,0}, 
+    (normalised_switches == 4'b1000) ? {   //  If {SW4,5,6,7}={1,0,0,0}... 
         debug_waiting_for_step_time[0], 
         debug_waiting_for_spi[0],
         debug_waiting_for_tx_data[0], 

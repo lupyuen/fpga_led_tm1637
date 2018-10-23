@@ -12,9 +12,9 @@ module spi_master #(
 
         //  Input signals.
         input  /* wire[0:0] */ clk,  /* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
-        input  /* wire[0:0] */ rst,  /* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
-        input  /* wire[0:0] */ wr,  //  1 if we should transmit data, asynchronus with 'clk', active on posedge or negedge (input)
-        input  /* wire[0:0] */ rd,  //  1 if we should receive data, asynchronus with 'clk', active on posedge or negedge (input)
+        input  /* wire[0:0] */ rst,  /* Asynchronus reset, is mandatory to provide this signal, active on posedge (input) */
+        input  /* wire[0:0] */ wr,  //  1 if we should transmit data, asynchronus with 'clk', active on posedge
+        input  /* wire[0:0] */ rd,  //  1 if we should receive data, asynchronus with 'clk', active on posedge
         input  wire[WORD_LEN - 1:0] tx_data,  //  Data to be transmitted to SPI device (1 byte)
 
         //  Outputs.
@@ -51,8 +51,8 @@ reg[(WORD_LEN-1):0] _rx_buffer;
 //  Transmission is complete IF...
 //  transmit buffer is unoccupied and transmit buffer has not been sent
 //  OR transmit buffer is occupied and transmit buffer has been sent
-assign tx_completed = (_tx_buffer_occupied == _tx_buffer_sent);
-////assign tx_completed = ~(_tx_buffer_occupied ^ _tx_buffer_sent);
+////assign tx_completed = (_tx_buffer_occupied == _tx_buffer_sent);
+assign tx_completed = ~(_tx_buffer_occupied ^ _tx_buffer_sent);
 assign debug_tx_buffer = _tx_buffer;
 assign debug_rx_buffer = _rx_buffer;
 
@@ -102,9 +102,9 @@ localparam[0:0] STATE_IDLE = 1'b0;
 localparam[0:0] STATE_BUSY = 1'b1;
 reg[0:0] _state;
 
-//  What's a "Prescaller"?  The FPGA clock runs on 50 MHz but that might be too fast for SPI devices
+//  What's a "Prescaler"?  The FPGA clock runs on 50 MHz but that might be too fast for SPI devices
 //  (and might be harder to debug).  So we scale it down by a factor, so that the SPI device will
-//  get a slower clock.  The factor is called the Prescaller Value.
+//  get a slower clock.  The factor is called the Prescaler Value.
 
 reg[2:0] _prescaler;  //  "prescaler" parameter stored locally.
 reg[PRESCALER_SIZE - 1:0] _prescaler_cnt;  //  Count down for the prescaler.

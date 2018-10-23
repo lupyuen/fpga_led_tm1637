@@ -2,7 +2,7 @@
 // Written by Synplify Pro 
 // Product Version "N-2018.03G-Beta6"
 // Program "Synplify Pro", Mapper "mapgw, Build 1086R"
-// Wed Oct 24 02:28:40 2018
+// Wed Oct 24 03:05:16 2018
 //
 // Source file index table:
 // Object locations will have the form <file>:<line>
@@ -596,11 +596,11 @@ wire [4:1] _sck;
 wire [4:0] _sck_6;
 wire [0:0] _mosi_RNO_0;
 wire [0:0] _mosi_RNO;
-wire [0:0] un1_tx_completed_7_i;
-wire [0:0] un1_tx_completed_3_i;
+wire [0:0] un2_tx_completed_8_i;
+wire [0:0] un2_tx_completed_4_i;
 wire [7:0] _shift_reg_tx;
 wire [0:0] _mosi_16;
-wire [0:0] un1_debug_waiting_for_tx_data5;
+wire [0:0] un2_tx_completed_1;
 wire [0:0] _prescaler;
 wire [7:0] _prescaler_cnt;
 wire [0:0] _prescaler_buffer;
@@ -639,7 +639,7 @@ wire _rx_buffer_1_sqmuxa_1 ;
 wire un1__sck_c3 ;
 wire un1__sck_c1 ;
 wire un1_debug_waiting_for_prescaler5_0 ;
-wire un1_m6_e_1 ;
+wire un2_m6_e_1 ;
 wire N_59 ;
 wire N_26_2 ;
 wire N_132_i ;
@@ -815,12 +815,12 @@ defparam \_sck_6_cZ[2] .INIT=16'h1450;
 // @6:173
   LUT4 \_mosi_RNO_cZ[0]  (
 	.I0(_state[0]),
-	.I1(_mosi_RNO_0[0]),
-	.I2(un1_debug_waiting_for_prescaler5_0),
-	.I3(un1_m6_e_1),
+	.I1(un1_debug_waiting_for_prescaler5_0),
+	.I2(_mosi_RNO_0[0]),
+	.I3(un2_m6_e_1),
 	.F(_mosi_RNO[0])
 );
-defparam \_mosi_RNO_cZ[0] .INIT=16'h191B;
+defparam \_mosi_RNO_cZ[0] .INIT=16'h2527;
 // @5:198
   LUT3 \_sck_6_cZ[1]  (
 	.I0(_rx_buffer_1_sqmuxa_1),
@@ -843,7 +843,7 @@ defparam un1__sck_ac0_3.INIT=8'h80;
 	.I1(N_129_i),
 	.I2(_state[0]),
 	.I3(tm1637_clk_c_i),
-	.F(un1_tx_completed_7_i[0])
+	.F(un2_tx_completed_8_i[0])
 );
 defparam un1__prescdemux_NE_RNICS031.INIT=16'h5C0C;
 // @5:167
@@ -852,7 +852,7 @@ defparam un1__prescdemux_NE_RNICS031.INIT=16'h5C0C;
 	.I1(N_26_2),
 	.I2(N_129_i),
 	.I3(_state[0]),
-	.F(un1_tx_completed_3_i[0])
+	.F(un2_tx_completed_4_i[0])
 );
 defparam \_state_RNO[0] .INIT=16'h11F0;
 // @5:167
@@ -1052,13 +1052,13 @@ defparam _rx_buffer_1_sqmuxa_1_cZ.INIT=8'h10;
 );
 defparam un1__prescdemux_NE_RNI0UTD.INIT=4'h8;
 // @6:173
-  LUT3 \un1_debug_waiting_for_tx_data5_cZ[0]  (
+  LUT3 \un2_tx_completed_1_cZ[0]  (
 	.I0(N_59),
 	.I1(N_129_i),
 	.I2(_state[0]),
-	.F(un1_debug_waiting_for_tx_data5[0])
+	.F(un2_tx_completed_1[0])
 );
-defparam \un1_debug_waiting_for_tx_data5_cZ[0] .INIT=8'h5C;
+defparam \un2_tx_completed_1_cZ[0] .INIT=8'h5C;
 // @5:248
   LUT2 un1_debug_waiting_for_prescaler5_0_cZ (
 	.I0(N_59),
@@ -1382,7 +1382,7 @@ defparam un1__prescdemux_NE_5_cZ.INIT=16'hFFFD;
 	.I0(_sck[1]),
 	.I1(_sck[2]),
 	.I2(debug25_NE_0),
-	.F(un1_m6_e_1)
+	.F(un2_m6_e_1)
 );
 defparam \_mosi_RNO_1[0] .INIT=8'h02;
 // @5:198
@@ -1973,7 +1973,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_state_i[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_3_i[0])
+	.CE(un2_tx_completed_4_i[0])
 );
 // @5:167
   DFFPE \_mosi_Z[0]  (
@@ -1989,7 +1989,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[7]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[6]  (
@@ -1997,7 +1997,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[6]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[5]  (
@@ -2005,7 +2005,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[5]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[4]  (
@@ -2013,7 +2013,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[4]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[3]  (
@@ -2021,7 +2021,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[3]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[2]  (
@@ -2029,7 +2029,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[2]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[1]  (
@@ -2037,7 +2037,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[1]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \_shift_reg_tx_Z[0]  (
@@ -2045,7 +2045,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(_shift_reg_tx_9[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_tx_completed_7_i[0])
+	.CE(un2_tx_completed_8_i[0])
 );
 // @5:167
   DFFCE \debug_Z[3]  (
@@ -2053,7 +2053,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(N_141),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_debug_waiting_for_tx_data5[0])
+	.CE(un2_tx_completed_1[0])
 );
 // @5:167
   DFFCE \debug_Z[2]  (
@@ -2061,7 +2061,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(N_22_i),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_debug_waiting_for_tx_data5[0])
+	.CE(un2_tx_completed_1[0])
 );
 // @5:167
   DFFCE \debug_Z[1]  (
@@ -2069,7 +2069,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(N_132_i),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(un1_debug_waiting_for_tx_data5[0])
+	.CE(un2_tx_completed_1[0])
 );
 // @5:167
   DFFPE \debug_Z[0]  (
@@ -2077,7 +2077,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.D(N_26_i),
 	.CLK(clk_spi),
 	.PRESET(reset_spi_0),
-	.CE(un1_debug_waiting_for_tx_data5[0])
+	.CE(un2_tx_completed_1[0])
 );
 // @5:167
   ALU \_prescaler_cnt_s_0[7]  (
