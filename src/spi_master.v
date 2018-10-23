@@ -11,18 +11,17 @@ module spi_master #(
         input  wire[2:0] prescaler,  //  The prescaler divider is = (1 << prescaler) value between 0 and 7 for dividers by:1,2,4,8,16,32,64,128 and 256.
 
         //  Input signals.
-        ////input  /* wire[0:0] */ rst_n,  /* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
-        input  /* wire[0:0] */ rst,  /* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
         input  /* wire[0:0] */ clk,  /* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
+        input  /* wire[0:0] */ rst,  /* Asynchronus reset, is mandatory to provide this signal, active on negedge (input) */
         input  /* wire[0:0] */ wr,  //  1 if we should transmit data, asynchronus with 'clk', active on posedge or negedge (input)
         input  /* wire[0:0] */ rd,  //  1 if we should receive data, asynchronus with 'clk', active on posedge or negedge (input)
         input  wire[WORD_LEN - 1:0] tx_data,  //  Data to be transmitted to SPI device (1 byte)
 
         //  Outputs.
-        output /* wire[0:0] */ data_was_transmitted,  //  1 if data has been trasmitted (output)
-        output /* wire[0:0] */ data_was_received,  //  1 if data was received, if you read the receive buffe this bit will go '0', if you ignore it and continue to send data this bit will remain '1' until you read the read register (output) */
-        output reg /* [0:0] */ senderr,/* If you try to send a character if send buffer is full this bit is set to '1', this can be ignored and if is '1' does not affect the interface (output) */
-        input  /* wire[0:0] */ rst_senderr,/* To reset 'senderr' signal write '1' wait minimum half core clock and and after '0' to this bit, is asynchronous with 'clk' (input)*/
+        output /* wire[0:0] */ tx_completed,  //  1 if data has been trasmitted (output)
+        output /* wire[0:0] */ rx_completed,  //  1 if data was received, if you read the receive buffe this bit will go '0', if you ignore it and continue to send data this bit will remain '1' until you read the read register (output) */
+        output reg /* [0:0] */ tx_error,/* If you try to send a character if send buffer is full this bit is set to '1', this can be ignored and if is '1' does not affect the interface (output) */
+        input  /* wire[0:0] */ rst_tx_error,/* To reset 'tx_error' signal write '1' wait minimum half core clock and and after '0' to this bit, is asynchronous with 'clk' (input)*/
         output wire[WORD_LEN - 1:0] rx_data,  //  Data received from SPI device (1 byte)
 
         //  Pins connected to SPI device.
@@ -37,7 +36,7 @@ module spi_master #(
         output wire[(WORD_LEN-1):0] debug_tx_buffer,  //  Byte currently transmitting.
         output wire[(WORD_LEN-1):0] debug_rx_buffer,  //  Byte just received.
         output reg debug_waiting_for_tx_data,  //  1 if we are waiting for data to transmit.
-        output reg debug_waiting_for_prescaler  //  1 if we are waiting for prescaler to count down.
+        output reg debug_waiting_for_prescaler  //  1 if we are waiting for prescaler to finish counting.
     );
 
 reg[0:0] _mosi;
@@ -52,8 +51,8 @@ reg[(WORD_LEN-1):0] _rx_buffer;
 //  No pending data to be transmitted is true IF...
 //  transmit buffer is unoccupied and transmit buffer has not been sent
 //  OR transmit buffer is occupied and transmit buffer has been sent
-assign data_was_transmitted = (_tx_buffer_occupied == _tx_buffer_sent);
-////assign data_was_transmitted = ~(_tx_buffer_occupied ^ _tx_buffer_sent);
+assign tx_completed = (_tx_buffer_occupied == _tx_buffer_sent);
+////assign tx_completed = ~(_tx_buffer_occupied ^ _tx_buffer_sent);
 assign debug_tx_buffer = _tx_buffer;
 assign debug_rx_buffer = _rx_buffer;
 
@@ -63,35 +62,35 @@ assign debug_rx_buffer = _rx_buffer;
 //  You need to put the data on the bus and wait a half of core clock to assert the wr signal(see simulation).
 always @ (posedge wr) begin  //  Normally we transmit when "wr" transitions from low to high.
     //  If we should transmit data and the transmit buffer is empty...
-    if (wr && data_was_transmitted) begin
-    ////if (wr && _tx_buffer_occupied == _tx_buffer_sent && data_was_transmitted) begin  //  Redundant: If data_was_transmitted, then _tx_buffer_occupied and _tx_buffer_sent are already identical
+    if (wr && tx_completed) begin
+    ////if (wr && _tx_buffer_occupied == _tx_buffer_sent && tx_completed) begin  //  Redundant: If tx_completed, then _tx_buffer_occupied and _tx_buffer_sent are already identical
         //  Copy the transmit data (1 byte) into the transmit buffer.
         _tx_buffer <= tx_data;  //  Occupy the transmit buffer.
     end
 end
 
-////always @ (posedge wr or posedge rst_senderr or negedge rst_n) begin  //  Normally we transmit when "wr" transitions from low to high.
-always @ (posedge wr or posedge rst_senderr or posedge rst) begin  //  Normally we transmit when "wr" transitions from low to high.
+////always @ (posedge wr or posedge rst_tx_error or negedge rst_n) begin  //  Normally we transmit when "wr" transitions from low to high.
+always @ (posedge wr or posedge rst_tx_error or posedge rst) begin  //  Normally we transmit when "wr" transitions from low to high.
     ////if (!rst_n) begin
     if (rst) begin
         //  When reset signal transitions from high to low, reset the internal registers.
         _tx_buffer_occupied <= 1'b0;  //  Init transmit buffer as unoccupied.  
-        senderr <= 1'b0;
+        tx_error <= 1'b0;
         _prescaler <= 3'b0;
     end
-    else if (rst_senderr) begin
-        senderr <= 1'b0;
+    else if (rst_tx_error) begin
+        tx_error <= 1'b0;
     end
     //  If we should transmit data and the transmit buffer is empty...
-    else if (wr && data_was_transmitted) begin
-    ////else if (wr && _tx_buffer_occupied == _tx_buffer_sent && data_was_transmitted) begin  //  Redundant: If data_was_transmitted, then _tx_buffer_occupied and _tx_buffer_sent are already identical
+    else if (wr && tx_completed) begin
+    ////else if (wr && _tx_buffer_occupied == _tx_buffer_sent && tx_completed) begin  //  Redundant: If tx_completed, then _tx_buffer_occupied and _tx_buffer_sent are already identical
         _tx_buffer_occupied <= 1'b1;  //  Mark transmit buffer as occupied.  See above _tx_buffer <= tx_data.
         ////_tx_buffer_occupied <= ~_tx_buffer_occupied;
         _prescaler <= prescaler;
     end
     //  If we should transmit data and the transmit buffer is full...
-    else if (!data_was_transmitted) begin
-        senderr <= 1'b1;  //  Return an error.
+    else if (!tx_completed) begin
+        tx_error <= 1'b1;  //  Return an error.
     end
 end
 
@@ -157,7 +156,7 @@ wire[3:0] _num_bits =
 
 //  Number of extra bits we need to transmit to close the SPI or DIO connection, if there are no more bytes to send.
 wire[0:0] _num_close_bits = 
-    _diomode && (data_was_transmitted) ? 1'b1   //  For DIO: 1 bit, on top of the 9 bits above
+    _diomode && (tx_completed) ? 1'b1   //  For DIO: 1 bit, on top of the 9 bits above
     : 1'b0;  //  For SPI: None.
 
 //  When all the bits have been transmitted, we transmit _empty_tx_bit.  For SPI this is 1.
@@ -199,7 +198,7 @@ always @ (posedge clk or posedge rst) begin
         case (_state)
             STATE_IDLE: begin  //  If we are idle now...
                 //  If we don't have data to transmit...
-                if (data_was_transmitted) begin
+                if (tx_completed) begin
                     //  Stay in the Idle State and wait for data to transmit.
                     debug_waiting_for_tx_data <= 1'b1;  //  Waiting for data to transmit.
                 end
@@ -285,7 +284,7 @@ always @ (posedge clk or posedge rst) begin
                             _sck <= 5'b0;  //  Reset the Internal Clock Pin to low.  Which also transitions the SPI Clock Pin (SCK Pin) to low.
 
                             //  If no more bytes to transmit...
-                            if (data_was_transmitted) begin
+                            if (tx_completed) begin
                                 debug <= 4'd6;  //  Show the debug value in LEDs.
                                 ss <= 1'b1;  //  Set Slave Select Pin (SS Pin) to high to deactivate the SPI device.  No effect in DIO Mode.
                                 if (_diomode) begin 
@@ -365,7 +364,7 @@ assign mosi = _diomode  //  If this is DIO mode...
         ? 1'b1    //  If SS=high, SPI device is inactive. Set SPI MOSI Pin to high.  We will transmit to SPI MOSI Pin later when ready.
         : _mosi;  //  If SS=low, SPI device is active. Set SPI MOSI Pin to the Internal MOSI Pin.
 
-assign data_was_received = (_rx_buffer_occupied ^ _rx_buffer_received);
+assign rx_completed = (_rx_buffer_occupied ^ _rx_buffer_received);
 
 endmodule
 

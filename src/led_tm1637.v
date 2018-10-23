@@ -73,51 +73,53 @@ wire[3:0] spi_debug; // = 4'h0;
 wire[3:0] spi_debug_bit_num; // = 4'h0;
 wire[0:0] ss; // = 1'b0;  //  Not used for DIO Mode.
 wire[0:0] debug_waiting_for_tx_data;
-wire[0:0] debug_waiting_for_prescaller;
+wire[0:0] debug_waiting_for_prescaler;
 wire[7:0] debug_tx_buffer;
 wire[7:0] debug_rx_buffer;
-wire[0:0] tx_buffer_is_empty;
-wire[0:0] charreceived;
+wire[0:0] tx_completed;
+wire[0:0] rx_completed;
 
 spi_master # (
-    .WORD_LEN(8),        //  Default 8
-    .PRESCALLER_SIZE(8)  //  Default 8, Max 8
+    .WORD_LEN(8),       //  Default 8
+    .PRESCALER_SIZE(8)  //  Default 8, Max 8
 )
 spi0(
-    .clk(clk_led),  //  Use the LED clock.
+    //  Input parameters.
+    .diomode(1'b1),     //  Select DIO Mode instead of SPI Mode.
+    .mode(2'b11),       //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
+    .lsbfirst(1'b1),    //  Transmit least significant bit first.
+    ._prescaler(3'h1),  //  Prescale LED device clock by 2 (slow).
+    ///._prescaler(3'h0),  //  No prescaler (fast).
+    ///._prescaler(3'h2),  //  Prescale by 4 (slower).
 
-    ////.prescaller(3'h0),  //  No prescaler (fast).
-    .prescaller(3'h1),  //  Prescale by 2 (slow).
-    ////.prescaller(3'h2),  //  Prescale by 4 (slower).
-
-    ////.rst_n(rst_n),  //  Init connection to SPI device when rst_n transitions from high to low.
-    .rst(rst_led),  //  Init connection to SPI device when rst_n transitions from high to low.
-
-    .tx_data(tx_data),  //  Transmit real data to SPI device.
+    //  Input signals.
+    .clk(clk_led),      //  Assign the LED device clock.
+    .rst(rst_led),      //  Init connection to LED device when rst_led transitions from low to high.
+    .wr(wr_spi),        //  Transmit to LED device when wr_spi is 1.
+    .rd(rd_spi),        //  Receive from LED device when rd_spi is 1 (not used).
+    .tx_data(tx_data),  //  Byte to be transmitted to LED device.
     //.tx_data(test_display_on),  //  Transmit test data to switch on display (0xAF).
 
-    .rx_data(rx_data),
-    .wr(wr_spi),
-    .rd(rd_spi),
-    .tx_buffer_is_empty(tx_buffer_is_empty),
-    .sck(tm1637_clk),
-    .mosi(tm1637_dio),
-    .miso(1'b1),  //  MISO Pin is not used in DIO Mode.
-    .ss(ss),  //  SPI SS Pin is not used in DIO Mode.
-    .lsbfirst(1'b1),  //  Transmit least significant bit first.
-    .mode(2'b11),  //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
-    //.senderr(senderr),
-    .res_senderr(1'b0),
-    .charreceived(charreceived),
-    .diomode(1'b1),  //  Select DIO Mode instead of SPI Mode.
+    //  Outputs.
+    .tx_completed(tx_completed),  //  Transmission to LED device completed.
+    .rx_completed(rx_completed),  //  Receive from LED device completed.
+    //.tx_error(tx_error),  //  Trasmission error.
+    .rst_tx_error(1'b0),  //  Reset transmission error.
+    .rx_data(rx_data),    //  Byte received from LED device (not used).
 
-    //  Debug output for tracing the SPI operations.
-    .debug(spi_debug),
-    .debug_bit_num(spi_debug_bit_num),
-    .debug_tx_buffer(debug_tx_buffer),
-    .debug_rx_buffer(debug_rx_buffer),
-    .debug_waiting_for_tx_data(debug_waiting_for_tx_data),
-    .debug_waiting_for_prescaller(debug_waiting_for_prescaller)
+    //  Pins connected to LED device.
+    .sck(tm1637_clk),   //  Clock
+    .mosi(tm1637_dio),  //  DIO
+    .miso(1'b1),  //  MISO Pin is not used in DIO Mode.
+    .ss(ss),      //  SPI SS Pin is not used in DIO Mode.
+
+    //  Debug outputs.
+    .debug(spi_debug),  //  SPI step being executed.
+    .debug_bit_num(spi_debug_bit_num),  //  SPI bit being sent.
+    .debug_tx_buffer(debug_tx_buffer),  //  Transmit buffer.
+    .debug_rx_buffer(debug_rx_buffer),  //  Receive buffer.
+    .debug_waiting_for_tx_data(debug_waiting_for_tx_data),  //  1 if we are waiting for data to transmit.
+    .debug_waiting_for_prescaler(debug_waiting_for_prescaler)  //  1 if we are waiting for prescaler to finish counting.
 );
 
 //  switches[3:0] is {1,1,1,1} when all onboard switches {SW4, SW5, SW6, SW7} are in the down position.
@@ -142,7 +144,7 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
         debug_waiting_for_step_time[0], 
         debug_waiting_for_spi[0],
         debug_waiting_for_tx_data[0], 
-        debug_waiting_for_prescaller[0] } :
+        debug_waiting_for_prescaler[0] } :
     normalised_switches;  //  Else show normalised switches using onboard LEDs.
 
 //  Display debug values on the onboard LED.  Flip the normalised_led bits around to match the onboard LED pins.  {1} means LED Off, {0} means LED Off.  Also the rightmost LED (D6) should show the lowest bit.
@@ -168,6 +170,7 @@ wire[3:0] step_repeat = encoded_step[6:3];  //  How many times the step should b
 wire[0:0] step_wr_spi = encoded_step[2];
 wire[0:0] step_rd_spi = encoded_step[1];
 wire[0:0] step_wait_spi = encoded_step[0];
+wire[0:0] step_reset_spi = encoded_step[43];
 
 always@(                //  Code below is always triggered when these conditions are true...
     posedge clk_led or  //  When the clk_led register transitions from low to high (positive edge) OR
@@ -200,7 +203,7 @@ always@(                //  Code below is always triggered when these conditions
         /* reg[0:0] */ debug_waiting_for_step_time <= 1'b0;
         /* reg[0:0] */ debug_waiting_for_spi <= 1'b0;
         ///* reg[0:0] */ debug_waiting_for_tx_data <= 1'b0;
-        ///* reg[0:0] */ debug_waiting_for_prescaller <= 1'b0;
+        ///* reg[0:0] */ debug_waiting_for_prescaler <= 1'b0;
     end
     else begin
         if (cnt2 == 25'd2499_9999) begin  //  If our counter has reached its limit...
@@ -219,6 +222,8 @@ always@(                //  Code below is always triggered when these conditions
             wr_spi <= step_wr_spi;
             rd_spi <= step_rd_spi;
             wait_spi <= step_wait_spi;
+            rst_spi <= step_reset_spi;
+            /*
             if (step_rd_spi || step_wr_spi) begin
                 //  If this is an SPI read or write step, signal to SPI module to start the transfer (rst_led high to low transition).
                 rst_led_n <= 1'b0;
@@ -228,7 +233,8 @@ always@(                //  Code below is always triggered when these conditions
                 //  Reset rst_led to high in case we have previously set to low due to SPI read or write step.
                 rst_led_n <= 1'b1;
                 rst_led <= 1'b0;
-            end            
+            end
+            */            
         end
 
         //  If the step start time has not been reached...
@@ -281,7 +287,7 @@ always@(                //  Code below is always triggered when these conditions
                     //  If we are waiting for SPI command to complete...
                     if (wait_spi) begin
                         //  If SPI command has completed...
-                        if (charreceived) begin
+                        if (rx_completed) begin
                             debug_waiting_for_spi <= 1'b0;  //  SPI command has just completed.
                             internal_state_machine <= 1'b0;  //  Will resume at First Tick.
 
