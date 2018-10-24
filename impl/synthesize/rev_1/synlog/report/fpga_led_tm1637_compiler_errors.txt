@@ -1,2 +1,0 @@
-@E: CS168 :"C:\fpga_led_tm1637\src\led_tm1637.v":93:15:93:15|Port _prescaler does not exist
-

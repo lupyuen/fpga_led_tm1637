@@ -1,17 +1,17 @@
 @W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":30:0:30:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Feedback mux created for signal _tx_buffer_occupied[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
 @W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":73:0:73:5|Feedback mux created for signal _prescaler_buffer[2:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning unused register rst_led_n[0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":179:0:179:5|Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning unused register rst_led_n[0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
+@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
 

@@ -7,8 +7,8 @@
 #### START OF PREMAP CLOCK OPTIMIZATION REPORT #####[
 
 1 non-gated/non-generated clock tree(s) driving 26 clock pin(s) of sequential element(s)
-3 gated/generated clock tree(s) driving 171 clock pin(s) of sequential element(s)
-0 instances converted, 171 sequential instances remain driven by gated/generated clocks
+3 gated/generated clock tree(s) driving 167 clock pin(s) of sequential element(s)
+0 instances converted, 167 sequential instances remain driven by gated/generated clocks
 
 =========================== Non-Gated/Non-Generated Clocks ============================
 Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample Instance
@@ -18,8 +18,8 @@ Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample I
 =================================================================== Gated/Generated Clocks ===================================================================
 Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout     Sample Instance                 Explanation                               
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-@KP:ckid0_1       clk_spi.Q[0]        dffre                  157                    step_id[6:0]                    Derived clock on input (not legal for GCC)
-@KP:ckid0_3       wr_spi[0].Q[0]      dffre                  13                     spi0._prescaler_buffer[2:0]     Derived clock on input (not legal for GCC)
+@KP:ckid0_1       clk_spi.Q[0]        dffre                  156                    step_id[6:0]                    Derived clock on input (not legal for GCC)
+@KP:ckid0_3       wr_spi[0].Q[0]      dffre                  10                     spi0._tx_buffer_occupied[0]     Derived clock on input (not legal for GCC)
 @KP:ckid0_5       rd_spi[0].Q[0]      dffre                  1                      spi0._rx_buffer_received[0]     Derived clock on input (not legal for GCC)
 ==============================================================================================================================================================
 

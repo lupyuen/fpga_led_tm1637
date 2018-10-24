@@ -11,7 +11,8 @@ module demo (  //  Declare our demo module.
     output  /* wire[0:0] */ tm1637_dio_drain,  //  Pin 132, IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3; (with pull-up resistors)
     output  reg tm1637_vcc,  //  Pin 133, IO_TYPE=LVCMOS33 DRIVE=24 BANK_VCCIO=3.3
     output  reg [3:0] led,  //  LED is actually 4 discrete LEDs at 4 Output signals. Each LED Output is 1 bit.  Use FloorPlanner to connect led[0 to 4] to Pins 47, 57, 60, 61
-    input   wire[3:0] switches  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
+    input   wire[3:0] switches,  //  SW4-SW7 for controlling the debug LED.  Use FloorPlanner to connect switches[0 to 4] to Pins 68, 69, 79, 80
+    output  wire[`BLOCK_ROM_INIT_ADDR_WIDTH-1:0] debug_step_id
 );
 
 //  For Open Drain Pins: High=High Impedence (Z), Low=Gnd.  We convert CLK and DIO pins to Open Drain.
@@ -31,6 +32,8 @@ LED_TM1637_ROM oled_rom_init(
     .dout(encoded_step)
 );
 
+assign debug_step_id = step_id;
+
 //  This block increments a counter and flips the clk_spi bit on or off upon overflow.
 always@(                //  Code below is always triggered when these conditions are true...
     posedge clk_50M or  //  When the clock signal transitions from low to high (positive edge) OR
@@ -42,7 +45,8 @@ always@(                //  Code below is always triggered when these conditions
         cnt <= 25'd0;     //  "25'd0" means "25-bit, Decimal Value 0"
     end
     else begin
-        if (cnt == 25'd2499_9999) begin  //  If our counter has reached its limit...
+        ////if (cnt >= 25'd1) begin  //  If our counter has reached its limit...
+        if (cnt >= 25'd2499_9999) begin  //  If our counter has reached its limit...
             clk_spi <= ~clk_spi;  //  Toggle the clk_spi from 0 to 1 (and 1 to 0).
             cnt <= 25'd0;         //  Reset the counter to 0.
         end
@@ -91,8 +95,8 @@ spi0(
     .diomode(1'b1),    //  Select DIO Mode instead of SPI Mode.
     .mode(2'b11),      //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
     .lsbfirst(1'b1),   //  Transmit least significant bit first.
-    .prescaler(3'h1),  //  Prescale LED device clock by 2 (slow).
-    ///.prescaler(3'h0),  //  No prescaler (fast).
+    ///.prescaler(3'h1),  //  Prescale LED device clock by 2 (slow).
+    .prescaler(3'h0),  //  No prescaler (fast).
     ///.prescaler(3'h2),  //  Prescale by 4 (slower).
 
     //  Input signals.
@@ -138,20 +142,20 @@ wire[3:0] normalised_led = //  Depending on the onboard switches {SW4, SW5, SW6,
     (sw == 4'b0100) ? debug_tx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,0}, show the byte being sent (lowest 4 bits).
     (sw == 4'b0101) ? debug_rx_buffer[3:0] :  //  If {SW4,5,6,7}={0,1,0,1}, show the byte just received (lowest 4 bits).
     (sw == 4'b0110) ? {   //  If {SW4,5,6,7}={0,1,1,0},
-                        clk_spi[0], ~clk_spi[0],           //  show clk_spi (left 2 LEDs, {1,0}=High, {0,1}=Low)
-                        reset_spi[0], ~reset_spi[0] } :    //  and reset_spi (right 2 LEDs, {1,0}=High, {0,1}=Low).
+                        clk_spi, ~clk_spi,           //  show clk_spi (left 2 LEDs, {1,0}=High, {0,1}=Low)
+                        reset_spi, ~reset_spi } :    //  and reset_spi (right 2 LEDs, {1,0}=High, {0,1}=Low).
     (sw == 4'b0111) ? {   //  If {SW4,5,6,7}={0,1,1,1},
-                        tm1637_clk[0], ~tm1637_clk[0],     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
-                        tm1637_dio[0], ~tm1637_dio[0] } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
+                        tm1637_clk, ~tm1637_clk,     //  show the CLK Pin (left 2 LEDs, {1,0}=High, {0,1}=Low)
+                        tm1637_dio, ~tm1637_dio } :  //  and DIO Pin (right 2 LEDs, {1,0}=High, {0,1}=Low).
     (sw == 4'b1000) ? {   //  If {SW4,5,6,7}={1,0,0,0}... 
-                        debug_waiting_for_step_time[0], 
-                        debug_waiting_for_spi[0],
-                        debug_waiting_for_tx_data[0], 
-                        debug_waiting_for_prescaler[0] } :
+                        debug_waiting_for_step_time, 
+                        debug_waiting_for_spi,
+                        debug_waiting_for_tx_data, 
+                        debug_waiting_for_prescaler } :
     (sw == 4'b1001) ? {   //  If {SW4,5,6,7}={1,0,0,1}... 
-                        tx_completed[0],
-                        rx_completed[0],
-                        tx_error[0],
+                        tx_completed,
+                        rx_completed,
+                        tx_error,
                         1'b1 } :
     sw;  //  Else show the current state of onboard switches using onboard LEDs.
 

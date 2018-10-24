@@ -151,8 +151,8 @@ wire[0:0] mode_clk_low_to_high = mode_clk_phase;
 
 //  Number of bits to transmit/receive.
 wire[3:0] _num_bits = 
-    _diomode ? { 4{WORD_LEN + 1} }  //  For DIO: 9 bits, counting the acknowledgement bit from device.
-    : { 4{WORD_LEN} };  //  For SPI: 8 bits.  WORD_LEN is normally 8.
+  _diomode ? (WORD_LEN + 1)  //  For DIO: 9 bits, counting the acknowledgement bit from device.
+  : WORD_LEN;  //  For SPI: 8 bits.  WORD_LEN is normally 8.
 
 //  Number of extra bits we need to transmit to close the SPI or DIO connection, if there are no more bytes to send.
 wire[0:0] _num_close_bits = 

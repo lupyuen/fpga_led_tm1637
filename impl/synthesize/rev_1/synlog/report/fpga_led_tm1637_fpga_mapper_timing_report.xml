@@ -17,20 +17,20 @@ Max Top 5 critical clocks will be reported. For rest user needs to refer to Deta
 <row>
 <data>demo|clk_50M</data>
 <data>100.0 MHz</data>
-<data>121.2 MHz</data>
-<data>1.747</data>
+<data>106.8 MHz</data>
+<data>0.634</data>
 </row>
 <row>
 <data>demo|clk_spi_derived_clock</data>
 <data>100.0 MHz</data>
-<data>105.1 MHz</data>
-<data>0.963</data>
+<data>106.7 MHz</data>
+<data>1.260</data>
 </row>
 <row>
 <data>demo|wr_spi_derived_clock[0]</data>
 <data>100.0 MHz</data>
-<data>113.1 MHz</data>
-<data>1.160</data>
+<data>116.7 MHz</data>
+<data>1.431</data>
 </row>
 <row>
 <data>System</data>
