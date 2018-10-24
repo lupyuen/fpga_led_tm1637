@@ -1,0 +1,2 @@
+@E: CG906 :"C:\fpga_led_tm1637\src\spi_master.v":229:24:229:30|Reference to unknown variable diomode.
+

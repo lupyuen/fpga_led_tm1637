@@ -87,17 +87,23 @@ wire[7:0] debug_rx_buffer;
 wire[0:0] ss;  //  Not used for DIO Mode.
 
 spi_master # (
-    .WORD_LEN(8),       //  Default 8
-    .PRESCALER_SIZE(8)  //  Default 8, Max 8
+    .DIO_MODE(1),        //  Select DIO Mode instead of SPI Mode.
+    .CLOCK_MODE(3),      //  Clock Transmit Phase = Low to High, Clock Polarity = Idle High
+    .LSB_FIRST(1),       //  Transmit least significant bit first.
+    .PRESCALER(0),       //  No prescaler (fast).
+    .WORD_LEN(8),        //  Transmit/receive 8 bits at a time.
+    .PRESCALER_SIZE(8)   //  Use 8 bits for prescaler counter.
 )
 spi0(
     //  Input parameters.
+    /*
     .diomode(1'b1),    //  Select DIO Mode instead of SPI Mode.
     .mode(2'b11),      //  SPI Transmit Phase = Low to High, Clock Polarity = Idle High
     .lsbfirst(1'b1),   //  Transmit least significant bit first.
     ///.prescaler(3'h1),  //  Prescale LED device clock by 2 (slow).
     .prescaler(3'h0),  //  No prescaler (fast).
     ///.prescaler(3'h2),  //  Prescale by 4 (slower).
+    */
 
     //  Input signals.
     .clk(clk_spi),      //  Assign the LED device clock.

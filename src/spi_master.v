@@ -1,14 +1,18 @@
 //  Based on https://opencores.org/project/asynchronous_master_spi
 
 module spi_master #(
+        parameter DIO_MODE = 0,
+        parameter CLOCK_MODE = 0,
+        parameter LSB_FIRST = 0,
 		parameter WORD_LEN = 8,
-		parameter PRESCALER_SIZE = 8
+		parameter PRESCALER_SIZE = 8,
+        parameter PRESCALER = 0
 	)(
         //  Input parameters.
-        input  /* wire[0:0] */ diomode,  //  1 if we are sending to a DIO device (TM1637 LED) instead of an SPI device.
-        input  wire[1:0] mode,  //  SPI mode.  All four modes are supported.
-        input  /* wire[0:0] */ lsbfirst,  //  0 to send most significant bit first, 1 to send least significant bit first.
-        input  wire[2:0] prescaler,  //  The prescaler divider is = (1 << prescaler) value between 0 and 7 for dividers by:1,2,4,8,16,32,64,128 and 256.
+        //input  /* wire[0:0] */ diomode,  //  1 if we are sending to a DIO device (TM1637 LED) instead of an SPI device.
+        //input  wire[1:0] mode,  //  SPI mode.  All four modes are supported.
+        //input  /* wire[0:0] */ lsbfirst,  //  0 to send most significant bit first, 1 to send least significant bit first.
+        //input  wire[2:0] prescaler,  //  The prescaler divider is = (1 << prescaler) value between 0 and 7 for dividers by:1,2,4,8,16,32,64,128 and 256.
 
         //  Input signals.
         input  /* wire[0:0] */ clk,  /* Peripheral clock/not necessary to be core clock, the core clock can be different (input) */
@@ -51,8 +55,8 @@ reg[(WORD_LEN-1):0] _rx_buffer;
 //  Transmission is complete IF...
 //  transmit buffer is unoccupied and transmit buffer has not been sent
 //  OR transmit buffer is occupied and transmit buffer has been sent
-////assign tx_completed = (_tx_buffer_occupied == _tx_buffer_sent);
-assign tx_completed = ~(_tx_buffer_occupied ^ _tx_buffer_sent);
+assign tx_completed = (_tx_buffer_occupied == _tx_buffer_sent);
+////assign tx_completed = ~(_tx_buffer_occupied ^ _tx_buffer_sent);
 assign debug_tx_buffer = _tx_buffer;
 assign debug_rx_buffer = _rx_buffer;
 
@@ -95,17 +99,19 @@ reg[0:0] _state;
 //  (and might be harder to debug).  So we scale it down by a factor, so that the SPI device will
 //  get a slower clock.  The factor is called the Prescaler Value.
 
-reg[2:0] _prescaler;  //  "prescaler" parameter stored locally.
+wire[2:0] prescaler = PRESCALER;
+wire[2:0] _prescaler = PRESCALER;
+////reg[2:0] _prescaler;  //  "prescaler" parameter stored locally.
 reg[PRESCALER_SIZE - 1:0] _prescaler_cnt;  //  Count down for the prescaler.
 wire[7:0] _prescdemux =  //  Compute the demux prescaler.  We will count to this demux value before acting on the clock.  Changes when _prescaler changes.
-    (_prescaler == 3'b000) ? 8'b00000001 :
-    (_prescaler == 3'b001) ? 8'b00000011 :
-    (_prescaler == 3'b010) ? 8'b00000111 :
-    (_prescaler == 3'b011) ? 8'b00001111 :
-    (_prescaler == 3'b100) ? 8'b00011111 :
-    (_prescaler == 3'b101) ? 8'b00111111 :
-    (_prescaler == 3'b110) ? 8'b01111111 :
-    (_prescaler == 3'b111) ? 8'b11111111 :
+    (PRESCALER == 3'b000) ? 8'b00000001 :
+    (PRESCALER == 3'b001) ? 8'b00000011 :
+    (PRESCALER == 3'b010) ? 8'b00000111 :
+    (PRESCALER == 3'b011) ? 8'b00001111 :
+    (PRESCALER == 3'b100) ? 8'b00011111 :
+    (PRESCALER == 3'b101) ? 8'b00111111 :
+    (PRESCALER == 3'b110) ? 8'b01111111 :
+    (PRESCALER == 3'b111) ? 8'b11111111 :
     8'b00000001;  //  Should not come here.
 
 //  Shift Registers for transmitting and receiving bits.  They are called "Shift" because we shift the bits out/in while transmitting/receiving bits.
@@ -117,20 +123,27 @@ reg[4:0] _sck;  //  Count the number of bits sent and phase of the SPI clock.
 wire[3:0] _sck_bit_num = _sck[4:1];   //  Bit number currently being sent. _sck_bit_num=7 when 8 bits have been sent
 wire[0:0] _sck_transition = _sck[0];  //  Current high/low transition phase of the clock.  _sck_transition=0 during first transition phase of the clock, 1 during second transition phase
 
-reg[0:0] _lsbfirst;  //  1 if we should send Least Significant Bit first.
+wire[0:0] _lsbfirst = LSB_FIRST;  //  1 if we should send Least Significant Bit first.
+////reg[0:0] _lsbfirst;  //  1 if we should send Least Significant Bit first.
 wire[0:0] _msbfirst = ~_lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if _lsbfirst changes.
+
+wire[0:0] lsbfirst = LSB_FIRST;  //  1 if we should send Least Significant Bit first.
 wire[0:0] msbfirst = ~lsbfirst;  //  1 if we should send Most Significant Bit first.  Changes if lsbfirst changes.
 
-reg[0:0] _diomode;  //  "diomode" parameter stored locally.
+wire[0:0] diomode = DIO_MODE;
+wire[0:0] _diomode = DIO_MODE;
+////reg[0:0] _diomode;  //  "diomode" parameter stored locally.
 
 //  Decode _mode (Internal SPI Mode) into clock phase and polarity.  If _mode changes, these will also change.
-reg[1:0] _mode;
+wire[1:0] _mode = CLOCK_MODE;
+////reg[1:0] _mode;
 wire[0:0] _mode_clk_phase = _mode[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
 wire[0:0] _mode_clk_polarity = _mode[1];  //  Clock Polarity: 0 means Idle Low, 1 means Idle High
 wire[0:0] _mode_clk_idle_low = ~_mode_clk_polarity;
 wire[0:0] _mode_clk_idle_high = _mode_clk_polarity;
 
 //  Decode mode (SPI Mode) into clock phase and polarity.  If mode changes, these will also change.
+wire[1:0] mode = CLOCK_MODE;
 wire[0:0] mode_clk_phase = mode[0];     //  Clock Phase: 0 means data is valid when clock transitions from high to low. 1 means low to high.
 wire[0:0] mode_clk_high_to_low = ~mode_clk_phase;
 wire[0:0] mode_clk_low_to_high = mode_clk_phase;
@@ -172,10 +185,10 @@ always @ (posedge clk or posedge rst) begin
         ss <= 1'b1;     //  Set Slave Select Pin to high to deactivate the SPI device.  We will activate later.  Not used for DIO Mode.
 
         _prescaler_cnt <= { PRESCALER_SIZE{1'b0} };
-        _prescaler <= prescaler;
-        _lsbfirst <= lsbfirst;
-        _mode <= mode;  //  Init SPI Mode so that SCK Pin will be output correctly at next clock tick.
-        _diomode <= diomode;  //  Init DIO Mode so that SCK Pin will be output correctly at next clock tick.
+        ////_prescaler <= prescaler;
+        ////_lsbfirst <= lsbfirst;
+        ////_mode <= mode;  //  Init SPI Mode so that SCK Pin will be output correctly at next clock tick.
+        ////_diomode <= diomode;  //  Init DIO Mode so that SCK Pin will be output correctly at next clock tick.
 
         debug <= 4'd1;  //  Show the debug value in LEDs.
         debug_bit_num <= 4'b0;
@@ -201,10 +214,10 @@ always @ (posedge clk or posedge rst) begin
                     _prescaler_cnt <= { PRESCALER_SIZE{1'b0} };  //  Reset the prescaler count to 0.                    
 
                     //  Copy the SPI tx/rx parameters to internal registers so they won't change if the caller changes them.
-                    _diomode <= diomode;
-                    _mode <= mode;
-                    _lsbfirst <= lsbfirst;
-                    _prescaler <= _prescaler_buffer;
+                    ////_diomode <= diomode;
+                    ////_mode <= mode;
+                    ////_lsbfirst <= lsbfirst;
+                    ////_prescaler <= _prescaler_buffer;
 
                     //  Get ready to transmit data to the SPI device.
                     _shift_reg_tx <= _tx_buffer;  //  Copy the byte that will be transmitted.
@@ -323,7 +336,7 @@ always @ (posedge rd or posedge rst) begin  //  Normally we read when "rd" trans
     end
 end
 
-//  If we are receiving data from the SPI device, return the receive buffer to the caller.  Else return a hardcoded value "z" (High Impedence)
+//  If we are receiving data from the SPI device, return the receive buffer to the caller.  Else return a hardcoded value "zzzzzzzz" (High Impedence)
 assign rx_data = (rd) ? _rx_buffer : { WORD_LEN{1'bz} };
 
 //  Set the value of the SPI Clock Pin (SCK Pin) for the SPI device.  Depending on the mode, we return the same value as the
