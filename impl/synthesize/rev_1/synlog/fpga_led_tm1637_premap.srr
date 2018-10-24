@@ -1,4 +1,4 @@
-# Wed Oct 24 10:09:05 2018
+# Wed Oct 24 10:49:25 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -37,7 +37,7 @@ Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 
 Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
-@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
+@W: FX707 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Register spi0._diomode[0] has both asynchronous set and reset. Your design may not work on the board. GoWin recommends you change your RTL. This warning is only issued once, although it may apply to other registers as well.
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @N: MH105 |UMR3 is only supported for HAPS-80.
 @W: MO129 :|Sequential instance spi0._prescaler_26 is reduced to a combinational gate by constant propagation.
@@ -53,7 +53,7 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 @N: MF578 |Incompatible asynchronous control logic preventing generated clock conversion.
 syn_allowed_resources : blockrams=10  set on top level netlist demo
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
 
 
 
@@ -109,7 +109,7 @@ Clock Tree ID     Driving Element     Drive Element Type     Fanout     Sample I
 Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout     Sample Instance                 Explanation                               
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 @KP:ckid0_1       clk_spi.Q[0]        dffre                  156                    step_id[6:0]                    Derived clock on input (not legal for GCC)
-@KP:ckid0_3       wr_spi[0].Q[0]      dffre                  10                     spi0._tx_buffer_occupied[0]     Derived clock on input (not legal for GCC)
+@KP:ckid0_3       wr_spi[0].Q[0]      dffre                  10                     spi0._tx_buffer[7:0]            Derived clock on input (not legal for GCC)
 @KP:ckid0_5       rd_spi[0].Q[0]      dffre                  1                      spi0._rx_buffer_received[0]     Derived clock on input (not legal for GCC)
 ==============================================================================================================================================================
 
@@ -135,6 +135,6 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Wed Oct 24 10:09:07 2018
+# Wed Oct 24 10:49:27 2018
 
 ###########################################################]

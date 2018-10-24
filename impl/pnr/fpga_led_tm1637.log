@@ -7,3 +7,14 @@ Info    (CT0002) : Physical Constraint parsed completed.
 Info    (PR0001) : Placement in progress......
 Warning (PR2017) : 'rst_n_ibuf'(INS_IBUF) can't be placed according to Constraint, because the Constraint location is a Dedicated Pin.
 Info    (PR0005) : Routing in progress......
+Info    (PR0002) : Placement and routing completed.
+Info    (TA0001) : Timing analysis completed.
+Info    (FS0001) : Bitstream generation in progress......
+Info    (FS0002) : Bitstream generation completed.
+Info    (PW0001) : Power analysis completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.power.html' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.tr.html' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.rpt.html' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.rpt.txt' file completed.
+Info    (CM0001) : Wed Oct 24 10:50:20 2018
+

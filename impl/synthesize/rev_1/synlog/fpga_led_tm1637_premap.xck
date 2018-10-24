@@ -1,4 +1,4 @@
 ckid0_1:@|S:clk_spi.Q[0]@|E:step_id[6:0]@|F:@syn_dgcc_clockid0_1==1@|M:ClockId_0_1
-ckid0_3:@|S:wr_spi[0].Q[0]@|E:spi0._tx_buffer_occupied[0]@|F:@syn_dgcc_clockid0_3==1@|M:ClockId_0_3
+ckid0_3:@|S:wr_spi[0].Q[0]@|E:spi0._tx_buffer[7:0]@|F:@syn_dgcc_clockid0_3==1@|M:ClockId_0_3
 ckid0_5:@|S:rd_spi[0].Q[0]@|E:spi0._rx_buffer_received[0]@|F:@syn_dgcc_clockid0_5==1@|M:ClockId_0_5
 ckid0_7:@|S:clk_50M@|E:cnt[24:0]@|F:@syn_dgcc_clockid0_7==1@|M:ClockId_0_7

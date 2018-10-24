@@ -3,11 +3,11 @@
 @N: MF666 |Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.)
 @N: MT206 |Auto Constrain mode is enabled
 @N: MO231 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[4] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[5] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[6] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance _rx_buffer[7] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
-@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _prescaler_cnt[7:0] 
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance _rx_buffer[4] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance _rx_buffer[5] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance _rx_buffer[6] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance _rx_buffer[7] (in view: work.spi_master_8s_8s_0_1(verilog)) because it does not drive other instances.
+@N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Found counter in view:work.spi_master_8s_8s_0_1(verilog) instance _prescaler_cnt[7:0] 
 @N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
@@ -49,15 +49,15 @@
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":323:0:323:5|Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._diomode[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0.ss (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":324:0:324:5|Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._mode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._diomode[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0.ss (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._shift_reg_rx[7] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":93:0:93:3|Removing sequential instance spi0._mode_21 (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._shift_reg_rx[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._shift_reg_rx[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._shift_reg_rx[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._shift_reg_rx[4] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: FX164 |The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.  
 @N: MT611 :|Automatically generated clock demo|rd_spi_derived_clock[0] is not used and is being removed
 @N: BW103 |The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns.

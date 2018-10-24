@@ -85,7 +85,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">Created Time</td>
-<td>Wed Oct 24 10:07:45 2018
+<td>Wed Oct 24 10:50:20 2018
 </td>
 </tr>
 <tr>
@@ -101,11 +101,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <!--<h1><a name="Summary">PnR Summaries</a></h1>-->
 <h2><a name="Placer">Placer:</a></h2>
 <p style="font-size: 14px;">Starting Placer:</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 0 ...  &nbsp  REAL time: 2.2e-005 secs</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 1 ...  &nbsp  REAL time: 8.9e-005 secs</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 2 ...  &nbsp  REAL time: 4.1e-005 secs</p>
-<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 3 ...  &nbsp  REAL time: 0.001161 secs</p>
-<p style="font-size: 14px;">Total REAL time to Placement completion: 1.313 secs.<p><br/>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 0 ...  &nbsp  REAL time: 2.1e-005 secs</p>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 1 ...  &nbsp  REAL time: 9e-005 secs</p>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 2 ...  &nbsp  REAL time: 2.7e-005 secs</p>
+<p style="font-size: 14px;">&nbsp &nbsp  Placement Phase 3 ...  &nbsp  REAL time: 0.001155 secs</p>
+<p style="font-size: 14px;">Total REAL time to Placement completion: 1.293 secs.<p><br/>
 <h2><a name="Resource_Usage_Summary">Resource Usage Summary:</a></h2>
 <table class="summary_table">
 <tr>
@@ -115,17 +115,17 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">CFU Logics</td>
-<td>259(164 LUTs, 95 ALUs)/4608</td>
+<td>248(153 LUTs, 95 ALUs)/4608</td>
 <td>5%</td>
 </tr>
 <tr>
 <td class="label">Registers</td>
-<td>117/3556</td>
+<td>130/3556</td>
 <td>3%</td>
 </tr>
 <tr>
 <td class="label">&nbsp &nbsp --logic Registers</td>
-<td>117/3456</td>
+<td>130/3456</td>
 <td>3%</td>
 </tr>
 <tr>
@@ -135,12 +135,12 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">CLSs(ideal)</td>
-<td>137/2304</td>
+<td>131/2304</td>
 <td>5%</td>
 </tr>
 <tr>
 <td class="label">CLSs(used)</td>
-<td>154/2304</td>
+<td>148/2304</td>
 <td>6%</td>
 </tr>
 <tr>
@@ -226,11 +226,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">bank 1</td>
-<td>4/24(16%)</td>
+<td>2/24(8%)</td>
 </tr>
 <tr>
 <td class="label">bank 2</td>
-<td>9/38(23%)</td>
+<td>11/38(28%)</td>
 </tr>
 <tr>
 <td class="label">bank 3</td>
@@ -240,10 +240,10 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <br/>
 <h2><a name="Router">Router:</a></h2>
 <p  style="font-size: 14px;">Starting Router:</p>
-<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 0: 521 unrouted; &nbsp REAL time: 0 secs</p>
-<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 1: 257 unrouted; &nbsp REAL time: 0.081 secs</p>
-<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 2: 0 unrouted; &nbsp REAL time: 0.062 secs</p>
-<p  style="font-size: 14px;">  Total REAL time to Router completion: 0.143 secs.</p><br/>
+<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 0: 523 unrouted; &nbsp REAL time: 0 secs</p>
+<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 1: 251 unrouted; &nbsp REAL time: 0.083 secs</p>
+<p  style="font-size: 14px;">&nbsp &nbsp  Route Phase 2: 0 unrouted; &nbsp REAL time: 0.116 secs</p>
+<p  style="font-size: 14px;">  Total REAL time to Router completion: 0.199 secs.</p><br/>
 <h2><a name="Global_Clock_Usage_Summary">Global Clock Usage Summary:</a></h2>
 <table class="summary_table">
 <tr>
@@ -252,7 +252,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">PRIMARY</td>
-<td>2/8(25%)</td>
+<td>3/8(37%)</td>
 </tr>
 <tr>
 <td class="label">SECONDARY</td>
@@ -260,7 +260,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">GCLK_PIN</td>
-<td>2/6(33%)</td>
+<td>3/6(50%)</td>
 </tr>
 <tr>
 <td class="label">PLL</td>
@@ -286,6 +286,11 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td class="label"><b>Signal</b></td>
 <td><b>Global Clock</b></td>
 <td><b>Location</b></td>
+</tr>
+<tr>
+<td class="label">wr_spi[0]</td>
+<td>PRIMARY</td>
+<td>RIGHT</td>
 </tr>
 <tr>
 <td class="label">clk_spi</td>
@@ -336,9 +341,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">rst_n</td>
-<td>29/3</td>
+<td>56/2</td>
 <td>in</td>
-<td>IOL15[A]</td>
+<td>IOB19[A]</td>
 <td>LVCMOS18</td>
 <td>NA</td>
 <td>UP</td>
@@ -388,7 +393,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>1.8</td>
+<td>1.2</td>
 </tr>
 <tr>
 <td class="label">switches[3]</td>
@@ -402,13 +407,13 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 <td>NA</td>
 <td>NA</td>
-<td>1.8</td>
+<td>1.2</td>
 </tr>
 <tr>
 <td class="label">tm1637_clk</td>
-<td>3/3</td>
+<td>7/3</td>
 <td>out</td>
-<td>IOL2[A]</td>
+<td>IOL4[A]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -420,9 +425,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">tm1637_dio</td>
-<td>106/1</td>
+<td>50/2</td>
 <td>out</td>
-<td>IOR3[A]</td>
+<td>IOB14[A]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -532,9 +537,9 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">debug_step_id[0]</td>
-<td>50/2</td>
+<td>46/2</td>
 <td>out</td>
-<td>IOB14[A]</td>
+<td>IOB11[A]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -560,6 +565,20 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 </tr>
 <tr>
 <td class="label">debug_step_id[2]</td>
+<td>3/3</td>
+<td>out</td>
+<td>IOL2[A]</td>
+<td>LVCMOS18</td>
+<td>8</td>
+<td>UP</td>
+<td>FAST</td>
+<td>NA</td>
+<td>OFF</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">debug_step_id[3]</td>
 <td>38/2</td>
 <td>out</td>
 <td>IOB6[A]</td>
@@ -573,7 +592,21 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">debug_step_id[3]</td>
+<td class="label">debug_step_id[4]</td>
+<td>29/3</td>
+<td>out</td>
+<td>IOL15[A]</td>
+<td>LVCMOS18</td>
+<td>8</td>
+<td>UP</td>
+<td>FAST</td>
+<td>NA</td>
+<td>OFF</td>
+<td>NA</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td class="label">debug_step_id[5]</td>
 <td>25/3</td>
 <td>out</td>
 <td>IOL11[A]</td>
@@ -587,38 +620,10 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>1.8</td>
 </tr>
 <tr>
-<td class="label">debug_step_id[4]</td>
+<td class="label">debug_step_id[6]</td>
 <td>11/3</td>
 <td>out</td>
 <td>IOL9[A]</td>
-<td>LVCMOS18</td>
-<td>8</td>
-<td>UP</td>
-<td>FAST</td>
-<td>NA</td>
-<td>OFF</td>
-<td>NA</td>
-<td>1.8</td>
-</tr>
-<tr>
-<td class="label">debug_step_id[5]</td>
-<td>7/3</td>
-<td>out</td>
-<td>IOL4[A]</td>
-<td>LVCMOS18</td>
-<td>8</td>
-<td>UP</td>
-<td>FAST</td>
-<td>NA</td>
-<td>OFF</td>
-<td>NA</td>
-<td>1.8</td>
-</tr>
-<tr>
-<td class="label">debug_step_id[6]</td>
-<td>104/1</td>
-<td>out</td>
-<td>IOR3[B]</td>
 <td>LVCMOS18</td>
 <td>8</td>
 <td>UP</td>
@@ -994,7 +999,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">38/2</td>
-<td>debug_step_id[2]</td>
+<td>debug_step_id[3]</td>
 <td>out</td>
 <td>IOB6[A]</td>
 <td>LVCMOS18</td>
@@ -1074,14 +1079,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">46/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>debug_step_id[0]</td>
+<td>out</td>
 <td>IOB11[A]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">47/2</td>
 <td>led[0]</td>
@@ -1114,7 +1119,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">50/2</td>
-<td>debug_step_id[0]</td>
+<td>tm1637_dio</td>
 <td>out</td>
 <td>IOB14[A]</td>
 <td>LVCMOS18</td>
@@ -1154,14 +1159,14 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">56/2</td>
-<td>UNUSED</td>
-<td>-</td>
+<td>rst_n</td>
+<td>in</td>
 <td>IOB19[A]</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td>LVCMOS18</td>
+<td>UP</td>
+<td>NONE</td>
+<td>NA</td>
+<td>NA</td>
 </tr>
 <td class="label">57/2</td>
 <td>led[1]</td>
@@ -1354,7 +1359,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">3/3</td>
-<td>tm1637_clk</td>
+<td>debug_step_id[2]</td>
 <td>out</td>
 <td>IOL2[A]</td>
 <td>LVCMOS18</td>
@@ -1384,7 +1389,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>NA</td>
 </tr>
 <td class="label">7/3</td>
-<td>debug_step_id[5]</td>
+<td>tm1637_clk</td>
 <td>out</td>
 <td>IOL4[A]</td>
 <td>LVCMOS18</td>
@@ -1424,7 +1429,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">11/3</td>
-<td>debug_step_id[4]</td>
+<td>debug_step_id[6]</td>
 <td>out</td>
 <td>IOL9[A]</td>
 <td>LVCMOS18</td>
@@ -1544,7 +1549,7 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">25/3</td>
-<td>debug_step_id[3]</td>
+<td>debug_step_id[5]</td>
 <td>out</td>
 <td>IOL11[A]</td>
 <td>LVCMOS18</td>
@@ -1584,12 +1589,12 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">29/3</td>
-<td>rst_n</td>
-<td>in</td>
+<td>debug_step_id[4]</td>
+<td>out</td>
 <td>IOL15[A]</td>
 <td>LVCMOS18</td>
 <td>UP</td>
-<td>NONE</td>
+<td>NA</td>
 <td>NA</td>
 <td>NA</td>
 </tr>
@@ -1604,24 +1609,24 @@ table.detail_table th.label {  min-width: 8%; width: 8%; }
 <td>-</td>
 </tr>
 <td class="label">106/1</td>
-<td>tm1637_dio</td>
-<td>out</td>
+<td>UNUSED</td>
+<td>-</td>
 <td>IOR3[A]</td>
-<td>LVCMOS18</td>
-<td>UP</td>
-<td>NA</td>
-<td>NA</td>
-<td>NA</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <td class="label">104/1</td>
-<td>debug_step_id[6]</td>
-<td>out</td>
+<td>UNUSED</td>
+<td>-</td>
 <td>IOR3[B]</td>
-<td>LVCMOS18</td>
-<td>UP</td>
-<td>NA</td>
-<td>NA</td>
-<td>NA</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 <td class="label">102/1</td>
 <td>UNUSED</td>

@@ -59,38 +59,27 @@ assign debug_rx_buffer = _rx_buffer;
 ///////////////////////////////////////////////////////////////////////////////
 //  Asynchronus Send
 
-//  You need to put the data on the bus and wait a half of core clock to assert the wr signal(see simulation).
-always @ (posedge wr) begin  //  Normally we transmit when "wr" transitions from low to high.
-    //  If we should transmit data and the transmit buffer is empty...
-    if (wr && tx_completed) begin
-    ////if (wr && _tx_buffer_occupied == _tx_buffer_sent && tx_completed) begin  //  Redundant: If tx_completed, then _tx_buffer_occupied and _tx_buffer_sent are already identical
-        //  Copy the transmit data (1 byte) into the transmit buffer.
-        _tx_buffer <= tx_data;  //  Occupy the transmit buffer.
-    end
-end
-
-////always @ (posedge wr or posedge rst_tx_error or negedge rst_n) begin  //  Normally we transmit when "wr" transitions from low to high.
 always @ (posedge wr or posedge rst_tx_error or posedge rst) begin  //  Normally we transmit when "wr" transitions from low to high.
-    ////if (!rst_n) begin
     if (rst) begin
-        //  When reset signal transitions from high to low, reset the internal registers.
+        //  When reset signal transitions from low to high, reset the internal registers.
         _tx_buffer_occupied <= 1'b0;  //  Init transmit buffer as unoccupied.  
-        tx_error <= 1'b0;
+        tx_error <= 1'b0;  //  Clear any transmit error.
         _prescaler_buffer <= 3'b0;
     end
     else if (rst_tx_error) begin
+        //  When caller requests to reset the transmit error, we clear the error.
         tx_error <= 1'b0;
     end
-    //  If we should transmit data and the transmit buffer is empty...
-    else if (wr && tx_completed) begin
-    ////else if (wr && _tx_buffer_occupied == _tx_buffer_sent && tx_completed) begin  //  Redundant: If tx_completed, then _tx_buffer_occupied and _tx_buffer_sent are already identical
-        _tx_buffer_occupied <= 1'b1;  //  Mark transmit buffer as occupied.  See above _tx_buffer <= tx_data.
-        ////_tx_buffer_occupied <= ~_tx_buffer_occupied;
-        _prescaler_buffer <= prescaler;
-    end
-    //  If we should transmit data and the transmit buffer is full...
-    else if (!tx_completed) begin
-        tx_error <= 1'b1;  //  Return an error.
+    else if (wr) begin
+        //  When caller requests to transmit data...
+        if (!tx_completed) begin  //  If previous transmit has not completed...
+            tx_error <= 1'b1;  //  Return an error.
+        end
+        else begin  //  If previous transmit has completed, we prepare to transmit new data.
+            _tx_buffer <= tx_data;  //  Copy the transmit data (1 byte) into the transmit buffer.
+            _tx_buffer_occupied <= 1'b1;  //  Mark transmit buffer as occupied.  This marks the transmit as incomplete.
+            _prescaler_buffer <= prescaler;  //  Prepare the prescaler counter.
+        end
     end
 end
 

@@ -2,7 +2,7 @@
 // Written by Synplify Pro 
 // Product Version "N-2018.03G-Beta6"
 // Program "Synplify Pro", Mapper "mapgw, Build 1086R"
-// Wed Oct 24 10:09:12 2018
+// Wed Oct 24 10:49:31 2018
 //
 // Source file index table:
 // Object locations will have the form <file>:<line>
@@ -79,7 +79,7 @@ wire [21:14] dout_1_i_1;
 wire [0:0] dout_1_i_2;
 wire [0:0] dout_1_i_o2_0;
 wire [15:15] dout_1_i_a2;
-wire N_844_1 ;
+wire N_488_1 ;
 wire GND ;
 wire VCC ;
 // @8:31
@@ -120,7 +120,7 @@ defparam \dout_1_0[10] .INIT=16'h0023;
 defparam \dout_1_0[13] .INIT=16'h0100;
 // @8:31
   LUT3 \dout_1_0[14]  (
-	.I0(N_844_1),
+	.I0(N_488_1),
 	.I1(dout_1_i_0[14]),
 	.I2(dout_1_i_1[14]),
 	.F(encoded_step_14)
@@ -136,7 +136,7 @@ defparam \dout_1_0[14] .INIT=8'h01;
 defparam \dout_1_0[17] .INIT=8'h10;
 // @8:31
   LUT4 \dout_1_0[18]  (
-	.I0(N_844_1),
+	.I0(N_488_1),
 	.I1(debug_step_id_c[1]),
 	.I2(debug_step_id_c[4]),
 	.I3(un1_step_id_1),
@@ -196,7 +196,7 @@ defparam \dout_1_0[21] .INIT=16'h0002;
   LUT2 \dout_1_i_1_cZ[14]  (
 	.I0(dout_1_i_o2[14]),
 	.I1(debug_step_id_c[5]),
-	.F(N_844_1)
+	.F(N_488_1)
 );
 defparam \dout_1_i_1_cZ[14] .INIT=4'hE;
 // @8:31
@@ -370,52 +370,23 @@ module spi_master_8s_8s_0_1 (
   wr_spi_0,
   SUM,
   wait_spi_0,
-  cnt_spi,
-  switches_c,
-  reset_spi_0,
   debug_step_id_c,
   debug_waiting_for_spi_0,
+  reset_spi_0,
   internal_state_machine_0,
-  elapsed_time_11,
-  elapsed_time_0,
+  cnt_spi,
+  switches_c,
   debug_waiting_for_step_time_0,
   led_c,
   clk_spi,
-  N_20_i,
+  elapsed_time_0_sqmuxa_i_1z,
   m5_out,
-  un1_step_id_1,
   debug_waiting_for_step_time5,
-  clk_spi_i,
+  un1_step_id_1,
   tm1637_dio_c,
   N_21_mux_i,
   N_21,
-  un2_elapsed_time_cry_1_0_SUM,
-  un2_elapsed_time_cry_2_0_SUM,
-  un2_elapsed_time_cry_3_0_SUM,
-  un2_elapsed_time_cry_4_0_SUM,
-  un2_elapsed_time_cry_5_0_SUM,
-  un2_elapsed_time_cry_6_0_SUM,
-  un2_elapsed_time_cry_7_0_SUM,
-  un2_elapsed_time_cry_8_0_SUM,
-  un2_elapsed_time_cry_9_0_SUM,
-  un2_elapsed_time_cry_10_0_SUM,
-  un2_elapsed_time_cry_11_0_SUM,
-  un2_elapsed_time_cry_12_0_SUM,
-  un2_elapsed_time_cry_13_0_SUM,
-  un2_elapsed_time_cry_14_0_SUM,
-  un2_elapsed_time_cry_15_0_SUM,
-  un2_elapsed_time_cry_16_0_SUM,
-  un2_elapsed_time_cry_17_0_SUM,
-  un2_elapsed_time_cry_18_0_SUM,
-  un2_elapsed_time_cry_19_0_SUM,
-  un2_elapsed_time_cry_20_0_SUM,
-  un2_elapsed_time_cry_21_0_SUM,
-  un2_elapsed_time_cry_22_0_SUM,
-  un2_elapsed_time_cry_23_0_SUM,
-  un2_elapsed_time_cry_24_0_SUM,
-  un2_elapsed_time_cry_25_0_SUM,
-  un2_elapsed_time_cry_26_0_SUM,
-  un2_elapsed_time_s_27_0_SUM,
+  clk_spi_i,
   rst_n_c,
   tm1637_clk_c
 )
@@ -424,97 +395,40 @@ input [7:0] tx_data ;
 input wr_spi_0 ;
 output [3:1] SUM ;
 input wait_spi_0 ;
-input [3:0] cnt_spi ;
-input [3:0] switches_c ;
-input reset_spi_0 ;
 input [3:1] debug_step_id_c ;
 input debug_waiting_for_spi_0 ;
+input reset_spi_0 ;
 input internal_state_machine_0 ;
-output [27:0] elapsed_time_11 ;
-input elapsed_time_0 ;
+input [3:0] cnt_spi ;
+input [3:0] switches_c ;
 input debug_waiting_for_step_time_0 ;
 output [3:0] led_c ;
 input clk_spi ;
-output N_20_i ;
+output elapsed_time_0_sqmuxa_i_1z ;
 output m5_out ;
-input un1_step_id_1 ;
 input debug_waiting_for_step_time5 ;
-input clk_spi_i ;
+input un1_step_id_1 ;
 output tm1637_dio_c ;
 output N_21_mux_i ;
 output N_21 ;
-input un2_elapsed_time_cry_1_0_SUM ;
-input un2_elapsed_time_cry_2_0_SUM ;
-input un2_elapsed_time_cry_3_0_SUM ;
-input un2_elapsed_time_cry_4_0_SUM ;
-input un2_elapsed_time_cry_5_0_SUM ;
-input un2_elapsed_time_cry_6_0_SUM ;
-input un2_elapsed_time_cry_7_0_SUM ;
-input un2_elapsed_time_cry_8_0_SUM ;
-input un2_elapsed_time_cry_9_0_SUM ;
-input un2_elapsed_time_cry_10_0_SUM ;
-input un2_elapsed_time_cry_11_0_SUM ;
-input un2_elapsed_time_cry_12_0_SUM ;
-input un2_elapsed_time_cry_13_0_SUM ;
-input un2_elapsed_time_cry_14_0_SUM ;
-input un2_elapsed_time_cry_15_0_SUM ;
-input un2_elapsed_time_cry_16_0_SUM ;
-input un2_elapsed_time_cry_17_0_SUM ;
-input un2_elapsed_time_cry_18_0_SUM ;
-input un2_elapsed_time_cry_19_0_SUM ;
-input un2_elapsed_time_cry_20_0_SUM ;
-input un2_elapsed_time_cry_21_0_SUM ;
-input un2_elapsed_time_cry_22_0_SUM ;
-input un2_elapsed_time_cry_23_0_SUM ;
-input un2_elapsed_time_cry_24_0_SUM ;
-input un2_elapsed_time_cry_25_0_SUM ;
-input un2_elapsed_time_cry_26_0_SUM ;
-input un2_elapsed_time_s_27_0_SUM ;
+input clk_spi_i ;
 input rst_n_c ;
 output tm1637_clk_c ;
 wire wr_spi_0 ;
 wire wait_spi_0 ;
-wire reset_spi_0 ;
 wire debug_waiting_for_spi_0 ;
+wire reset_spi_0 ;
 wire internal_state_machine_0 ;
-wire elapsed_time_0 ;
 wire debug_waiting_for_step_time_0 ;
 wire clk_spi ;
-wire N_20_i ;
+wire elapsed_time_0_sqmuxa_i_1z ;
 wire m5_out ;
-wire un1_step_id_1 ;
 wire debug_waiting_for_step_time5 ;
-wire clk_spi_i ;
+wire un1_step_id_1 ;
 wire tm1637_dio_c ;
 wire N_21_mux_i ;
 wire N_21 ;
-wire un2_elapsed_time_cry_1_0_SUM ;
-wire un2_elapsed_time_cry_2_0_SUM ;
-wire un2_elapsed_time_cry_3_0_SUM ;
-wire un2_elapsed_time_cry_4_0_SUM ;
-wire un2_elapsed_time_cry_5_0_SUM ;
-wire un2_elapsed_time_cry_6_0_SUM ;
-wire un2_elapsed_time_cry_7_0_SUM ;
-wire un2_elapsed_time_cry_8_0_SUM ;
-wire un2_elapsed_time_cry_9_0_SUM ;
-wire un2_elapsed_time_cry_10_0_SUM ;
-wire un2_elapsed_time_cry_11_0_SUM ;
-wire un2_elapsed_time_cry_12_0_SUM ;
-wire un2_elapsed_time_cry_13_0_SUM ;
-wire un2_elapsed_time_cry_14_0_SUM ;
-wire un2_elapsed_time_cry_15_0_SUM ;
-wire un2_elapsed_time_cry_16_0_SUM ;
-wire un2_elapsed_time_cry_17_0_SUM ;
-wire un2_elapsed_time_cry_18_0_SUM ;
-wire un2_elapsed_time_cry_19_0_SUM ;
-wire un2_elapsed_time_cry_20_0_SUM ;
-wire un2_elapsed_time_cry_21_0_SUM ;
-wire un2_elapsed_time_cry_22_0_SUM ;
-wire un2_elapsed_time_cry_23_0_SUM ;
-wire un2_elapsed_time_cry_24_0_SUM ;
-wire un2_elapsed_time_cry_25_0_SUM ;
-wire un2_elapsed_time_cry_26_0_SUM ;
-wire un2_elapsed_time_s_27_0_SUM ;
+wire clk_spi_i ;
 wire rst_n_c ;
 wire tm1637_clk_c ;
 wire [0:0] un2_cnt_spi_8_am;
@@ -527,20 +441,22 @@ wire [0:0] _state;
 wire [0:0] _state_i;
 wire [4:1] _sck;
 wire [4:0] _sck_6;
-wire [7:0] _shift_reg_tx;
+wire [0:0] _mosi_16_m0;
 wire [0:0] _mosi_16;
+wire [3:3] debug_RNO;
 wire [0:0] un2_tx_completed_1_0;
 wire [2:0] debug_tx_buffer;
 wire [3:0] spi_debug_bit_num;
 wire [0:0] debug_waiting_for_prescaler;
-wire [7:4] _tx_buffer;
-wire [0:0] debug_waiting_for_tx_data;
-wire [0:0] tx_error;
-wire [0:0] rx_completed;
 wire [3:0] debug_rx_buffer;
 wire [3:0] spi_debug;
+wire [0:0] rx_completed;
+wire [0:0] debug_waiting_for_tx_data;
+wire [0:0] tx_error;
 wire [7:0] _prescaler_cnt;
-wire [1:0] _shift_reg_tx_9;
+wire [7:0] _shift_reg_tx;
+wire [7:4] _tx_buffer;
+wire [7:0] _shift_reg_tx_9;
 wire [0:0] _tx_buffer_occupied;
 wire [0:0] _tx_buffer_sent;
 wire [6:0] _prescaler_cnt_cry_0_RNO;
@@ -552,66 +468,62 @@ wire [7:7] _prescaler_cnt_s_0_COUT;
 wire un2_cnt_spi_sn_N_5 ;
 wire N_124 ;
 wire N_113 ;
-wire N_111 ;
-wire N_112 ;
-wire N_114 ;
-wire N_115 ;
-wire N_116 ;
 wire N_117 ;
+wire N_116 ;
+wire N_115 ;
+wire N_114 ;
+wire N_112 ;
+wire N_111 ;
 wire tm1637_clk_c_i ;
 wire N_123_i ;
 wire N_123_i_i ;
 wire _rx_buffer_1_sqmuxa_1 ;
 wire un1__sck_c3 ;
-wire N_104 ;
+wire N_95 ;
 wire N_127 ;
 wire un2_cnt_spi_sn_N_7 ;
+wire un1__sck_axbxc3 ;
 wire _diomode_1_sqmuxa ;
 wire debug26 ;
 wire debug_bit_num_1_sqmuxa_1 ;
-wire N_54 ;
+wire N_52 ;
 wire N_25_i ;
-wire N_126 ;
-wire N_125 ;
-wire _rx_buffer_1_sqmuxa_1_0_i_o2_0 ;
-wire debug25_NE_1 ;
-wire N_29_i ;
 wire _prescaler_cnt_1_sqmuxa ;
-wire N_50 ;
-wire N_16 ;
-wire N_135 ;
+wire N_125 ;
+wire N_126 ;
+wire N_29_i ;
+wire N_48 ;
+wire N_18 ;
 wire N_108 ;
 wire un2_tx_completed_1_54_a3_0_a2_4 ;
 wire un2_tx_completed_1_54_a3_0_a2_5 ;
 wire N_137_i ;
 wire N_69 ;
 wire un1__prescdemux_NE_i_0_i ;
-wire elapsed_time_0_sqmuxa ;
-wire N_27_i ;
-wire N_25_i_0 ;
-wire N_23_i ;
-wire N_222_i ;
-wire N_19_i ;
-wire N_235_i ;
-wire N_106 ;
-wire N_119 ;
+wire debug25_NE_0 ;
+wire N_226_i ;
 wire N_107 ;
 wire N_120 ;
+wire N_106 ;
+wire N_119 ;
+wire _prescaler_buffer_1_sqmuxa ;
+wire N_84 ;
 wire N_83 ;
+wire N_82 ;
+wire N_80 ;
 wire _rx_buffer_occupied_1_sqmuxa ;
-wire N_52 ;
-wire un1__sck_axbxc3 ;
+wire N_50 ;
 wire VCC ;
 wire GND ;
-wire N_984 ;
-wire N_983 ;
-wire N_982 ;
-wire N_981 ;
-wire N_980 ;
-wire N_979 ;
-wire N_978 ;
-wire N_977 ;
-wire N_976 ;
+wire N_628 ;
+wire N_627 ;
+wire N_626 ;
+wire N_625 ;
+wire N_624 ;
+wire N_623 ;
+wire N_622 ;
+wire N_621 ;
+wire N_620 ;
 wire N_15 ;
 wire N_14 ;
 wire N_13 ;
@@ -641,32 +553,11 @@ wire N_65 ;
 	.O(N_113)
 );
 // @6:138
-  MUX2_LUT5 \un2_cnt_spi_5[1]  (
-	.I0(un2_cnt_spi_5_am[1]),
-	.I1(un2_cnt_spi_5_bm[1]),
-	.S0(switches_c[0]),
-	.O(N_111)
-);
-// @6:138
-  MUX2_LUT5 \un2_cnt_spi_5[2]  (
-	.I0(un2_cnt_spi_5_am[2]),
-	.I1(un2_cnt_spi_5_bm[2]),
-	.S0(switches_c[0]),
-	.O(N_112)
-);
-// @6:138
-  MUX2_LUT5 \un2_cnt_spi_6[0]  (
-	.I0(un2_cnt_spi_6_am[0]),
-	.I1(un2_cnt_spi_6_bm[0]),
+  MUX2_LUT5 \un2_cnt_spi_6[3]  (
+	.I0(un2_cnt_spi_6_am[3]),
+	.I1(un2_cnt_spi_6_bm[3]),
 	.S0(switches_c[3]),
-	.O(N_114)
-);
-// @6:138
-  MUX2_LUT5 \un2_cnt_spi_6[1]  (
-	.I0(un2_cnt_spi_6_am[1]),
-	.I1(un2_cnt_spi_6_bm[1]),
-	.S0(switches_c[3]),
-	.O(N_115)
+	.O(N_117)
 );
 // @6:138
   MUX2_LUT5 \un2_cnt_spi_6[2]  (
@@ -676,28 +567,49 @@ wire N_65 ;
 	.O(N_116)
 );
 // @6:138
-  MUX2_LUT5 \un2_cnt_spi_6[3]  (
-	.I0(un2_cnt_spi_6_am[3]),
-	.I1(un2_cnt_spi_6_bm[3]),
+  MUX2_LUT5 \un2_cnt_spi_6[1]  (
+	.I0(un2_cnt_spi_6_am[1]),
+	.I1(un2_cnt_spi_6_bm[1]),
 	.S0(switches_c[3]),
-	.O(N_117)
+	.O(N_115)
 );
-// @5:198
+// @6:138
+  MUX2_LUT5 \un2_cnt_spi_6[0]  (
+	.I0(un2_cnt_spi_6_am[0]),
+	.I1(un2_cnt_spi_6_bm[0]),
+	.S0(switches_c[3]),
+	.O(N_114)
+);
+// @6:138
+  MUX2_LUT5 \un2_cnt_spi_5[2]  (
+	.I0(un2_cnt_spi_5_am[2]),
+	.I1(un2_cnt_spi_5_bm[2]),
+	.S0(switches_c[0]),
+	.O(N_112)
+);
+// @6:138
+  MUX2_LUT5 \un2_cnt_spi_5[1]  (
+	.I0(un2_cnt_spi_5_am[1]),
+	.I1(un2_cnt_spi_5_bm[1]),
+	.S0(switches_c[0]),
+	.O(N_111)
+);
+// @5:199
   INV \_state_RNIIVQ7[0]  (
 	.I(_state[0]),
 	.O(_state_i[0])
 );
-// @5:261
+// @5:262
   INV \_sck_RNIIHC5[0]  (
 	.I(tm1637_clk_c_i),
 	.O(tm1637_clk_c)
 );
-// @5:261
+// @6:183
   INV \_tx_buffer_occupied_RNIGB6Q_0[0]  (
 	.I(N_123_i),
 	.O(N_123_i_i)
 );
-// @5:198
+// @5:199
   LUT4 \_sck_6_cZ[4]  (
 	.I0(_rx_buffer_1_sqmuxa_1),
 	.I1(_sck[3]),
@@ -706,9 +618,9 @@ wire N_65 ;
 	.F(_sck_6[4])
 );
 defparam \_sck_6_cZ[4] .INIT=16'h1450;
-// @5:198
+// @5:199
   LUT4 \_sck_6_cZ[2]  (
-	.I0(N_104),
+	.I0(N_95),
 	.I1(_rx_buffer_1_sqmuxa_1),
 	.I2(_sck[1]),
 	.I3(_sck[2]),
@@ -724,16 +636,23 @@ defparam \_sck_6_cZ[2] .INIT=16'h1320;
 	.F(led_c[0])
 );
 defparam \led[0] .INIT=16'h5F3F;
+// @5:259
+  LUT2 un1__sck_axbxc3_cZ (
+	.I0(_sck[3]),
+	.I1(un1__sck_c3),
+	.F(un1__sck_axbxc3)
+);
+defparam un1__sck_axbxc3_cZ.INIT=4'h6;
 // @6:183
   LUT4 \un2_tx_completed_3_i_a2_0[0]  (
 	.I0(_diomode_1_sqmuxa),
 	.I1(_sck[2]),
 	.I2(debug26),
 	.I3(debug_bit_num_1_sqmuxa_1),
-	.F(N_54)
+	.F(N_52)
 );
 defparam \un2_tx_completed_3_i_a2_0[0] .INIT=16'hFEAA;
-// @5:167
+// @5:168
   LUT3 \debug_RNO[2]  (
 	.I0(_state[0]),
 	.I1(debug26),
@@ -741,23 +660,31 @@ defparam \un2_tx_completed_3_i_a2_0[0] .INIT=16'hFEAA;
 	.F(N_25_i)
 );
 defparam \debug_RNO[2] .INIT=8'hA2;
-// @5:198
+// @5:199
+  LUT3 \_sck_6_cZ[0]  (
+	.I0(_prescaler_cnt_1_sqmuxa),
+	.I1(_rx_buffer_1_sqmuxa_1),
+	.I2(tm1637_clk_c_i),
+	.F(_sck_6[0])
+);
+defparam \_sck_6_cZ[0] .INIT=8'h12;
+// @5:199
   LUT3 \_sck_6_cZ[1]  (
-	.I0(N_104),
+	.I0(N_95),
 	.I1(_rx_buffer_1_sqmuxa_1),
 	.I2(_sck[1]),
 	.F(_sck_6[1])
 );
 defparam \_sck_6_cZ[1] .INIT=8'h12;
 // @6:164
-  LUT4 \led[1]  (
-	.I0(N_116),
-	.I1(N_126),
+  LUT4 \led[3]  (
+	.I0(N_114),
+	.I1(N_124),
 	.I2(rst_n_c),
 	.I3(un2_cnt_spi_sn_N_7),
-	.F(led_c[1])
+	.F(led_c[3])
 );
-defparam \led[1] .INIT=16'h5F3F;
+defparam \led[3] .INIT=16'h5F3F;
 // @6:164
   LUT4 \led[2]  (
 	.I0(N_115),
@@ -768,70 +695,68 @@ defparam \led[1] .INIT=16'h5F3F;
 );
 defparam \led[2] .INIT=16'h5F3F;
 // @6:164
-  LUT4 \led[3]  (
-	.I0(N_114),
-	.I1(N_124),
+  LUT4 \led[1]  (
+	.I0(N_116),
+	.I1(N_126),
 	.I2(rst_n_c),
 	.I3(un2_cnt_spi_sn_N_7),
-	.F(led_c[3])
+	.F(led_c[1])
 );
-defparam \led[3] .INIT=16'h5F3F;
-// @5:198
-  LUT3 \_mosi_16_cZ[0]  (
-	.I0(_shift_reg_tx[0]),
-	.I1(_state[0]),
-	.I2(debug26),
-	.F(_mosi_16[0])
-);
-defparam \_mosi_16_cZ[0] .INIT=8'h8C;
-// @5:258
+defparam \led[1] .INIT=16'h5F3F;
+// @5:259
   LUT3 un1__sck_ac0_3 (
-	.I0(N_104),
+	.I0(N_95),
 	.I1(_sck[1]),
 	.I2(_sck[2]),
 	.F(un1__sck_c3)
 );
 defparam un1__sck_ac0_3.INIT=8'h80;
-// @5:167
-  LUT3 \debug_RNO[0]  (
-	.I0(_rx_buffer_1_sqmuxa_1_0_i_o2_0),
+  LUT3 \_mosi_RNO[0]  (
+	.I0(_mosi_16_m0[0]),
 	.I1(_state[0]),
-	.I2(debug25_NE_1),
+	.I2(debug26),
+	.F(_mosi_16[0])
+);
+defparam \_mosi_RNO[0] .INIT=8'h8C;
+// @5:168
+  LUT3 \debug_RNO[0]  (
+	.I0(_state[0]),
+	.I1(debug26),
+	.I2(tm1637_clk_c_i),
 	.F(N_29_i)
 );
-defparam \debug_RNO[0] .INIT=8'h04;
-// @5:198
-  LUT3 \_sck_6_cZ[0]  (
-	.I0(_prescaler_cnt_1_sqmuxa),
-	.I1(_rx_buffer_1_sqmuxa_1),
-	.I2(tm1637_clk_c_i),
-	.F(_sck_6[0])
-);
-defparam \_sck_6_cZ[0] .INIT=8'h12;
+defparam \debug_RNO[0] .INIT=8'h02;
 // @6:183
   LUT2 \un2_tx_completed_8_i_0[0]  (
-	.I0(N_104),
+	.I0(N_95),
 	.I1(_diomode_1_sqmuxa),
-	.F(N_50)
+	.F(N_48)
 );
 defparam \un2_tx_completed_8_i_0[0] .INIT=4'hE;
 // @6:93
   LUT4 \debug_RNO[1]  (
 	.I0(N_123_i),
-	.I1(_rx_buffer_1_sqmuxa_1_0_i_o2_0),
-	.I2(_state[0]),
-	.I3(debug25_NE_1),
-	.F(N_16)
+	.I1(_state[0]),
+	.I2(debug26),
+	.I3(tm1637_clk_c_i),
+	.F(N_18)
 );
-defparam \debug_RNO[1] .INIT=16'h0F1F;
+defparam \debug_RNO[1] .INIT=16'h3337;
+// @5:249
+  LUT2 _rx_buffer_1_sqmuxa_1_0_a2 (
+	.I0(debug26),
+	.I1(debug_bit_num_1_sqmuxa_1),
+	.F(_rx_buffer_1_sqmuxa_1)
+);
+defparam _rx_buffer_1_sqmuxa_1_0_a2.INIT=4'h4;
 // @6:93
-  LUT3 \debug_RNO[3]  (
+  LUT3 \debug_RNO_cZ[3]  (
 	.I0(_state[0]),
 	.I1(debug26),
 	.I2(tm1637_clk_c_i),
-	.F(N_135)
+	.F(debug_RNO[3])
 );
-defparam \debug_RNO[3] .INIT=8'h08;
+defparam \debug_RNO_cZ[3] .INIT=8'h08;
 // @6:138
   LUT4 \un2_cnt_spi_8[3]  (
 	.I0(N_108),
@@ -841,14 +766,6 @@ defparam \debug_RNO[3] .INIT=8'h08;
 	.F(N_127)
 );
 defparam \un2_cnt_spi_8[3] .INIT=16'hCCAF;
-// @5:248
-  LUT3 _rx_buffer_1_sqmuxa_1_1_a2 (
-	.I0(_prescaler_cnt_1_sqmuxa),
-	.I1(_rx_buffer_1_sqmuxa_1_0_i_o2_0),
-	.I2(debug25_NE_1),
-	.F(_rx_buffer_1_sqmuxa_1)
-);
-defparam _rx_buffer_1_sqmuxa_1_1_a2.INIT=8'h02;
 // @6:183
   LUT2 \un2_tx_completed_1_0_cZ[0]  (
 	.I0(_diomode_1_sqmuxa),
@@ -856,14 +773,14 @@ defparam _rx_buffer_1_sqmuxa_1_1_a2.INIT=8'h02;
 	.F(un2_tx_completed_1_0[0])
 );
 defparam \un2_tx_completed_1_0_cZ[0] .INIT=4'hE;
-// @5:248
-  LUT2 debug_bit_num_1_sqmuxa_1_0_a2 (
+// @5:259
+  LUT2 un1__sck_ac0 (
 	.I0(_prescaler_cnt_1_sqmuxa),
 	.I1(tm1637_clk_c_i),
-	.F(debug_bit_num_1_sqmuxa_1)
+	.F(N_95)
 );
-defparam debug_bit_num_1_sqmuxa_1_0_a2.INIT=4'h2;
-// @5:167
+defparam un1__sck_ac0.INIT=4'h8;
+// @5:168
   LUT3 \_state_RNIUPE92[0]  (
 	.I0(_state[0]),
 	.I1(un2_tx_completed_1_54_a3_0_a2_4),
@@ -889,7 +806,7 @@ defparam \un2_cnt_spi_8_am_cZ[0] .INIT=16'hA0CF;
 	.F(un2_cnt_spi_8_bm[0])
 );
 defparam \un2_cnt_spi_8_bm_cZ[0] .INIT=16'hACAF;
-// @5:167
+// @5:168
   LUT2 debug_waiting_for_prescaler_RNO (
 	.I0(un2_tx_completed_1_54_a3_0_a2_4),
 	.I1(un2_tx_completed_1_54_a3_0_a2_5),
@@ -912,7 +829,7 @@ defparam \un2_cnt_spi_5_am_cZ[3] .INIT=8'hA3;
 	.F(un2_cnt_spi_5_bm[3])
 );
 defparam \un2_cnt_spi_5_bm_cZ[3] .INIT=8'hAC;
-// @5:248
+// @5:249
   LUT3 _prescaler_cnt_1_sqmuxa_cZ (
 	.I0(_state[0]),
 	.I1(un2_tx_completed_1_54_a3_0_a2_4),
@@ -920,258 +837,47 @@ defparam \un2_cnt_spi_5_bm_cZ[3] .INIT=8'hAC;
 	.F(_prescaler_cnt_1_sqmuxa)
 );
 defparam _prescaler_cnt_1_sqmuxa_cZ.INIT=8'h80;
-// @5:282
-  LUT3 debug25_NE (
+// @5:283
+  LUT4 debug25_NE (
 	.I0(N_123_i),
 	.I1(_sck[1]),
-	.I2(debug25_NE_1),
+	.I2(_sck[2]),
+	.I3(debug25_NE_0),
 	.F(debug26)
 );
-defparam debug25_NE.INIT=8'hF6;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[27]  (
-	.I0(un2_elapsed_time_s_27_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[27])
-);
-defparam \elapsed_time_11_cZ[27] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[26]  (
-	.I0(un2_elapsed_time_cry_26_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[26])
-);
-defparam \elapsed_time_11_cZ[26] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[25]  (
-	.I0(un2_elapsed_time_cry_25_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[25])
-);
-defparam \elapsed_time_11_cZ[25] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[24]  (
-	.I0(un2_elapsed_time_cry_24_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[24])
-);
-defparam \elapsed_time_11_cZ[24] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[23]  (
-	.I0(un2_elapsed_time_cry_23_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[23])
-);
-defparam \elapsed_time_11_cZ[23] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[22]  (
-	.I0(un2_elapsed_time_cry_22_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[22])
-);
-defparam \elapsed_time_11_cZ[22] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[21]  (
-	.I0(un2_elapsed_time_cry_21_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[21])
-);
-defparam \elapsed_time_11_cZ[21] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[20]  (
-	.I0(un2_elapsed_time_cry_20_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[20])
-);
-defparam \elapsed_time_11_cZ[20] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[19]  (
-	.I0(un2_elapsed_time_cry_19_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[19])
-);
-defparam \elapsed_time_11_cZ[19] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[18]  (
-	.I0(un2_elapsed_time_cry_18_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[18])
-);
-defparam \elapsed_time_11_cZ[18] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[17]  (
-	.I0(un2_elapsed_time_cry_17_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[17])
-);
-defparam \elapsed_time_11_cZ[17] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[16]  (
-	.I0(un2_elapsed_time_cry_16_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[16])
-);
-defparam \elapsed_time_11_cZ[16] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[15]  (
-	.I0(un2_elapsed_time_cry_15_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[15])
-);
-defparam \elapsed_time_11_cZ[15] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[14]  (
-	.I0(un2_elapsed_time_cry_14_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[14])
-);
-defparam \elapsed_time_11_cZ[14] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[13]  (
-	.I0(un2_elapsed_time_cry_13_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[13])
-);
-defparam \elapsed_time_11_cZ[13] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[12]  (
-	.I0(un2_elapsed_time_cry_12_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[12])
-);
-defparam \elapsed_time_11_cZ[12] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[11]  (
-	.I0(un2_elapsed_time_cry_11_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[11])
-);
-defparam \elapsed_time_11_cZ[11] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[10]  (
-	.I0(un2_elapsed_time_cry_10_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[10])
-);
-defparam \elapsed_time_11_cZ[10] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[9]  (
-	.I0(un2_elapsed_time_cry_9_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[9])
-);
-defparam \elapsed_time_11_cZ[9] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[8]  (
-	.I0(un2_elapsed_time_cry_8_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[8])
-);
-defparam \elapsed_time_11_cZ[8] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[7]  (
-	.I0(un2_elapsed_time_cry_7_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[7])
-);
-defparam \elapsed_time_11_cZ[7] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[6]  (
-	.I0(un2_elapsed_time_cry_6_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[6])
-);
-defparam \elapsed_time_11_cZ[6] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[5]  (
-	.I0(un2_elapsed_time_cry_5_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[5])
-);
-defparam \elapsed_time_11_cZ[5] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[4]  (
-	.I0(un2_elapsed_time_cry_4_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[4])
-);
-defparam \elapsed_time_11_cZ[4] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[3]  (
-	.I0(un2_elapsed_time_cry_3_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[3])
-);
-defparam \elapsed_time_11_cZ[3] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[2]  (
-	.I0(un2_elapsed_time_cry_2_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[2])
-);
-defparam \elapsed_time_11_cZ[2] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[1]  (
-	.I0(un2_elapsed_time_cry_1_0_SUM),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[1])
-);
-defparam \elapsed_time_11_cZ[1] .INIT=4'h2;
-// @6:236
-  LUT2 \elapsed_time_11_cZ[0]  (
-	.I0(elapsed_time_0),
-	.I1(elapsed_time_0_sqmuxa),
-	.F(elapsed_time_11[0])
-);
-defparam \elapsed_time_11_cZ[0] .INIT=4'h1;
-// @5:167
-  LUT3 \_shift_reg_tx_RNO[2]  (
-	.I0(debug_tx_buffer[2]),
-	.I1(_shift_reg_tx[3]),
-	.I2(_state[0]),
-	.F(N_27_i)
-);
-defparam \_shift_reg_tx_RNO[2] .INIT=8'hCA;
-// @5:167
-  LUT3 \_shift_reg_tx_RNO[3]  (
-	.I0(debug_tx_buffer[0]),
-	.I1(_shift_reg_tx[4]),
-	.I2(_state[0]),
-	.F(N_25_i_0)
-);
-defparam \_shift_reg_tx_RNO[3] .INIT=8'hCA;
-// @5:167
-  LUT3 \_shift_reg_tx_RNO[4]  (
-	.I0(_shift_reg_tx[5]),
-	.I1(_state[0]),
-	.I2(_tx_buffer[4]),
-	.F(N_23_i)
-);
-defparam \_shift_reg_tx_RNO[4] .INIT=8'hB8;
-// @5:167
-  LUT3 \_shift_reg_tx_RNO[5]  (
-	.I0(_shift_reg_tx[6]),
-	.I1(_state[0]),
-	.I2(_tx_buffer[5]),
-	.F(N_222_i)
-);
-defparam \_shift_reg_tx_RNO[5] .INIT=8'hB8;
-// @5:167
-  LUT3 \_shift_reg_tx_RNO[6]  (
-	.I0(_shift_reg_tx[7]),
-	.I1(_state[0]),
-	.I2(_tx_buffer[6]),
-	.F(N_19_i)
-);
-defparam \_shift_reg_tx_RNO[6] .INIT=8'hB8;
-// @5:167
+defparam debug25_NE.INIT=16'hFFE7;
+// @5:168
   LUT2 \_state_RNI2B121[0]  (
 	.I0(N_123_i),
 	.I1(_state[0]),
-	.F(N_235_i)
+	.F(N_226_i)
 );
 defparam \_state_RNI2B121[0] .INIT=4'hE;
-// @6:183
+// @6:138
+  LUT3 \un2_cnt_spi_6_am_cZ[3]  (
+	.I0(debug_rx_buffer[3]),
+	.I1(switches_c[2]),
+	.I2(tm1637_clk_c_i),
+	.F(un2_cnt_spi_6_am[3])
+);
+defparam \un2_cnt_spi_6_am_cZ[3] .INIT=8'h8B;
+// @6:138
+  LUT3 \un2_cnt_spi_6_bm_cZ[3]  (
+	.I0(clk_spi_i),
+	.I1(spi_debug[3]),
+	.I2(switches_c[1]),
+	.F(un2_cnt_spi_6_bm[3])
+);
+defparam \un2_cnt_spi_6_bm_cZ[3] .INIT=8'hCA;
+// @6:211
+  LUT4 \SUM_cZ[3]  (
+	.I0(cnt_spi[0]),
+	.I1(cnt_spi[1]),
+	.I2(cnt_spi[2]),
+	.I3(cnt_spi[3]),
+	.F(SUM[3])
+);
+defparam \SUM_cZ[3] .INIT=16'h7F80;
   LUT2 \_rx_buffer_occupied_RNI0OJF[0]  (
 	.I0(N_21),
 	.I1(internal_state_machine_0),
@@ -1179,69 +885,21 @@ defparam \_state_RNI2B121[0] .INIT=4'hE;
 );
 defparam \_rx_buffer_occupied_RNI0OJF[0] .INIT=4'hB;
 // @6:138
-  LUT3 \un2_cnt_spi_5_am_cZ[1]  (
-	.I0(debug_waiting_for_tx_data[0]),
-	.I1(switches_c[3]),
-	.I2(tx_error[0]),
-	.F(un2_cnt_spi_5_am[1])
-);
-defparam \un2_cnt_spi_5_am_cZ[1] .INIT=8'hB8;
-// @6:138
-  LUT3 \un2_cnt_spi_5_bm_cZ[1]  (
-	.I0(cnt_spi[1]),
-	.I1(debug_step_id_c[1]),
-	.I2(switches_c[3]),
-	.F(un2_cnt_spi_5_bm[1])
-);
-defparam \un2_cnt_spi_5_bm_cZ[1] .INIT=8'hAC;
-// @6:138
-  LUT3 \un2_cnt_spi_5_am_cZ[2]  (
-	.I0(debug_waiting_for_spi_0),
-	.I1(rx_completed[0]),
-	.I2(switches_c[3]),
-	.F(un2_cnt_spi_5_am[2])
-);
-defparam \un2_cnt_spi_5_am_cZ[2] .INIT=8'hAC;
-// @6:138
-  LUT3 \un2_cnt_spi_5_bm_cZ[2]  (
-	.I0(cnt_spi[2]),
-	.I1(debug_step_id_c[2]),
-	.I2(switches_c[3]),
-	.F(un2_cnt_spi_5_bm[2])
-);
-defparam \un2_cnt_spi_5_bm_cZ[2] .INIT=8'hAC;
-// @6:138
-  LUT3 \un2_cnt_spi_6_am_cZ[0]  (
-	.I0(debug_rx_buffer[0]),
-	.I1(switches_c[2]),
-	.I2(tm1637_dio_c),
-	.F(un2_cnt_spi_6_am[0])
-);
-defparam \un2_cnt_spi_6_am_cZ[0] .INIT=8'h8B;
-// @6:138
-  LUT3 \un2_cnt_spi_6_bm_cZ[0]  (
-	.I0(reset_spi_0),
-	.I1(spi_debug[0]),
+  LUT3 \un2_cnt_spi_7[2]  (
+	.I0(N_107),
+	.I1(switches_c[0]),
 	.I2(switches_c[1]),
-	.F(un2_cnt_spi_6_bm[0])
+	.F(N_120)
 );
-defparam \un2_cnt_spi_6_bm_cZ[0] .INIT=8'hC5;
+defparam \un2_cnt_spi_7[2] .INIT=8'h8B;
 // @6:138
-  LUT3 \un2_cnt_spi_6_am_cZ[1]  (
-	.I0(debug_rx_buffer[1]),
-	.I1(switches_c[2]),
-	.I2(tm1637_dio_c),
-	.F(un2_cnt_spi_6_am[1])
+  LUT3 \un2_cnt_spi_7[1]  (
+	.I0(N_106),
+	.I1(switches_c[0]),
+	.I2(switches_c[2]),
+	.F(N_119)
 );
-defparam \un2_cnt_spi_6_am_cZ[1] .INIT=8'hB8;
-// @6:138
-  LUT3 \un2_cnt_spi_6_bm_cZ[1]  (
-	.I0(reset_spi_0),
-	.I1(spi_debug[1]),
-	.I2(switches_c[1]),
-	.F(un2_cnt_spi_6_bm[1])
-);
-defparam \un2_cnt_spi_6_bm_cZ[1] .INIT=8'hCA;
+defparam \un2_cnt_spi_7[1] .INIT=8'h8B;
 // @6:138
   LUT3 \un2_cnt_spi_6_am_cZ[2]  (
 	.I0(debug_rx_buffer[2]),
@@ -1259,63 +917,69 @@ defparam \un2_cnt_spi_6_am_cZ[2] .INIT=8'hB8;
 );
 defparam \un2_cnt_spi_6_bm_cZ[2] .INIT=8'hC5;
 // @6:138
-  LUT3 \un2_cnt_spi_6_am_cZ[3]  (
-	.I0(debug_rx_buffer[3]),
+  LUT3 \un2_cnt_spi_6_am_cZ[1]  (
+	.I0(debug_rx_buffer[1]),
 	.I1(switches_c[2]),
-	.I2(tm1637_clk_c_i),
-	.F(un2_cnt_spi_6_am[3])
+	.I2(tm1637_dio_c),
+	.F(un2_cnt_spi_6_am[1])
 );
-defparam \un2_cnt_spi_6_am_cZ[3] .INIT=8'h8B;
+defparam \un2_cnt_spi_6_am_cZ[1] .INIT=8'hB8;
 // @6:138
-  LUT3 \un2_cnt_spi_6_bm_cZ[3]  (
-	.I0(clk_spi_i),
-	.I1(spi_debug[3]),
+  LUT3 \un2_cnt_spi_6_bm_cZ[1]  (
+	.I0(reset_spi_0),
+	.I1(spi_debug[1]),
 	.I2(switches_c[1]),
-	.F(un2_cnt_spi_6_bm[3])
+	.F(un2_cnt_spi_6_bm[1])
 );
-defparam \un2_cnt_spi_6_bm_cZ[3] .INIT=8'hCA;
+defparam \un2_cnt_spi_6_bm_cZ[1] .INIT=8'hCA;
 // @6:138
-  LUT3 \un2_cnt_spi_7[1]  (
-	.I0(N_106),
-	.I1(switches_c[0]),
-	.I2(switches_c[2]),
-	.F(N_119)
+  LUT3 \un2_cnt_spi_6_am_cZ[0]  (
+	.I0(debug_rx_buffer[0]),
+	.I1(switches_c[2]),
+	.I2(tm1637_dio_c),
+	.F(un2_cnt_spi_6_am[0])
 );
-defparam \un2_cnt_spi_7[1] .INIT=8'h8B;
+defparam \un2_cnt_spi_6_am_cZ[0] .INIT=8'h8B;
 // @6:138
-  LUT3 \un2_cnt_spi_7[2]  (
-	.I0(N_107),
-	.I1(switches_c[0]),
+  LUT3 \un2_cnt_spi_6_bm_cZ[0]  (
+	.I0(reset_spi_0),
+	.I1(spi_debug[0]),
 	.I2(switches_c[1]),
-	.F(N_120)
+	.F(un2_cnt_spi_6_bm[0])
 );
-defparam \un2_cnt_spi_7[2] .INIT=8'h8B;
-// @6:211
-  LUT4 \SUM_cZ[3]  (
-	.I0(cnt_spi[0]),
-	.I1(cnt_spi[1]),
-	.I2(cnt_spi[2]),
-	.I3(cnt_spi[3]),
-	.F(SUM[3])
+defparam \un2_cnt_spi_6_bm_cZ[0] .INIT=8'hC5;
+// @6:138
+  LUT3 \un2_cnt_spi_5_am_cZ[2]  (
+	.I0(debug_waiting_for_spi_0),
+	.I1(rx_completed[0]),
+	.I2(switches_c[3]),
+	.F(un2_cnt_spi_5_am[2])
 );
-defparam \SUM_cZ[3] .INIT=16'h7F80;
-// @5:282
-  LUT4 debug25_NE_1_cZ (
-	.I0(N_123_i),
-	.I1(_sck[2]),
-	.I2(_sck[3]),
-	.I3(_sck[4]),
-	.F(debug25_NE_1)
+defparam \un2_cnt_spi_5_am_cZ[2] .INIT=8'hAC;
+// @6:138
+  LUT3 \un2_cnt_spi_5_bm_cZ[2]  (
+	.I0(cnt_spi[2]),
+	.I1(debug_step_id_c[2]),
+	.I2(switches_c[3]),
+	.F(un2_cnt_spi_5_bm[2])
 );
-defparam debug25_NE_1_cZ.INIT=16'hF9FF;
-  LUT4 \_rx_buffer_occupied_RNI1NAI[0]  (
-	.I0(debug_waiting_for_step_time5),
-	.I1(internal_state_machine_0),
-	.I2(rx_completed[0]),
-	.I3(wait_spi_0),
-	.F(elapsed_time_0_sqmuxa)
+defparam \un2_cnt_spi_5_bm_cZ[2] .INIT=8'hAC;
+// @6:138
+  LUT3 \un2_cnt_spi_5_am_cZ[1]  (
+	.I0(debug_waiting_for_tx_data[0]),
+	.I1(switches_c[3]),
+	.I2(tx_error[0]),
+	.F(un2_cnt_spi_5_am[1])
 );
-defparam \_rx_buffer_occupied_RNI1NAI[0] .INIT=16'h1511;
+defparam \un2_cnt_spi_5_am_cZ[1] .INIT=8'hB8;
+// @6:138
+  LUT3 \un2_cnt_spi_5_bm_cZ[1]  (
+	.I0(cnt_spi[1]),
+	.I1(debug_step_id_c[1]),
+	.I2(switches_c[3]),
+	.F(un2_cnt_spi_5_bm[1])
+);
+defparam \un2_cnt_spi_5_bm_cZ[1] .INIT=8'hAC;
 // @6:138
   LUT4 un2_cnt_spi_sn_m6 (
 	.I0(switches_c[0]),
@@ -1325,6 +989,20 @@ defparam \_rx_buffer_occupied_RNI1NAI[0] .INIT=16'h1511;
 	.F(un2_cnt_spi_sn_N_7)
 );
 defparam un2_cnt_spi_sn_m6.INIT=16'h0A22;
+// @5:199
+  LUT2 _diomode_1_sqmuxa_cZ (
+	.I0(N_123_i),
+	.I1(_state[0]),
+	.F(_diomode_1_sqmuxa)
+);
+defparam _diomode_1_sqmuxa_cZ.INIT=4'h2;
+// @5:87
+  LUT2 _prescaler_buffer_1_sqmuxa_cZ (
+	.I0(reset_spi_0),
+	.I1(N_123_i),
+	.F(_prescaler_buffer_1_sqmuxa)
+);
+defparam _prescaler_buffer_1_sqmuxa_cZ.INIT=4'h1;
 // @6:211
   LUT3 \SUM_cZ[2]  (
 	.I0(cnt_spi[0]),
@@ -1333,47 +1011,72 @@ defparam un2_cnt_spi_sn_m6.INIT=16'h0A22;
 	.F(SUM[2])
 );
 defparam \SUM_cZ[2] .INIT=8'h78;
-// @5:198
-  LUT2 _diomode_1_sqmuxa_cZ (
-	.I0(N_123_i),
-	.I1(_state[0]),
-	.F(_diomode_1_sqmuxa)
-);
-defparam _diomode_1_sqmuxa_cZ.INIT=4'h2;
 // @6:93
-  LUT4 \_prescaler_cnt_RNI3QP01[1]  (
-	.I0(_prescaler_cnt[1]),
-	.I1(_prescaler_cnt[2]),
-	.I2(_prescaler_cnt[3]),
-	.I3(_prescaler_cnt[5]),
+  LUT4 \_prescaler_cnt_RNIUKP01[0]  (
+	.I0(_prescaler_cnt[0]),
+	.I1(_prescaler_cnt[1]),
+	.I2(_prescaler_cnt[2]),
+	.I3(_prescaler_cnt[3]),
 	.F(un2_tx_completed_1_54_a3_0_a2_4)
 );
-defparam \_prescaler_cnt_RNI3QP01[1] .INIT=16'h0001;
+defparam \_prescaler_cnt_RNIUKP01[0] .INIT=16'h0002;
 // @6:93
-  LUT4 \_prescaler_cnt_RNI90Q01[0]  (
-	.I0(_prescaler_cnt[0]),
-	.I1(_prescaler_cnt[4]),
+  LUT4 \_prescaler_cnt_RNIE5Q01[4]  (
+	.I0(_prescaler_cnt[4]),
+	.I1(_prescaler_cnt[5]),
 	.I2(_prescaler_cnt[6]),
 	.I3(_prescaler_cnt[7]),
 	.F(un2_tx_completed_1_54_a3_0_a2_5)
 );
-defparam \_prescaler_cnt_RNI90Q01[0] .INIT=16'h0002;
-// @6:138
-  LUT3 \un2_cnt_spi_0[0]  (
-	.I0(cnt_spi[0]),
-	.I1(switches_c[3]),
-	.I2(un1_step_id_1),
-	.F(N_69)
+defparam \_prescaler_cnt_RNIE5Q01[4] .INIT=16'h0001;
+// @5:199
+  LUT3 \_mosi_16_m0_cZ[0]  (
+	.I0(_shift_reg_tx[0]),
+	.I1(_shift_reg_tx[7]),
+	.I2(_state[0]),
+	.F(_mosi_16_m0[0])
 );
-defparam \un2_cnt_spi_0[0] .INIT=8'hB8;
+defparam \_mosi_16_m0_cZ[0] .INIT=8'hAC;
+// @5:199
+  LUT3 \_shift_reg_tx_9_i_m2[6]  (
+	.I0(_shift_reg_tx[7]),
+	.I1(_state[0]),
+	.I2(_tx_buffer[6]),
+	.F(N_84)
+);
+defparam \_shift_reg_tx_9_i_m2[6] .INIT=8'hB8;
+// @5:199
+  LUT3 \_shift_reg_tx_9_i_m2[4]  (
+	.I0(_shift_reg_tx[5]),
+	.I1(_state[0]),
+	.I2(_tx_buffer[4]),
+	.F(N_83)
+);
+defparam \_shift_reg_tx_9_i_m2[4] .INIT=8'hB8;
+// @5:199
+  LUT3 \_shift_reg_tx_9_i_m2[2]  (
+	.I0(debug_tx_buffer[2]),
+	.I1(_shift_reg_tx[3]),
+	.I2(_state[0]),
+	.F(N_82)
+);
+defparam \_shift_reg_tx_9_i_m2[2] .INIT=8'hCA;
+// @5:199
+  LUT3 \_shift_reg_tx_9_cZ[3]  (
+	.I0(debug_tx_buffer[0]),
+	.I1(_shift_reg_tx[4]),
+	.I2(_state[0]),
+	.F(_shift_reg_tx_9[3])
+);
+defparam \_shift_reg_tx_9_cZ[3] .INIT=8'hCA;
 // @6:138
-  LUT3 \un2_cnt_spi_4[1]  (
-	.I0(debug_tx_buffer[1]),
-	.I1(spi_debug_bit_num[1]),
+  LUT3 \un2_cnt_spi_4[3]  (
+	.I0(debug_tx_buffer[0]),
+	.I1(spi_debug_bit_num[3]),
 	.I2(switches_c[3]),
-	.F(N_106)
+	.F(N_108)
 );
-defparam \un2_cnt_spi_4[1] .INIT=8'hAC;
+defparam \un2_cnt_spi_4[3] .INIT=8'hAC;
 // @6:138
   LUT3 \un2_cnt_spi_4[2]  (
 	.I0(debug_tx_buffer[2]),
@@ -1383,14 +1086,22 @@ defparam \un2_cnt_spi_4[1] .INIT=8'hAC;
 );
 defparam \un2_cnt_spi_4[2] .INIT=8'hAC;
 // @6:138
-  LUT3 \un2_cnt_spi_4[3]  (
-	.I0(debug_tx_buffer[0]),
-	.I1(spi_debug_bit_num[3]),
+  LUT3 \un2_cnt_spi_4[1]  (
+	.I0(debug_tx_buffer[1]),
+	.I1(spi_debug_bit_num[1]),
 	.I2(switches_c[3]),
-	.F(N_108)
+	.F(N_106)
 );
-defparam \un2_cnt_spi_4[3] .INIT=8'hAC;
-// @5:198
+defparam \un2_cnt_spi_4[1] .INIT=8'hAC;
+// @6:138
+  LUT3 \un2_cnt_spi_0[0]  (
+	.I0(cnt_spi[0]),
+	.I1(switches_c[3]),
+	.I2(un1_step_id_1),
+	.F(N_69)
+);
+defparam \un2_cnt_spi_0[0] .INIT=8'hB8;
+// @5:199
   LUT3 \_shift_reg_tx_9_cZ[1]  (
 	.I0(debug_tx_buffer[1]),
 	.I1(_shift_reg_tx[2]),
@@ -1398,7 +1109,7 @@ defparam \un2_cnt_spi_4[3] .INIT=8'hAC;
 	.F(_shift_reg_tx_9[1])
 );
 defparam \_shift_reg_tx_9_cZ[1] .INIT=8'hCA;
-// @5:198
+// @5:199
   LUT3 \_shift_reg_tx_9_cZ[0]  (
 	.I0(debug_tx_buffer[0]),
 	.I1(_shift_reg_tx[1]),
@@ -1406,26 +1117,14 @@ defparam \_shift_reg_tx_9_cZ[1] .INIT=8'hCA;
 	.F(_shift_reg_tx_9[0])
 );
 defparam \_shift_reg_tx_9_cZ[0] .INIT=8'hCA;
-// @6:150
-  LUT2 un2_cnt_spi_sn_m4 (
-	.I0(switches_c[1]),
-	.I1(switches_c[2]),
-	.F(un2_cnt_spi_sn_N_5)
+// @5:199
+  LUT3 \_shift_reg_tx_9_i_m2[5]  (
+	.I0(_shift_reg_tx[6]),
+	.I1(_state[0]),
+	.I2(_tx_buffer[5]),
+	.F(N_80)
 );
-defparam un2_cnt_spi_sn_m4.INIT=4'h8;
-// @6:211
-  LUT2 \SUM_cZ[1]  (
-	.I0(cnt_spi[0]),
-	.I1(cnt_spi[1]),
-	.F(SUM[1])
-);
-defparam \SUM_cZ[1] .INIT=4'h6;
-  LUT2 \_rx_buffer_occupied_RNI7I5E[0]  (
-	.I0(rx_completed[0]),
-	.I1(wait_spi_0),
-	.F(N_21)
-);
-defparam \_rx_buffer_occupied_RNI7I5E[0] .INIT=4'h4;
+defparam \_shift_reg_tx_9_i_m2[5] .INIT=8'hB8;
 // @6:93
   LUT2 \_tx_buffer_occupied_RNIGB6Q[0]  (
 	.I0(_tx_buffer_occupied[0]),
@@ -1433,26 +1132,53 @@ defparam \_rx_buffer_occupied_RNI7I5E[0] .INIT=4'h4;
 	.F(N_123_i)
 );
 defparam \_tx_buffer_occupied_RNIGB6Q[0] .INIT=4'h6;
-// @5:198
-  LUT2 \_shift_reg_tx_9_1_a2[7]  (
-	.I0(_state[0]),
-	.I1(_tx_buffer[7]),
-	.F(N_83)
+  LUT2 \_rx_buffer_occupied_RNI7I5E[0]  (
+	.I0(rx_completed[0]),
+	.I1(wait_spi_0),
+	.F(N_21)
 );
-defparam \_shift_reg_tx_9_1_a2[7] .INIT=4'h4;
+defparam \_rx_buffer_occupied_RNI7I5E[0] .INIT=4'h4;
+// @6:211
+  LUT2 \SUM_cZ[1]  (
+	.I0(cnt_spi[0]),
+	.I1(cnt_spi[1]),
+	.F(SUM[1])
+);
+defparam \SUM_cZ[1] .INIT=4'h6;
+// @6:150
+  LUT2 un2_cnt_spi_sn_m4 (
+	.I0(switches_c[1]),
+	.I1(switches_c[2]),
+	.F(un2_cnt_spi_sn_N_5)
+);
+defparam un2_cnt_spi_sn_m4.INIT=4'h8;
+// @5:283
+  LUT2 debug25_NE_0_cZ (
+	.I0(_sck[3]),
+	.I1(_sck[4]),
+	.F(debug25_NE_0)
+);
+defparam debug25_NE_0_cZ.INIT=4'hB;
   LUT2 m5_s (
 	.I0(debug_waiting_for_step_time5),
 	.I1(internal_state_machine_0),
 	.F(m5_out)
 );
 defparam m5_s.INIT=4'h4;
+// @5:199
+  LUT2 \_shift_reg_tx_9_cZ[7]  (
+	.I0(_state[0]),
+	.I1(_tx_buffer[7]),
+	.F(_shift_reg_tx_9[7])
+);
+defparam \_shift_reg_tx_9_cZ[7] .INIT=4'h4;
 // @6:183
   LUT4 elapsed_time_0_sqmuxa_i (
 	.I0(debug_waiting_for_step_time5),
 	.I1(internal_state_machine_0),
 	.I2(rx_completed[0]),
 	.I3(wait_spi_0),
-	.F(N_20_i)
+	.F(elapsed_time_0_sqmuxa_i_1z)
 );
 defparam elapsed_time_0_sqmuxa_i.INIT=16'hEAEE;
 // @6:138
@@ -1473,51 +1199,31 @@ defparam \un2_cnt_spi_8[1] .INIT=16'hACCC;
 	.F(N_126)
 );
 defparam \un2_cnt_spi_8[2] .INIT=16'hACCC;
-// @5:261
-  LUT4 _rx_buffer_1_sqmuxa_1_0_i_o2_0_cZ (
-	.I0(_sck[1]),
-	.I1(_tx_buffer_occupied[0]),
-	.I2(_tx_buffer_sent[0]),
-	.I3(tm1637_clk_c_i),
-	.F(_rx_buffer_1_sqmuxa_1_0_i_o2_0)
-);
-defparam _rx_buffer_1_sqmuxa_1_0_i_o2_0_cZ.INIT=16'hFF96;
-// @5:258
-  LUT4 un1__sck_ac0 (
+// @5:249
+  LUT4 debug_bit_num_1_sqmuxa_1_0_a2 (
 	.I0(_state[0]),
 	.I1(un2_tx_completed_1_54_a3_0_a2_4),
 	.I2(un2_tx_completed_1_54_a3_0_a2_5),
 	.I3(tm1637_clk_c_i),
-	.F(N_104)
+	.F(debug_bit_num_1_sqmuxa_1)
 );
-defparam un1__sck_ac0.INIT=16'h8000;
-// @5:248
-  LUT4 _rx_buffer_occupied_1_sqmuxa_0_a2 (
+defparam debug_bit_num_1_sqmuxa_1_0_a2.INIT=16'h0080;
+// @5:249
+  LUT3 _rx_buffer_occupied_1_sqmuxa_0_a2 (
 	.I0(rx_completed[0]),
-	.I1(_prescaler_cnt_1_sqmuxa),
-	.I2(_rx_buffer_1_sqmuxa_1_0_i_o2_0),
-	.I3(debug25_NE_1),
+	.I1(debug26),
+	.I2(debug_bit_num_1_sqmuxa_1),
 	.F(_rx_buffer_occupied_1_sqmuxa)
 );
-defparam _rx_buffer_occupied_1_sqmuxa_0_a2.INIT=16'h0004;
+defparam _rx_buffer_occupied_1_sqmuxa_0_a2.INIT=8'h10;
 // @6:183
-  LUT4 \un2_tx_completed_4_i_0[0]  (
+  LUT3 \un2_tx_completed_4_i_0[0]  (
 	.I0(_diomode_1_sqmuxa),
-	.I1(_prescaler_cnt_1_sqmuxa),
-	.I2(_rx_buffer_1_sqmuxa_1_0_i_o2_0),
-	.I3(debug25_NE_1),
-	.F(N_52)
+	.I1(debug26),
+	.I2(debug_bit_num_1_sqmuxa_1),
+	.F(N_50)
 );
-defparam \un2_tx_completed_4_i_0[0] .INIT=16'hAAAE;
-// @5:258
-  LUT4 un1__sck_axbxc3_cZ (
-	.I0(N_104),
-	.I1(_sck[1]),
-	.I2(_sck[2]),
-	.I3(_sck[3]),
-	.F(un1__sck_axbxc3)
-);
-defparam un1__sck_axbxc3_cZ.INIT=16'h7F80;
+defparam \un2_tx_completed_4_i_0[0] .INIT=8'hBA;
   LUT2 \_prescaler_cnt_cry_0_RNO_cZ[0]  (
 	.I0(N_137_i),
 	.I1(_prescaler_cnt[0]),
@@ -1560,113 +1266,113 @@ defparam \_prescaler_cnt_cry_0_RNO_cZ[5] .INIT=4'h8;
 	.F(_prescaler_cnt_cry_0_RNO[6])
 );
 defparam \_prescaler_cnt_cry_0_RNO_cZ[6] .INIT=4'h8;
-// @5:167
+// @5:168
   LUT2 \_prescaler_cnt_qxu_cZ[7]  (
 	.I0(N_137_i),
 	.I1(_prescaler_cnt[7]),
 	.F(_prescaler_cnt_qxu[7])
 );
 defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[7]  (
 	.Q(_prescaler_cnt[7]),
 	.D(_prescaler_cnt_s[7]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[6]  (
 	.Q(_prescaler_cnt[6]),
 	.D(_prescaler_cnt_s[6]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[5]  (
 	.Q(_prescaler_cnt[5]),
 	.D(_prescaler_cnt_s[5]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[4]  (
 	.Q(_prescaler_cnt[4]),
 	.D(_prescaler_cnt_s[4]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[3]  (
 	.Q(_prescaler_cnt[3]),
 	.D(_prescaler_cnt_s[3]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[2]  (
 	.Q(_prescaler_cnt[2]),
 	.D(_prescaler_cnt_s[2]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[1]  (
 	.Q(_prescaler_cnt[1]),
 	.D(_prescaler_cnt_s[1]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFCE \_prescaler_cnt_Z[0]  (
 	.Q(_prescaler_cnt[0]),
 	.D(_prescaler_cnt_s[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_235_i)
+	.CE(N_226_i)
 );
-// @5:167
+// @5:168
   DFFC \_sck_Z[4]  (
 	.Q(_sck[4]),
 	.D(_sck_6[4]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0)
 );
-// @5:167
+// @5:168
   DFFC \_sck_Z[3]  (
 	.Q(_sck[3]),
 	.D(un1__sck_axbxc3),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0)
 );
-// @5:167
+// @5:168
   DFFC \_sck_Z[2]  (
 	.Q(_sck[2]),
 	.D(_sck_6[2]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0)
 );
-// @5:167
+// @5:168
   DFFC \_sck_Z[1]  (
 	.Q(_sck[1]),
 	.D(_sck_6[1]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0)
 );
-// @5:167
+// @5:168
   DFFC \_sck_Z[0]  (
 	.Q(tm1637_clk_c_i),
 	.D(_sck_6[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0)
 );
-// @5:73
+// @5:74
   DFFCE tx_error_Z (
 	.Q(tx_error[0]),
 	.D(VCC),
@@ -1674,56 +1380,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(N_123_i)
 );
-// @5:63
-  DFFE \_tx_buffer_Z[7]  (
-	.Q(_tx_buffer[7]),
-	.D(tx_data[7]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:63
-  DFFE \_tx_buffer_Z[6]  (
-	.Q(_tx_buffer[6]),
-	.D(tx_data[6]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:63
-  DFFE \_tx_buffer_Z[5]  (
-	.Q(_tx_buffer[5]),
-	.D(tx_data[5]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:63
-  DFFE \_tx_buffer_Z[4]  (
-	.Q(_tx_buffer[4]),
-	.D(tx_data[4]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:63
-  DFFE \_tx_buffer_Z[2]  (
-	.Q(debug_tx_buffer[2]),
-	.D(tx_data[2]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:63
-  DFFE \_tx_buffer_Z[1]  (
-	.Q(debug_tx_buffer[1]),
-	.D(tx_data[1]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:63
-  DFFE \_tx_buffer_Z[0]  (
-	.Q(debug_tx_buffer[0]),
-	.D(tx_data[0]),
-	.CLK(wr_spi_0),
-	.CE(N_123_i_i)
-);
-// @5:167
+// @5:168
   DFFCE debug_waiting_for_tx_data_Z (
 	.Q(debug_waiting_for_tx_data[0]),
 	.D(N_123_i_i),
@@ -1731,7 +1388,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_state_i[0])
 );
-// @5:167
+// @5:168
   DFFCE \_tx_buffer_sent_Z[0]  (
 	.Q(_tx_buffer_sent[0]),
 	.D(VCC),
@@ -1739,7 +1396,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_diomode_1_sqmuxa)
 );
-// @5:73
+// @5:74
   DFFCE \_tx_buffer_occupied_Z[0]  (
 	.Q(_tx_buffer_occupied[0]),
 	.D(VCC),
@@ -1747,7 +1404,56 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(N_123_i_i)
 );
-// @5:167
+// @5:74
+  DFFE \_tx_buffer_Z[7]  (
+	.Q(_tx_buffer[7]),
+	.D(tx_data[7]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:74
+  DFFE \_tx_buffer_Z[6]  (
+	.Q(_tx_buffer[6]),
+	.D(tx_data[6]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:74
+  DFFE \_tx_buffer_Z[5]  (
+	.Q(_tx_buffer[5]),
+	.D(tx_data[5]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:74
+  DFFE \_tx_buffer_Z[4]  (
+	.Q(_tx_buffer[4]),
+	.D(tx_data[4]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:74
+  DFFE \_tx_buffer_Z[2]  (
+	.Q(debug_tx_buffer[2]),
+	.D(tx_data[2]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:74
+  DFFE \_tx_buffer_Z[1]  (
+	.Q(debug_tx_buffer[1]),
+	.D(tx_data[1]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:74
+  DFFE \_tx_buffer_Z[0]  (
+	.Q(debug_tx_buffer[0]),
+	.D(tx_data[0]),
+	.CLK(wr_spi_0),
+	.CE(_prescaler_buffer_1_sqmuxa)
+);
+// @5:168
   DFFCE debug_waiting_for_prescaler_Z (
 	.Q(debug_waiting_for_prescaler[0]),
 	.D(un1__prescdemux_NE_i_0_i),
@@ -1755,7 +1461,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_state[0])
 );
-// @5:167
+// @5:168
   DFFCE \_rx_buffer_occupied_Z[0]  (
 	.Q(rx_completed[0]),
 	.D(VCC),
@@ -1763,7 +1469,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_rx_buffer_occupied_1_sqmuxa)
 );
-// @5:167
+// @5:168
   DFFCE \debug_bit_num_Z[3]  (
 	.Q(spi_debug_bit_num[3]),
 	.D(_sck[4]),
@@ -1771,7 +1477,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(debug_bit_num_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \debug_bit_num_Z[2]  (
 	.Q(spi_debug_bit_num[2]),
 	.D(_sck[3]),
@@ -1779,7 +1485,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(debug_bit_num_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \debug_bit_num_Z[1]  (
 	.Q(spi_debug_bit_num[1]),
 	.D(_sck[2]),
@@ -1787,7 +1493,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(debug_bit_num_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \debug_bit_num_Z[0]  (
 	.Q(spi_debug_bit_num[0]),
 	.D(_sck[1]),
@@ -1795,7 +1501,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(debug_bit_num_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \_rx_buffer_Z[3]  (
 	.Q(debug_rx_buffer[3]),
 	.D(_shift_reg_rx[3]),
@@ -1803,7 +1509,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_rx_buffer_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \_rx_buffer_Z[2]  (
 	.Q(debug_rx_buffer[2]),
 	.D(_shift_reg_rx[2]),
@@ -1811,7 +1517,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_rx_buffer_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \_rx_buffer_Z[1]  (
 	.Q(debug_rx_buffer[1]),
 	.D(_shift_reg_rx[1]),
@@ -1819,7 +1525,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_rx_buffer_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \_rx_buffer_Z[0]  (
 	.Q(debug_rx_buffer[0]),
 	.D(_shift_reg_rx[0]),
@@ -1827,127 +1533,127 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(_rx_buffer_1_sqmuxa_1)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_rx_Z[3]  (
 	.Q(_shift_reg_rx[3]),
 	.D(_shift_reg_rx[2]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_104)
+	.CE(N_95)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_rx_Z[2]  (
 	.Q(_shift_reg_rx[2]),
 	.D(_shift_reg_rx[1]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_104)
+	.CE(N_95)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_rx_Z[1]  (
 	.Q(_shift_reg_rx[1]),
 	.D(_shift_reg_rx[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_104)
+	.CE(N_95)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_rx_Z[0]  (
 	.Q(_shift_reg_rx[0]),
 	.D(VCC),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_104)
+	.CE(N_95)
 );
-// @5:167
+// @5:168
   DFFCE \_state_Z[0]  (
 	.Q(_state[0]),
 	.D(_state_i[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_52)
+	.CE(N_50)
 );
-// @5:167
+// @5:168
   DFFPE \_mosi_Z[0]  (
 	.Q(tm1637_dio_c),
 	.D(_mosi_16[0]),
 	.CLK(clk_spi),
 	.PRESET(reset_spi_0),
-	.CE(N_54)
+	.CE(N_52)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_tx_Z[7]  (
 	.Q(_shift_reg_tx[7]),
+	.D(_shift_reg_tx_9[7]),
+	.CLK(clk_spi),
+	.CLEAR(reset_spi_0),
+	.CE(N_48)
+);
+// @5:168
+  DFFCE \_shift_reg_tx_Z[6]  (
+	.Q(_shift_reg_tx[6]),
+	.D(N_84),
+	.CLK(clk_spi),
+	.CLEAR(reset_spi_0),
+	.CE(N_48)
+);
+// @5:168
+  DFFCE \_shift_reg_tx_Z[5]  (
+	.Q(_shift_reg_tx[5]),
+	.D(N_80),
+	.CLK(clk_spi),
+	.CLEAR(reset_spi_0),
+	.CE(N_48)
+);
+// @5:168
+  DFFCE \_shift_reg_tx_Z[4]  (
+	.Q(_shift_reg_tx[4]),
 	.D(N_83),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_50)
+	.CE(N_48)
 );
-// @5:167
-  DFFCE \_shift_reg_tx_Z[6]  (
-	.Q(_shift_reg_tx[6]),
-	.D(N_19_i),
-	.CLK(clk_spi),
-	.CLEAR(reset_spi_0),
-	.CE(N_50)
-);
-// @5:167
-  DFFCE \_shift_reg_tx_Z[5]  (
-	.Q(_shift_reg_tx[5]),
-	.D(N_222_i),
-	.CLK(clk_spi),
-	.CLEAR(reset_spi_0),
-	.CE(N_50)
-);
-// @5:167
-  DFFCE \_shift_reg_tx_Z[4]  (
-	.Q(_shift_reg_tx[4]),
-	.D(N_23_i),
-	.CLK(clk_spi),
-	.CLEAR(reset_spi_0),
-	.CE(N_50)
-);
-// @5:167
+// @5:168
   DFFCE \_shift_reg_tx_Z[3]  (
 	.Q(_shift_reg_tx[3]),
-	.D(N_25_i_0),
+	.D(_shift_reg_tx_9[3]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_50)
+	.CE(N_48)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_tx_Z[2]  (
 	.Q(_shift_reg_tx[2]),
-	.D(N_27_i),
+	.D(N_82),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_50)
+	.CE(N_48)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_tx_Z[1]  (
 	.Q(_shift_reg_tx[1]),
 	.D(_shift_reg_tx_9[1]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_50)
+	.CE(N_48)
 );
-// @5:167
+// @5:168
   DFFCE \_shift_reg_tx_Z[0]  (
 	.Q(_shift_reg_tx[0]),
 	.D(_shift_reg_tx_9[0]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
-	.CE(N_50)
+	.CE(N_48)
 );
-// @5:167
+// @5:168
   DFFCE \debug_Z[3]  (
 	.Q(spi_debug[3]),
-	.D(N_135),
+	.D(debug_RNO[3]),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
 	.CE(un2_tx_completed_1_0[0])
 );
-// @5:167
+// @5:168
   DFFCE \debug_Z[2]  (
 	.Q(spi_debug[2]),
 	.D(N_25_i),
@@ -1955,15 +1661,15 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.CLEAR(reset_spi_0),
 	.CE(un2_tx_completed_1_0[0])
 );
-// @5:167
+// @5:168
   DFFCE \debug_Z[1]  (
 	.Q(spi_debug[1]),
-	.D(N_16),
+	.D(N_18),
 	.CLK(clk_spi),
 	.CLEAR(reset_spi_0),
 	.CE(un2_tx_completed_1_0[0])
 );
-// @5:167
+// @5:168
   DFFPE \debug_Z[0]  (
 	.Q(spi_debug[0]),
 	.D(N_29_i),
@@ -1971,7 +1677,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.PRESET(reset_spi_0),
 	.CE(un2_tx_completed_1_0[0])
 );
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_s_0[7]  (
 	.CIN(_prescaler_cnt_cry[6]),
 	.I0(_prescaler_cnt_qxu[7]),
@@ -1981,7 +1687,7 @@ defparam \_prescaler_cnt_qxu_cZ[7] .INIT=4'h8;
 	.SUM(_prescaler_cnt_s[7])
 );
 defparam \_prescaler_cnt_s_0[7] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[6]  (
 	.CIN(_prescaler_cnt_cry[5]),
 	.I0(_prescaler_cnt_cry_0_RNO[6]),
@@ -1991,7 +1697,7 @@ defparam \_prescaler_cnt_s_0[7] .ALU_MODE=0;
 	.SUM(_prescaler_cnt_s[6])
 );
 defparam \_prescaler_cnt_cry_0[6] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[5]  (
 	.CIN(_prescaler_cnt_cry[4]),
 	.I0(_prescaler_cnt_cry_0_RNO[5]),
@@ -2001,7 +1707,7 @@ defparam \_prescaler_cnt_cry_0[6] .ALU_MODE=0;
 	.SUM(_prescaler_cnt_s[5])
 );
 defparam \_prescaler_cnt_cry_0[5] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[4]  (
 	.CIN(_prescaler_cnt_cry[3]),
 	.I0(_prescaler_cnt_cry_0_RNO[4]),
@@ -2011,7 +1717,7 @@ defparam \_prescaler_cnt_cry_0[5] .ALU_MODE=0;
 	.SUM(_prescaler_cnt_s[4])
 );
 defparam \_prescaler_cnt_cry_0[4] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[3]  (
 	.CIN(_prescaler_cnt_cry[2]),
 	.I0(_prescaler_cnt_cry_0_RNO[3]),
@@ -2021,7 +1727,7 @@ defparam \_prescaler_cnt_cry_0[4] .ALU_MODE=0;
 	.SUM(_prescaler_cnt_s[3])
 );
 defparam \_prescaler_cnt_cry_0[3] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[2]  (
 	.CIN(_prescaler_cnt_cry[1]),
 	.I0(_prescaler_cnt_cry_0_RNO[2]),
@@ -2031,7 +1737,7 @@ defparam \_prescaler_cnt_cry_0[3] .ALU_MODE=0;
 	.SUM(_prescaler_cnt_s[2])
 );
 defparam \_prescaler_cnt_cry_0[2] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[1]  (
 	.CIN(_prescaler_cnt_cry[0]),
 	.I0(_prescaler_cnt_cry_0_RNO[1]),
@@ -2041,7 +1747,7 @@ defparam \_prescaler_cnt_cry_0[2] .ALU_MODE=0;
 	.SUM(_prescaler_cnt_s[1])
 );
 defparam \_prescaler_cnt_cry_0[1] .ALU_MODE=0;
-// @5:167
+// @5:168
   ALU \_prescaler_cnt_cry_0[0]  (
 	.CIN(N_137_i),
 	.I0(_prescaler_cnt_cry_0_RNO[0]),
@@ -2104,7 +1810,6 @@ wire [3:1] SUM;
 wire [3:0] switches_c;
 wire [3:0] led_c;
 wire [6:1] debug_step_id_c;
-wire [27:0] elapsed_time_11;
 wire [0:0] cnt_spi_i;
 wire [43:0] encoded_step;
 wire VCC ;
@@ -2118,7 +1823,9 @@ wire un1_step_id_1_s_6_0_SUM ;
 wire GND ;
 wire clk_spi ;
 wire debug_waiting_for_step_time5 ;
+wire un1_cntlt24 ;
 wire un1_cntlt15 ;
+wire un1_cntlt14 ;
 wire debug_waiting_for_step_time5_cry_1 ;
 wire debug_waiting_for_step_time5_cry_2 ;
 wire debug_waiting_for_step_time5_cry_3 ;
@@ -2200,6 +1907,7 @@ wire un3_cnt_cry_20 ;
 wire un3_cnt_cry_21 ;
 wire un3_cnt_cry_22 ;
 wire un3_cnt_cry_23 ;
+wire un2_elapsed_time_s_0 ;
 wire un2_elapsed_time_cry_1_0_SUM ;
 wire un2_elapsed_time_cry_2_0_SUM ;
 wire un2_elapsed_time_cry_3_0_SUM ;
@@ -2261,74 +1969,70 @@ wire un1_step_id_1_cry_3 ;
 wire un1_step_id_1_cry_4 ;
 wire un1_step_id_1_cry_5 ;
 wire un1_cntlto14_2 ;
-wire un1_cntlto22_3 ;
-wire un1_cntlto24_d_4 ;
+wire un1_cntlto24_d ;
 wire un1_cntlto17_c ;
 wire un1_cntlto17_d_out ;
 wire \spi0.m5_out  ;
-wire un1_cntlto17_d_d ;
-wire un1_cntlto24_c_9 ;
 wire debug_waiting_for_step_time5_i ;
-wire clk_spi_i_i ;
 wire rst_n_c_i ;
-wire N_20_i ;
-wire debug_waiting_for_step_time5_axb_0_i ;
-wire un1_cnt_i ;
 wire N_21_mux_i ;
-wire N_929 ;
-wire N_930 ;
-wire N_931 ;
-wire N_932 ;
-wire N_933 ;
-wire N_934 ;
-wire N_935 ;
-wire N_936 ;
-wire N_937 ;
-wire N_938 ;
-wire N_939 ;
-wire N_940 ;
-wire N_941 ;
-wire N_942 ;
-wire N_943 ;
-wire N_944 ;
-wire N_945 ;
-wire N_946 ;
-wire N_947 ;
-wire N_948 ;
-wire N_949 ;
-wire N_950 ;
-wire N_951 ;
-wire N_952 ;
-wire N_953 ;
-wire N_954 ;
-wire N_955 ;
-wire N_956 ;
-wire N_957 ;
-wire N_958 ;
-wire N_959 ;
-wire N_960 ;
-wire N_961 ;
-wire N_962 ;
-wire N_963 ;
-wire N_964 ;
-wire N_965 ;
-wire N_966 ;
-wire N_967 ;
-wire N_968 ;
-wire un1_cntlto5_2 ;
-wire un1_cntlto5_3 ;
-wire un1_cntlto22_3_1 ;
-wire un1_cntlto17_0_c_0 ;
-wire un1_cntlto10_1 ;
-wire un1_cntlto10_3 ;
-wire un1_cntlto24_d_4_0 ;
-wire un1_cntlto24_d_0 ;
-wire un1_cntlto24_0_0 ;
+wire elapsed_time_0_sqmuxa_i ;
+wire debug_waiting_for_step_time5_axb_0_i ;
+wire clk_spi_ldmx ;
+wire un1_cntlt24_i ;
+wire N_573 ;
+wire N_574 ;
+wire N_575 ;
+wire N_576 ;
+wire N_577 ;
+wire N_578 ;
+wire N_579 ;
+wire N_580 ;
+wire N_581 ;
+wire N_582 ;
+wire N_583 ;
+wire N_584 ;
+wire N_585 ;
+wire N_586 ;
+wire N_587 ;
+wire N_588 ;
+wire N_589 ;
+wire N_590 ;
+wire N_591 ;
+wire N_592 ;
+wire N_593 ;
+wire N_594 ;
+wire N_595 ;
+wire N_596 ;
+wire N_597 ;
+wire N_598 ;
+wire N_599 ;
+wire N_600 ;
+wire N_601 ;
+wire N_602 ;
+wire N_603 ;
+wire N_604 ;
+wire N_605 ;
+wire N_606 ;
+wire N_607 ;
+wire N_608 ;
+wire N_609 ;
+wire N_610 ;
+wire N_611 ;
+wire N_612 ;
+wire un1_cntlto22_4_3 ;
+wire un1_cntlto24_d_0_0 ;
 wire un1_cntlto24_4_0 ;
-wire un1_cntlto24_3_0 ;
-wire un1_cntlto24_2_0 ;
 wire un1_cntlto24_1_0 ;
-wire un1_cnt_i_1 ;
+wire un1_cntlto24_3_0 ;
+wire un1_cntlto24_8_0 ;
+wire un1_cntlto24_5_0 ;
+wire un1_cntlto24_6_0 ;
+wire un1_cntlto24_7_0 ;
+wire un1_cntlto17_0_0_1 ;
+wire un1_cntlto10_N_2L1 ;
+wire un1_cntlto10_N_3L3 ;
+wire un1_cntlto10_N_4L5 ;
 wire un1_step_id_1_cry_0_0_RNO ;
 wire un1_step_id_1_s_6_0_COUT ;
 wire un2_elapsed_time_s_27_0_COUT ;
@@ -2360,9 +2064,14 @@ wire debug_waiting_for_step_time5_cry_24_0_SUM ;
 wire debug_waiting_for_step_time5_cry_25_0_SUM ;
 wire debug_waiting_for_step_time5_cry_26_0_SUM ;
 wire debug_waiting_for_step_time5_cry_27_0_SUM ;
-wire N_1135 ;
+wire N_779 ;
   GSR GSR_INST (
 	.GSRI(VCC)
+);
+// @6:239
+  INV un2_elapsed_time_s_0_cZ (
+	.I(elapsed_time[0]),
+	.O(un2_elapsed_time_s_0)
 );
   INV \internal_state_machine_RNO[0]  (
 	.I(debug_waiting_for_step_time5),
@@ -2373,194 +2082,142 @@ wire N_1135 ;
 	.I(rst_n_c),
 	.O(rst_n_c_i)
 );
-// @6:138
-  INV clk_spi_RNO (
-	.I(clk_spi),
-	.O(clk_spi_i_i)
-);
 // @6:183
   INV \cnt_spi_i_cZ[0]  (
 	.I(cnt_spi[0]),
 	.O(cnt_spi_i[0])
 );
 // @6:49
-  LUT4 \cnt_RNO[20]  (
-	.I0(un1_cntlt15),
-	.I1(un1_cntlto17_d_out),
-	.I2(un1_cntlto24_0_0),
-	.I3(un1_cntlto24_d_0),
-	.F(cnt_3[20])
+  LUT3 \cnt_3_cZ[6]  (
+	.I0(un3_cnt_cry_6_0_SUM),
+	.I1(cnt[24]),
+	.I2(un1_cntlt24),
+	.F(cnt_3[6])
 );
-defparam \cnt_RNO[20] .INIT=16'hF080;
+defparam \cnt_3_cZ[6] .INIT=8'hA2;
 // @6:49
-  LUT4 \cnt_RNO[19]  (
-	.I0(un1_cntlt15),
-	.I1(un1_cntlto17_d_out),
-	.I2(un1_cntlto24_1_0),
-	.I3(un1_cntlto24_d_0),
-	.F(cnt_3[19])
+  LUT3 \cnt_3_cZ[11]  (
+	.I0(un3_cnt_cry_11_0_SUM),
+	.I1(cnt[24]),
+	.I2(un1_cntlt24),
+	.F(cnt_3[11])
 );
-defparam \cnt_RNO[19] .INIT=16'hF080;
+defparam \cnt_3_cZ[11] .INIT=8'hA2;
 // @6:49
-  LUT4 \cnt_RNO[18]  (
+  LUT4 \cnt_RNO[13]  (
 	.I0(un1_cntlt15),
 	.I1(un1_cntlto17_d_out),
-	.I2(un1_cntlto24_2_0),
-	.I3(un1_cntlto24_d_0),
-	.F(cnt_3[18])
+	.I2(un1_cntlto24_8_0),
+	.I3(un1_cntlto24_d_0_0),
+	.F(cnt_3[13])
 );
-defparam \cnt_RNO[18] .INIT=16'hF080;
-// @6:49
-  LUT4 \cnt_RNO[16]  (
-	.I0(un1_cntlt15),
-	.I1(un1_cntlto17_d_out),
-	.I2(un1_cntlto24_3_0),
-	.I3(un1_cntlto24_d_0),
-	.F(cnt_3[16])
-);
-defparam \cnt_RNO[16] .INIT=16'hF080;
+defparam \cnt_RNO[13] .INIT=16'hF080;
 // @6:49
   LUT4 \cnt_RNO[14]  (
 	.I0(un1_cntlt15),
 	.I1(un1_cntlto17_d_out),
-	.I2(un1_cntlto24_4_0),
-	.I3(un1_cntlto24_d_0),
+	.I2(un1_cntlto24_7_0),
+	.I3(un1_cntlto24_d_0_0),
 	.F(cnt_3[14])
 );
 defparam \cnt_RNO[14] .INIT=16'hF080;
 // @6:49
-  LUT4 \cnt_RNO[21]  (
-	.I0(un3_cnt_cry_21_0_SUM),
-	.I1(un1_cntlt15),
-	.I2(un1_cntlto24_c_9),
-	.I3(un1_cntlto24_d_0),
-	.F(cnt_3[21])
+  LUT4 \cnt_RNO[16]  (
+	.I0(un1_cntlt15),
+	.I1(un1_cntlto17_d_out),
+	.I2(un1_cntlto24_6_0),
+	.I3(un1_cntlto24_d_0_0),
+	.F(cnt_3[16])
 );
-defparam \cnt_RNO[21] .INIT=16'hA080;
+defparam \cnt_RNO[16] .INIT=16'hF080;
 // @6:49
-  LUT4 \cnt_RNO[6]  (
-	.I0(un3_cnt_cry_6_0_SUM),
-	.I1(un1_cntlt15),
-	.I2(un1_cntlto24_c_9),
-	.I3(un1_cntlto24_d_0),
-	.F(cnt_3[6])
+  LUT4 \cnt_RNO[18]  (
+	.I0(un1_cntlt15),
+	.I1(un1_cntlto17_d_out),
+	.I2(un1_cntlto24_5_0),
+	.I3(un1_cntlto24_d_0_0),
+	.F(cnt_3[18])
 );
-defparam \cnt_RNO[6] .INIT=16'hA080;
+defparam \cnt_RNO[18] .INIT=16'hF080;
 // @6:49
-  LUT4 \cnt_RNO[13]  (
-	.I0(un3_cnt_cry_13_0_SUM),
-	.I1(cnt[23]),
-	.I2(cnt[24]),
-	.I3(un1_cntlto24_d_4),
-	.F(cnt_3[13])
+  LUT4 \cnt_RNO[19]  (
+	.I0(un1_cntlt15),
+	.I1(un1_cntlto17_d_out),
+	.I2(un1_cntlto24_4_0),
+	.I3(un1_cntlto24_d_0_0),
+	.F(cnt_3[19])
 );
-defparam \cnt_RNO[13] .INIT=16'h2A00;
+defparam \cnt_RNO[19] .INIT=16'hF080;
+// @6:49
+  LUT4 \cnt_RNO[20]  (
+	.I0(un1_cntlt15),
+	.I1(un1_cntlto17_d_out),
+	.I2(un1_cntlto24_3_0),
+	.I3(un1_cntlto24_d_0_0),
+	.F(cnt_3[20])
+);
+defparam \cnt_RNO[20] .INIT=16'hF080;
+// @6:49
+  LUT4 \cnt_RNO[22]  (
+	.I0(un1_cntlt15),
+	.I1(un1_cntlto17_d_out),
+	.I2(un1_cntlto24_1_0),
+	.I3(un1_cntlto24_d_0_0),
+	.F(cnt_3[22])
+);
+defparam \cnt_RNO[22] .INIT=16'hF080;
 // @6:49
   LUT4 \cnt_RNO[12]  (
 	.I0(un3_cnt_cry_12_0_SUM),
 	.I1(cnt[23]),
 	.I2(cnt[24]),
-	.I3(un1_cntlto24_d_4),
+	.I3(un1_cntlto24_d),
 	.F(cnt_3[12])
 );
 defparam \cnt_RNO[12] .INIT=16'h2A00;
 // @6:49
-  LUT4 \cnt_RNO[11]  (
-	.I0(un3_cnt_cry_11_0_SUM),
+  LUT4 \cnt_RNO[21]  (
+	.I0(un3_cnt_cry_21_0_SUM),
 	.I1(cnt[23]),
 	.I2(cnt[24]),
-	.I3(un1_cntlto24_d_4),
-	.F(cnt_3[11])
+	.I3(un1_cntlto24_d),
+	.F(cnt_3[21])
 );
-defparam \cnt_RNO[11] .INIT=16'h2A00;
+defparam \cnt_RNO[21] .INIT=16'h2A00;
 // @6:49
   LUT4 \cnt_RNO[24]  (
 	.I0(un3_cnt_s_24_0_SUM),
 	.I1(cnt[23]),
 	.I2(cnt[24]),
-	.I3(un1_cntlto24_d_4),
+	.I3(un1_cntlto24_d),
 	.F(cnt_3[24])
 );
 defparam \cnt_RNO[24] .INIT=16'h2A00;
 // @6:49
-  LUT4 \cnt_RNO[22]  (
-	.I0(un3_cnt_cry_22_0_SUM),
-	.I1(cnt[23]),
-	.I2(cnt[24]),
-	.I3(un1_cntlto24_d_4),
-	.F(cnt_3[22])
-);
-defparam \cnt_RNO[22] .INIT=16'h2A00;
-// @6:49
-  LUT4 un1_cntlto24_c_10 (
-	.I0(cnt[23]),
-	.I1(cnt[24]),
-	.I2(un1_cntlto17_0_c_0),
-	.I3(un1_cntlto22_3),
-	.F(un1_cntlto24_c_9)
-);
-defparam un1_cntlto24_c_10.INIT=16'h7773;
-// @6:49
-  LUT4 un1_cntlto24_d_4_cZ (
-	.I0(un1_cntlto17_c),
-	.I1(un1_cntlto17_d_d),
-	.I2(un1_cntlto22_3),
-	.I3(un1_cntlto24_d_4_0),
-	.F(un1_cntlto24_d_4)
-);
-defparam un1_cntlto24_d_4_cZ.INIT=16'hFFFE;
-// @6:49
-  LUT4 un1_cntlto14 (
-	.I0(un1_cntlto5_2),
-	.I1(un1_cntlto5_3),
-	.I2(un1_cntlto10_3),
-	.I3(un1_cntlto14_2),
-	.F(un1_cntlt15)
-);
-defparam un1_cntlto14.INIT=16'hFFE0;
-// @6:49
-  LUT4 un1_cntlto17_d_d_cZ (
-	.I0(un1_cntlto5_2),
-	.I1(un1_cntlto5_3),
-	.I2(un1_cntlto10_3),
-	.I3(un1_cntlto17_d_out),
-	.F(un1_cntlto17_d_d)
-);
-defparam un1_cntlto17_d_d_cZ.INIT=16'hE000;
-// @6:49
-  LUT3 un1_cntlto24_d_0_cZ (
-	.I0(cnt[24]),
-	.I1(un1_cntlto17_c),
-	.I2(un1_cntlto22_3),
-	.F(un1_cntlto24_d_0)
-);
-defparam un1_cntlto24_d_0_cZ.INIT=8'hFD;
-// @6:49
-  LUT3 un1_cntlto24_d_4_0_cZ (
-	.I0(cnt[24]),
+  LUT4 un1_cntlto24_d_cZ (
+	.I0(un1_cntlt14),
 	.I1(un1_cntlto14_2),
 	.I2(un1_cntlto17_d_out),
-	.F(un1_cntlto24_d_4_0)
+	.I3(un1_cntlto24_d_0_0),
+	.F(un1_cntlto24_d)
 );
-defparam un1_cntlto24_d_4_0_cZ.INIT=8'hD5;
+defparam un1_cntlto24_d_cZ.INIT=16'hFFE0;
 // @6:49
-  LUT4 un1_cntlto22_3_cZ (
-	.I0(cnt[18]),
-	.I1(cnt[19]),
-	.I2(cnt[20]),
-	.I3(un1_cntlto22_3_1),
-	.F(un1_cntlto22_3)
+  LUT2 un1_cntlto14 (
+	.I0(un1_cntlt14),
+	.I1(un1_cntlto14_2),
+	.F(un1_cntlt15)
 );
-defparam un1_cntlto22_3_cZ.INIT=16'hFF7F;
+defparam un1_cntlto14.INIT=4'hE;
 // @6:49
-  LUT4 un1_cntlto10_3_cZ (
-	.I0(cnt[6]),
-	.I1(cnt[9]),
-	.I2(cnt[10]),
-	.I3(un1_cntlto10_1),
-	.F(un1_cntlto10_3)
+  LUT4 un1_cntlto24_d_0_0_cZ (
+	.I0(cnt[20]),
+	.I1(cnt[24]),
+	.I2(un1_cntlto17_c),
+	.I3(un1_cntlto22_4_3),
+	.F(un1_cntlto24_d_0_0)
 );
-defparam un1_cntlto10_3_cZ.INIT=16'h0100;
+defparam un1_cntlto24_d_0_0_cZ.INIT=16'hFFF7;
 // @6:49
   LUT4 un1_cntlto14_2_cZ (
 	.I0(cnt[11]),
@@ -2571,54 +2228,70 @@ defparam un1_cntlto10_3_cZ.INIT=16'h0100;
 );
 defparam un1_cntlto14_2_cZ.INIT=16'h7FFF;
 // @6:49
-  LUT4 un1_cntlto5_3_cZ (
-	.I0(cnt[0]),
-	.I1(cnt[1]),
-	.I2(cnt[2]),
-	.I3(cnt[3]),
-	.F(un1_cntlto5_3)
+  LUT4 un1_cntlto22_4_3_cZ (
+	.I0(cnt[18]),
+	.I1(cnt[19]),
+	.I2(cnt[21]),
+	.I3(cnt[22]),
+	.F(un1_cntlto22_4_3)
 );
-defparam un1_cntlto5_3_cZ.INIT=16'h7FFF;
-// @6:49
-  LUT3 \cnt_RNO_0[20]  (
-	.I0(un3_cnt_cry_20_0_SUM),
-	.I1(cnt[23]),
-	.I2(cnt[24]),
-	.F(un1_cntlto24_0_0)
-);
-defparam \cnt_RNO_0[20] .INIT=8'h2A;
-// @6:49
-  LUT3 \cnt_RNO_0[14]  (
-	.I0(un3_cnt_cry_14_0_SUM),
-	.I1(cnt[23]),
-	.I2(cnt[24]),
-	.F(un1_cntlto24_4_0)
-);
-defparam \cnt_RNO_0[14] .INIT=8'h2A;
-// @6:49
-  LUT3 \cnt_RNO_0[16]  (
-	.I0(un3_cnt_cry_16_0_SUM),
-	.I1(cnt[23]),
-	.I2(cnt[24]),
-	.F(un1_cntlto24_3_0)
-);
-defparam \cnt_RNO_0[16] .INIT=8'h2A;
-// @6:49
-  LUT3 \cnt_RNO_0[18]  (
-	.I0(un3_cnt_cry_18_0_SUM),
-	.I1(cnt[23]),
-	.I2(cnt[24]),
-	.F(un1_cntlto24_2_0)
-);
-defparam \cnt_RNO_0[18] .INIT=8'h2A;
+defparam un1_cntlto22_4_3_cZ.INIT=16'h7FFF;
 // @6:49
   LUT3 \cnt_RNO_0[19]  (
 	.I0(un3_cnt_cry_19_0_SUM),
 	.I1(cnt[23]),
 	.I2(cnt[24]),
-	.F(un1_cntlto24_1_0)
+	.F(un1_cntlto24_4_0)
 );
 defparam \cnt_RNO_0[19] .INIT=8'h2A;
+// @6:49
+  LUT3 \cnt_RNO_0[22]  (
+	.I0(un3_cnt_cry_22_0_SUM),
+	.I1(cnt[23]),
+	.I2(cnt[24]),
+	.F(un1_cntlto24_1_0)
+);
+defparam \cnt_RNO_0[22] .INIT=8'h2A;
+// @6:49
+  LUT3 \cnt_RNO_0[20]  (
+	.I0(un3_cnt_cry_20_0_SUM),
+	.I1(cnt[23]),
+	.I2(cnt[24]),
+	.F(un1_cntlto24_3_0)
+);
+defparam \cnt_RNO_0[20] .INIT=8'h2A;
+// @6:49
+  LUT3 \cnt_RNO_0[13]  (
+	.I0(un3_cnt_cry_13_0_SUM),
+	.I1(cnt[23]),
+	.I2(cnt[24]),
+	.F(un1_cntlto24_8_0)
+);
+defparam \cnt_RNO_0[13] .INIT=8'h2A;
+// @6:49
+  LUT3 \cnt_RNO_0[18]  (
+	.I0(un3_cnt_cry_18_0_SUM),
+	.I1(cnt[23]),
+	.I2(cnt[24]),
+	.F(un1_cntlto24_5_0)
+);
+defparam \cnt_RNO_0[18] .INIT=8'h2A;
+// @6:49
+  LUT3 \cnt_RNO_0[16]  (
+	.I0(un3_cnt_cry_16_0_SUM),
+	.I1(cnt[23]),
+	.I2(cnt[24]),
+	.F(un1_cntlto24_6_0)
+);
+defparam \cnt_RNO_0[16] .INIT=8'h2A;
+// @6:49
+  LUT3 \cnt_RNO_0[14]  (
+	.I0(un3_cnt_cry_14_0_SUM),
+	.I1(cnt[23]),
+	.I2(cnt[24]),
+	.F(un1_cntlto24_7_0)
+);
+defparam \cnt_RNO_0[14] .INIT=8'h2A;
 // @6:49
   LUT2 un1_cntlto17_c_cZ (
 	.I0(cnt[16]),
@@ -2633,59 +2306,80 @@ defparam un1_cntlto17_c_cZ.INIT=4'h1;
 	.F(un1_cntlto17_d_out)
 );
 defparam un1_cntlto17_d_s.INIT=4'h1;
-// @6:49
-  LUT2 un1_cntlto5_2_cZ (
-	.I0(cnt[4]),
-	.I1(cnt[5]),
-	.F(un1_cntlto5_2)
+// @6:38
+  LUT2 clk_spi_ldmx_cZ (
+	.I0(clk_spi),
+	.I1(cnt[24]),
+	.F(clk_spi_ldmx)
 );
-defparam un1_cntlto5_2_cZ.INIT=4'h7;
+defparam clk_spi_ldmx_cZ.INIT=4'h6;
 // @6:49
-  LUT2 un1_cntlto22_3_1_cZ (
-	.I0(cnt[21]),
-	.I1(cnt[22]),
-	.F(un1_cntlto22_3_1)
+  LUT4 un1_cntlto17_0_0_1_cZ (
+	.I0(cnt[20]),
+	.I1(un1_cntlt14),
+	.I2(un1_cntlto14_2),
+	.I3(un1_cntlto17_d_out),
+	.F(un1_cntlto17_0_0_1)
 );
-defparam un1_cntlto22_3_1_cZ.INIT=4'h7;
+defparam un1_cntlto17_0_0_1_cZ.INIT=16'h02AA;
 // @6:49
-  LUT2 un1_cntlto10_1_cZ (
+  LUT4 un1_cntlto17_0_0 (
+	.I0(cnt[23]),
+	.I1(un1_cntlto17_0_0_1),
+	.I2(un1_cntlto17_c),
+	.I3(un1_cntlto22_4_3),
+	.F(un1_cntlt24)
+);
+defparam un1_cntlto17_0_0.INIT=16'h5551;
+// @6:49
+  LUT4 un1_cntlto10 (
+	.I0(cnt[6]),
+	.I1(un1_cntlto10_N_2L1),
+	.I2(un1_cntlto10_N_3L3),
+	.I3(un1_cntlto10_N_4L5),
+	.F(un1_cntlt14)
+);
+defparam un1_cntlto10.INIT=16'h5040;
+// @6:49
+  LUT2 un1_cntlto10_N_4L5_cZ (
+	.I0(cnt[2]),
+	.I1(cnt[3]),
+	.F(un1_cntlto10_N_4L5)
+);
+defparam un1_cntlto10_N_4L5_cZ.INIT=4'h7;
+// @6:49
+  LUT4 un1_cntlto10_N_3L3_cZ (
 	.I0(cnt[7]),
 	.I1(cnt[8]),
-	.F(un1_cntlto10_1)
+	.I2(cnt[9]),
+	.I3(cnt[10]),
+	.F(un1_cntlto10_N_3L3)
 );
-defparam un1_cntlto10_1_cZ.INIT=4'h1;
-// @6:38
-  LUT4 clk_spi_RNO_1 (
-	.I0(cnt[23]),
-	.I1(cnt[24]),
-	.I2(un1_cntlto17_c),
-	.I3(un1_cntlto22_3),
-	.F(un1_cnt_i_1)
-);
-defparam clk_spi_RNO_1.INIT=16'h2226;
-// @6:38
-  LUT4 clk_spi_RNO_0 (
-	.I0(cnt[23]),
-	.I1(un1_cnt_i_1),
-	.I2(un1_cntlt15),
-	.I3(un1_cntlto17_0_c_0),
-	.F(un1_cnt_i)
-);
-defparam clk_spi_RNO_0.INIT=16'h2666;
+defparam un1_cntlto10_N_3L3_cZ.INIT=16'h0001;
 // @6:49
-  LUT3 un1_cntlto17_0_c_0_cZ (
-	.I0(cnt[16]),
-	.I1(cnt[17]),
-	.I2(un1_cntlto17_d_out),
-	.F(un1_cntlto17_0_c_0)
+  LUT4 un1_cntlto10_N_2L1_cZ (
+	.I0(cnt[0]),
+	.I1(cnt[1]),
+	.I2(cnt[4]),
+	.I3(cnt[5]),
+	.F(un1_cntlto10_N_2L1)
 );
-defparam un1_cntlto17_0_c_0_cZ.INIT=8'hF1;
-  LUT2 un1_step_id_1_cry_0_0_RNO_cZ (
+defparam un1_cntlto10_N_2L1_cZ.INIT=16'h7FFF;
+  LUT4 clk_spi_RNO (
+	.I0(cnt[23]),
+	.I1(un1_cntlto17_0_0_1),
+	.I2(un1_cntlto17_c),
+	.I3(un1_cntlto22_4_3),
+	.F(un1_cntlt24_i)
+);
+defparam clk_spi_RNO.INIT=16'hAAAE;
+  LUT3 un1_step_id_1_cry_0_0_RNO_cZ (
 	.I0(N_21),
-	.I1(\spi0.m5_out ),
+	.I1(debug_waiting_for_step_time5),
+	.I2(internal_state_machine[0]),
 	.F(un1_step_id_1_cry_0_0_RNO)
 );
-defparam un1_step_id_1_cry_0_0_RNO_cZ.INIT=4'h4;
+defparam un1_step_id_1_cry_0_0_RNO_cZ.INIT=8'h10;
 // @6:183
   DFFC \debug_waiting_for_step_time_Z[0]  (
 	.Q(debug_waiting_for_step_time[0]),
@@ -2696,114 +2390,114 @@ defparam un1_step_id_1_cry_0_0_RNO_cZ.INIT=4'h4;
 // @6:183
   DFFCE \elapsed_time_Z[13]  (
 	.Q(elapsed_time[13]),
-	.D(elapsed_time_11[13]),
+	.D(un2_elapsed_time_cry_13_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[12]  (
 	.Q(elapsed_time[12]),
-	.D(elapsed_time_11[12]),
+	.D(un2_elapsed_time_cry_12_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[11]  (
 	.Q(elapsed_time[11]),
-	.D(elapsed_time_11[11]),
+	.D(un2_elapsed_time_cry_11_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[10]  (
 	.Q(elapsed_time[10]),
-	.D(elapsed_time_11[10]),
+	.D(un2_elapsed_time_cry_10_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[9]  (
 	.Q(elapsed_time[9]),
-	.D(elapsed_time_11[9]),
+	.D(un2_elapsed_time_cry_9_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[8]  (
 	.Q(elapsed_time[8]),
-	.D(elapsed_time_11[8]),
+	.D(un2_elapsed_time_cry_8_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[7]  (
 	.Q(elapsed_time[7]),
-	.D(elapsed_time_11[7]),
+	.D(un2_elapsed_time_cry_7_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[6]  (
 	.Q(elapsed_time[6]),
-	.D(elapsed_time_11[6]),
+	.D(un2_elapsed_time_cry_6_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[5]  (
 	.Q(elapsed_time[5]),
-	.D(elapsed_time_11[5]),
+	.D(un2_elapsed_time_cry_5_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[4]  (
 	.Q(elapsed_time[4]),
-	.D(elapsed_time_11[4]),
+	.D(un2_elapsed_time_cry_4_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[3]  (
 	.Q(elapsed_time[3]),
-	.D(elapsed_time_11[3]),
+	.D(un2_elapsed_time_cry_3_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[2]  (
 	.Q(elapsed_time[2]),
-	.D(elapsed_time_11[2]),
+	.D(un2_elapsed_time_cry_2_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[1]  (
 	.Q(elapsed_time[1]),
-	.D(elapsed_time_11[1]),
+	.D(un2_elapsed_time_cry_1_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[0]  (
 	.Q(elapsed_time[0]),
-	.D(elapsed_time_11[0]),
+	.D(un2_elapsed_time_s_0),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFC \step_id_Z[0]  (
@@ -2815,114 +2509,114 @@ defparam un1_step_id_1_cry_0_0_RNO_cZ.INIT=4'h4;
 // @6:183
   DFFCE \elapsed_time_Z[27]  (
 	.Q(elapsed_time[27]),
-	.D(elapsed_time_11[27]),
+	.D(un2_elapsed_time_s_27_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[26]  (
 	.Q(elapsed_time[26]),
-	.D(elapsed_time_11[26]),
+	.D(un2_elapsed_time_cry_26_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[25]  (
 	.Q(elapsed_time[25]),
-	.D(elapsed_time_11[25]),
+	.D(un2_elapsed_time_cry_25_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[24]  (
 	.Q(elapsed_time[24]),
-	.D(elapsed_time_11[24]),
+	.D(un2_elapsed_time_cry_24_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[23]  (
 	.Q(elapsed_time[23]),
-	.D(elapsed_time_11[23]),
+	.D(un2_elapsed_time_cry_23_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[22]  (
 	.Q(elapsed_time[22]),
-	.D(elapsed_time_11[22]),
+	.D(un2_elapsed_time_cry_22_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[21]  (
 	.Q(elapsed_time[21]),
-	.D(elapsed_time_11[21]),
+	.D(un2_elapsed_time_cry_21_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[20]  (
 	.Q(elapsed_time[20]),
-	.D(elapsed_time_11[20]),
+	.D(un2_elapsed_time_cry_20_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[19]  (
 	.Q(elapsed_time[19]),
-	.D(elapsed_time_11[19]),
+	.D(un2_elapsed_time_cry_19_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[18]  (
 	.Q(elapsed_time[18]),
-	.D(elapsed_time_11[18]),
+	.D(un2_elapsed_time_cry_18_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[17]  (
 	.Q(elapsed_time[17]),
-	.D(elapsed_time_11[17]),
+	.D(un2_elapsed_time_cry_17_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[16]  (
 	.Q(elapsed_time[16]),
-	.D(elapsed_time_11[16]),
+	.D(un2_elapsed_time_cry_16_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[15]  (
 	.Q(elapsed_time[15]),
-	.D(elapsed_time_11[15]),
+	.D(un2_elapsed_time_cry_15_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:183
   DFFCE \elapsed_time_Z[14]  (
 	.Q(elapsed_time[14]),
-	.D(elapsed_time_11[14]),
+	.D(un2_elapsed_time_cry_14_0_SUM),
 	.CLK(clk_spi),
 	.CLEAR(rst_n_c_i),
-	.CE(N_20_i)
+	.CE(elapsed_time_0_sqmuxa_i)
 );
 // @6:38
   DFFC \cnt_Z[4]  (
@@ -3242,10 +2936,10 @@ defparam un1_step_id_1_cry_0_0_RNO_cZ.INIT=4'h4;
 // @6:38
   DFFCE clk_spi_Z (
 	.Q(clk_spi),
-	.D(clk_spi_i_i),
+	.D(clk_spi_ldmx),
 	.CLK(clk_50M_c),
 	.CLEAR(rst_n_c_i),
-	.CE(un1_cnt_i)
+	.CE(un1_cntlt24_i)
 );
 // @6:183
   DFFCE \debug_waiting_for_spi_Z[0]  (
@@ -4267,56 +3961,27 @@ defparam un1_step_id_1_cry_0_0.ALU_MODE=0;
 );
 // @6:93
   spi_master_8s_8s_0_1 spi0 (
-	.tx_data({tx_data[7:4], N_1135, tx_data[2:0]}),
+	.tx_data({tx_data[7:4], N_779, tx_data[2:0]}),
 	.wr_spi_0(wr_spi[0]),
 	.SUM(SUM[3:1]),
 	.wait_spi_0(wait_spi[0]),
-	.cnt_spi(cnt_spi[3:0]),
-	.switches_c(switches_c[3:0]),
-	.reset_spi_0(reset_spi[0]),
 	.debug_step_id_c(debug_step_id_c[3:1]),
 	.debug_waiting_for_spi_0(debug_waiting_for_spi[0]),
+	.reset_spi_0(reset_spi[0]),
 	.internal_state_machine_0(internal_state_machine[0]),
-	.elapsed_time_11(elapsed_time_11[27:0]),
-	.elapsed_time_0(elapsed_time[0]),
+	.cnt_spi(cnt_spi[3:0]),
+	.switches_c(switches_c[3:0]),
 	.debug_waiting_for_step_time_0(debug_waiting_for_step_time[0]),
 	.led_c(led_c[3:0]),
 	.clk_spi(clk_spi),
-	.N_20_i(N_20_i),
+	.elapsed_time_0_sqmuxa_i_1z(elapsed_time_0_sqmuxa_i),
 	.m5_out(\spi0.m5_out ),
-	.un1_step_id_1(un1_step_id_1),
 	.debug_waiting_for_step_time5(debug_waiting_for_step_time5),
-	.clk_spi_i(clk_spi),
+	.un1_step_id_1(un1_step_id_1),
 	.tm1637_dio_c(tm1637_dio_c),
 	.N_21_mux_i(N_21_mux_i),
 	.N_21(N_21),
-	.un2_elapsed_time_cry_1_0_SUM(un2_elapsed_time_cry_1_0_SUM),
-	.un2_elapsed_time_cry_2_0_SUM(un2_elapsed_time_cry_2_0_SUM),
-	.un2_elapsed_time_cry_3_0_SUM(un2_elapsed_time_cry_3_0_SUM),
-	.un2_elapsed_time_cry_4_0_SUM(un2_elapsed_time_cry_4_0_SUM),
-	.un2_elapsed_time_cry_5_0_SUM(un2_elapsed_time_cry_5_0_SUM),
-	.un2_elapsed_time_cry_6_0_SUM(un2_elapsed_time_cry_6_0_SUM),
-	.un2_elapsed_time_cry_7_0_SUM(un2_elapsed_time_cry_7_0_SUM),
-	.un2_elapsed_time_cry_8_0_SUM(un2_elapsed_time_cry_8_0_SUM),
-	.un2_elapsed_time_cry_9_0_SUM(un2_elapsed_time_cry_9_0_SUM),
-	.un2_elapsed_time_cry_10_0_SUM(un2_elapsed_time_cry_10_0_SUM),
-	.un2_elapsed_time_cry_11_0_SUM(un2_elapsed_time_cry_11_0_SUM),
-	.un2_elapsed_time_cry_12_0_SUM(un2_elapsed_time_cry_12_0_SUM),
-	.un2_elapsed_time_cry_13_0_SUM(un2_elapsed_time_cry_13_0_SUM),
-	.un2_elapsed_time_cry_14_0_SUM(un2_elapsed_time_cry_14_0_SUM),
-	.un2_elapsed_time_cry_15_0_SUM(un2_elapsed_time_cry_15_0_SUM),
-	.un2_elapsed_time_cry_16_0_SUM(un2_elapsed_time_cry_16_0_SUM),
-	.un2_elapsed_time_cry_17_0_SUM(un2_elapsed_time_cry_17_0_SUM),
-	.un2_elapsed_time_cry_18_0_SUM(un2_elapsed_time_cry_18_0_SUM),
-	.un2_elapsed_time_cry_19_0_SUM(un2_elapsed_time_cry_19_0_SUM),
-	.un2_elapsed_time_cry_20_0_SUM(un2_elapsed_time_cry_20_0_SUM),
-	.un2_elapsed_time_cry_21_0_SUM(un2_elapsed_time_cry_21_0_SUM),
-	.un2_elapsed_time_cry_22_0_SUM(un2_elapsed_time_cry_22_0_SUM),
-	.un2_elapsed_time_cry_23_0_SUM(un2_elapsed_time_cry_23_0_SUM),
-	.un2_elapsed_time_cry_24_0_SUM(un2_elapsed_time_cry_24_0_SUM),
-	.un2_elapsed_time_cry_25_0_SUM(un2_elapsed_time_cry_25_0_SUM),
-	.un2_elapsed_time_cry_26_0_SUM(un2_elapsed_time_cry_26_0_SUM),
-	.un2_elapsed_time_s_27_0_SUM(un2_elapsed_time_s_27_0_SUM),
+	.clk_spi_i(clk_spi),
 	.rst_n_c(rst_n_c),
 	.tm1637_clk_c(tm1637_clk_c)
 );

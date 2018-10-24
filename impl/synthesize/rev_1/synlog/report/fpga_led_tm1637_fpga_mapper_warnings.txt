@@ -1,13 +1,13 @@
 @W: BN132 :|Removing sequential instance spi0._mode_31 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :|Removing sequential instance spi0._lsbfirst_6 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :|Removing sequential instance spi0._diomode_1 because it is equivalent to instance spi0._mode_21. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing sequential instance spi0._lsbfirst[0] because it is equivalent to instance spi0._diomode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing sequential instance spi0._lsbfirst[0] because it is equivalent to instance spi0._diomode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: BN132 :|Removing user instance spi0._lsbfirst_10 because it is equivalent to instance spi0._diomode_5. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing user instance spi0.mosi_1 because it is equivalent to instance spi0._msbfirst[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: MO160 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Register bit _prescaler[0] (in view view:work.spi_master_8s_8s_0_1(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO160 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Register bit _prescaler[1] (in view view:work.spi_master_8s_8s_0_1(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
-@W: MO160 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Register bit _prescaler[2] (in view view:work.spi_master_8s_8s_0_1(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing user instance spi0.mosi_1 because it is equivalent to instance spi0._msbfirst[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: MO160 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Register bit _prescaler[0] (in view view:work.spi_master_8s_8s_0_1(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Register bit _prescaler[1] (in view view:work.spi_master_8s_8s_0_1(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
+@W: MO160 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Register bit _prescaler[2] (in view view:work.spi_master_8s_8s_0_1(verilog)) is always 0. To keep the instance, apply syn_preserve=1 on the instance.
 @W: BN132 :"c:\fpga_led_tm1637\src\led_tm1637.v":183:0:183:5|Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":63:0:63:5|Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":167:0:167:5|Removing instance spi0._mode[1] because it is equivalent to instance spi0._mode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":74:0:74:5|Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: BN132 :"c:\fpga_led_tm1637\src\spi_master.v":168:0:168:5|Removing instance spi0._mode[1] because it is equivalent to instance spi0._mode[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.
 @W: MT420 |Found inferred clock demo|clk_50M with period 10.00ns. Please declare a user-defined clock on port clk_50M.
