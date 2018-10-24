@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Wed Oct 24 12:37:23 2018
+[*]
+[dumpfile] "C:\fpga_led_tm1637\src\dump.vcd"
+[dumpfile_mtime] "Wed Oct 24 12:31:44 2018"
+[dumpfile_size] 20477
+[savefile] "C:\fpga_led_tm1637\src\fpga.gtkw"
+[timestart] 0
+[size] 1449 750
+[pos] -1 -1
+*-11.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test.
+[treeopen] test.demo1.
+[sst_width] 273
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 207
+@29
+test.demo1.tm1637_clk
+test.demo1.tm1637_dio
+test.demo1.wr_spi
+@23
+test.demo1.debug_tx_buffer[7:0]
+test.demo1.debug_step_id[6:0]
+[pattern_trace] 1
+[pattern_trace] 0

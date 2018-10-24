@@ -12,7 +12,7 @@
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Removing sequential instance _shift_reg_rx[5] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Removing sequential instance _shift_reg_rx[4] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
 @N: MO231 :"c:\fpga_led_tm1637\src\spi_master.v":179:0:179:5|Found counter in view:work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog) instance _prescaler_cnt[7:0] 
-@N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":31:14:31:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
+@N: MO106 :"c:\fpga_led_tm1637\src\led_tm1637_rom.v":13:14:13:23|Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
 @N: BN362 :"c:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.

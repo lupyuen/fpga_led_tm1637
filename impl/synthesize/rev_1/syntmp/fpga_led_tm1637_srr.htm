@@ -1,11 +1,11 @@
 <html><body><samp><pre>
-<!@TC:1540357335>
+<!@TC:1540385007>
 #Build: Synplify Pro (R) N-2018.03G-Beta6, Build 118R, May 15 2018
 #install: C:\Gowin\1.8\SynplifyPro
 #OS: Windows 8 6.2
 #Hostname: BEACONDEV3
 
-# Wed Oct 24 13:02:15 2018
+# Wed Oct 24 20:43:27 2018
 
 #Implementation: rev_1
 
@@ -25,7 +25,7 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 <a name=compilerReport1></a>Synopsys HDL Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1540357336> | Running in 64-bit mode 
+@N: : <!@TM:1540385008> | Running in 64-bit mode 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
 This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
@@ -42,9 +42,9 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 <a name=compilerReport2></a>Synopsys Verilog Compiler, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1540357336> | Running in 64-bit mode 
-@N: : <!@TM:1540357336> | : Running Verilog Compiler in System Verilog mode 
-@N: : <!@TM:1540357336> | : Running Verilog Compiler in Multiple File Compilation Unit mode 
+@N: : <!@TM:1540385008> | Running in 64-bit mode 
+@N: : <!@TM:1540385008> | : Running Verilog Compiler in System Verilog mode 
+@N: : <!@TM:1540385008> | : Running Verilog Compiler in Multiple File Compilation Unit mode 
 @I::"C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v" (library work)
 @I::"C:\Gowin\1.8\SynplifyPro\lib\vlog\hypermods.v" (library __hyper__lib__)
 @I::"C:\Gowin\1.8\SynplifyPro\lib\vlog\umr_capim.v" (library snps_haps)
@@ -56,11 +56,13 @@ Implementation : rev_1
 @I::"C:\fpga_led_tm1637\src\led_tm1637_rom.v" (library work)
 Verilog syntax check successful!
 File C:\fpga_led_tm1637\src\led_tm1637.v changed - recompiling
+File C:\fpga_led_tm1637\src\led_tm1637_rom.v changed - recompiling
+File C:\fpga_led_tm1637\src\led_tm1637_rom.mem changed - recompiling
 Selecting top level module demo
-@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:22:7:22:21:@N:CG364:@XP_MSG">led_tm1637_rom.v(22)</a><!@TM:1540357336> | Synthesizing module LED_TM1637_ROM in library work.
+@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:3:7:3:21:@N:CG364:@XP_MSG">led_tm1637_rom.v(3)</a><!@TM:1540385008> | Synthesizing module LED_TM1637_ROM in library work.
 Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
-<font color=#A52A2A>@W:<a href="@W:CG532:@XP_HELP">CG532</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:30:0:30:7:@W:CG532:@XP_MSG">led_tm1637_rom.v(30)</a><!@TM:1540357336> | Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.</font>
-@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\spi_master.v:3:7:3:17:@N:CG364:@XP_MSG">spi_master.v(3)</a><!@TM:1540357336> | Synthesizing module spi_master in library work.
+<font color=#A52A2A>@W:<a href="@W:CG532:@XP_HELP">CG532</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637_rom.v:12:0:12:7:@W:CG532:@XP_MSG">led_tm1637_rom.v(12)</a><!@TM:1540385008> | Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.</font>
+@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\spi_master.v:3:7:3:17:@N:CG364:@XP_MSG">spi_master.v(3)</a><!@TM:1540385008> | Synthesizing module spi_master in library work.
 
 	DIO_MODE=32'b00000000000000000000000000000001
 	CLOCK_MODE=32'b00000000000000000000000000000011
@@ -71,25 +73,25 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 	STATE_IDLE=1'b0
 	STATE_BUSY=1'b1
    Generated name = spi_master_1s_3s_1s_8s_8s_0s_0_1
-@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:CG364:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540357336> | Synthesizing module demo in library work.
-<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL169:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.</font>
-<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL169:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.</font>
-<font color=#A52A2A>@W:<a href="@W:CL207:@XP_HELP">CL207</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL207:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | All reachable assignments to tm1637_vcc assign 1, register removed by optimization.</font>
-<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
-<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
-<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
-<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
-<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
-<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
-<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
-<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357336> | Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
+@N:<a href="@N:CG364:@XP_HELP">CG364</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:CG364:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540385008> | Synthesizing module demo in library work.
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL169:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL169:@XP_HELP">CL169</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL169:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.</font>
+<font color=#A52A2A>@W:<a href="@W:CL207:@XP_HELP">CL207</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL207:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | All reachable assignments to tm1637_vcc assign 1, register removed by optimization.</font>
+<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
+<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
+<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
+<font color=#A52A2A>@W:<a href="@W:CL190:@XP_HELP">CL190</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL190:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:CL260:@XP_HELP">CL260</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:CL260:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385008> | Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.</font>
 
 At c_ver Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 74MB peak: 86MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Oct 24 13:02:16 2018
+# Wed Oct 24 20:43:28 2018
 
 ###########################################################]
 
@@ -108,17 +110,17 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 <a name=compilerReport3></a>Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1540357336> | Running in 64-bit mode 
+@N: : <!@TM:1540385008> | Running in 64-bit mode 
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\layer0.srs changed - recompiling
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540357336> | Selected library: work cell: demo view verilog as top level
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540357336> | Selected library: work cell: demo view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540385008> | Selected library: work cell: demo view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540385008> | Selected library: work cell: demo view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Oct 24 13:02:16 2018
+# Wed Oct 24 20:43:28 2018
 
 ###########################################################]
 @END
@@ -128,13 +130,13 @@ At c_hdl Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Oct 24 13:02:16 2018
+# Wed Oct 24 20:43:28 2018
 
 ###########################################################]
 
 </pre></samp></body></html>
 <html><body><samp><pre>
-<!@TC:1540357335>
+<!@TC:1540385007>
 
 Copyright (C) 1994-2018 Synopsys, Inc.
 This Synopsys software and all associated documentation are proprietary to Synopsys, Inc.
@@ -151,24 +153,24 @@ Hostname: BEACONDEV3
 Database state : C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\|rev_1
 <a name=compilerReport4></a>Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11</a>
 
-@N: : <!@TM:1540357338> | Running in 64-bit mode 
+@N: : <!@TM:1540385010> | Running in 64-bit mode 
 File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_comp.srs changed - recompiling
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540357338> | Selected library: work cell: demo view verilog as top level
-@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540357338> | Selected library: work cell: demo view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540385010> | Selected library: work cell: demo view verilog as top level
+@N:<a href="@N:NF107:@XP_HELP">NF107</a> : <a href="C:\fpga_led_tm1637\src\led_tm1637.v:5:7:5:11:@N:NF107:@XP_MSG">led_tm1637.v(5)</a><!@TM:1540385010> | Selected library: work cell: demo view verilog as top level
 
 At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 67MB peak: 68MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Oct 24 13:02:17 2018
+# Wed Oct 24 20:43:30 2018
 
 ###########################################################]
 
 </pre></samp></body></html>
 <html><body><samp><pre>
-<!@TC:1540357335>
-# Wed Oct 24 13:02:18 2018
+<!@TC:1540385007>
+# Wed Oct 24 20:43:30 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -189,12 +191,12 @@ Implementation : rev_1
 
 Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
-@A:<a href="@A:MF827:@XP_HELP">MF827</a> : <!@TM:1540357340> | No constraint file specified. 
+@A:<a href="@A:MF827:@XP_HELP">MF827</a> : <!@TM:1540385012> | No constraint file specified. 
 Linked File:  <a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637_scck.rpt:@XP_FILE">fpga_led_tm1637_scck.rpt</a>
 Printing clock  summary report in "C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637_scck.rpt" file 
-@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1540357340> | Option synthesis_strategy=base is enabled.  
-@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1540357340> | Running in 64-bit mode. 
-@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1540357340> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
+@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1540385012> | Option synthesis_strategy=base is enabled.  
+@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1540385012> | Running in 64-bit mode. 
+@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1540385012> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
 
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 101MB)
 
@@ -207,13 +209,13 @@ Start loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00
 
 Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 112MB peak: 114MB)
 
-@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1540357340> | UMR3 is only supported for HAPS-80. 
-@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1540357340> | UMR3 is only supported for HAPS-80. 
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357340> | Removing sequential instance ss (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
-@N:<a href="@N:MF578:@XP_HELP">MF578</a> : <!@TM:1540357340> | Incompatible asynchronous control logic preventing generated clock conversion. 
+@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1540385012> | UMR3 is only supported for HAPS-80. 
+@N:<a href="@N:MH105:@XP_HELP">MH105</a> : <!@TM:1540385012> | UMR3 is only supported for HAPS-80. 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385012> | Removing sequential instance ss (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) of type view:PrimLib.dffse(prim) because it does not drive other instances.
+@N:<a href="@N:MF578:@XP_HELP">MF578</a> : <!@TM:1540385012> | Incompatible asynchronous control logic preventing generated clock conversion. 
 syn_allowed_resources : blockrams=10  set on top level netlist demo
 
-Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:00s; Memory used current: 189MB peak: 190MB)
+Finished netlist restructuring (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
 
 
 
@@ -243,7 +245,7 @@ demo|wr_spi_derived_clock[0]     10        wr_spi[0].Q[0](dffre)     spi0._tx_bu
 demo|rd_spi_derived_clock[0]     1         rd_spi[0].Q[0](dffre)     spi0._rx_buffer_received[0].C     -                 -            
 ======================================================================================================================================
 
-<font color=#A52A2A>@W:<a href="@W:MT529:@XP_HELP">MT529</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:38:0:38:6:@W:MT529:@XP_MSG">led_tm1637.v(38)</a><!@TM:1540357340> | Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. </font>
+<font color=#A52A2A>@W:<a href="@W:MT529:@XP_HELP">MT529</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:38:0:38:6:@W:MT529:@XP_MSG">led_tm1637.v(38)</a><!@TM:1540385012> | Found inferred clock demo|clk_50M which controls 26 sequential elements including cnt[24:0]. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. </font>
 
 ICG Latch Removal Summary:
 Number of ICG latches removed: 0
@@ -276,14 +278,14 @@ Clock Tree ID     Driving Element     Drive Element Type     Unconverted Fanout 
 
 ##### END OF CLOCK OPTIMIZATION REPORT ######
 
-@N: : <!@TM:1540357340> | Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized. 
+@N: : <!@TM:1540385012> | Skipping assigning INTERNAL_VREF to iobanks, because the table of mapping from pin to iobank is not initialized. 
 Finished Pre Mapping Phase.
-@N:<a href="@N:BN225:@XP_HELP">BN225</a> : <!@TM:1540357340> | Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap. 
+@N:<a href="@N:BN225:@XP_HELP">BN225</a> : <!@TM:1540385012> | Writing default property annotation file C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap. 
 
-Starting constraint checker (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
+Starting constraint checker (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 188MB peak: 190MB)
 
 
-Finished constraint checker preprocessing (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
+Finished constraint checker preprocessing (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 189MB peak: 190MB)
 
 None
 None
@@ -295,14 +297,14 @@ Pre-mapping successful!
 At Mapper Exit (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:01s; Memory used current: 104MB peak: 190MB)
 
 Process took 0h:00m:02s realtime, 0h:00m:01s cputime
-# Wed Oct 24 13:02:20 2018
+# Wed Oct 24 20:43:32 2018
 
 ###########################################################]
 
 </pre></samp></body></html>
 <html><body><samp><pre>
-<!@TC:1540357335>
-# Wed Oct 24 13:02:20 2018
+<!@TC:1540385007>
+# Wed Oct 24 20:43:33 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -323,9 +325,9 @@ Implementation : rev_1
 
 Mapper Startup Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 99MB peak: 99MB)
 
-@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1540357345> | Option synthesis_strategy=base is enabled.  
-@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1540357345> | Running in 64-bit mode. 
-@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1540357345> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
+@N:<a href="@N:MF916:@XP_HELP">MF916</a> : <!@TM:1540385017> | Option synthesis_strategy=base is enabled.  
+@N:<a href="@N:MF248:@XP_HELP">MF248</a> : <!@TM:1540385017> | Running in 64-bit mode. 
+@N:<a href="@N:MF666:@XP_HELP">MF666</a> : <!@TM:1540385017> | Clock conversion enabled. (Command "set_option -fix_gated_and_generated_clocks 1" in the project file.) 
 
 Design Input Complete (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 98MB peak: 100MB)
 
@@ -346,20 +348,20 @@ Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapse
 Available hyper_sources - for debug and ip models
 	None Found
 
-@N:<a href="@N:MT206:@XP_HELP">MT206</a> : <!@TM:1540357345> | Auto Constrain mode is enabled 
+@N:<a href="@N:MT206:@XP_HELP">MT206</a> : <!@TM:1540385017> | Auto Constrain mode is enabled 
 
 Finished RTL optimizations (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 190MB peak: 190MB)
 
-@N:<a href="@N:MO231:@XP_HELP">MO231</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:MO231:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _rx_buffer[4] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _rx_buffer[5] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _rx_buffer[6] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _rx_buffer[7] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _shift_reg_rx[7] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _shift_reg_rx[6] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _shift_reg_rx[5] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Removing sequential instance _shift_reg_rx[4] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
-@N:<a href="@N:MO231:@XP_HELP">MO231</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:MO231:@XP_MSG">spi_master.v(179)</a><!@TM:1540357345> | Found counter in view:work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog) instance _prescaler_cnt[7:0] 
+@N:<a href="@N:MO231:@XP_HELP">MO231</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:MO231:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Found counter in view:work.demo(verilog) instance repeat_count[10:0] 
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _rx_buffer[4] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _rx_buffer[5] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _rx_buffer[6] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _rx_buffer[7] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _shift_reg_rx[7] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _shift_reg_rx[6] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _shift_reg_rx[5] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:BN362:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Removing sequential instance _shift_reg_rx[4] (in view: work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog)) because it does not drive other instances.
+@N:<a href="@N:MO231:@XP_HELP">MO231</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:179:0:179:6:@N:MO231:@XP_MSG">spi_master.v(179)</a><!@TM:1540385017> | Found counter in view:work.spi_master_1s_3s_1s_8s_8s_0s_0_1(verilog) instance _prescaler_cnt[7:0] 
 
 Starting factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 190MB peak: 191MB)
 
@@ -378,95 +380,95 @@ Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elaps
 
 Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 193MB)
 
-@N:<a href="@N:MO106:@XP_HELP">MO106</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637_rom.v:31:14:31:24:@N:MO106:@XP_MSG">led_tm1637_rom.v(31)</a><!@TM:1540357345> | Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
-<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:BN132:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
-<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:66:0:66:6:@W:BN132:@XP_MSG">spi_master.v(66)</a><!@TM:1540357345> | Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[3] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[4] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[8] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[9] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[10] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[11] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[12] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[13] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[14] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[15] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[16] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[17] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[18] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[19] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[20] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[21] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[22] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[23] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[24] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[25] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[26] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance saved_elapsed_time[27] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance rd_spi[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[0] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[1] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[2] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[3] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[4] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[5] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[6] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[7] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540357345> | Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
-@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:335:0:335:6:@N:BN362:@XP_MSG">spi_master.v(335)</a><!@TM:1540357345> | Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:MO106:@XP_HELP">MO106</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637_rom.v:13:14:13:24:@N:MO106:@XP_MSG">led_tm1637_rom.v(13)</a><!@TM:1540385017> | Found ROM oled_rom_init.dout_1[47:0] (in view: work.demo(verilog)) with 128 words by 48 bits.
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@W:BN132:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing instance tx_data[3] because it is equivalent to instance tx_data[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+<font color=#A52A2A>@W:<a href="@W:BN132:@XP_HELP">BN132</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:66:0:66:6:@W:BN132:@XP_MSG">spi_master.v(66)</a><!@TM:1540385017> | Removing instance spi0._tx_buffer[3] because it is equivalent to instance spi0._tx_buffer[0]. To keep the instance, apply constraint syn_preserve=1 on the instance.</font>
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[2] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[3] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[8] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[9] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[10] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[11] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[12] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[13] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[14] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[15] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[16] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[17] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[18] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[19] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[20] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[21] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[22] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[23] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[24] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[25] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[26] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance saved_elapsed_time[27] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance rd_spi[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[0] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[1] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[2] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[3] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[4] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[5] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[6] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[7] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[8] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[9] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\led_tm1637.v:188:0:188:6:@N:BN362:@XP_MSG">led_tm1637.v(188)</a><!@TM:1540385017> | Removing sequential instance repeat_count[10] (in view: work.demo(verilog)) because it does not drive other instances.
+@N:<a href="@N:BN362:@XP_HELP">BN362</a> : <a href="c:\fpga_led_tm1637\src\spi_master.v:335:0:335:6:@N:BN362:@XP_MSG">spi_master.v(335)</a><!@TM:1540385017> | Removing sequential instance spi0._rx_buffer_received[0] (in view: work.demo(verilog)) because it does not drive other instances.
 
 Finished preparing to map (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 193MB peak: 195MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 195MB)
+Finished technology mapping (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 195MB peak: 197MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
-   1		0h:00m:01s		     3.35ns		 248 /       130
-   2		0h:00m:01s		     1.31ns		 246 /       130
+   1		0h:00m:01s		     3.35ns		 262 /       130
+   2		0h:00m:01s		     1.31ns		 260 /       130
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 195MB)
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 195MB peak: 197MB)
 
-@N:<a href="@N:FX164:@XP_HELP">FX164</a> : <!@TM:1540357345> | The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.   
+@N:<a href="@N:FX164:@XP_HELP">FX164</a> : <!@TM:1540385017> | The option to pack registers in the IOB has not been specified. Please set syn_useioff attribute.   
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 195MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 195MB peak: 197MB)
 
-@N:<a href="@N:MT611:@XP_HELP">MT611</a> : <!@TM:1540357345> | Automatically generated clock demo|rd_spi_derived_clock[0] is not used and is being removed 
+@N:<a href="@N:MT611:@XP_HELP">MT611</a> : <!@TM:1540385017> | Automatically generated clock demo|rd_spi_derived_clock[0] is not used and is being removed 
 
-Start Writing Netlists (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 120MB peak: 195MB)
+Start Writing Netlists (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 124MB peak: 197MB)
 
 Writing Analyst data base C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_m.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 191MB peak: 195MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:02s; CPU Time elapsed 0h:00m:02s; Memory used current: 195MB peak: 197MB)
 
 Writing Verilog Simulation files
 
-Writing scf file... (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 195MB)
+Writing scf file... (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 195MB peak: 197MB)
 
-@N:<a href="@N:BW103:@XP_HELP">BW103</a> : <!@TM:1540357345> | The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns. 
-@N:<a href="@N:BW107:@XP_HELP">BW107</a> : <!@TM:1540357345> | Synopsys Constraint File capacitance units using default value of 1pF  
-@A:<a href="@A:BN540:@XP_HELP">BN540</a> : <!@TM:1540357345> | No min timing constraints supplied; adding min timing constraints 
+@N:<a href="@N:BW103:@XP_HELP">BW103</a> : <!@TM:1540385017> | The default time unit for the Synopsys Constraint File (SDC or FDC) is 1ns. 
+@N:<a href="@N:BW107:@XP_HELP">BW107</a> : <!@TM:1540385017> | Synopsys Constraint File capacitance units using default value of 1pF  
+@A:<a href="@A:BN540:@XP_HELP">BN540</a> : <!@TM:1540385017> | No min timing constraints supplied; adding min timing constraints 
 
-Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 190MB peak: 195MB)
+Finished Writing Verilog Simulation files (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 194MB peak: 197MB)
 
 
-Start final timing analysis (Real Time elapsed 0h:00m:03s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 195MB)
+Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 195MB peak: 197MB)
 
-<font color=#A52A2A>@W:<a href="@W:MT420:@XP_HELP">MT420</a> : <!@TM:1540357345> | Found inferred clock demo|clk_50M with period 10.00ns. Please declare a user-defined clock on port clk_50M.</font> 
-@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1540357345> | Found clock demo|clk_spi_derived_clock with period 10.00ns  
-@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1540357345> | Found clock demo|wr_spi_derived_clock[0] with period 10.00ns  
+<font color=#A52A2A>@W:<a href="@W:MT420:@XP_HELP">MT420</a> : <!@TM:1540385017> | Found inferred clock demo|clk_50M with period 10.00ns. Please declare a user-defined clock on port clk_50M.</font> 
+@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1540385017> | Found clock demo|clk_spi_derived_clock with period 10.00ns  
+@N:<a href="@N:MT615:@XP_HELP">MT615</a> : <!@TM:1540385017> | Found clock demo|wr_spi_derived_clock[0] with period 10.00ns  
 
 
 <a name=timingReport9></a>##### START OF TIMING REPORT #####[</a>
-<a name=pnr10></a># Timing Report written on Wed Oct 24 13:02:24 2018</a>
+<a name=pnr10></a># Timing Report written on Wed Oct 24 20:43:37 2018</a>
 #
 
 
@@ -475,9 +477,9 @@ Requested Frequency:    100.0 MHz
 Wire load mode:         top
 Paths requested:        5
 Constraint File(s):    
-@N:<a href="@N:MT320:@XP_HELP">MT320</a> : <!@TM:1540357345> | This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report. 
+@N:<a href="@N:MT320:@XP_HELP">MT320</a> : <!@TM:1540385017> | This timing report is an estimate of place and route data. For final timing results, use the FPGA vendor place and route report. 
 
-@N:<a href="@N:MT322:@XP_HELP">MT322</a> : <!@TM:1540357345> | Clock constraints include only register-to-register paths associated with each individual clock. 
+@N:<a href="@N:MT322:@XP_HELP">MT322</a> : <!@TM:1540385017> | Clock constraints include only register-to-register paths associated with each individual clock. 
 
 
 
@@ -485,13 +487,13 @@ Constraint File(s):
 *******************
 
 
-Worst slack in design: -1.607
+Worst slack in design: -3.887
 
                                  Requested     Estimated     Requested     Estimated                Clock                                         Clock                
 Starting Clock                   Frequency     Frequency     Period        Period        Slack      Type                                          Group                
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 demo|clk_50M                     100.0 MHz     94.6 MHz      10.000        10.568        -0.568     inferred                                      Autoconstr_clkgroup_0
-demo|clk_spi_derived_clock       100.0 MHz     118.6 MHz     10.000        8.434         3.313      derived (from demo|clk_50M)                   Autoconstr_clkgroup_0
+demo|clk_spi_derived_clock       100.0 MHz     105.4 MHz     10.000        9.483         1.033      derived (from demo|clk_50M)                   Autoconstr_clkgroup_0
 demo|wr_spi_derived_clock[0]     100.0 MHz     118.6 MHz     10.000        8.434         1.566      derived (from demo|clk_spi_derived_clock)     Autoconstr_clkgroup_0
 System                           100.0 MHz     866.6 MHz     10.000        1.154         8.846      system                                        system_clkgroup      
 =======================================================================================================================================================================
@@ -510,8 +512,8 @@ Starting                      Ending                        |  constraint  slack
 System                        demo|clk_spi_derived_clock    |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
 System                        demo|wr_spi_derived_clock[0]  |  10.000      8.846   |  No paths    -      |  No paths    -      |  No paths    -    
 demo|clk_50M                  demo|clk_50M                  |  10.000      -0.568  |  No paths    -      |  No paths    -      |  No paths    -    
-demo|clk_spi_derived_clock    System                        |  10.000      -1.607  |  No paths    -      |  No paths    -      |  No paths    -    
-demo|clk_spi_derived_clock    demo|clk_spi_derived_clock    |  10.000      3.313   |  No paths    -      |  No paths    -      |  No paths    -    
+demo|clk_spi_derived_clock    System                        |  10.000      -3.887  |  No paths    -      |  No paths    -      |  No paths    -    
+demo|clk_spi_derived_clock    demo|clk_spi_derived_clock    |  10.000      1.033   |  No paths    -      |  No paths    -      |  No paths    -    
 demo|clk_spi_derived_clock    demo|wr_spi_derived_clock[0]  |  10.000      5.266   |  No paths    -      |  No paths    -      |  No paths    -    
 demo|wr_spi_derived_clock[0]  System                        |  10.000      6.498   |  No paths    -      |  No paths    -      |  No paths    -    
 demo|wr_spi_derived_clock[0]  demo|clk_spi_derived_clock    |  10.000      1.566   |  No paths    -      |  No paths    -      |  No paths    -    
@@ -577,7 +579,7 @@ cnt[19]      demo|clk_50M     DFFC      D       cnt_3[19]         9.867        1
 
 
 <a name=worstPaths17></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:40273:41767:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:40409:41903:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -806,13 +808,13 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 Instance            Reference                      Type      Pin     Net                    Time        Slack 
                     Clock                                                                                     
 --------------------------------------------------------------------------------------------------------------
-step_id[3]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[3]     0.367       -1.607
-step_id[2]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[2]     0.367       -1.540
-step_id[4]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[4]     0.367       -1.330
-step_id[6]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[6]     0.367       -1.073
-step_id[1]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[1]     0.367       0.456 
-step_id[5]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[5]     0.367       0.507 
-step_id[0]          demo|clk_spi_derived_clock     DFFC      Q       un1_step_id_1          0.367       1.751 
+step_id[6]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[6]     0.367       -3.887
+step_id[5]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[5]     0.367       -3.820
+step_id[4]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[4]     0.367       -1.891
+step_id[2]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[2]     0.367       -1.824
+step_id[0]          demo|clk_spi_derived_clock     DFFC      Q       un1_step_id_1          0.367       0.339 
+step_id[3]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[3]     0.367       1.532 
+step_id[1]          demo|clk_spi_derived_clock     DFFC      Q       debug_step_id_c[1]     0.367       1.646 
 elapsed_time[1]     demo|clk_spi_derived_clock     DFFCE     Q       elapsed_time[1]        0.367       4.536 
 elapsed_time[2]     demo|clk_spi_derived_clock     DFFCE     Q       elapsed_time[2]        0.367       4.593 
 elapsed_time[3]     demo|clk_spi_derived_clock     DFFCE     Q       elapsed_time[3]        0.367       4.650 
@@ -822,26 +824,26 @@ elapsed_time[3]     demo|clk_spi_derived_clock     DFFCE     Q       elapsed_tim
 <a name=endingSlack20></a>Ending Points with Worst Slack</a>
 ******************************
 
-                                                  Starting                                                                         Required           
-Instance                                          Reference                      Type     Pin     Net                              Time         Slack 
-                                                  Clock                                                                                               
-------------------------------------------------------------------------------------------------------------------------------------------------------
-debug_waiting_for_step_time5_cry_27_0_RNI1VM2     demo|clk_spi_derived_clock     INV      I       debug_waiting_for_step_time5     10.000       -1.607
-step_id[6]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_s_6_0_SUM          19.867       3.313 
-step_id[5]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_cry_5_0_SUM        19.867       3.370 
-step_id[4]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_cry_4_0_SUM        19.867       3.427 
-step_id[3]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_cry_3_0_SUM        19.867       3.484 
-step_id[2]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_cry_2_0_SUM        19.867       3.541 
-step_id[1]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_cry_1_0_SUM        19.867       3.598 
-step_id[0]                                        demo|clk_spi_derived_clock     DFFC     D       un1_step_id_1_cry_0_0_SUM        19.867       4.125 
-spi0.debug_waiting_for_prescaler_RNO              demo|clk_spi_derived_clock     INV      I       un1__prescaler_cnt_1             10.000       4.904 
-spi0._tx_buffer[0]                                demo|clk_spi_derived_clock     DFFC     D       _tx_buffer_4[0]                  9.867        5.266 
-======================================================================================================================================================
+                                                  Starting                                                                          Required           
+Instance                                          Reference                      Type      Pin     Net                              Time         Slack 
+                                                  Clock                                                                                                
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+debug_waiting_for_step_time5_cry_27_0_RNI1VM2     demo|clk_spi_derived_clock     INV       I       debug_waiting_for_step_time5     10.000       -3.887
+step_id[6]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_s_6_0_SUM          19.867       1.033 
+step_id[5]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_cry_5_0_SUM        19.867       1.090 
+step_id[4]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_cry_4_0_SUM        19.867       1.147 
+step_id[3]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_cry_3_0_SUM        19.867       1.204 
+step_id[2]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_cry_2_0_SUM        19.867       1.261 
+step_id[1]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_cry_1_0_SUM        19.867       1.318 
+step_id[0]                                        demo|clk_spi_derived_clock     DFFC      D       un1_step_id_1_cry_0_0_SUM        19.867       1.845 
+spi0.debug_waiting_for_prescaler_RNO              demo|clk_spi_derived_clock     INV       I       un1__prescaler_cnt_1             10.000       4.904 
+elapsed_time[0]                                   demo|clk_spi_derived_clock     DFFCE     CE      N_24                             19.867       4.948 
+=======================================================================================================================================================
 
 
 
 <a name=worstPaths21></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:58755:68655:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:58921:69616:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -852,111 +854,114 @@ Path information for path number 1:
     + Estimated clock delay at ending point: 0.000
     = Required time:                         10.000
 
-    - Propagation time:                      11.607
+    - Propagation time:                      13.887
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (critical) :                     -1.607
+    = Slack (critical) :                     -3.887
 
-    Number of logic level(s):                29
-    Starting point:                          step_id[3] / Q
+    Number of logic level(s):                30
+    Starting point:                          step_id[6] / Q
     Ending point:                            debug_waiting_for_step_time5_cry_27_0_RNI1VM2 / I
     The start point is clocked by            demo|clk_spi_derived_clock [rising] on pin CLK
     The end   point is clocked by            System [rising]
 
-Instance / Net                                             Pin      Pin               Arrival     No. of    
-Name                                              Type     Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------------------------------
-step_id[3]                                        DFFC     Q        Out     0.367     0.367       -         
-debug_step_id_c[3]                                Net      -        -       1.082     -           19        
-oled_rom_init.dout_1_i_o2[14]                     LUT4     I1       In      -         1.449       -         
-oled_rom_init.dout_1_i_o2[14]                     LUT4     F        Out     1.099     2.548       -         
-dout_1_i_o2[14]                                   Net      -        -       1.021     -           3         
-oled_rom_init.dout_1_i_1[14]                      LUT2     I0       In      -         3.569       -         
-oled_rom_init.dout_1_i_1[14]                      LUT2     F        Out     1.032     4.601       -         
-N_580_1                                           Net      -        -       1.021     -           2         
-oled_rom_init.dout_1_0[18]                        LUT4     I0       In      -         5.622       -         
-oled_rom_init.dout_1_0[18]                        LUT4     F        Out     1.032     6.654       -         
-encoded_step[18]                                  Net      -        -       1.021     -           1         
-debug_waiting_for_step_time5_cry_2_0              ALU      I0       In      -         7.675       -         
-debug_waiting_for_step_time5_cry_2_0              ALU      COUT     Out     0.958     8.633       -         
-debug_waiting_for_step_time5_cry_2                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_3_0              ALU      CIN      In      -         8.633       -         
-debug_waiting_for_step_time5_cry_3_0              ALU      COUT     Out     0.057     8.690       -         
-debug_waiting_for_step_time5_cry_3                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_4_0              ALU      CIN      In      -         8.690       -         
-debug_waiting_for_step_time5_cry_4_0              ALU      COUT     Out     0.057     8.747       -         
-debug_waiting_for_step_time5_cry_4                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_5_0              ALU      CIN      In      -         8.747       -         
-debug_waiting_for_step_time5_cry_5_0              ALU      COUT     Out     0.057     8.804       -         
-debug_waiting_for_step_time5_cry_5                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_6_0              ALU      CIN      In      -         8.804       -         
-debug_waiting_for_step_time5_cry_6_0              ALU      COUT     Out     0.057     8.861       -         
-debug_waiting_for_step_time5_cry_6                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_7_0              ALU      CIN      In      -         8.861       -         
-debug_waiting_for_step_time5_cry_7_0              ALU      COUT     Out     0.057     8.918       -         
-debug_waiting_for_step_time5_cry_7                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_8_0              ALU      CIN      In      -         8.918       -         
-debug_waiting_for_step_time5_cry_8_0              ALU      COUT     Out     0.057     8.975       -         
-debug_waiting_for_step_time5_cry_8                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_9_0              ALU      CIN      In      -         8.975       -         
-debug_waiting_for_step_time5_cry_9_0              ALU      COUT     Out     0.057     9.032       -         
-debug_waiting_for_step_time5_cry_9                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_10_0             ALU      CIN      In      -         9.032       -         
-debug_waiting_for_step_time5_cry_10_0             ALU      COUT     Out     0.057     9.089       -         
-debug_waiting_for_step_time5_cry_10               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_11_0             ALU      CIN      In      -         9.089       -         
-debug_waiting_for_step_time5_cry_11_0             ALU      COUT     Out     0.057     9.146       -         
-debug_waiting_for_step_time5_cry_11               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_12_0             ALU      CIN      In      -         9.146       -         
-debug_waiting_for_step_time5_cry_12_0             ALU      COUT     Out     0.057     9.203       -         
-debug_waiting_for_step_time5_cry_12               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_13_0             ALU      CIN      In      -         9.203       -         
-debug_waiting_for_step_time5_cry_13_0             ALU      COUT     Out     0.057     9.260       -         
-debug_waiting_for_step_time5_cry_13               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_14_0             ALU      CIN      In      -         9.260       -         
-debug_waiting_for_step_time5_cry_14_0             ALU      COUT     Out     0.057     9.317       -         
-debug_waiting_for_step_time5_cry_14               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_15_0             ALU      CIN      In      -         9.317       -         
-debug_waiting_for_step_time5_cry_15_0             ALU      COUT     Out     0.057     9.374       -         
-debug_waiting_for_step_time5_cry_15               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_16_0             ALU      CIN      In      -         9.374       -         
-debug_waiting_for_step_time5_cry_16_0             ALU      COUT     Out     0.057     9.431       -         
-debug_waiting_for_step_time5_cry_16               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_17_0             ALU      CIN      In      -         9.431       -         
-debug_waiting_for_step_time5_cry_17_0             ALU      COUT     Out     0.057     9.488       -         
-debug_waiting_for_step_time5_cry_17               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_18_0             ALU      CIN      In      -         9.488       -         
-debug_waiting_for_step_time5_cry_18_0             ALU      COUT     Out     0.057     9.545       -         
-debug_waiting_for_step_time5_cry_18               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_19_0             ALU      CIN      In      -         9.545       -         
-debug_waiting_for_step_time5_cry_19_0             ALU      COUT     Out     0.057     9.602       -         
-debug_waiting_for_step_time5_cry_19               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_20_0             ALU      CIN      In      -         9.602       -         
-debug_waiting_for_step_time5_cry_20_0             ALU      COUT     Out     0.057     9.659       -         
-debug_waiting_for_step_time5_cry_20               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_21_0             ALU      CIN      In      -         9.659       -         
-debug_waiting_for_step_time5_cry_21_0             ALU      COUT     Out     0.057     9.716       -         
-debug_waiting_for_step_time5_cry_21               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_22_0             ALU      CIN      In      -         9.716       -         
-debug_waiting_for_step_time5_cry_22_0             ALU      COUT     Out     0.057     9.773       -         
-debug_waiting_for_step_time5_cry_22               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_23_0             ALU      CIN      In      -         9.773       -         
-debug_waiting_for_step_time5_cry_23_0             ALU      COUT     Out     0.057     9.830       -         
-debug_waiting_for_step_time5_cry_23               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_24_0             ALU      CIN      In      -         9.830       -         
-debug_waiting_for_step_time5_cry_24_0             ALU      COUT     Out     0.057     9.887       -         
-debug_waiting_for_step_time5_cry_24               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_25_0             ALU      CIN      In      -         9.887       -         
-debug_waiting_for_step_time5_cry_25_0             ALU      COUT     Out     0.057     9.944       -         
-debug_waiting_for_step_time5_cry_25               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_26_0             ALU      CIN      In      -         9.944       -         
-debug_waiting_for_step_time5_cry_26_0             ALU      COUT     Out     0.057     10.001      -         
-debug_waiting_for_step_time5_cry_26               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_27_0             ALU      CIN      In      -         10.001      -         
-debug_waiting_for_step_time5_cry_27_0             ALU      COUT     Out     0.057     10.058      -         
-debug_waiting_for_step_time5                      Net      -        -       1.549     -           4         
-debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV      I        In      -         11.607      -         
-============================================================================================================
-Total path delay (propagation time + setup) of 11.607 is 5.913(50.9%) logic and 5.694(49.1%) route.
+Instance / Net                                                  Pin      Pin               Arrival     No. of    
+Name                                              Type          Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------
+step_id[6]                                        DFFC          Q        Out     0.367     0.367       -         
+debug_step_id_c[6]                                Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          I1       In      -         1.388       -         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          F        Out     1.099     2.487       -         
+N_65_mux                                          Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m16                    LUT2          I1       In      -         3.508       -         
+oled_rom_init.dout_1_47_0_.m16                    LUT2          F        Out     1.099     4.607       -         
+encoded_step[44]                                  Net           -        -       1.082     -           11        
+oled_rom_init.dout_1_47_0_.m20                    LUT3          I0       In      -         5.689       -         
+oled_rom_init.dout_1_47_0_.m20                    LUT3          F        Out     1.032     6.721       -         
+m20                                               Net           -        -       1.021     -           3         
+oled_rom_init.dout_1_47_0_.m49_am                 LUT3          I1       In      -         7.742       -         
+oled_rom_init.dout_1_47_0_.m49_am                 LUT3          F        Out     1.099     8.841       -         
+m49_am                                            Net           -        -       0.000     -           1         
+oled_rom_init.dout_1_47_0_.m49                    MUX2_LUT5     I0       In      -         8.841       -         
+oled_rom_init.dout_1_47_0_.m49                    MUX2_LUT5     O        Out     0.150     8.991       -         
+encoded_step[19]                                  Net           -        -       1.021     -           1         
+debug_waiting_for_step_time5_cry_3_0              ALU           I0       In      -         10.012      -         
+debug_waiting_for_step_time5_cry_3_0              ALU           COUT     Out     0.958     10.970      -         
+debug_waiting_for_step_time5_cry_3                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_4_0              ALU           CIN      In      -         10.970      -         
+debug_waiting_for_step_time5_cry_4_0              ALU           COUT     Out     0.057     11.027      -         
+debug_waiting_for_step_time5_cry_4                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_5_0              ALU           CIN      In      -         11.027      -         
+debug_waiting_for_step_time5_cry_5_0              ALU           COUT     Out     0.057     11.084      -         
+debug_waiting_for_step_time5_cry_5                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_6_0              ALU           CIN      In      -         11.084      -         
+debug_waiting_for_step_time5_cry_6_0              ALU           COUT     Out     0.057     11.141      -         
+debug_waiting_for_step_time5_cry_6                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_7_0              ALU           CIN      In      -         11.141      -         
+debug_waiting_for_step_time5_cry_7_0              ALU           COUT     Out     0.057     11.198      -         
+debug_waiting_for_step_time5_cry_7                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_8_0              ALU           CIN      In      -         11.198      -         
+debug_waiting_for_step_time5_cry_8_0              ALU           COUT     Out     0.057     11.255      -         
+debug_waiting_for_step_time5_cry_8                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_9_0              ALU           CIN      In      -         11.255      -         
+debug_waiting_for_step_time5_cry_9_0              ALU           COUT     Out     0.057     11.312      -         
+debug_waiting_for_step_time5_cry_9                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_10_0             ALU           CIN      In      -         11.312      -         
+debug_waiting_for_step_time5_cry_10_0             ALU           COUT     Out     0.057     11.369      -         
+debug_waiting_for_step_time5_cry_10               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_11_0             ALU           CIN      In      -         11.369      -         
+debug_waiting_for_step_time5_cry_11_0             ALU           COUT     Out     0.057     11.426      -         
+debug_waiting_for_step_time5_cry_11               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_12_0             ALU           CIN      In      -         11.426      -         
+debug_waiting_for_step_time5_cry_12_0             ALU           COUT     Out     0.057     11.483      -         
+debug_waiting_for_step_time5_cry_12               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_13_0             ALU           CIN      In      -         11.483      -         
+debug_waiting_for_step_time5_cry_13_0             ALU           COUT     Out     0.057     11.540      -         
+debug_waiting_for_step_time5_cry_13               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_14_0             ALU           CIN      In      -         11.540      -         
+debug_waiting_for_step_time5_cry_14_0             ALU           COUT     Out     0.057     11.597      -         
+debug_waiting_for_step_time5_cry_14               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_15_0             ALU           CIN      In      -         11.597      -         
+debug_waiting_for_step_time5_cry_15_0             ALU           COUT     Out     0.057     11.654      -         
+debug_waiting_for_step_time5_cry_15               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_16_0             ALU           CIN      In      -         11.654      -         
+debug_waiting_for_step_time5_cry_16_0             ALU           COUT     Out     0.057     11.711      -         
+debug_waiting_for_step_time5_cry_16               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_17_0             ALU           CIN      In      -         11.711      -         
+debug_waiting_for_step_time5_cry_17_0             ALU           COUT     Out     0.057     11.768      -         
+debug_waiting_for_step_time5_cry_17               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_18_0             ALU           CIN      In      -         11.768      -         
+debug_waiting_for_step_time5_cry_18_0             ALU           COUT     Out     0.057     11.825      -         
+debug_waiting_for_step_time5_cry_18               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_19_0             ALU           CIN      In      -         11.825      -         
+debug_waiting_for_step_time5_cry_19_0             ALU           COUT     Out     0.057     11.882      -         
+debug_waiting_for_step_time5_cry_19               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_20_0             ALU           CIN      In      -         11.882      -         
+debug_waiting_for_step_time5_cry_20_0             ALU           COUT     Out     0.057     11.939      -         
+debug_waiting_for_step_time5_cry_20               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_21_0             ALU           CIN      In      -         11.939      -         
+debug_waiting_for_step_time5_cry_21_0             ALU           COUT     Out     0.057     11.996      -         
+debug_waiting_for_step_time5_cry_21               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_22_0             ALU           CIN      In      -         11.996      -         
+debug_waiting_for_step_time5_cry_22_0             ALU           COUT     Out     0.057     12.053      -         
+debug_waiting_for_step_time5_cry_22               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_23_0             ALU           CIN      In      -         12.053      -         
+debug_waiting_for_step_time5_cry_23_0             ALU           COUT     Out     0.057     12.110      -         
+debug_waiting_for_step_time5_cry_23               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_24_0             ALU           CIN      In      -         12.110      -         
+debug_waiting_for_step_time5_cry_24_0             ALU           COUT     Out     0.057     12.167      -         
+debug_waiting_for_step_time5_cry_24               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_25_0             ALU           CIN      In      -         12.167      -         
+debug_waiting_for_step_time5_cry_25_0             ALU           COUT     Out     0.057     12.224      -         
+debug_waiting_for_step_time5_cry_25               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_26_0             ALU           CIN      In      -         12.224      -         
+debug_waiting_for_step_time5_cry_26_0             ALU           COUT     Out     0.057     12.281      -         
+debug_waiting_for_step_time5_cry_26               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_27_0             ALU           CIN      In      -         12.281      -         
+debug_waiting_for_step_time5_cry_27_0             ALU           COUT     Out     0.057     12.338      -         
+debug_waiting_for_step_time5                      Net           -        -       1.549     -           4         
+debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV           I        In      -         13.887      -         
+=================================================================================================================
+Total path delay (propagation time + setup) of 13.887 is 7.172(51.6%) logic and 6.715(48.4%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -967,111 +972,114 @@ Path information for path number 2:
     + Estimated clock delay at ending point: 0.000
     = Required time:                         10.000
 
-    - Propagation time:                      11.540
+    - Propagation time:                      13.820
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -1.540
+    = Slack (non-critical) :                 -3.820
 
-    Number of logic level(s):                29
-    Starting point:                          step_id[2] / Q
+    Number of logic level(s):                30
+    Starting point:                          step_id[5] / Q
     Ending point:                            debug_waiting_for_step_time5_cry_27_0_RNI1VM2 / I
     The start point is clocked by            demo|clk_spi_derived_clock [rising] on pin CLK
     The end   point is clocked by            System [rising]
 
-Instance / Net                                             Pin      Pin               Arrival     No. of    
-Name                                              Type     Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------------------------------
-step_id[2]                                        DFFC     Q        Out     0.367     0.367       -         
-debug_step_id_c[2]                                Net      -        -       1.082     -           18        
-oled_rom_init.dout_1_i_o2[14]                     LUT4     I0       In      -         1.449       -         
-oled_rom_init.dout_1_i_o2[14]                     LUT4     F        Out     1.032     2.481       -         
-dout_1_i_o2[14]                                   Net      -        -       1.021     -           3         
-oled_rom_init.dout_1_i_1[14]                      LUT2     I0       In      -         3.502       -         
-oled_rom_init.dout_1_i_1[14]                      LUT2     F        Out     1.032     4.534       -         
-N_580_1                                           Net      -        -       1.021     -           2         
-oled_rom_init.dout_1_0[18]                        LUT4     I0       In      -         5.555       -         
-oled_rom_init.dout_1_0[18]                        LUT4     F        Out     1.032     6.587       -         
-encoded_step[18]                                  Net      -        -       1.021     -           1         
-debug_waiting_for_step_time5_cry_2_0              ALU      I0       In      -         7.608       -         
-debug_waiting_for_step_time5_cry_2_0              ALU      COUT     Out     0.958     8.566       -         
-debug_waiting_for_step_time5_cry_2                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_3_0              ALU      CIN      In      -         8.566       -         
-debug_waiting_for_step_time5_cry_3_0              ALU      COUT     Out     0.057     8.623       -         
-debug_waiting_for_step_time5_cry_3                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_4_0              ALU      CIN      In      -         8.623       -         
-debug_waiting_for_step_time5_cry_4_0              ALU      COUT     Out     0.057     8.680       -         
-debug_waiting_for_step_time5_cry_4                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_5_0              ALU      CIN      In      -         8.680       -         
-debug_waiting_for_step_time5_cry_5_0              ALU      COUT     Out     0.057     8.737       -         
-debug_waiting_for_step_time5_cry_5                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_6_0              ALU      CIN      In      -         8.737       -         
-debug_waiting_for_step_time5_cry_6_0              ALU      COUT     Out     0.057     8.794       -         
-debug_waiting_for_step_time5_cry_6                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_7_0              ALU      CIN      In      -         8.794       -         
-debug_waiting_for_step_time5_cry_7_0              ALU      COUT     Out     0.057     8.851       -         
-debug_waiting_for_step_time5_cry_7                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_8_0              ALU      CIN      In      -         8.851       -         
-debug_waiting_for_step_time5_cry_8_0              ALU      COUT     Out     0.057     8.908       -         
-debug_waiting_for_step_time5_cry_8                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_9_0              ALU      CIN      In      -         8.908       -         
-debug_waiting_for_step_time5_cry_9_0              ALU      COUT     Out     0.057     8.965       -         
-debug_waiting_for_step_time5_cry_9                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_10_0             ALU      CIN      In      -         8.965       -         
-debug_waiting_for_step_time5_cry_10_0             ALU      COUT     Out     0.057     9.022       -         
-debug_waiting_for_step_time5_cry_10               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_11_0             ALU      CIN      In      -         9.022       -         
-debug_waiting_for_step_time5_cry_11_0             ALU      COUT     Out     0.057     9.079       -         
-debug_waiting_for_step_time5_cry_11               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_12_0             ALU      CIN      In      -         9.079       -         
-debug_waiting_for_step_time5_cry_12_0             ALU      COUT     Out     0.057     9.136       -         
-debug_waiting_for_step_time5_cry_12               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_13_0             ALU      CIN      In      -         9.136       -         
-debug_waiting_for_step_time5_cry_13_0             ALU      COUT     Out     0.057     9.193       -         
-debug_waiting_for_step_time5_cry_13               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_14_0             ALU      CIN      In      -         9.193       -         
-debug_waiting_for_step_time5_cry_14_0             ALU      COUT     Out     0.057     9.250       -         
-debug_waiting_for_step_time5_cry_14               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_15_0             ALU      CIN      In      -         9.250       -         
-debug_waiting_for_step_time5_cry_15_0             ALU      COUT     Out     0.057     9.307       -         
-debug_waiting_for_step_time5_cry_15               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_16_0             ALU      CIN      In      -         9.307       -         
-debug_waiting_for_step_time5_cry_16_0             ALU      COUT     Out     0.057     9.364       -         
-debug_waiting_for_step_time5_cry_16               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_17_0             ALU      CIN      In      -         9.364       -         
-debug_waiting_for_step_time5_cry_17_0             ALU      COUT     Out     0.057     9.421       -         
-debug_waiting_for_step_time5_cry_17               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_18_0             ALU      CIN      In      -         9.421       -         
-debug_waiting_for_step_time5_cry_18_0             ALU      COUT     Out     0.057     9.478       -         
-debug_waiting_for_step_time5_cry_18               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_19_0             ALU      CIN      In      -         9.478       -         
-debug_waiting_for_step_time5_cry_19_0             ALU      COUT     Out     0.057     9.535       -         
-debug_waiting_for_step_time5_cry_19               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_20_0             ALU      CIN      In      -         9.535       -         
-debug_waiting_for_step_time5_cry_20_0             ALU      COUT     Out     0.057     9.592       -         
-debug_waiting_for_step_time5_cry_20               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_21_0             ALU      CIN      In      -         9.592       -         
-debug_waiting_for_step_time5_cry_21_0             ALU      COUT     Out     0.057     9.649       -         
-debug_waiting_for_step_time5_cry_21               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_22_0             ALU      CIN      In      -         9.649       -         
-debug_waiting_for_step_time5_cry_22_0             ALU      COUT     Out     0.057     9.706       -         
-debug_waiting_for_step_time5_cry_22               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_23_0             ALU      CIN      In      -         9.706       -         
-debug_waiting_for_step_time5_cry_23_0             ALU      COUT     Out     0.057     9.763       -         
-debug_waiting_for_step_time5_cry_23               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_24_0             ALU      CIN      In      -         9.763       -         
-debug_waiting_for_step_time5_cry_24_0             ALU      COUT     Out     0.057     9.820       -         
-debug_waiting_for_step_time5_cry_24               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_25_0             ALU      CIN      In      -         9.820       -         
-debug_waiting_for_step_time5_cry_25_0             ALU      COUT     Out     0.057     9.877       -         
-debug_waiting_for_step_time5_cry_25               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_26_0             ALU      CIN      In      -         9.877       -         
-debug_waiting_for_step_time5_cry_26_0             ALU      COUT     Out     0.057     9.934       -         
-debug_waiting_for_step_time5_cry_26               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_27_0             ALU      CIN      In      -         9.934       -         
-debug_waiting_for_step_time5_cry_27_0             ALU      COUT     Out     0.057     9.991       -         
-debug_waiting_for_step_time5                      Net      -        -       1.549     -           4         
-debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV      I        In      -         11.540      -         
-============================================================================================================
-Total path delay (propagation time + setup) of 11.540 is 5.846(50.7%) logic and 5.694(49.3%) route.
+Instance / Net                                                  Pin      Pin               Arrival     No. of    
+Name                                              Type          Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------
+step_id[5]                                        DFFC          Q        Out     0.367     0.367       -         
+debug_step_id_c[5]                                Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          I0       In      -         1.388       -         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          F        Out     1.032     2.420       -         
+N_65_mux                                          Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m16                    LUT2          I1       In      -         3.441       -         
+oled_rom_init.dout_1_47_0_.m16                    LUT2          F        Out     1.099     4.540       -         
+encoded_step[44]                                  Net           -        -       1.082     -           11        
+oled_rom_init.dout_1_47_0_.m20                    LUT3          I0       In      -         5.622       -         
+oled_rom_init.dout_1_47_0_.m20                    LUT3          F        Out     1.032     6.654       -         
+m20                                               Net           -        -       1.021     -           3         
+oled_rom_init.dout_1_47_0_.m49_am                 LUT3          I1       In      -         7.675       -         
+oled_rom_init.dout_1_47_0_.m49_am                 LUT3          F        Out     1.099     8.774       -         
+m49_am                                            Net           -        -       0.000     -           1         
+oled_rom_init.dout_1_47_0_.m49                    MUX2_LUT5     I0       In      -         8.774       -         
+oled_rom_init.dout_1_47_0_.m49                    MUX2_LUT5     O        Out     0.150     8.924       -         
+encoded_step[19]                                  Net           -        -       1.021     -           1         
+debug_waiting_for_step_time5_cry_3_0              ALU           I0       In      -         9.945       -         
+debug_waiting_for_step_time5_cry_3_0              ALU           COUT     Out     0.958     10.903      -         
+debug_waiting_for_step_time5_cry_3                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_4_0              ALU           CIN      In      -         10.903      -         
+debug_waiting_for_step_time5_cry_4_0              ALU           COUT     Out     0.057     10.960      -         
+debug_waiting_for_step_time5_cry_4                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_5_0              ALU           CIN      In      -         10.960      -         
+debug_waiting_for_step_time5_cry_5_0              ALU           COUT     Out     0.057     11.017      -         
+debug_waiting_for_step_time5_cry_5                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_6_0              ALU           CIN      In      -         11.017      -         
+debug_waiting_for_step_time5_cry_6_0              ALU           COUT     Out     0.057     11.074      -         
+debug_waiting_for_step_time5_cry_6                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_7_0              ALU           CIN      In      -         11.074      -         
+debug_waiting_for_step_time5_cry_7_0              ALU           COUT     Out     0.057     11.131      -         
+debug_waiting_for_step_time5_cry_7                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_8_0              ALU           CIN      In      -         11.131      -         
+debug_waiting_for_step_time5_cry_8_0              ALU           COUT     Out     0.057     11.188      -         
+debug_waiting_for_step_time5_cry_8                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_9_0              ALU           CIN      In      -         11.188      -         
+debug_waiting_for_step_time5_cry_9_0              ALU           COUT     Out     0.057     11.245      -         
+debug_waiting_for_step_time5_cry_9                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_10_0             ALU           CIN      In      -         11.245      -         
+debug_waiting_for_step_time5_cry_10_0             ALU           COUT     Out     0.057     11.302      -         
+debug_waiting_for_step_time5_cry_10               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_11_0             ALU           CIN      In      -         11.302      -         
+debug_waiting_for_step_time5_cry_11_0             ALU           COUT     Out     0.057     11.359      -         
+debug_waiting_for_step_time5_cry_11               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_12_0             ALU           CIN      In      -         11.359      -         
+debug_waiting_for_step_time5_cry_12_0             ALU           COUT     Out     0.057     11.416      -         
+debug_waiting_for_step_time5_cry_12               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_13_0             ALU           CIN      In      -         11.416      -         
+debug_waiting_for_step_time5_cry_13_0             ALU           COUT     Out     0.057     11.473      -         
+debug_waiting_for_step_time5_cry_13               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_14_0             ALU           CIN      In      -         11.473      -         
+debug_waiting_for_step_time5_cry_14_0             ALU           COUT     Out     0.057     11.530      -         
+debug_waiting_for_step_time5_cry_14               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_15_0             ALU           CIN      In      -         11.530      -         
+debug_waiting_for_step_time5_cry_15_0             ALU           COUT     Out     0.057     11.587      -         
+debug_waiting_for_step_time5_cry_15               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_16_0             ALU           CIN      In      -         11.587      -         
+debug_waiting_for_step_time5_cry_16_0             ALU           COUT     Out     0.057     11.644      -         
+debug_waiting_for_step_time5_cry_16               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_17_0             ALU           CIN      In      -         11.644      -         
+debug_waiting_for_step_time5_cry_17_0             ALU           COUT     Out     0.057     11.701      -         
+debug_waiting_for_step_time5_cry_17               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_18_0             ALU           CIN      In      -         11.701      -         
+debug_waiting_for_step_time5_cry_18_0             ALU           COUT     Out     0.057     11.758      -         
+debug_waiting_for_step_time5_cry_18               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_19_0             ALU           CIN      In      -         11.758      -         
+debug_waiting_for_step_time5_cry_19_0             ALU           COUT     Out     0.057     11.815      -         
+debug_waiting_for_step_time5_cry_19               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_20_0             ALU           CIN      In      -         11.815      -         
+debug_waiting_for_step_time5_cry_20_0             ALU           COUT     Out     0.057     11.872      -         
+debug_waiting_for_step_time5_cry_20               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_21_0             ALU           CIN      In      -         11.872      -         
+debug_waiting_for_step_time5_cry_21_0             ALU           COUT     Out     0.057     11.929      -         
+debug_waiting_for_step_time5_cry_21               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_22_0             ALU           CIN      In      -         11.929      -         
+debug_waiting_for_step_time5_cry_22_0             ALU           COUT     Out     0.057     11.986      -         
+debug_waiting_for_step_time5_cry_22               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_23_0             ALU           CIN      In      -         11.986      -         
+debug_waiting_for_step_time5_cry_23_0             ALU           COUT     Out     0.057     12.043      -         
+debug_waiting_for_step_time5_cry_23               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_24_0             ALU           CIN      In      -         12.043      -         
+debug_waiting_for_step_time5_cry_24_0             ALU           COUT     Out     0.057     12.100      -         
+debug_waiting_for_step_time5_cry_24               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_25_0             ALU           CIN      In      -         12.100      -         
+debug_waiting_for_step_time5_cry_25_0             ALU           COUT     Out     0.057     12.157      -         
+debug_waiting_for_step_time5_cry_25               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_26_0             ALU           CIN      In      -         12.157      -         
+debug_waiting_for_step_time5_cry_26_0             ALU           COUT     Out     0.057     12.214      -         
+debug_waiting_for_step_time5_cry_26               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_27_0             ALU           CIN      In      -         12.214      -         
+debug_waiting_for_step_time5_cry_27_0             ALU           COUT     Out     0.057     12.271      -         
+debug_waiting_for_step_time5                      Net           -        -       1.549     -           4         
+debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV           I        In      -         13.820      -         
+=================================================================================================================
+Total path delay (propagation time + setup) of 13.820 is 7.105(51.4%) logic and 6.715(48.6%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1082,111 +1090,117 @@ Path information for path number 3:
     + Estimated clock delay at ending point: 0.000
     = Required time:                         10.000
 
-    - Propagation time:                      11.330
+    - Propagation time:                      13.734
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -1.330
+    = Slack (non-critical) :                 -3.734
 
-    Number of logic level(s):                29
-    Starting point:                          step_id[4] / Q
+    Number of logic level(s):                31
+    Starting point:                          step_id[6] / Q
     Ending point:                            debug_waiting_for_step_time5_cry_27_0_RNI1VM2 / I
     The start point is clocked by            demo|clk_spi_derived_clock [rising] on pin CLK
     The end   point is clocked by            System [rising]
 
-Instance / Net                                             Pin      Pin               Arrival     No. of    
-Name                                              Type     Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------------------------------
-step_id[4]                                        DFFC     Q        Out     0.367     0.367       -         
-debug_step_id_c[4]                                Net      -        -       1.082     -           12        
-oled_rom_init.dout_1_i_o2[14]                     LUT4     I2       In      -         1.449       -         
-oled_rom_init.dout_1_i_o2[14]                     LUT4     F        Out     0.822     2.271       -         
-dout_1_i_o2[14]                                   Net      -        -       1.021     -           3         
-oled_rom_init.dout_1_i_1[14]                      LUT2     I0       In      -         3.292       -         
-oled_rom_init.dout_1_i_1[14]                      LUT2     F        Out     1.032     4.324       -         
-N_580_1                                           Net      -        -       1.021     -           2         
-oled_rom_init.dout_1_0[18]                        LUT4     I0       In      -         5.345       -         
-oled_rom_init.dout_1_0[18]                        LUT4     F        Out     1.032     6.377       -         
-encoded_step[18]                                  Net      -        -       1.021     -           1         
-debug_waiting_for_step_time5_cry_2_0              ALU      I0       In      -         7.398       -         
-debug_waiting_for_step_time5_cry_2_0              ALU      COUT     Out     0.958     8.356       -         
-debug_waiting_for_step_time5_cry_2                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_3_0              ALU      CIN      In      -         8.356       -         
-debug_waiting_for_step_time5_cry_3_0              ALU      COUT     Out     0.057     8.413       -         
-debug_waiting_for_step_time5_cry_3                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_4_0              ALU      CIN      In      -         8.413       -         
-debug_waiting_for_step_time5_cry_4_0              ALU      COUT     Out     0.057     8.470       -         
-debug_waiting_for_step_time5_cry_4                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_5_0              ALU      CIN      In      -         8.470       -         
-debug_waiting_for_step_time5_cry_5_0              ALU      COUT     Out     0.057     8.527       -         
-debug_waiting_for_step_time5_cry_5                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_6_0              ALU      CIN      In      -         8.527       -         
-debug_waiting_for_step_time5_cry_6_0              ALU      COUT     Out     0.057     8.584       -         
-debug_waiting_for_step_time5_cry_6                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_7_0              ALU      CIN      In      -         8.584       -         
-debug_waiting_for_step_time5_cry_7_0              ALU      COUT     Out     0.057     8.641       -         
-debug_waiting_for_step_time5_cry_7                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_8_0              ALU      CIN      In      -         8.641       -         
-debug_waiting_for_step_time5_cry_8_0              ALU      COUT     Out     0.057     8.698       -         
-debug_waiting_for_step_time5_cry_8                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_9_0              ALU      CIN      In      -         8.698       -         
-debug_waiting_for_step_time5_cry_9_0              ALU      COUT     Out     0.057     8.755       -         
-debug_waiting_for_step_time5_cry_9                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_10_0             ALU      CIN      In      -         8.755       -         
-debug_waiting_for_step_time5_cry_10_0             ALU      COUT     Out     0.057     8.812       -         
-debug_waiting_for_step_time5_cry_10               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_11_0             ALU      CIN      In      -         8.812       -         
-debug_waiting_for_step_time5_cry_11_0             ALU      COUT     Out     0.057     8.869       -         
-debug_waiting_for_step_time5_cry_11               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_12_0             ALU      CIN      In      -         8.869       -         
-debug_waiting_for_step_time5_cry_12_0             ALU      COUT     Out     0.057     8.926       -         
-debug_waiting_for_step_time5_cry_12               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_13_0             ALU      CIN      In      -         8.926       -         
-debug_waiting_for_step_time5_cry_13_0             ALU      COUT     Out     0.057     8.983       -         
-debug_waiting_for_step_time5_cry_13               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_14_0             ALU      CIN      In      -         8.983       -         
-debug_waiting_for_step_time5_cry_14_0             ALU      COUT     Out     0.057     9.040       -         
-debug_waiting_for_step_time5_cry_14               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_15_0             ALU      CIN      In      -         9.040       -         
-debug_waiting_for_step_time5_cry_15_0             ALU      COUT     Out     0.057     9.097       -         
-debug_waiting_for_step_time5_cry_15               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_16_0             ALU      CIN      In      -         9.097       -         
-debug_waiting_for_step_time5_cry_16_0             ALU      COUT     Out     0.057     9.154       -         
-debug_waiting_for_step_time5_cry_16               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_17_0             ALU      CIN      In      -         9.154       -         
-debug_waiting_for_step_time5_cry_17_0             ALU      COUT     Out     0.057     9.211       -         
-debug_waiting_for_step_time5_cry_17               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_18_0             ALU      CIN      In      -         9.211       -         
-debug_waiting_for_step_time5_cry_18_0             ALU      COUT     Out     0.057     9.268       -         
-debug_waiting_for_step_time5_cry_18               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_19_0             ALU      CIN      In      -         9.268       -         
-debug_waiting_for_step_time5_cry_19_0             ALU      COUT     Out     0.057     9.325       -         
-debug_waiting_for_step_time5_cry_19               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_20_0             ALU      CIN      In      -         9.325       -         
-debug_waiting_for_step_time5_cry_20_0             ALU      COUT     Out     0.057     9.382       -         
-debug_waiting_for_step_time5_cry_20               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_21_0             ALU      CIN      In      -         9.382       -         
-debug_waiting_for_step_time5_cry_21_0             ALU      COUT     Out     0.057     9.439       -         
-debug_waiting_for_step_time5_cry_21               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_22_0             ALU      CIN      In      -         9.439       -         
-debug_waiting_for_step_time5_cry_22_0             ALU      COUT     Out     0.057     9.496       -         
-debug_waiting_for_step_time5_cry_22               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_23_0             ALU      CIN      In      -         9.496       -         
-debug_waiting_for_step_time5_cry_23_0             ALU      COUT     Out     0.057     9.553       -         
-debug_waiting_for_step_time5_cry_23               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_24_0             ALU      CIN      In      -         9.553       -         
-debug_waiting_for_step_time5_cry_24_0             ALU      COUT     Out     0.057     9.610       -         
-debug_waiting_for_step_time5_cry_24               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_25_0             ALU      CIN      In      -         9.610       -         
-debug_waiting_for_step_time5_cry_25_0             ALU      COUT     Out     0.057     9.667       -         
-debug_waiting_for_step_time5_cry_25               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_26_0             ALU      CIN      In      -         9.667       -         
-debug_waiting_for_step_time5_cry_26_0             ALU      COUT     Out     0.057     9.724       -         
-debug_waiting_for_step_time5_cry_26               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_27_0             ALU      CIN      In      -         9.724       -         
-debug_waiting_for_step_time5_cry_27_0             ALU      COUT     Out     0.057     9.781       -         
-debug_waiting_for_step_time5                      Net      -        -       1.549     -           4         
-debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV      I        In      -         11.330      -         
-============================================================================================================
-Total path delay (propagation time + setup) of 11.330 is 5.636(49.7%) logic and 5.694(50.3%) route.
+Instance / Net                                                  Pin      Pin               Arrival     No. of    
+Name                                              Type          Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------
+step_id[6]                                        DFFC          Q        Out     0.367     0.367       -         
+debug_step_id_c[6]                                Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          I1       In      -         1.388       -         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          F        Out     1.099     2.487       -         
+N_65_mux                                          Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m9                     LUT3          I2       In      -         3.508       -         
+oled_rom_init.dout_1_47_0_.m9                     LUT3          F        Out     0.822     4.330       -         
+m9                                                Net           -        -       1.082     -           14        
+oled_rom_init.dout_1_47_0_.m14                    LUT3          I1       In      -         5.412       -         
+oled_rom_init.dout_1_47_0_.m14                    LUT3          F        Out     1.099     6.511       -         
+m14                                               Net           -        -       1.021     -           4         
+oled_rom_init.dout_1_47_0_.m45_am                 LUT3          I1       In      -         7.532       -         
+oled_rom_init.dout_1_47_0_.m45_am                 LUT3          F        Out     1.099     8.631       -         
+m45_am                                            Net           -        -       0.000     -           1         
+oled_rom_init.dout_1_47_0_.m45                    MUX2_LUT5     I0       In      -         8.631       -         
+oled_rom_init.dout_1_47_0_.m45                    MUX2_LUT5     O        Out     0.150     8.781       -         
+encoded_step[18]                                  Net           -        -       1.021     -           1         
+debug_waiting_for_step_time5_cry_2_0              ALU           I0       In      -         9.802       -         
+debug_waiting_for_step_time5_cry_2_0              ALU           COUT     Out     0.958     10.760      -         
+debug_waiting_for_step_time5_cry_2                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_3_0              ALU           CIN      In      -         10.760      -         
+debug_waiting_for_step_time5_cry_3_0              ALU           COUT     Out     0.057     10.817      -         
+debug_waiting_for_step_time5_cry_3                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_4_0              ALU           CIN      In      -         10.817      -         
+debug_waiting_for_step_time5_cry_4_0              ALU           COUT     Out     0.057     10.874      -         
+debug_waiting_for_step_time5_cry_4                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_5_0              ALU           CIN      In      -         10.874      -         
+debug_waiting_for_step_time5_cry_5_0              ALU           COUT     Out     0.057     10.931      -         
+debug_waiting_for_step_time5_cry_5                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_6_0              ALU           CIN      In      -         10.931      -         
+debug_waiting_for_step_time5_cry_6_0              ALU           COUT     Out     0.057     10.988      -         
+debug_waiting_for_step_time5_cry_6                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_7_0              ALU           CIN      In      -         10.988      -         
+debug_waiting_for_step_time5_cry_7_0              ALU           COUT     Out     0.057     11.045      -         
+debug_waiting_for_step_time5_cry_7                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_8_0              ALU           CIN      In      -         11.045      -         
+debug_waiting_for_step_time5_cry_8_0              ALU           COUT     Out     0.057     11.102      -         
+debug_waiting_for_step_time5_cry_8                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_9_0              ALU           CIN      In      -         11.102      -         
+debug_waiting_for_step_time5_cry_9_0              ALU           COUT     Out     0.057     11.159      -         
+debug_waiting_for_step_time5_cry_9                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_10_0             ALU           CIN      In      -         11.159      -         
+debug_waiting_for_step_time5_cry_10_0             ALU           COUT     Out     0.057     11.216      -         
+debug_waiting_for_step_time5_cry_10               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_11_0             ALU           CIN      In      -         11.216      -         
+debug_waiting_for_step_time5_cry_11_0             ALU           COUT     Out     0.057     11.273      -         
+debug_waiting_for_step_time5_cry_11               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_12_0             ALU           CIN      In      -         11.273      -         
+debug_waiting_for_step_time5_cry_12_0             ALU           COUT     Out     0.057     11.330      -         
+debug_waiting_for_step_time5_cry_12               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_13_0             ALU           CIN      In      -         11.330      -         
+debug_waiting_for_step_time5_cry_13_0             ALU           COUT     Out     0.057     11.387      -         
+debug_waiting_for_step_time5_cry_13               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_14_0             ALU           CIN      In      -         11.387      -         
+debug_waiting_for_step_time5_cry_14_0             ALU           COUT     Out     0.057     11.444      -         
+debug_waiting_for_step_time5_cry_14               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_15_0             ALU           CIN      In      -         11.444      -         
+debug_waiting_for_step_time5_cry_15_0             ALU           COUT     Out     0.057     11.501      -         
+debug_waiting_for_step_time5_cry_15               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_16_0             ALU           CIN      In      -         11.501      -         
+debug_waiting_for_step_time5_cry_16_0             ALU           COUT     Out     0.057     11.558      -         
+debug_waiting_for_step_time5_cry_16               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_17_0             ALU           CIN      In      -         11.558      -         
+debug_waiting_for_step_time5_cry_17_0             ALU           COUT     Out     0.057     11.615      -         
+debug_waiting_for_step_time5_cry_17               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_18_0             ALU           CIN      In      -         11.615      -         
+debug_waiting_for_step_time5_cry_18_0             ALU           COUT     Out     0.057     11.672      -         
+debug_waiting_for_step_time5_cry_18               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_19_0             ALU           CIN      In      -         11.672      -         
+debug_waiting_for_step_time5_cry_19_0             ALU           COUT     Out     0.057     11.729      -         
+debug_waiting_for_step_time5_cry_19               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_20_0             ALU           CIN      In      -         11.729      -         
+debug_waiting_for_step_time5_cry_20_0             ALU           COUT     Out     0.057     11.786      -         
+debug_waiting_for_step_time5_cry_20               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_21_0             ALU           CIN      In      -         11.786      -         
+debug_waiting_for_step_time5_cry_21_0             ALU           COUT     Out     0.057     11.843      -         
+debug_waiting_for_step_time5_cry_21               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_22_0             ALU           CIN      In      -         11.843      -         
+debug_waiting_for_step_time5_cry_22_0             ALU           COUT     Out     0.057     11.900      -         
+debug_waiting_for_step_time5_cry_22               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_23_0             ALU           CIN      In      -         11.900      -         
+debug_waiting_for_step_time5_cry_23_0             ALU           COUT     Out     0.057     11.957      -         
+debug_waiting_for_step_time5_cry_23               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_24_0             ALU           CIN      In      -         11.957      -         
+debug_waiting_for_step_time5_cry_24_0             ALU           COUT     Out     0.057     12.014      -         
+debug_waiting_for_step_time5_cry_24               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_25_0             ALU           CIN      In      -         12.014      -         
+debug_waiting_for_step_time5_cry_25_0             ALU           COUT     Out     0.057     12.071      -         
+debug_waiting_for_step_time5_cry_25               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_26_0             ALU           CIN      In      -         12.071      -         
+debug_waiting_for_step_time5_cry_26_0             ALU           COUT     Out     0.057     12.128      -         
+debug_waiting_for_step_time5_cry_26               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_27_0             ALU           CIN      In      -         12.128      -         
+debug_waiting_for_step_time5_cry_27_0             ALU           COUT     Out     0.057     12.185      -         
+debug_waiting_for_step_time5                      Net           -        -       1.549     -           4         
+debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV           I        In      -         13.734      -         
+=================================================================================================================
+Total path delay (propagation time + setup) of 13.734 is 7.019(51.1%) logic and 6.715(48.9%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1197,111 +1211,114 @@ Path information for path number 4:
     + Estimated clock delay at ending point: 0.000
     = Required time:                         10.000
 
-    - Propagation time:                      11.073
+    - Propagation time:                      13.677
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 -1.073
+    = Slack (non-critical) :                 -3.677
 
-    Number of logic level(s):                29
+    Number of logic level(s):                30
     Starting point:                          step_id[6] / Q
     Ending point:                            debug_waiting_for_step_time5_cry_27_0_RNI1VM2 / I
     The start point is clocked by            demo|clk_spi_derived_clock [rising] on pin CLK
     The end   point is clocked by            System [rising]
 
-Instance / Net                                             Pin      Pin               Arrival     No. of    
-Name                                              Type     Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------------------------------
-step_id[6]                                        DFFC     Q        Out     0.367     0.367       -         
-debug_step_id_c[6]                                Net      -        -       1.021     -           7         
-oled_rom_init.dout_1_i_o2[14]                     LUT4     I3       In      -         1.388       -         
-oled_rom_init.dout_1_i_o2[14]                     LUT4     F        Out     0.626     2.014       -         
-dout_1_i_o2[14]                                   Net      -        -       1.021     -           3         
-oled_rom_init.dout_1_i_1[14]                      LUT2     I0       In      -         3.035       -         
-oled_rom_init.dout_1_i_1[14]                      LUT2     F        Out     1.032     4.067       -         
-N_580_1                                           Net      -        -       1.021     -           2         
-oled_rom_init.dout_1_0[18]                        LUT4     I0       In      -         5.088       -         
-oled_rom_init.dout_1_0[18]                        LUT4     F        Out     1.032     6.120       -         
-encoded_step[18]                                  Net      -        -       1.021     -           1         
-debug_waiting_for_step_time5_cry_2_0              ALU      I0       In      -         7.141       -         
-debug_waiting_for_step_time5_cry_2_0              ALU      COUT     Out     0.958     8.099       -         
-debug_waiting_for_step_time5_cry_2                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_3_0              ALU      CIN      In      -         8.099       -         
-debug_waiting_for_step_time5_cry_3_0              ALU      COUT     Out     0.057     8.156       -         
-debug_waiting_for_step_time5_cry_3                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_4_0              ALU      CIN      In      -         8.156       -         
-debug_waiting_for_step_time5_cry_4_0              ALU      COUT     Out     0.057     8.213       -         
-debug_waiting_for_step_time5_cry_4                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_5_0              ALU      CIN      In      -         8.213       -         
-debug_waiting_for_step_time5_cry_5_0              ALU      COUT     Out     0.057     8.270       -         
-debug_waiting_for_step_time5_cry_5                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_6_0              ALU      CIN      In      -         8.270       -         
-debug_waiting_for_step_time5_cry_6_0              ALU      COUT     Out     0.057     8.327       -         
-debug_waiting_for_step_time5_cry_6                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_7_0              ALU      CIN      In      -         8.327       -         
-debug_waiting_for_step_time5_cry_7_0              ALU      COUT     Out     0.057     8.384       -         
-debug_waiting_for_step_time5_cry_7                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_8_0              ALU      CIN      In      -         8.384       -         
-debug_waiting_for_step_time5_cry_8_0              ALU      COUT     Out     0.057     8.441       -         
-debug_waiting_for_step_time5_cry_8                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_9_0              ALU      CIN      In      -         8.441       -         
-debug_waiting_for_step_time5_cry_9_0              ALU      COUT     Out     0.057     8.498       -         
-debug_waiting_for_step_time5_cry_9                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_10_0             ALU      CIN      In      -         8.498       -         
-debug_waiting_for_step_time5_cry_10_0             ALU      COUT     Out     0.057     8.555       -         
-debug_waiting_for_step_time5_cry_10               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_11_0             ALU      CIN      In      -         8.555       -         
-debug_waiting_for_step_time5_cry_11_0             ALU      COUT     Out     0.057     8.612       -         
-debug_waiting_for_step_time5_cry_11               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_12_0             ALU      CIN      In      -         8.612       -         
-debug_waiting_for_step_time5_cry_12_0             ALU      COUT     Out     0.057     8.669       -         
-debug_waiting_for_step_time5_cry_12               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_13_0             ALU      CIN      In      -         8.669       -         
-debug_waiting_for_step_time5_cry_13_0             ALU      COUT     Out     0.057     8.726       -         
-debug_waiting_for_step_time5_cry_13               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_14_0             ALU      CIN      In      -         8.726       -         
-debug_waiting_for_step_time5_cry_14_0             ALU      COUT     Out     0.057     8.783       -         
-debug_waiting_for_step_time5_cry_14               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_15_0             ALU      CIN      In      -         8.783       -         
-debug_waiting_for_step_time5_cry_15_0             ALU      COUT     Out     0.057     8.840       -         
-debug_waiting_for_step_time5_cry_15               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_16_0             ALU      CIN      In      -         8.840       -         
-debug_waiting_for_step_time5_cry_16_0             ALU      COUT     Out     0.057     8.897       -         
-debug_waiting_for_step_time5_cry_16               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_17_0             ALU      CIN      In      -         8.897       -         
-debug_waiting_for_step_time5_cry_17_0             ALU      COUT     Out     0.057     8.954       -         
-debug_waiting_for_step_time5_cry_17               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_18_0             ALU      CIN      In      -         8.954       -         
-debug_waiting_for_step_time5_cry_18_0             ALU      COUT     Out     0.057     9.011       -         
-debug_waiting_for_step_time5_cry_18               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_19_0             ALU      CIN      In      -         9.011       -         
-debug_waiting_for_step_time5_cry_19_0             ALU      COUT     Out     0.057     9.068       -         
-debug_waiting_for_step_time5_cry_19               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_20_0             ALU      CIN      In      -         9.068       -         
-debug_waiting_for_step_time5_cry_20_0             ALU      COUT     Out     0.057     9.125       -         
-debug_waiting_for_step_time5_cry_20               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_21_0             ALU      CIN      In      -         9.125       -         
-debug_waiting_for_step_time5_cry_21_0             ALU      COUT     Out     0.057     9.182       -         
-debug_waiting_for_step_time5_cry_21               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_22_0             ALU      CIN      In      -         9.182       -         
-debug_waiting_for_step_time5_cry_22_0             ALU      COUT     Out     0.057     9.239       -         
-debug_waiting_for_step_time5_cry_22               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_23_0             ALU      CIN      In      -         9.239       -         
-debug_waiting_for_step_time5_cry_23_0             ALU      COUT     Out     0.057     9.296       -         
-debug_waiting_for_step_time5_cry_23               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_24_0             ALU      CIN      In      -         9.296       -         
-debug_waiting_for_step_time5_cry_24_0             ALU      COUT     Out     0.057     9.353       -         
-debug_waiting_for_step_time5_cry_24               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_25_0             ALU      CIN      In      -         9.353       -         
-debug_waiting_for_step_time5_cry_25_0             ALU      COUT     Out     0.057     9.410       -         
-debug_waiting_for_step_time5_cry_25               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_26_0             ALU      CIN      In      -         9.410       -         
-debug_waiting_for_step_time5_cry_26_0             ALU      COUT     Out     0.057     9.467       -         
-debug_waiting_for_step_time5_cry_26               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_27_0             ALU      CIN      In      -         9.467       -         
-debug_waiting_for_step_time5_cry_27_0             ALU      COUT     Out     0.057     9.524       -         
-debug_waiting_for_step_time5                      Net      -        -       1.549     -           4         
-debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV      I        In      -         11.073      -         
-============================================================================================================
-Total path delay (propagation time + setup) of 11.073 is 5.440(49.1%) logic and 5.633(50.9%) route.
+Instance / Net                                                  Pin      Pin               Arrival     No. of    
+Name                                              Type          Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------
+step_id[6]                                        DFFC          Q        Out     0.367     0.367       -         
+debug_step_id_c[6]                                Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          I1       In      -         1.388       -         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          F        Out     1.099     2.487       -         
+N_65_mux                                          Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m9                     LUT3          I2       In      -         3.508       -         
+oled_rom_init.dout_1_47_0_.m9                     LUT3          F        Out     0.822     4.330       -         
+m9                                                Net           -        -       1.082     -           14        
+oled_rom_init.dout_1_47_0_.m20                    LUT3          I1       In      -         5.412       -         
+oled_rom_init.dout_1_47_0_.m20                    LUT3          F        Out     1.099     6.511       -         
+m20                                               Net           -        -       1.021     -           3         
+oled_rom_init.dout_1_47_0_.m49_am                 LUT3          I1       In      -         7.532       -         
+oled_rom_init.dout_1_47_0_.m49_am                 LUT3          F        Out     1.099     8.631       -         
+m49_am                                            Net           -        -       0.000     -           1         
+oled_rom_init.dout_1_47_0_.m49                    MUX2_LUT5     I0       In      -         8.631       -         
+oled_rom_init.dout_1_47_0_.m49                    MUX2_LUT5     O        Out     0.150     8.781       -         
+encoded_step[19]                                  Net           -        -       1.021     -           1         
+debug_waiting_for_step_time5_cry_3_0              ALU           I0       In      -         9.802       -         
+debug_waiting_for_step_time5_cry_3_0              ALU           COUT     Out     0.958     10.760      -         
+debug_waiting_for_step_time5_cry_3                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_4_0              ALU           CIN      In      -         10.760      -         
+debug_waiting_for_step_time5_cry_4_0              ALU           COUT     Out     0.057     10.817      -         
+debug_waiting_for_step_time5_cry_4                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_5_0              ALU           CIN      In      -         10.817      -         
+debug_waiting_for_step_time5_cry_5_0              ALU           COUT     Out     0.057     10.874      -         
+debug_waiting_for_step_time5_cry_5                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_6_0              ALU           CIN      In      -         10.874      -         
+debug_waiting_for_step_time5_cry_6_0              ALU           COUT     Out     0.057     10.931      -         
+debug_waiting_for_step_time5_cry_6                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_7_0              ALU           CIN      In      -         10.931      -         
+debug_waiting_for_step_time5_cry_7_0              ALU           COUT     Out     0.057     10.988      -         
+debug_waiting_for_step_time5_cry_7                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_8_0              ALU           CIN      In      -         10.988      -         
+debug_waiting_for_step_time5_cry_8_0              ALU           COUT     Out     0.057     11.045      -         
+debug_waiting_for_step_time5_cry_8                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_9_0              ALU           CIN      In      -         11.045      -         
+debug_waiting_for_step_time5_cry_9_0              ALU           COUT     Out     0.057     11.102      -         
+debug_waiting_for_step_time5_cry_9                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_10_0             ALU           CIN      In      -         11.102      -         
+debug_waiting_for_step_time5_cry_10_0             ALU           COUT     Out     0.057     11.159      -         
+debug_waiting_for_step_time5_cry_10               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_11_0             ALU           CIN      In      -         11.159      -         
+debug_waiting_for_step_time5_cry_11_0             ALU           COUT     Out     0.057     11.216      -         
+debug_waiting_for_step_time5_cry_11               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_12_0             ALU           CIN      In      -         11.216      -         
+debug_waiting_for_step_time5_cry_12_0             ALU           COUT     Out     0.057     11.273      -         
+debug_waiting_for_step_time5_cry_12               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_13_0             ALU           CIN      In      -         11.273      -         
+debug_waiting_for_step_time5_cry_13_0             ALU           COUT     Out     0.057     11.330      -         
+debug_waiting_for_step_time5_cry_13               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_14_0             ALU           CIN      In      -         11.330      -         
+debug_waiting_for_step_time5_cry_14_0             ALU           COUT     Out     0.057     11.387      -         
+debug_waiting_for_step_time5_cry_14               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_15_0             ALU           CIN      In      -         11.387      -         
+debug_waiting_for_step_time5_cry_15_0             ALU           COUT     Out     0.057     11.444      -         
+debug_waiting_for_step_time5_cry_15               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_16_0             ALU           CIN      In      -         11.444      -         
+debug_waiting_for_step_time5_cry_16_0             ALU           COUT     Out     0.057     11.501      -         
+debug_waiting_for_step_time5_cry_16               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_17_0             ALU           CIN      In      -         11.501      -         
+debug_waiting_for_step_time5_cry_17_0             ALU           COUT     Out     0.057     11.558      -         
+debug_waiting_for_step_time5_cry_17               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_18_0             ALU           CIN      In      -         11.558      -         
+debug_waiting_for_step_time5_cry_18_0             ALU           COUT     Out     0.057     11.615      -         
+debug_waiting_for_step_time5_cry_18               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_19_0             ALU           CIN      In      -         11.615      -         
+debug_waiting_for_step_time5_cry_19_0             ALU           COUT     Out     0.057     11.672      -         
+debug_waiting_for_step_time5_cry_19               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_20_0             ALU           CIN      In      -         11.672      -         
+debug_waiting_for_step_time5_cry_20_0             ALU           COUT     Out     0.057     11.729      -         
+debug_waiting_for_step_time5_cry_20               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_21_0             ALU           CIN      In      -         11.729      -         
+debug_waiting_for_step_time5_cry_21_0             ALU           COUT     Out     0.057     11.786      -         
+debug_waiting_for_step_time5_cry_21               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_22_0             ALU           CIN      In      -         11.786      -         
+debug_waiting_for_step_time5_cry_22_0             ALU           COUT     Out     0.057     11.843      -         
+debug_waiting_for_step_time5_cry_22               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_23_0             ALU           CIN      In      -         11.843      -         
+debug_waiting_for_step_time5_cry_23_0             ALU           COUT     Out     0.057     11.900      -         
+debug_waiting_for_step_time5_cry_23               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_24_0             ALU           CIN      In      -         11.900      -         
+debug_waiting_for_step_time5_cry_24_0             ALU           COUT     Out     0.057     11.957      -         
+debug_waiting_for_step_time5_cry_24               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_25_0             ALU           CIN      In      -         11.957      -         
+debug_waiting_for_step_time5_cry_25_0             ALU           COUT     Out     0.057     12.014      -         
+debug_waiting_for_step_time5_cry_25               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_26_0             ALU           CIN      In      -         12.014      -         
+debug_waiting_for_step_time5_cry_26_0             ALU           COUT     Out     0.057     12.071      -         
+debug_waiting_for_step_time5_cry_26               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_27_0             ALU           CIN      In      -         12.071      -         
+debug_waiting_for_step_time5_cry_27_0             ALU           COUT     Out     0.057     12.128      -         
+debug_waiting_for_step_time5                      Net           -        -       1.549     -           4         
+debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV           I        In      -         13.677      -         
+=================================================================================================================
+Total path delay (propagation time + setup) of 13.677 is 6.962(50.9%) logic and 6.715(49.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1312,111 +1329,117 @@ Path information for path number 5:
     + Estimated clock delay at ending point: 0.000
     = Required time:                         10.000
 
-    - Propagation time:                      9.678
+    - Propagation time:                      13.667
     - Clock delay at starting point:         0.000 (ideal)
-    = Slack (non-critical) :                 0.322
+    = Slack (non-critical) :                 -3.667
 
-    Number of logic level(s):                29
-    Starting point:                          step_id[3] / Q
+    Number of logic level(s):                31
+    Starting point:                          step_id[5] / Q
     Ending point:                            debug_waiting_for_step_time5_cry_27_0_RNI1VM2 / I
     The start point is clocked by            demo|clk_spi_derived_clock [rising] on pin CLK
     The end   point is clocked by            System [rising]
 
-Instance / Net                                             Pin      Pin               Arrival     No. of    
-Name                                              Type     Name     Dir     Delay     Time        Fan Out(s)
-------------------------------------------------------------------------------------------------------------
-step_id[3]                                        DFFC     Q        Out     0.367     0.367       -         
-debug_step_id_c[3]                                Net      -        -       1.082     -           19        
-oled_rom_init.dout_1_i_o2[14]                     LUT4     I1       In      -         1.449       -         
-oled_rom_init.dout_1_i_o2[14]                     LUT4     F        Out     1.099     2.548       -         
-dout_1_i_o2[14]                                   Net      -        -       1.021     -           3         
-oled_rom_init.dout_1_0[17]                        LUT3     I1       In      -         3.569       -         
-oled_rom_init.dout_1_0[17]                        LUT3     F        Out     1.099     4.668       -         
-encoded_step[17]                                  Net      -        -       1.021     -           1         
-debug_waiting_for_step_time5_cry_1_0              ALU      I0       In      -         5.689       -         
-debug_waiting_for_step_time5_cry_1_0              ALU      COUT     Out     0.958     6.647       -         
-debug_waiting_for_step_time5_cry_1                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_2_0              ALU      CIN      In      -         6.647       -         
-debug_waiting_for_step_time5_cry_2_0              ALU      COUT     Out     0.057     6.704       -         
-debug_waiting_for_step_time5_cry_2                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_3_0              ALU      CIN      In      -         6.704       -         
-debug_waiting_for_step_time5_cry_3_0              ALU      COUT     Out     0.057     6.761       -         
-debug_waiting_for_step_time5_cry_3                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_4_0              ALU      CIN      In      -         6.761       -         
-debug_waiting_for_step_time5_cry_4_0              ALU      COUT     Out     0.057     6.818       -         
-debug_waiting_for_step_time5_cry_4                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_5_0              ALU      CIN      In      -         6.818       -         
-debug_waiting_for_step_time5_cry_5_0              ALU      COUT     Out     0.057     6.875       -         
-debug_waiting_for_step_time5_cry_5                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_6_0              ALU      CIN      In      -         6.875       -         
-debug_waiting_for_step_time5_cry_6_0              ALU      COUT     Out     0.057     6.932       -         
-debug_waiting_for_step_time5_cry_6                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_7_0              ALU      CIN      In      -         6.932       -         
-debug_waiting_for_step_time5_cry_7_0              ALU      COUT     Out     0.057     6.989       -         
-debug_waiting_for_step_time5_cry_7                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_8_0              ALU      CIN      In      -         6.989       -         
-debug_waiting_for_step_time5_cry_8_0              ALU      COUT     Out     0.057     7.046       -         
-debug_waiting_for_step_time5_cry_8                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_9_0              ALU      CIN      In      -         7.046       -         
-debug_waiting_for_step_time5_cry_9_0              ALU      COUT     Out     0.057     7.103       -         
-debug_waiting_for_step_time5_cry_9                Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_10_0             ALU      CIN      In      -         7.103       -         
-debug_waiting_for_step_time5_cry_10_0             ALU      COUT     Out     0.057     7.160       -         
-debug_waiting_for_step_time5_cry_10               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_11_0             ALU      CIN      In      -         7.160       -         
-debug_waiting_for_step_time5_cry_11_0             ALU      COUT     Out     0.057     7.217       -         
-debug_waiting_for_step_time5_cry_11               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_12_0             ALU      CIN      In      -         7.217       -         
-debug_waiting_for_step_time5_cry_12_0             ALU      COUT     Out     0.057     7.274       -         
-debug_waiting_for_step_time5_cry_12               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_13_0             ALU      CIN      In      -         7.274       -         
-debug_waiting_for_step_time5_cry_13_0             ALU      COUT     Out     0.057     7.331       -         
-debug_waiting_for_step_time5_cry_13               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_14_0             ALU      CIN      In      -         7.331       -         
-debug_waiting_for_step_time5_cry_14_0             ALU      COUT     Out     0.057     7.388       -         
-debug_waiting_for_step_time5_cry_14               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_15_0             ALU      CIN      In      -         7.388       -         
-debug_waiting_for_step_time5_cry_15_0             ALU      COUT     Out     0.057     7.445       -         
-debug_waiting_for_step_time5_cry_15               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_16_0             ALU      CIN      In      -         7.445       -         
-debug_waiting_for_step_time5_cry_16_0             ALU      COUT     Out     0.057     7.502       -         
-debug_waiting_for_step_time5_cry_16               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_17_0             ALU      CIN      In      -         7.502       -         
-debug_waiting_for_step_time5_cry_17_0             ALU      COUT     Out     0.057     7.559       -         
-debug_waiting_for_step_time5_cry_17               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_18_0             ALU      CIN      In      -         7.559       -         
-debug_waiting_for_step_time5_cry_18_0             ALU      COUT     Out     0.057     7.616       -         
-debug_waiting_for_step_time5_cry_18               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_19_0             ALU      CIN      In      -         7.616       -         
-debug_waiting_for_step_time5_cry_19_0             ALU      COUT     Out     0.057     7.673       -         
-debug_waiting_for_step_time5_cry_19               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_20_0             ALU      CIN      In      -         7.673       -         
-debug_waiting_for_step_time5_cry_20_0             ALU      COUT     Out     0.057     7.730       -         
-debug_waiting_for_step_time5_cry_20               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_21_0             ALU      CIN      In      -         7.730       -         
-debug_waiting_for_step_time5_cry_21_0             ALU      COUT     Out     0.057     7.787       -         
-debug_waiting_for_step_time5_cry_21               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_22_0             ALU      CIN      In      -         7.787       -         
-debug_waiting_for_step_time5_cry_22_0             ALU      COUT     Out     0.057     7.844       -         
-debug_waiting_for_step_time5_cry_22               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_23_0             ALU      CIN      In      -         7.844       -         
-debug_waiting_for_step_time5_cry_23_0             ALU      COUT     Out     0.057     7.901       -         
-debug_waiting_for_step_time5_cry_23               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_24_0             ALU      CIN      In      -         7.901       -         
-debug_waiting_for_step_time5_cry_24_0             ALU      COUT     Out     0.057     7.958       -         
-debug_waiting_for_step_time5_cry_24               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_25_0             ALU      CIN      In      -         7.958       -         
-debug_waiting_for_step_time5_cry_25_0             ALU      COUT     Out     0.057     8.015       -         
-debug_waiting_for_step_time5_cry_25               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_26_0             ALU      CIN      In      -         8.015       -         
-debug_waiting_for_step_time5_cry_26_0             ALU      COUT     Out     0.057     8.072       -         
-debug_waiting_for_step_time5_cry_26               Net      -        -       0.000     -           1         
-debug_waiting_for_step_time5_cry_27_0             ALU      CIN      In      -         8.072       -         
-debug_waiting_for_step_time5_cry_27_0             ALU      COUT     Out     0.057     8.129       -         
-debug_waiting_for_step_time5                      Net      -        -       1.549     -           4         
-debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV      I        In      -         9.678       -         
-============================================================================================================
-Total path delay (propagation time + setup) of 9.678 is 5.005(51.7%) logic and 4.673(48.3%) route.
+Instance / Net                                                  Pin      Pin               Arrival     No. of    
+Name                                              Type          Name     Dir     Delay     Time        Fan Out(s)
+-----------------------------------------------------------------------------------------------------------------
+step_id[5]                                        DFFC          Q        Out     0.367     0.367       -         
+debug_step_id_c[5]                                Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          I0       In      -         1.388       -         
+oled_rom_init.dout_1_47_0_.m1                     LUT2          F        Out     1.032     2.420       -         
+N_65_mux                                          Net           -        -       1.021     -           5         
+oled_rom_init.dout_1_47_0_.m9                     LUT3          I2       In      -         3.441       -         
+oled_rom_init.dout_1_47_0_.m9                     LUT3          F        Out     0.822     4.263       -         
+m9                                                Net           -        -       1.082     -           14        
+oled_rom_init.dout_1_47_0_.m14                    LUT3          I1       In      -         5.345       -         
+oled_rom_init.dout_1_47_0_.m14                    LUT3          F        Out     1.099     6.444       -         
+m14                                               Net           -        -       1.021     -           4         
+oled_rom_init.dout_1_47_0_.m45_am                 LUT3          I1       In      -         7.465       -         
+oled_rom_init.dout_1_47_0_.m45_am                 LUT3          F        Out     1.099     8.564       -         
+m45_am                                            Net           -        -       0.000     -           1         
+oled_rom_init.dout_1_47_0_.m45                    MUX2_LUT5     I0       In      -         8.564       -         
+oled_rom_init.dout_1_47_0_.m45                    MUX2_LUT5     O        Out     0.150     8.714       -         
+encoded_step[18]                                  Net           -        -       1.021     -           1         
+debug_waiting_for_step_time5_cry_2_0              ALU           I0       In      -         9.735       -         
+debug_waiting_for_step_time5_cry_2_0              ALU           COUT     Out     0.958     10.693      -         
+debug_waiting_for_step_time5_cry_2                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_3_0              ALU           CIN      In      -         10.693      -         
+debug_waiting_for_step_time5_cry_3_0              ALU           COUT     Out     0.057     10.750      -         
+debug_waiting_for_step_time5_cry_3                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_4_0              ALU           CIN      In      -         10.750      -         
+debug_waiting_for_step_time5_cry_4_0              ALU           COUT     Out     0.057     10.807      -         
+debug_waiting_for_step_time5_cry_4                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_5_0              ALU           CIN      In      -         10.807      -         
+debug_waiting_for_step_time5_cry_5_0              ALU           COUT     Out     0.057     10.864      -         
+debug_waiting_for_step_time5_cry_5                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_6_0              ALU           CIN      In      -         10.864      -         
+debug_waiting_for_step_time5_cry_6_0              ALU           COUT     Out     0.057     10.921      -         
+debug_waiting_for_step_time5_cry_6                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_7_0              ALU           CIN      In      -         10.921      -         
+debug_waiting_for_step_time5_cry_7_0              ALU           COUT     Out     0.057     10.978      -         
+debug_waiting_for_step_time5_cry_7                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_8_0              ALU           CIN      In      -         10.978      -         
+debug_waiting_for_step_time5_cry_8_0              ALU           COUT     Out     0.057     11.035      -         
+debug_waiting_for_step_time5_cry_8                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_9_0              ALU           CIN      In      -         11.035      -         
+debug_waiting_for_step_time5_cry_9_0              ALU           COUT     Out     0.057     11.092      -         
+debug_waiting_for_step_time5_cry_9                Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_10_0             ALU           CIN      In      -         11.092      -         
+debug_waiting_for_step_time5_cry_10_0             ALU           COUT     Out     0.057     11.149      -         
+debug_waiting_for_step_time5_cry_10               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_11_0             ALU           CIN      In      -         11.149      -         
+debug_waiting_for_step_time5_cry_11_0             ALU           COUT     Out     0.057     11.206      -         
+debug_waiting_for_step_time5_cry_11               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_12_0             ALU           CIN      In      -         11.206      -         
+debug_waiting_for_step_time5_cry_12_0             ALU           COUT     Out     0.057     11.263      -         
+debug_waiting_for_step_time5_cry_12               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_13_0             ALU           CIN      In      -         11.263      -         
+debug_waiting_for_step_time5_cry_13_0             ALU           COUT     Out     0.057     11.320      -         
+debug_waiting_for_step_time5_cry_13               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_14_0             ALU           CIN      In      -         11.320      -         
+debug_waiting_for_step_time5_cry_14_0             ALU           COUT     Out     0.057     11.377      -         
+debug_waiting_for_step_time5_cry_14               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_15_0             ALU           CIN      In      -         11.377      -         
+debug_waiting_for_step_time5_cry_15_0             ALU           COUT     Out     0.057     11.434      -         
+debug_waiting_for_step_time5_cry_15               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_16_0             ALU           CIN      In      -         11.434      -         
+debug_waiting_for_step_time5_cry_16_0             ALU           COUT     Out     0.057     11.491      -         
+debug_waiting_for_step_time5_cry_16               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_17_0             ALU           CIN      In      -         11.491      -         
+debug_waiting_for_step_time5_cry_17_0             ALU           COUT     Out     0.057     11.548      -         
+debug_waiting_for_step_time5_cry_17               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_18_0             ALU           CIN      In      -         11.548      -         
+debug_waiting_for_step_time5_cry_18_0             ALU           COUT     Out     0.057     11.605      -         
+debug_waiting_for_step_time5_cry_18               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_19_0             ALU           CIN      In      -         11.605      -         
+debug_waiting_for_step_time5_cry_19_0             ALU           COUT     Out     0.057     11.662      -         
+debug_waiting_for_step_time5_cry_19               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_20_0             ALU           CIN      In      -         11.662      -         
+debug_waiting_for_step_time5_cry_20_0             ALU           COUT     Out     0.057     11.719      -         
+debug_waiting_for_step_time5_cry_20               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_21_0             ALU           CIN      In      -         11.719      -         
+debug_waiting_for_step_time5_cry_21_0             ALU           COUT     Out     0.057     11.776      -         
+debug_waiting_for_step_time5_cry_21               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_22_0             ALU           CIN      In      -         11.776      -         
+debug_waiting_for_step_time5_cry_22_0             ALU           COUT     Out     0.057     11.833      -         
+debug_waiting_for_step_time5_cry_22               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_23_0             ALU           CIN      In      -         11.833      -         
+debug_waiting_for_step_time5_cry_23_0             ALU           COUT     Out     0.057     11.890      -         
+debug_waiting_for_step_time5_cry_23               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_24_0             ALU           CIN      In      -         11.890      -         
+debug_waiting_for_step_time5_cry_24_0             ALU           COUT     Out     0.057     11.947      -         
+debug_waiting_for_step_time5_cry_24               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_25_0             ALU           CIN      In      -         11.947      -         
+debug_waiting_for_step_time5_cry_25_0             ALU           COUT     Out     0.057     12.004      -         
+debug_waiting_for_step_time5_cry_25               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_26_0             ALU           CIN      In      -         12.004      -         
+debug_waiting_for_step_time5_cry_26_0             ALU           COUT     Out     0.057     12.061      -         
+debug_waiting_for_step_time5_cry_26               Net           -        -       0.000     -           1         
+debug_waiting_for_step_time5_cry_27_0             ALU           CIN      In      -         12.061      -         
+debug_waiting_for_step_time5_cry_27_0             ALU           COUT     Out     0.057     12.118      -         
+debug_waiting_for_step_time5                      Net           -        -       1.549     -           4         
+debug_waiting_for_step_time5_cry_27_0_RNI1VM2     INV           I        In      -         13.667      -         
+=================================================================================================================
+Total path delay (propagation time + setup) of 13.667 is 6.952(50.9%) logic and 6.715(49.1%) route.
 Path delay compensated for clock skew. Clock skew is added to clock-to-out value, and is subtracted from setup time value
 
 
@@ -1468,7 +1491,7 @@ spi0._shift_reg_tx[4]     demo|wr_spi_derived_clock[0]     DFFCE     CE      N_3
 
 
 <a name=worstPaths25></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:119399:120899:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:124318:125818:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -1558,7 +1581,7 @@ internal_state_machine[0]            System        DFFCE     D       N_61_i     
 
 
 <a name=worstPaths29></a>Worst Path Information</a>
-<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:126109:126373:@XP_NAMES_GATE">View Worst Path in Analyst</a>
+<a href="C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srr:srsfC:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srs:fp:131028:131292:@XP_NAMES_GATE">View Worst Path in Analyst</a>
 ***********************
 
 
@@ -1596,10 +1619,10 @@ Path delay compensated for clock skew. Clock skew is added to clock-to-out value
 Timing exceptions that could not be applied
 None
 
-Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 195MB)
+Finished final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 195MB peak: 197MB)
 
 
-Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 192MB peak: 195MB)
+Finished timing report (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 195MB peak: 197MB)
 
 ---------------------------------------
 <a name=resourceUsage30></a>Resource Usage Report for demo </a>
@@ -1612,11 +1635,11 @@ DFFCE           68 uses
 DFFPE           2 uses
 GSR             1 use
 INV             9 uses
-MUX2_LUT5       8 uses
+MUX2_LUT5       21 uses
 MUX2_LUT6       4 uses
-LUT2            40 uses
-LUT3            57 uses
-LUT4            54 uses
+LUT2            44 uses
+LUT3            70 uses
+LUT4            51 uses
 
 I/O ports: 22
 I/O primitives: 22
@@ -1632,14 +1655,14 @@ Total load per clock:
    demo|wr_spi_derived_clock[0]: 9
 
 @S |Mapping Summary:
-Total  LUTs: 151 (3%)
+Total  LUTs: 165 (3%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:03s; Memory used current: 40MB peak: 195MB)
+At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 40MB peak: 197MB)
 
-Process took 0h:00m:04s realtime, 0h:00m:03s cputime
-# Wed Oct 24 13:02:25 2018
+Process took 0h:00m:04s realtime, 0h:00m:04s cputime
+# Wed Oct 24 20:43:37 2018
 
 ###########################################################]
 

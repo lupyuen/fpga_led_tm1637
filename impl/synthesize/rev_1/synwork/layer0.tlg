@@ -1,7 +1,7 @@
 Selecting top level module demo
-@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":22:7:22:20|Synthesizing module LED_TM1637_ROM in library work.
+@N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":3:7:3:20|Synthesizing module LED_TM1637_ROM in library work.
 Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
-@W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":30:0:30:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
+@W: CG532 :"C:\fpga_led_tm1637\src\led_tm1637_rom.v":12:0:12:6|Within an initial block, only Verilog force statements and memory $readmemh/$readmemb initialization statements are recognized, and all other content is ignored.
 @N: CG364 :"C:\fpga_led_tm1637\src\spi_master.v":3:7:3:16|Synthesizing module spi_master in library work.
 
 	DIO_MODE=32'b00000000000000000000000000000001

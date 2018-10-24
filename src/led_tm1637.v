@@ -221,18 +221,6 @@ always@(                //  Code below is always triggered when these conditions
             rd_spi <= step_rd_spi;  //  If 1, will trigger an SPI Receive operation.
             wait_spi <= step_wait_spi;
             tx_data <= step_tx_data;  //  Byte to be transmitted.
-            /*
-                if (step_rd_spi || step_wr_spi) begin
-                    //  If this is an SPI read or write step, signal to SPI module to start the transfer (reset_spi high to low transition).
-                    rst_led_n <= 1'b0;
-                    reset_spi <= 1'b1;
-                end
-                else begin
-                    //  Reset reset_spi to high in case we have previously set to low due to SPI read or write step.
-                    rst_led_n <= 1'b1;
-                    reset_spi <= 1'b0;
-                end
-            */            
         end
 
         //  If the step start time has not been reached...
@@ -263,27 +251,12 @@ always@(                //  Code below is always triggered when these conditions
                             repeat_count <= repeat_count - 4'h1;
                         end
                     end
-
-                    /*
-                    if (step_rd_spi || step_wr_spi) begin
-                        //  If this is an SPI read or write step, signal to SPI module to start the transfer (reset_spi low to high transition).
-                        ////reset_spi <= 1'b1;
-                    end
-                    else begin
-                        //  Reset reset_spi to low in case we have previously set to high due to SPI read or write step.
-                        ////reset_spi <= 1'b0;
-                    end
-                    */
-
                     //  Jump to Second Tick step below in the next clock tick.
                     internal_state_machine <= 1'b1;
                 end
 
                 //  Second Tick: Execute the step.  We can use wr_spi, rd_spi, wait_spi here because this is already the next clk_spi tick.
                 1'b1 : begin
-                    //  Reset reset_spi to low in case we have previously set to high due to SPI read or write step.
-                    ////reset_spi <= 1'b0;
-
                     //  If we are waiting for SPI command to complete...
                     if (wait_spi) begin
                         //  If SPI command has completed...

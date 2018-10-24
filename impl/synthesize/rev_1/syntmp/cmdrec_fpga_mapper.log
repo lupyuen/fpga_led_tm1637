@@ -1,14 +1,14 @@
 C:\Gowin\1.8\SynplifyPro\bin64\m_generic.exe  -prodtype  synplify_pro  -encrypt  -pro  -rundir  C:\fpga_led_tm1637\impl\synthesize\rev_1   -part GW1N_4  -package LQFP144  -grade -6    -maxfan 10000 -RWCheckOnRam 1 -pipe -fixgatedclocks 1 -fixgeneratedclocks 1 -csa_carry_chain_maxlen 0 -infer_seqShift -enable_gcc_in_premap -summaryfile C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\report\fpga_led_tm1637_fpga_mapper.xml -merge_inferred_clocks 0  -flow mapping  -multisrs  -ovm  C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.vm   -autoconstraint  -freq 100.000   C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_prem.srd  -sap  C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap  -otap  C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.tap  -omap  C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.map  -devicelib  C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v  -sap  C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.sap  -ologparam  C:\fpga_led_tm1637\impl\synthesize\rev_1\syntmp\fpga_led_tm1637.plg  -osyn  C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.srm  -prjdir  C:\fpga_led_tm1637\impl\synthesize\  -prjname  fpga_led_tm1637  -log  C:\fpga_led_tm1637\impl\synthesize\rev_1\synlog\fpga_led_tm1637_fpga_mapper.srr  -sn  2018.03  -jobname  "fpga_mapper" 
 relcom:..\..\..\..\..\Gowin\1.8\SynplifyPro\bin64\m_generic.exe -prodtype synplify_pro -encrypt -pro -rundir ..\..\rev_1 -part GW1N_4 -package LQFP144 -grade -6 -maxfan 10000 -RWCheckOnRam 1 -pipe -fixgatedclocks 1 -fixgeneratedclocks 1 -csa_carry_chain_maxlen 0 -infer_seqShift -enable_gcc_in_premap -summaryfile ..\synlog\report\fpga_led_tm1637_fpga_mapper.xml -merge_inferred_clocks 0 -flow mapping -multisrs -ovm ..\fpga_led_tm1637.vm -autoconstraint -freq 100.000 ..\synwork\fpga_led_tm1637_prem.srd -sap ..\fpga_led_tm1637.sap -otap ..\fpga_led_tm1637.tap -omap ..\fpga_led_tm1637.map -devicelib ..\..\..\..\..\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v -sap ..\fpga_led_tm1637.sap -ologparam fpga_led_tm1637.plg -osyn ..\fpga_led_tm1637.srm -prjdir ..\..\ -prjname fpga_led_tm1637 -log ..\synlog\fpga_led_tm1637_fpga_mapper.srr -sn 2018.03 -jobname "fpga_mapper"
 rc:1 success:1 runtime:5
-file:..\fpga_led_tm1637.vm|io:o|time:1540357344|size:88720|exec:0|csum:
-file:..\synwork\fpga_led_tm1637_prem.srd|io:i|time:1540357339|size:20056|exec:0|csum:B20C0FA4B8C8A906568F2EB59F0DCE5A
-file:..\fpga_led_tm1637.sap|io:o|time:1540357340|size:1540|exec:0|csum:
+file:..\fpga_led_tm1637.vm|io:o|time:1540385016|size:92334|exec:0|csum:
+file:..\synwork\fpga_led_tm1637_prem.srd|io:i|time:1540385011|size:20023|exec:0|csum:B20C0FA4B8C8A906568F2EB59F0DCE5A
+file:..\fpga_led_tm1637.sap|io:o|time:1540385012|size:1540|exec:0|csum:
 file:..\fpga_led_tm1637.tap|io:o|time:0|size:-1|exec:0|csum:
-file:..\fpga_led_tm1637.map|io:o|time:1540357345|size:28|exec:0|csum:
+file:..\fpga_led_tm1637.map|io:o|time:1540385017|size:28|exec:0|csum:
 file:..\..\..\..\..\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v|io:i|time:1526403272|size:91162|exec:0|csum:6FE3EB7A2EE8E73111EC688BAE636AC2
-file:..\fpga_led_tm1637.sap|io:o|time:1540357340|size:1540|exec:0|csum:
-file:fpga_led_tm1637.plg|io:o|time:1540357345|size:1291|exec:0|csum:
-file:..\fpga_led_tm1637.srm|io:o|time:1540357343|size:28322|exec:0|csum:
-file:..\synlog\fpga_led_tm1637_fpga_mapper.srr|io:o|time:1540357345|size:111170|exec:0|csum:
+file:..\fpga_led_tm1637.sap|io:o|time:1540385012|size:1540|exec:0|csum:
+file:fpga_led_tm1637.plg|io:o|time:1540385017|size:1291|exec:0|csum:
+file:..\fpga_led_tm1637.srm|io:o|time:1540385015|size:28283|exec:0|csum:
+file:..\synlog\fpga_led_tm1637_fpga_mapper.srr|io:o|time:1540385017|size:115954|exec:0|csum:
 file:..\..\..\..\..\Gowin\1.8\SynplifyPro\bin64\m_generic.exe|io:i|time:1526578602|size:35019776|exec:1|csum:A38C8B64A54826308121AE5A158D9B58

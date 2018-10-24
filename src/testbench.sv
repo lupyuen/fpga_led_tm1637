@@ -25,8 +25,8 @@ module test;
     #1 rst_n = 0;
     #2 rst_n = 1;
     
-    // finish after 4000 simulation units
-    #4000 $finish;
+    // finish after 20000 simulation units
+    #20000 $finish;
   end
   
   // monitor results
