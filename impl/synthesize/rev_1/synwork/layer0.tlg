@@ -13,20 +13,15 @@ Opening data file led_tm1637_rom.mem from directory C:\fpga_led_tm1637\src
 	STATE_IDLE=1'b0
 	STATE_BUSY=1'b1
    Generated name = spi_master_1s_3s_1s_8s_8s_0s_0_1
-@W: CL169 :"C:\fpga_led_tm1637\src\spi_master.v":66:0:66:5|Pruning unused register _prescaler_buffer[2:0]. Make sure that there are no unused intermediate registers.
-@W: CL113 :"C:\fpga_led_tm1637\src\spi_master.v":66:0:66:5|Feedback mux created for signal _tx_buffer_occupied[0:0]. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@A: CL282 :"C:\fpga_led_tm1637\src\spi_master.v":66:0:66:5|Feedback mux created for signal _tx_buffer[7:0]. It is possible a set/reset assignment for this is signal missing. To improve timing and area, specify a set/reset value.
 @N: CG364 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:10|Synthesizing module demo in library work.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning unused register rst_led_n[0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
-@W: CL113 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Feedback mux created for signal tm1637_vcc. To avoid the feedback mux, assign values explicitly under all conditions of conditional assignment statements.
-@W: CL251 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
-@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
-@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":189:0:189:5|Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Pruning unused register test_display_on[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL169 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Pruning unused register test_display_off[7:0]. Make sure that there are no unused intermediate registers.
+@W: CL207 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|All reachable assignments to tm1637_vcc assign 1, register removed by optimization.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Optimizing register bit repeat_count[14] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Pruning register bit 14 of repeat_count[14:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Optimizing register bit repeat_count[13] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Pruning register bit 13 of repeat_count[13:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Optimizing register bit repeat_count[12] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Pruning register bit 12 of repeat_count[12:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.
+@W: CL190 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Optimizing register bit repeat_count[11] to a constant 0. To keep the instance, apply constraint syn_preserve=1 on the instance.
+@W: CL260 :"C:\fpga_led_tm1637\src\led_tm1637.v":188:0:188:5|Pruning register bit 11 of repeat_count[11:0]. If this is not the intended behavior, drive the input with valid values, or an input from the top level.

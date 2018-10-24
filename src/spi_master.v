@@ -48,7 +48,7 @@ reg[0:0] _rx_buffer_occupied;
 reg[0:0] _rx_buffer_received;
 reg[0:0] _tx_buffer_occupied;
 reg[0:0] _tx_buffer_sent;
-reg[2:0] _prescaler_buffer;
+////reg[2:0] _prescaler_buffer;
 reg[(WORD_LEN-1):0] _tx_buffer;
 reg[(WORD_LEN-1):0] _rx_buffer;
 
@@ -66,24 +66,34 @@ assign debug_rx_buffer = _rx_buffer;
 always @ (posedge wr or posedge rst_tx_error or posedge rst) begin  //  Normally we transmit when "wr" transitions from low to high.
     if (rst) begin
         //  When reset signal transitions from low to high, reset the internal registers.
-        _tx_buffer_occupied <= 1'b0;  //  Init transmit buffer as unoccupied.  
+        _tx_buffer <= 0;  //  Empty the transmit buffer.
+        _tx_buffer_occupied <= 1'b0;  //  Mark transmit buffer as unoccupied.  
         tx_error <= 1'b0;  //  Clear any transmit error.
-        _prescaler_buffer <= 3'b0;
+        ////_prescaler_buffer <= 3'b0;  //  Clear the prescaler buffer.
     end
     else if (rst_tx_error) begin
         //  When caller requests to reset the transmit error, we clear the error.
-        tx_error <= 1'b0;
+        _tx_buffer <= 0;  //  Empty the transmit buffer.
+        _tx_buffer_occupied <= 1'b0;  //  Mark transmit buffer as unoccupied.  
+        tx_error <= 1'b0;  //  Clear any transmit error.
     end
     else if (wr) begin
         //  When caller requests to transmit data...
         if (!tx_completed) begin  //  If previous transmit has not completed...
+            _tx_buffer <= 0;  //  Empty the transmit buffer.
+            _tx_buffer_occupied <= 1'b0;  //  Mark transmit buffer as unoccupied.  
             tx_error <= 1'b1;  //  Return an error.
         end
         else begin  //  If previous transmit has completed, we prepare to transmit new data.
             _tx_buffer <= tx_data;  //  Copy the transmit data (1 byte) into the transmit buffer.
             _tx_buffer_occupied <= 1'b1;  //  Mark transmit buffer as occupied.  This marks the transmit as incomplete.
-            _prescaler_buffer <= prescaler;  //  Prepare the prescaler counter.
+            ////_prescaler_buffer <= prescaler;  //  Prepare the prescaler counter.
         end
+    end
+    else begin
+        //  Should not come here.
+        _tx_buffer <= 0;  //  Empty the transmit buffer.
+        _tx_buffer_occupied <= 1'b0;  //  Mark transmit buffer as unoccupied.  
     end
 end
 

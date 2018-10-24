@@ -66,7 +66,6 @@ reg[0:0] rd_spi;
 reg[0:0] wr_spi;
 reg[0:0] reset_spi;
 reg[0:0] wait_spi;
-reg[0:0] rst_led_n; //// TODO: Remove
 reg[7:0] tx_data;
 
 reg[7:0] test_display_on;
@@ -191,23 +190,21 @@ always@(                //  Code below is always triggered when these conditions
     negedge rst_n       //  When the reset signal transitions from high to low (negative edge) which
     ) begin             //  happens when the board restarts or reset button is pressed.
 
+    tm1637_vcc <= 1'b1;  //  Turn on power supply to LED device.
     if (!rst_n) begin      //  If board restarts or reset button is pressed...
         cnt_spi <= 25'd0;  //  Increment the watchdog timer.
 
         //  Init registers here.
-        tm1637_vcc <= 1'b1;  //  Turn on power supply to LED device.
         step_id <= `BLOCK_ROM_INIT_ADDR_WIDTH'b0;
         wait_spi <= 1'b0;
         rd_spi <= 1'b0;
         wr_spi <= 1'b0;
         reset_spi <= 1'b0;
-        rst_led_n <= 1'b1;
         internal_state_machine <= 1'b0;
         elapsed_time <= 28'b0;
         saved_elapsed_time <= 28'b0;
         repeat_count <= 4'b0;
         tx_data <= 8'b0;
-        //  rx_data <= 8'h0;
         test_display_on <= 8'h8f;
         test_display_off <= 8'h80;
         debug_waiting_for_step_time <= 1'b0;

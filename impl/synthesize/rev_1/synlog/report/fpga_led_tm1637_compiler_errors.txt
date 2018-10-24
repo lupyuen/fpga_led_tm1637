@@ -1,2 +1,2 @@
-@E: CG906 :"C:\fpga_led_tm1637\src\spi_master.v":229:24:229:30|Reference to unknown variable diomode.
+@E: CG425 :"C:\fpga_led_tm1637\src\led_tm1637.v":209:8:209:14|Assignment target rx_data must be of type reg, genvar, or logic
 
