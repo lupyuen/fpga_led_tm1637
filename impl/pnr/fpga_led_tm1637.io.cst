@@ -12,7 +12,7 @@ Speed: 6
 ****************************************************************/
 
 IO_LOC "clk_50M"     6;
-IO_LOC "rst_n"       66;
+IO_LOC "rst_n"       92;
 IO_LOC "switches[0]" 68;
 IO_LOC "switches[1]" 69;
 IO_LOC "switches[2]" 79;

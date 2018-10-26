@@ -30,7 +30,7 @@ Table of Contents
   <Physical Constraint File>: C:\fpga_led_tm1637\src\fpga.cst
   <Timing Constraint File>: ---
   <PnR Report File>: C:\fpga_led_tm1637\impl\pnr\fpga_led_tm1637.rpt.txt
-  <Created Time>: Fri Oct 26 10:32:29 2018
+  <Created Time>: Fri Oct 26 11:06:04 2018
   <Command Line>: C:\Gowin\1.8\Pnr\bin\gowin.exe -do C:\fpga_led_tm1637\impl\pnr\cmd.do 
   <Legal Announcement>: Copyright ©2014-2018 Gowin Semiconductor Corporation. All rights reserved.
 
@@ -38,11 +38,11 @@ Table of Contents
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 1.9e-005 secs
-    Placement Phase 1 ...   REAL time: 8.9e-005 secs
-    Placement Phase 2 ...   REAL time: 2.7e-005 secs
-    Placement Phase 3 ...   REAL time: 0.001176 secs
-  Total REAL time to Placement completion: 1.311 secs.
+    Placement Phase 0 ...   REAL time: 3.4e-005 secs
+    Placement Phase 1 ...   REAL time: 0.000117 secs
+    Placement Phase 2 ...   REAL time: 2.6e-005 secs
+    Placement Phase 3 ...   REAL time: 0.001146 secs
+  Total REAL time to Placement completion: 1.323 secs.
 
 
 3. Resource Usage Summary
@@ -55,13 +55,13 @@ Table of Contents
     --Logic Registers  | 130/3456  3%
     --I/O Registers    | 0/100  0%
   CLSs(ideal)          | 138/2304  5%
-  CLSs(used)           | 155/2304  6%
+  CLSs(used)           | 152/2304  6%
   I/O Ports            | 22
-  I/O Bufs             | 22/104  21%
+  I/O Bufs             | 22/116  18%
     --Input Bufs       | 6
     --Output Bufs      | 16
     --Inout Bufs       | 0
-  Iologics             | 0/312  0%
+  Iologics             | 0/348  0%
   BSRAMs               | 0/10  0%
   DSP macros           | 0/(4*2)   0%
   PLLs                 | 0/2  0%
@@ -80,8 +80,8 @@ Table of Contents
   I/O Bank  | Usage       
   -----------------------
   bank 0   | 12/33(36%)  
-  bank 1   | 2/24(8%)    
-  bank 2   | 7/38(18%)   
+  bank 1   | 3/24(12%)   
+  bank 2   | 6/38(15%)   
   bank 3   | 1/25(4%)    
   =======================
 
@@ -89,10 +89,10 @@ Table of Contents
 5. Router
 
   Starting Router:
-    Route Phase 0: 554 unrouted; REAL time: 0.001 secs
-    Route Phase 1: 246 unrouted; REAL time: 0.085 secs
-    Route Phase 2: 0  unrouted; REAL time: 0.07 secs
-  Total REAL time to Router completion: 0.156 secs.
+    Route Phase 0: 554 unrouted; REAL time: 0 secs
+    Route Phase 1: 246 unrouted; REAL time: 0.086 secs
+    Route Phase 2: 0  unrouted; REAL time: 0.061 secs
+  Total REAL time to Router completion: 0.147 secs.
 
 
 6. Global Clock Usage Summary
@@ -128,7 +128,7 @@ Table of Contents
 Port Name         | Loc./Bank  | Dir.  | Site     | IO Type    | Drive      | Pull Mode  | Slew Rate  | Clamp      | OpenDrain  | VREF       | BankVccio 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 clk_50M           | 6/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
-rst_n             | 66/2       | in    | IOB26[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+rst_n             | 92/1       | in    | IOR10[E] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
 switches[0]       | 68/2       | in    | IOB28[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[1]       | 69/2       | in    | IOB28[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[2]       | 79/1       | in    | IOR17[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
@@ -221,7 +221,7 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 63/2     | UNUSED            | -     | IOB22[B] | -        | -         | -          | -            | -             
 64/2     | UNUSED            | -     | IOB24[A] | -        | -         | -          | -            | -             
 65/2     | UNUSED            | -     | IOB24[B] | -        | -         | -          | -            | -             
-66/2     | rst_n             | in    | IOB26[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+66/2     | UNUSED            | -     | IOB26[A] | -        | -         | -          | -            | -             
 67/2     | UNUSED            | -     | IOB26[B] | -        | -         | -          | -            | -             
 68/2     | switches[0]       | in    | IOB28[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
 69/2     | switches[1]       | in    | IOB28[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
@@ -270,7 +270,7 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 95/1     | UNUSED            | -     | IOR10[B] | -        | -         | -          | -            | -             
 94/1     | UNUSED            | -     | IOR10[C] | -        | -         | -          | -            | -             
 93/1     | UNUSED            | -     | IOR10[D] | -        | -         | -          | -            | -             
-92/1     | UNUSED            | -     | IOR10[E] | -        | -         | -          | -            | -             
+92/1     | rst_n             | in    | IOR10[E] | LVCMOS18 | UP        | NONE       | NA           | NA            
 90/1     | UNUSED            | -     | IOR10[F] | -        | -         | -          | -            | -             
 88/1     | UNUSED            | -     | IOR10[G] | -        | -         | -          | -            | -             
 87/1     | UNUSED            | -     | IOR10[H] | -        | -         | -          | -            | -             
@@ -290,4 +290,4 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
   Placement and routing completed.
 
 
-10. Memory usage: 53MB.
+10. Memory usage: 54MB.

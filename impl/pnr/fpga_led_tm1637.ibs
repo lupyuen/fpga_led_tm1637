@@ -5,7 +5,7 @@
 |************************************************************************
 [IBIS ver] 5.0
 [File Rev] 1.0
-[Date] Fri Oct 26 10:32:28 2018
+[Date] Fri Oct 26 11:06:04 2018
 [Source] Pre_simulation netlist
 [Notes] Version 1.0 IBIS Model
 [Copyright] Copyright ©2014-2018 Gowin Semiconductor Corporation.
@@ -24,7 +24,7 @@ C_pkg   2.000pF           1.000pF             4.000pF
 |
 [Pin]  signal_name          model_name           R_pin     L_pin     C_pin
 6      clk_50M                                 
-66     rst_n                                   
+92     rst_n                                   
 68     switches[0]                             
 69     switches[1]                             
 79     switches[2]                             
