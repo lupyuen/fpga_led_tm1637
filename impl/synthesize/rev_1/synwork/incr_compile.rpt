@@ -14,33 +14,33 @@ Hostname: BEACONDEV3
 Implementation : rev_1
 Synopsys HDL compiler and linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11
 
-Modified Files: 3
+Modified Files: 9
 FID:  path (prevtimestamp, timestamp)
-5        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-24 13:02:07, 2018-10-24 20:43:19)
-9        C:\fpga_led_tm1637\src\led_tm1637_rom.mem (2018-10-24 09:47:50, 2018-10-24 20:42:04)
-6        C:\fpga_led_tm1637\src\led_tm1637_rom.v (2018-10-15 16:51:06, 2018-10-24 20:06:10)
+0        C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v (N/A, 2018-05-16 00:54:32)
+1        C:\Gowin\1.8\SynplifyPro\lib\vlog\hypermods.v (N/A, 2018-05-16 00:08:32)
+2        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_objects.v (N/A, 2018-05-16 00:08:32)
+3        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_pipes.svh (N/A, 2018-05-16 00:08:32)
+4        C:\Gowin\1.8\SynplifyPro\lib\vlog\umr_capim.v (N/A, 2018-05-16 00:08:32)
+5        C:\fpga_led_tm1637\src\led_tm1637.v (N/A, 2018-10-26 09:05:08)
+6        C:\fpga_led_tm1637\src\led_tm1637_rom.v (N/A, 2018-10-24 20:06:10)
+7        C:\fpga_led_tm1637\src\rom.v (N/A, 2018-10-26 09:05:19)
+8        C:\fpga_led_tm1637\src\spi_master.v (N/A, 2018-10-24 12:53:35)
 
 *******************************************************************
 Modules that may have changed as a result of file changes: 3
 MID:  lib.cell.view
 0        work.LED_TM1637_ROM.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637_rom.v (2018-10-15 16:51:06, 2018-10-24 20:06:10) <-- (module definition)
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-24 13:02:07, 2018-10-24 20:43:19) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\led_tm1637_rom.v (N/A, 2018-10-24 20:06:10) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (N/A, 2018-10-26 09:05:08) <-- (may instantiate this module)
 1        work.demo.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-24 13:02:07, 2018-10-24 20:43:19) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (N/A, 2018-10-26 09:05:08) <-- (module definition)
 2        work.spi_master.verilog may have changed because the following files changed:
-                        C:\fpga_led_tm1637\src\led_tm1637.v (2018-10-24 13:02:07, 2018-10-24 20:43:19) <-- (may instantiate this module)
+                        C:\fpga_led_tm1637\src\spi_master.v (N/A, 2018-10-24 12:53:35) <-- (module definition)
+                        C:\fpga_led_tm1637\src\led_tm1637.v (N/A, 2018-10-26 09:05:08) <-- (may instantiate this module)
 
 *******************************************************************
-Unmodified files: 7
+Unmodified files: 0
 FID:  path (timestamp)
-0        C:\Gowin\1.8\SynplifyPro\lib\generic\gw1n.v (2018-05-16 00:54:32)
-1        C:\Gowin\1.8\SynplifyPro\lib\vlog\hypermods.v (2018-05-16 00:08:32)
-2        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_objects.v (2018-05-16 00:08:32)
-3        C:\Gowin\1.8\SynplifyPro\lib\vlog\scemi_pipes.svh (2018-05-16 00:08:32)
-4        C:\Gowin\1.8\SynplifyPro\lib\vlog\umr_capim.v (2018-05-16 00:08:32)
-7        C:\fpga_led_tm1637\src\rom.v (2018-10-13 21:45:18)
-8        C:\fpga_led_tm1637\src\spi_master.v (2018-10-24 12:53:35)
 
 *******************************************************************
 Unchanged modules: 0

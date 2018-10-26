@@ -30,7 +30,7 @@ Table of Contents
   <Physical Constraint File>: C:\fpga_led_tm1637\src\fpga.cst
   <Timing Constraint File>: ---
   <PnR Report File>: C:\fpga_led_tm1637\impl\pnr\fpga_led_tm1637.rpt.txt
-  <Created Time>: Wed Oct 24 20:43:42 2018
+  <Created Time>: Fri Oct 26 10:32:29 2018
   <Command Line>: C:\Gowin\1.8\Pnr\bin\gowin.exe -do C:\fpga_led_tm1637\impl\pnr\cmd.do 
   <Legal Announcement>: Copyright ©2014-2018 Gowin Semiconductor Corporation. All rights reserved.
 
@@ -38,11 +38,11 @@ Table of Contents
 2. Placer
 
   Starting Placer:
-    Placement Phase 0 ...   REAL time: 2e-005 secs
-    Placement Phase 1 ...   REAL time: 9e-005 secs
-    Placement Phase 2 ...   REAL time: 2.6e-005 secs
-    Placement Phase 3 ...   REAL time: 0.001219 secs
-  Total REAL time to Placement completion: 1.355 secs.
+    Placement Phase 0 ...   REAL time: 1.9e-005 secs
+    Placement Phase 1 ...   REAL time: 8.9e-005 secs
+    Placement Phase 2 ...   REAL time: 2.7e-005 secs
+    Placement Phase 3 ...   REAL time: 0.001176 secs
+  Total REAL time to Placement completion: 1.311 secs.
 
 
 3. Resource Usage Summary
@@ -55,7 +55,7 @@ Table of Contents
     --Logic Registers  | 130/3456  3%
     --I/O Registers    | 0/100  0%
   CLSs(ideal)          | 138/2304  5%
-  CLSs(used)           | 150/2304  6%
+  CLSs(used)           | 155/2304  6%
   I/O Ports            | 22
   I/O Bufs             | 22/104  21%
     --Input Bufs       | 6
@@ -79,9 +79,9 @@ Table of Contents
   -----------------------
   I/O Bank  | Usage       
   -----------------------
-  bank 0   | 3/33(9%)    
+  bank 0   | 12/33(36%)  
   bank 1   | 2/24(8%)    
-  bank 2   | 16/38(42%)  
+  bank 2   | 7/38(18%)   
   bank 3   | 1/25(4%)    
   =======================
 
@@ -89,10 +89,10 @@ Table of Contents
 5. Router
 
   Starting Router:
-    Route Phase 0: 554 unrouted; REAL time: 0 secs
+    Route Phase 0: 554 unrouted; REAL time: 0.001 secs
     Route Phase 1: 246 unrouted; REAL time: 0.085 secs
-    Route Phase 2: 0  unrouted; REAL time: 0.063 secs
-  Total REAL time to Router completion: 0.148 secs.
+    Route Phase 2: 0  unrouted; REAL time: 0.07 secs
+  Total REAL time to Router completion: 0.156 secs.
 
 
 6. Global Clock Usage Summary
@@ -102,7 +102,7 @@ Table of Contents
   -------------------------------
   PRIMARY       | 3/8(37%)
   SECONDARY     | 1/8(12%)
-  GCLK_PIN      | 1/6(16%)
+  GCLK_PIN      | 0/6(0%)
   PLL           | 0/2(0%)
   DLL           | 0/2(0%)
   CLKDIV        | 0/6(0%)
@@ -128,13 +128,13 @@ Table of Contents
 Port Name         | Loc./Bank  | Dir.  | Site     | IO Type    | Drive      | Pull Mode  | Slew Rate  | Clamp      | OpenDrain  | VREF       | BankVccio 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 clk_50M           | 6/3        | in    | IOL3[B]  | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
-rst_n             | 56/2       | in    | IOB19[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
+rst_n             | 66/2       | in    | IOB26[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[0]       | 68/2       | in    | IOB28[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[1]       | 69/2       | in    | IOB28[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.8       
 switches[2]       | 79/1       | in    | IOR17[B] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
 switches[3]       | 80/1       | in    | IOR17[A] | LVCMOS18   | NA         | UP         | NA         | NA         | NA         | NA         | 1.2       
-tm1637_clk        | 71/2       | out   | IOB30[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-tm1637_dio        | 67/2       | out   | IOB26[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+tm1637_clk        | 134/0      | out   | IOT12[A] | LVCMOS33   | 24         | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+tm1637_dio        | 135/0      | out   | IOT9[B]  | LVCMOS33   | 24         | UP         | FAST       | NA         | OFF        | NA         | 3.3       
 tm1637_clk_drain  | 131/0      | out   | IOT14[B] | LVCMOS33   | 24         | UP         | FAST       | NA         | ON         | NA         | 3.3       
 tm1637_dio_drain  | 132/0      | out   | IOT14[A] | LVCMOS33   | 24         | UP         | FAST       | NA         | ON         | NA         | 3.3       
 tm1637_vcc        | 133/0      | out   | IOT12[B] | LVCMOS33   | 24         | UP         | FAST       | NA         | OFF        | NA         | 3.3       
@@ -142,13 +142,13 @@ led[0]            | 47/2       | out   | IOB11[B] | LVCMOS18   | 8          | UP
 led[1]            | 57/2       | out   | IOB19[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
 led[2]            | 60/2       | out   | IOB21[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
 led[3]            | 61/2       | out   | IOB21[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[0]  | 63/2       | out   | IOB22[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[1]  | 50/2       | out   | IOB14[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[2]  | 46/2       | out   | IOB11[A] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[3]  | 76/2       | out   | IOB36[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[4]  | 59/2       | out   | IOB20[B] | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[5]  | 42/2       | out   | IOB8[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
-debug_step_id[6]  | 38/2       | out   | IOB6[A]  | LVCMOS18   | 8          | UP         | FAST       | NA         | OFF        | NA         | 1.8       
+debug_step_id[0]  | 136/0      | out   | IOT9[A]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+debug_step_id[1]  | 137/0      | out   | IOT7[B]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+debug_step_id[2]  | 138/0      | out   | IOT7[A]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+debug_step_id[3]  | 139/0      | out   | IOT6[B]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+debug_step_id[4]  | 140/0      | out   | IOT6[A]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+debug_step_id[5]  | 141/0      | out   | IOT4[B]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
+debug_step_id[6]  | 142/0      | out   | IOT4[A]  | LVCMOS33   | 8          | UP         | FAST       | NA         | OFF        | NA         | 3.3       
 ========================================================================================================================================================
 
 
@@ -161,15 +161,15 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 -----------------------------------------------------------------------------------------------------------------------
 144/0    | UNUSED            | -     | IOT2[B]  | -        | -         | -          | -            | -             
 143/0    | UNUSED            | -     | IOT3[B]  | -        | -         | -          | -            | -             
-142/0    | UNUSED            | -     | IOT4[A]  | -        | -         | -          | -            | -             
-141/0    | UNUSED            | -     | IOT4[B]  | -        | -         | -          | -            | -             
-140/0    | UNUSED            | -     | IOT6[A]  | -        | -         | -          | -            | -             
-139/0    | UNUSED            | -     | IOT6[B]  | -        | -         | -          | -            | -             
-138/0    | UNUSED            | -     | IOT7[A]  | -        | -         | -          | -            | -             
-137/0    | UNUSED            | -     | IOT7[B]  | -        | -         | -          | -            | -             
-136/0    | UNUSED            | -     | IOT9[A]  | -        | -         | -          | -            | -             
-135/0    | UNUSED            | -     | IOT9[B]  | -        | -         | -          | -            | -             
-134/0    | UNUSED            | -     | IOT12[A] | -        | -         | -          | -            | -             
+142/0    | debug_step_id[6]  | out   | IOT4[A]  | LVCMOS33 | UP        | NA         | NA           | NA            
+141/0    | debug_step_id[5]  | out   | IOT4[B]  | LVCMOS33 | UP        | NA         | NA           | NA            
+140/0    | debug_step_id[4]  | out   | IOT6[A]  | LVCMOS33 | UP        | NA         | NA           | NA            
+139/0    | debug_step_id[3]  | out   | IOT6[B]  | LVCMOS33 | UP        | NA         | NA           | NA            
+138/0    | debug_step_id[2]  | out   | IOT7[A]  | LVCMOS33 | UP        | NA         | NA           | NA            
+137/0    | debug_step_id[1]  | out   | IOT7[B]  | LVCMOS33 | UP        | NA         | NA           | NA            
+136/0    | debug_step_id[0]  | out   | IOT9[A]  | LVCMOS33 | UP        | NA         | NA           | NA            
+135/0    | tm1637_dio        | out   | IOT9[B]  | LVCMOS33 | UP        | NA         | NA           | NA            
+134/0    | tm1637_clk        | out   | IOT12[A] | LVCMOS33 | UP        | NA         | NA           | NA            
 133/0    | tm1637_vcc        | out   | IOT12[B] | LVCMOS33 | UP        | NA         | NA           | NA            
 132/0    | tm1637_dio_drain  | out   | IOT14[A] | LVCMOS33 | UP        | NA         | NA           | NA            
 131/0    | tm1637_clk_drain  | out   | IOT14[B] | LVCMOS33 | UP        | NA         | NA           | NA            
@@ -195,42 +195,42 @@ Loc./Bank| Signal            | Dir.  | Site     | IO Type  | Pull Mode | Hystere
 -----------------------------------------------------------------------------------------------------------------------
 32/2     | UNUSED            | -     | IOB4[B]  | -        | -         | -          | -            | -             
 34/2     | UNUSED            | -     | IOB5[B]  | -        | -         | -          | -            | -             
-38/2     | debug_step_id[6]  | out   | IOB6[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+38/2     | UNUSED            | -     | IOB6[A]  | -        | -         | -          | -            | -             
 39/2     | UNUSED            | -     | IOB6[B]  | -        | -         | -          | -            | -             
 40/2     | UNUSED            | -     | IOB7[A]  | -        | -         | -          | -            | -             
 41/2     | UNUSED            | -     | IOB7[B]  | -        | -         | -          | -            | -             
-42/2     | debug_step_id[5]  | out   | IOB8[A]  | LVCMOS18 | UP        | NA         | NA           | NA            
+42/2     | UNUSED            | -     | IOB8[A]  | -        | -         | -          | -            | -             
 43/2     | UNUSED            | -     | IOB8[B]  | -        | -         | -          | -            | -             
 44/2     | UNUSED            | -     | IOB10[A] | -        | -         | -          | -            | -             
 45/2     | UNUSED            | -     | IOB10[B] | -        | -         | -          | -            | -             
-46/2     | debug_step_id[2]  | out   | IOB11[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+46/2     | UNUSED            | -     | IOB11[A] | -        | -         | -          | -            | -             
 47/2     | led[0]            | out   | IOB11[B] | LVCMOS18 | UP        | NA         | NA           | NA            
 48/2     | UNUSED            | -     | IOB12[A] | -        | -         | -          | -            | -             
 49/2     | UNUSED            | -     | IOB12[B] | -        | -         | -          | -            | -             
-50/2     | debug_step_id[1]  | out   | IOB14[A] | LVCMOS18 | UP        | NA         | NA           | NA            
+50/2     | UNUSED            | -     | IOB14[A] | -        | -         | -          | -            | -             
 51/2     | UNUSED            | -     | IOB14[B] | -        | -         | -          | -            | -             
 52/2     | UNUSED            | -     | IOB16[A] | -        | -         | -          | -            | -             
 54/2     | UNUSED            | -     | IOB16[B] | -        | -         | -          | -            | -             
-56/2     | rst_n             | in    | IOB19[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+56/2     | UNUSED            | -     | IOB19[A] | -        | -         | -          | -            | -             
 57/2     | led[1]            | out   | IOB19[B] | LVCMOS18 | UP        | NA         | NA           | NA            
 58/2     | UNUSED            | -     | IOB20[A] | -        | -         | -          | -            | -             
-59/2     | debug_step_id[4]  | out   | IOB20[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+59/2     | UNUSED            | -     | IOB20[B] | -        | -         | -          | -            | -             
 60/2     | led[2]            | out   | IOB21[A] | LVCMOS18 | UP        | NA         | NA           | NA            
 61/2     | led[3]            | out   | IOB21[B] | LVCMOS18 | UP        | NA         | NA           | NA            
 62/2     | UNUSED            | -     | IOB22[A] | -        | -         | -          | -            | -             
-63/2     | debug_step_id[0]  | out   | IOB22[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+63/2     | UNUSED            | -     | IOB22[B] | -        | -         | -          | -            | -             
 64/2     | UNUSED            | -     | IOB24[A] | -        | -         | -          | -            | -             
 65/2     | UNUSED            | -     | IOB24[B] | -        | -         | -          | -            | -             
-66/2     | UNUSED            | -     | IOB26[A] | -        | -         | -          | -            | -             
-67/2     | tm1637_dio        | out   | IOB26[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+66/2     | rst_n             | in    | IOB26[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
+67/2     | UNUSED            | -     | IOB26[B] | -        | -         | -          | -            | -             
 68/2     | switches[0]       | in    | IOB28[A] | LVCMOS18 | UP        | NONE       | NA           | NA            
 69/2     | switches[1]       | in    | IOB28[B] | LVCMOS18 | UP        | NONE       | NA           | NA            
 70/2     | UNUSED            | -     | IOB30[A] | -        | -         | -          | -            | -             
-71/2     | tm1637_clk        | out   | IOB30[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+71/2     | UNUSED            | -     | IOB30[B] | -        | -         | -          | -            | -             
 75/2     | UNUSED            | -     | IOB34[A] | -        | -         | -          | -            | -             
 72/2     | UNUSED            | -     | IOB34[B] | -        | -         | -          | -            | -             
 78/2     | UNUSED            | -     | IOB36[A] | -        | -         | -          | -            | -             
-76/2     | debug_step_id[3]  | out   | IOB36[B] | LVCMOS18 | UP        | NA         | NA           | NA            
+76/2     | UNUSED            | -     | IOB36[B] | -        | -         | -          | -            | -             
 -----------------------------------------------------------------------------------------------------------------------
 3/3      | UNUSED            | -     | IOL2[A]  | -        | -         | -          | -            | -             
 4/3      | UNUSED            | -     | IOL3[A]  | -        | -         | -          | -            | -             

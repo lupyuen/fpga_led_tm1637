@@ -1,4 +1,4 @@
-# Wed Oct 24 20:43:33 2018
+# Fri Oct 26 09:08:31 2018
 
 
 Copyright (C) 1994-2018 Synopsys, Inc.
@@ -66,7 +66,7 @@ Finished factoring (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; M
 Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 191MB peak: 192MB)
 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 192MB peak: 193MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 193MB)
 
 
 Finished Early Timing Optimization (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 192MB peak: 193MB)
@@ -162,7 +162,7 @@ Start final timing analysis (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:0
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Wed Oct 24 20:43:37 2018
+# Timing Report written on Fri Oct 26 09:08:36 2018
 #
 
 
@@ -1349,9 +1349,9 @@ Total  LUTs: 165 (3%)
 
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 40MB peak: 197MB)
+At Mapper Exit (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 40MB peak: 197MB)
 
-Process took 0h:00m:04s realtime, 0h:00m:04s cputime
-# Wed Oct 24 20:43:37 2018
+Process took 0h:00m:05s realtime, 0h:00m:04s cputime
+# Fri Oct 26 09:08:37 2018
 
 ###########################################################]

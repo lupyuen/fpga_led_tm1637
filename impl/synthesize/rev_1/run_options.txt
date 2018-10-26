@@ -1,7 +1,7 @@
 #--  Synopsys, Inc.
 #--  Version N-2018.03G-Beta6
 #--  Project file C:\fpga_led_tm1637\impl\synthesize\rev_1\run_options.txt
-#--  Written on Wed Oct 24 20:43:26 2018
+#--  Written on Fri Oct 26 09:08:24 2018
 
 
 #project files

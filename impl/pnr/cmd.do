@@ -5,5 +5,11 @@
 -bit
 -tr
 -ph
+-sdf
+-oc
+-ibs
+-posp
+-o
+-warning_all
 -timing
 -gpa

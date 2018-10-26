@@ -1,6 +1,34 @@
 Warning (CM1005) : Unsupported attribute 'background_programming' to current device 'GW1N-4' found in configure file.
 Info    (PA0001) : "C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.vm" | Reading netlist file.
 Info    (PA0004) : Parsing netlist file 'C:\fpga_led_tm1637\impl\synthesize\rev_1\fpga_led_tm1637.vm' completed.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_27_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_27_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_26_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_26_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_25_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_25_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_24_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_24_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_23_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_23_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_22_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_22_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_21_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_21_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_20_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_20_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_19_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_19_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_18_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_18_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_17_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_17_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_16_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_16_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_15_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_15_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_14_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_14_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_13_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_13_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_12_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_12_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_11_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_11_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_10_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_10_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_9_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_9_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_8_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_8_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_7_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_7_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_6_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_6_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_5_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_5_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_4_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_4_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_3_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_3_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_2_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_2_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_cry_1_0_SUM'(SOURCE:'debug_waiting_for_step_time5_cry_1_0') in module 'demo' has NO destination.
+Warning (PA1001) : Dangling Net 'debug_waiting_for_step_time5_axb_0_i'(SOURCE:'un2_elapsed_time_cry_0_0') in module 'demo' has NO destination.
 Info    (PA0006) : Processing netlist completed.
 Warning (CT1001) : Generic routing resource will be used to clock signal 'clk_50M' by the specified constraint. And then it may lead to the excessive delay or skew.
 Info    (CT0002) : Physical Constraint parsed completed.
@@ -13,8 +41,13 @@ Info    (FS0001) : Bitstream generation in progress......
 Info    (FS0002) : Bitstream generation completed.
 Info    (PW0001) : Power analysis completed.
 Info    (CM0008) : Generate 'fpga_led_tm1637.power.html' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.vo' file completed.
 Info    (CM0008) : Generate 'fpga_led_tm1637.tr.html' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.posp' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.ibs' file completed.
+Info    (CM0008) : Generate 'fpga_led_tm1637.io.cst' file completed.
 Info    (CM0008) : Generate 'fpga_led_tm1637.rpt.html' file completed.
 Info    (CM0008) : Generate 'fpga_led_tm1637.rpt.txt' file completed.
-Info    (CM0001) : Wed Oct 24 20:43:42 2018
+Info    (CM0008) : Generate 'fpga_led_tm1637.sdf' file completed.
+Info    (CM0001) : Fri Oct 26 10:32:29 2018
 

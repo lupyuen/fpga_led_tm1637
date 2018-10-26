@@ -15,7 +15,6 @@ Database state : C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\|rev_1
 Synopsys Synopsys Netlist Linker, Version comp2018q1p1, Build 118R, Built May 15 2018 09:18:11
 
 @N|Running in 64-bit mode
-File C:\fpga_led_tm1637\impl\synthesize\rev_1\synwork\fpga_led_tm1637_comp.srs changed - recompiling
 @N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:10|Selected library: work cell: demo view verilog as top level
 @N: NF107 :"C:\fpga_led_tm1637\src\led_tm1637.v":5:7:5:10|Selected library: work cell: demo view verilog as top level
 
@@ -24,6 +23,6 @@ At syn_nfilter Exit (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
 
 Process completed successfully.
-# Wed Oct 24 20:43:30 2018
+# Fri Oct 26 09:08:28 2018
 
 ###########################################################]

@@ -1,11 +1,18 @@
 /***********************************************************************
  Physical Constraint file 
  Version:1.8.0.02Beta
- Created Time:   Tue Oct 16 14:34:57 2018
+ Created Time:   Fri Oct 26 10:31:51 2018
  Device:         GW1N-4
  Package:        LQFP144
 ************************************************************************/
 IO_LOC "clk_50M" 6;
+IO_LOC "debug_step_id[0]" 136;
+IO_LOC "debug_step_id[1]" 137;
+IO_LOC "debug_step_id[2]" 138;
+IO_LOC "debug_step_id[3]" 139;
+IO_LOC "debug_step_id[4]" 140;
+IO_LOC "debug_step_id[5]" 141;
+IO_LOC "debug_step_id[6]" 142;
 IO_LOC "led[0]" 47;
 IO_LOC "led[1]" 57;
 IO_LOC "led[2]" 60;
@@ -16,8 +23,19 @@ IO_LOC "switches[1]" 69;
 IO_LOC "switches[2]" 79;
 IO_LOC "switches[3]" 80;
 IO_LOC "tm1637_clk_drain" 131;
+IO_LOC "tm1637_clk" 134;
 IO_LOC "tm1637_dio_drain" 132;
+IO_LOC "tm1637_dio" 135;
 IO_LOC "tm1637_vcc" 133;
-IO_PORT "tm1637_clk_drain"  IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
-IO_PORT "tm1637_dio_drain"  IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+IO_PORT "tm1637_clk"  IO_TYPE=LVCMOS33 DRIVE=24 BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[6]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[4]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[2]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[5]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
 IO_PORT "tm1637_vcc"  IO_TYPE=LVCMOS33 DRIVE=24 BANK_VCCIO=3.3;
+IO_PORT "tm1637_clk_drain"  IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[0]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "tm1637_dio_drain"  IO_TYPE=LVCMOS33 DRIVE=24 OPEN_DRAIN=ON BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[3]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "debug_step_id[1]"  IO_TYPE=LVCMOS33 BANK_VCCIO=3.3;
+IO_PORT "tm1637_dio"  IO_TYPE=LVCMOS33 DRIVE=24 BANK_VCCIO=3.3;
